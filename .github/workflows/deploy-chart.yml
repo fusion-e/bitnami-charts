@@ -45,10 +45,14 @@ jobs:
         aws-region: eu-west-1
     - name: Authenticate to docker registry and configure post-job logout
       run: |
-        aws eks update-kubeconfig --name ${{ inputs.cluster_name }}
+        aws eks update-kubeconfig --name dev-eks-dev
         echo "Successfully configured kubectl. Context is:"
         kubectl config current-context
     - name: Deploy to EKS
+      working-directory: bitnami/${{ inputs.chart_name }}
       run: |
         kubectl config current-context
-        kubectl upgarde --install 
+        # helm upgrade --install ${{ inputs.chart_name }} . \
+        #   -f ${{ inputs.values-file }} \
+        #   --atomic --wait \
+        #   --timeout 15m
