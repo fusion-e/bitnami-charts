@@ -45,7 +45,7 @@ jobs:
         aws-region: eu-west-1
     - name: Authenticate to docker registry and configure post-job logout
       run: |
-        aws eks update-kubeconfig --name dev-eks-dev
+        aws eks update-kubeconfig --name dell-eks-dev
         echo "Successfully configured kubectl. Context is:"
         kubectl config current-context
     - name: Deploy to EKS
