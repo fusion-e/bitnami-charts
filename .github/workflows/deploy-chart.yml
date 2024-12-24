@@ -1,0 +1,47 @@
+name: Deploy 3rd Chart
+run-name: Deploy ${{ inputs.chart_name }} to ${{ inputs.cluster_name }} (values: ${{ inputs.values-file }})
+on:
+  push:
+    branches:
+        - stable
+  workflow_dispatch:
+    inputs:
+      chart_name:
+        description: 3rd chart name (under "bitnami" folder)
+        type: string
+        required: true
+      cluster_name:
+        description: k8s cluster name
+        type: string
+        default: dell-eks-dev
+        required: true
+      values-file:
+        description: Chart values file
+        type: string
+        default: values.dev.yaml
+        required: true
+
+env:
+  AWS_ROLE: >-    
+    ${{ inputs.cluster_name == 'dell-eks-dev' && 'arn:aws:iam::702886132326:role/cfy-developers-github-actions-role'
+    || inputs.cluster_name == 'cfy-eks-staging' && 'arn:aws:iam::816069151864:role/cfy-staging-github-actions-role'
+    || inputs.cluster_name == 'cfy-eks-saas-prod' && 'arn:aws:iam::008791006138:role/cfy-production-github-actions-role'
+    || inputs.cluster_name == 'cfy-eks-saas-prod-use1' && 'arn:aws:iam::008791006138:role/cfy-production-github-actions-role'
+    }}
+
+jobs:
+  deploy:
+    runs-on: arc-runner-eks-small
+    steps:
+    - name: Authenticate to AWS
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        role-to-assume: ${{ env.AWS_ROLE }}
+        aws-region: eu-west-1
+    - name: Authenticate kubectl to EKS
+      uses: fusion-e/eoaas-base-workflows/.github/actions/eks-kubectl-config@main
+      with:
+        eks-cluster-name: ${{ inputs.cluster_name }}
+    - name: Deploy to EKS
+      run: |
+        kubectl config current-context
