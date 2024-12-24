@@ -38,10 +38,11 @@ jobs:
       with:
         role-to-assume: ${{ env.AWS_ROLE }}
         aws-region: eu-west-1
-    - name: Authenticate kubectl to EKS
-      uses: fusion-e/eoaas-base-workflows/.github/actions/eks-kubectl-config@main
-      with:
-        eks-cluster-name: ${{ inputs.cluster_name }}
+    - name: Authenticate to docker registry and configure post-job logout
+      run: |
+        aws eks update-kubeconfig --name ${{ inputs.cluster_name }}
+        echo "Successfully configured kubectl. Context is:"
+        kubectl config current-context
     - name: Deploy to EKS
       run: |
         kubectl config current-context
