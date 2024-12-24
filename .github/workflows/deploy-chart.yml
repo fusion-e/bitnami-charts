@@ -1,16 +1,16 @@
 name: Deploy 3rd Chart
-run-name: "Deploy ${{ inputs.chart_name }} to ${{ inputs.cluster_name }} (values: ${{ inputs.values-file }})"
+run-name: "Deploy ${{ inputs.chart-name }} to ${{ inputs.cluster-name }} (values: ${{ inputs.values-file }})"
 on:
   push:
     branches:
         - usr/shayki/deploy-wf
   workflow_dispatch:
     inputs:
-      chart_name:
+      chart-name:
         description: 3rd chart name (under "bitnami" folder)
         type: string
         required: true
-      cluster_name:
+      cluster-name:
         description: k8s cluster name
         type: string
         default: dell-eks-dev
@@ -23,10 +23,10 @@ on:
 
 env:
   AWS_ROLE: >-    
-    ${{ inputs.cluster_name == 'dell-eks-dev' && 'arn:aws:iam::702886132326:role/cfy-developers-github-actions-role'
-    || inputs.cluster_name == 'cfy-eks-staging' && 'arn:aws:iam::816069151864:role/cfy-staging-github-actions-role'
-    || inputs.cluster_name == 'cfy-eks-saas-prod' && 'arn:aws:iam::008791006138:role/cfy-production-github-actions-role'
-    || inputs.cluster_name == 'cfy-eks-saas-prod-use1' && 'arn:aws:iam::008791006138:role/cfy-production-github-actions-role'
+    ${{ inputs.cluster-name == 'dell-eks-dev' && 'arn:aws:iam::702886132326:role/cfy-developers-github-actions-role'
+    || inputs.cluster-name == 'cfy-eks-staging' && 'arn:aws:iam::816069151864:role/cfy-staging-github-actions-role'
+    || inputs.cluster-name == 'cfy-eks-saas-prod' && 'arn:aws:iam::008791006138:role/cfy-production-github-actions-role'
+    || inputs.cluster-name == 'cfy-eks-saas-prod-use1' && 'arn:aws:iam::008791006138:role/cfy-production-github-actions-role'
     }}
 
 permissions:
@@ -42,19 +42,18 @@ jobs:
     - name: Authenticate to AWS
       uses: aws-actions/configure-aws-credentials@v4
       with:
-        role-to-assume: arn:aws:iam::702886132326:role/cfy-developers-github-actions-role
-        #role-to-assume: ${{ env.AWS_ROLE }}
+        role-to-assume: ${{ env.AWS_ROLE }}
         aws-region: eu-west-1
     - name: Authenticate to docker registry and configure post-job logout
       run: |
-        aws eks update-kubeconfig --name dell-eks-dev
+        aws eks update-kubeconfig --name ${{ inputs.chart-name }}
         echo "Successfully configured kubectl. Context is:"
         kubectl config current-context
     - name: Deploy to EKS
-      working-directory: bitnami/${{ inputs.chart_name }}
+      working-directory: bitnami/${{ inputs.chart-name }}
       run: |
         kubectl config current-context
-        # helm upgrade --install ${{ inputs.chart_name }} . \
-        #   -f ${{ inputs.values-file }} \
-        #   --atomic --wait \
-        #   --timeout 15m
+        helm upgrade --install ${{ inputs.chart-name }} . \
+          -f ${{ inputs.values-file }} \
+          --atomic --wait \
+          --timeout 15m
