@@ -1,9 +1,9 @@
 name: Deploy 3rd Chart
-run-name: Deploy ${{ inputs.chart_name }} to ${{ inputs.cluster_name }} (values: ${{ inputs.values-file }})
+run-name: "Deploy ${{ inputs.chart_name }} to ${{ inputs.cluster_name }} (values: ${{ inputs.values-file }})"
 on:
   push:
     branches:
-        - stable
+        - usr/shayki/deploy-wf
   workflow_dispatch:
     inputs:
       chart_name:
