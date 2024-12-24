@@ -29,6 +29,10 @@ env:
     || inputs.cluster_name == 'cfy-eks-saas-prod-use1' && 'arn:aws:iam::008791006138:role/cfy-production-github-actions-role'
     }}
 
+permissions:
+    id-token: write
+    contents: read
+    
 jobs:
   deploy:
     runs-on: arc-runner-eks-small
@@ -46,3 +50,4 @@ jobs:
     - name: Deploy to EKS
       run: |
         kubectl config current-context
+        kubectl upgarde --install 
