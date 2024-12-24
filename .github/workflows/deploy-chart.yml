@@ -37,6 +37,8 @@ jobs:
   deploy:
     runs-on: arc-runner-eks-small
     steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
     - name: Authenticate to AWS
       uses: aws-actions/configure-aws-credentials@v4
       with:
