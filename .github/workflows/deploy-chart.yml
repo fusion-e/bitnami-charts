@@ -32,7 +32,7 @@ env:
 permissions:
     id-token: write
     contents: read
-    
+
 jobs:
   deploy:
     runs-on: arc-runner-eks-small
@@ -40,7 +40,8 @@ jobs:
     - name: Authenticate to AWS
       uses: aws-actions/configure-aws-credentials@v4
       with:
-        role-to-assume: ${{ env.AWS_ROLE }}
+        role-to-assume: arn:aws:iam::702886132326:role/cfy-developers-github-actions-role
+        #role-to-assume: ${{ env.AWS_ROLE }}
         aws-region: eu-west-1
     - name: Authenticate to docker registry and configure post-job logout
       run: |
