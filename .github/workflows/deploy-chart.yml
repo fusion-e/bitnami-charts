@@ -12,6 +12,10 @@ on:
         type: string
         default: dell-eks-dev
         required: true
+      namespace:
+        description: k8s namespace name
+        type: string
+        required: true
       values-file:
         description: Chart values file
         type: string
@@ -51,6 +55,7 @@ jobs:
       run: |
         kubectl config current-context
         helm upgrade --install ${{ inputs.chart-name }} . \
+          -n ${{ inputs.namespace }} --create-namespace \
           -f ${{ inputs.values-file }} \
           --atomic --wait \
           --timeout 15m
