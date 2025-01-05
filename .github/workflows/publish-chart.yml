@@ -1,0 +1,39 @@
+name: Deploy 3rd Chart
+run-name: "Deploy ${{ inputs.chart-name }} to ${{ inputs.cluster-name }} (values: ${{ inputs.values-file }})"
+on:
+  workflow_dispatch:
+    inputs:
+      chart-name:
+        description: 3rd chart name (under "bitnami" folder)
+        type: string
+        required: true
+      cluster-name:
+        description: k8s cluster name
+        type: string
+        default: dell-eks-dev
+        required: true
+
+permissions:
+    id-token: write
+    contents: read
+
+jobs:
+  deploy:
+    runs-on: arc-runner-eks-small
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Authenticate to AWS
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        role-to-assume: arn:aws:iam::702886132326:role/cfy-developers-github-actions-role
+        aws-region: eu-west-1
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v2
+    - name: Deploy Chart
+      working-directory: bitnami/${{ inputs.chart-name }}
+      run: |
+        CHART_VERSION=$(grep '^version:' Chart.yaml | awk '{print $2}')
+        helm package -u --version $CHART_VERSION --dependency-update .
+        helm push ${{ inputs.chart-name }}-$CHART_VERSION.tgz oci://${{ inputs.aws-account }}.dkr.ecr.${{ inputs.aws-region}}.amazonaws.com
