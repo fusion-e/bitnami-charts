@@ -1,5 +1,5 @@
-name: Deploy 3rd Chart
-run-name: "Deploy ${{ inputs.chart-name }} to ${{ inputs.cluster-name }} (values: ${{ inputs.values-file }})"
+name: Package & Publish 3rd Chart
+run-name: "Package & Publish ${{ inputs.chart-name }} chart"
 on:
   push:
     branches:
