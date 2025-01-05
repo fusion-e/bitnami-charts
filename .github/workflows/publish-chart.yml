@@ -45,6 +45,7 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v2
     - name: Sync docker image to ECR
+      working-directory: bitnami/neo4j
       run: |
         REGISTRY=$(yq eval '.image.registry' values.yaml)
         REPOSITORY=$(yq eval '.image.repository' values.yaml)
