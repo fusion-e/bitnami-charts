@@ -1,0 +1,61 @@
+name: Deploy 3rd Chart
+run-name: "Deploy ${{ inputs.chart-name }} to ${{ inputs.cluster-name }} (values: ${{ inputs.values-file }})"
+on:
+  workflow_dispatch:
+    inputs:
+      chart-name:
+        description: 3rd chart name (under "bitnami" folder)
+        type: string
+        required: true
+      cluster-name:
+        description: k8s cluster name
+        type: string
+        default: dell-eks-dev
+        required: true
+      namespace:
+        description: k8s namespace name
+        type: string
+        required: true
+      values-file:
+        description: Chart values file
+        type: string
+        default: values.dev.yaml
+        required: true
+
+env:
+  AWS_ROLE: >-    
+    ${{ inputs.cluster-name == 'dell-eks-dev' && 'arn:aws:iam::702886132326:role/cfy-developers-github-actions-role'
+    || inputs.cluster-name == 'cfy-eks-staging' && 'arn:aws:iam::816069151864:role/cfy-staging-github-actions-role'
+    || inputs.cluster-name == 'cfy-eks-saas-prod' && 'arn:aws:iam::008791006138:role/cfy-production-github-actions-role'
+    || inputs.cluster-name == 'cfy-eks-saas-prod-use1' && 'arn:aws:iam::008791006138:role/cfy-production-github-actions-role'
+    }}
+
+permissions:
+    id-token: write
+    contents: read
+
+jobs:
+  deploy:
+    runs-on: arc-runner-eks-small
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Authenticate to AWS
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        role-to-assume: ${{ env.AWS_ROLE }}
+        aws-region: eu-west-1
+    - name: Authenticate to EKS
+      run: |
+        aws eks update-kubeconfig --name ${{ inputs.chart-name }}
+        echo "Successfully configured kubectl. Context is:"
+        kubectl config current-context
+    - name: Deploy to EKS
+      working-directory: bitnami/${{ inputs.chart-name }}
+      run: |
+        kubectl config current-context
+        helm upgrade --install ${{ inputs.chart-name }} . \
+          -n ${{ inputs.namespace }} --create-namespace \
+          -f ${{ inputs.values-file }} \
+          --atomic --wait \
+          --timeout 15m
