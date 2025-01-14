@@ -92,7 +92,10 @@ jobs:
         echo $IMAGE_PATHS
         for PATH in $IMAGE_PATHS; do
           echo $PATH
+          yq eval ".$PATH.registry // \"docker.io\"" values.yaml
+          echo "1"
           REGISTRY=$(yq eval ".$PATH.registry // \"docker.io\"" values.yaml)
+          echo "2"
           REPOSITORY=$(yq eval ".$PATH.repository" values.yaml)
           TAG=$(yq eval ".$PATH.tag" values.yaml)
         
