@@ -47,6 +47,7 @@ jobs:
     - name: Sync docker image to ECR
       working-directory: bitnami/neo4j
       run: |
+        yq --version
         IMAGE_PATHS=$(yq eval '.. | select(has("repository") and has("tag")) | path | join(".")' values.yaml)
         for PATH in $IMAGE_PATHS; do
           REGISTRY=$(yq eval ".$PATH.registry // \"docker.io\"" values.yaml)
