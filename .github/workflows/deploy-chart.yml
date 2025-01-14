@@ -58,5 +58,7 @@ jobs:
       working-directory: bitnami/${{ inputs.chart-name }}
       run: |
         kubectl config current-context
-        helm upgrade -i ${{ inputs.chart-name }} oci://702886132326.dkr.ecr.eu-west-1.amazonaws.com/bitnami --version ${{ inputs.chart-version }} \
-           --create-namespace -n $${{ inputs.namespace }} --atomic --timeout 15m
+        helm pull oci://oci://702886132326.dkr.ecr.eu-west-1.amazonaws.com/bitnami/${{ inputs.chart-name}} --version ${{ inputs.chart-version }}
+        tar -xzf ${{ inputs.chart-name}}-${{ inputs.chart-version }}.tgz --wildcards --no-anchored 'values.*' --transform='s|.*/||'  
+        helm upgrade -i ${{ inputs.chart-name }} oci://702886132326.dkr.ecr.eu-west-1.amazonaws.com/bitnami/${{ inputs.chart-name}} --version ${{ inputs.chart-version }} \
+           --create-namespace -n $${{ inputs.namespace }} --atomic --timeout 15m -f ${{ inputs.values-file }}
