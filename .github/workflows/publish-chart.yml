@@ -46,6 +46,7 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v2
     - name: Sync /usr/local/bin/docker image to ECR
       working-directory: bitnami/neo4j
+      shell: bash
       run: |
         yq --version
         which yq
