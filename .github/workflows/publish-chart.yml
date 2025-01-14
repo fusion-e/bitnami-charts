@@ -49,7 +49,7 @@ jobs:
       working-directory: bitnami/neo4j
       shell: bash
       run: |
-        $IMAGE_PATHS=$(yq eval '.. | select(has("repository") and has("tag")) | path | join(".")' values.yaml)
+        IMAGE_PATHS=$(yq eval '.. | select(has("repository") and has("tag")) | path | join(".")' values.yaml)
         for IMAGE_PATH in $IMAGE_PATHS; do
           REGISTRY=$(yq eval ".$IMAGE_PATH.registry // \"docker.io\"" values.yaml)
           REPOSITORY=$(yq eval ".$IMAGE_PATH.repository" values.yaml)
