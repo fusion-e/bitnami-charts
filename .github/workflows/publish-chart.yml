@@ -44,15 +44,15 @@ jobs:
     - name: Login to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v2
-    - name: Sync docker image to ECR
+    - name: Sync /usr/local/bin/docker image to ECR
       working-directory: bitnami/neo4j
       run: |
         yq --version
         which yq
-        which docker
+        which /usr/local/bin/docker
         IMAGE_PATHS=$(/usr/bin/yq eval '.. | select(has("repository") and has("tag")) | path | join(".")' values.yaml)
         for PATH in $IMAGE_PATHS; do
-          REGISTRY=$(/usr/bin/yq eval ".$PATH.registry // \"docker.io\"" values.yaml)
+          REGISTRY=$(/usr/bin/yq eval ".$PATH.registry // \"/usr/local/bin/docker.io\"" values.yaml)
           REPOSITORY=$(/usr/bin/yq eval ".$PATH.repository" values.yaml)
           TAG=$(/usr/bin/yq eval ".$PATH.tag" values.yaml)
         
@@ -73,12 +73,12 @@ jobs:
             continue
           fi
 
-          # Pull the image from Docker Hub
-          docker pull "$IMAGE"
+          # Pull the image from docker Hub
+          /usr/local/bin/docker pull "$IMAGE"
           
           # Tag and push the image to ECR
-          docker tag "$IMAGE" "$TARGET_IMAGE"
-          docker push "$TARGET_IMAGE"
+          /usr/local/bin/docker tag "$IMAGE" "$TARGET_IMAGE"
+          /usr/local/bin/docker push "$TARGET_IMAGE"
                 
           echo "Successfully processed and pushed: $IMAGE to $TARGET_IMAGE"
         done
@@ -95,12 +95,12 @@ jobs:
         
         # IMAGE="$REGISTRY/$REPOSITORY:$TAG"
         
-        # docker pull "$IMAGE"
+        # /usr/local/bin/docker pull "$IMAGE"
         
         # TARGET_IMAGE="702886132326.dkr.ecr.eu-west-1.amazonaws.com/bitnami/neo4j:$TAG"
-        # docker tag "$IMAGE" "$TARGET_IMAGE"
+        # /usr/local/bin/docker tag "$IMAGE" "$TARGET_IMAGE"
         
-        # docker push "$TARGET_IMAGE"
+        # /usr/local/bin/docker push "$TARGET_IMAGE"
       
         # yq eval ".global.image.registry = \"702886132326.dkr.ecr.eu-west-1.amazonaws.com\"" -i values.yaml
 
