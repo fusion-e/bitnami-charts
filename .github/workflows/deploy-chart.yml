@@ -51,7 +51,7 @@ jobs:
         aws-region: eu-west-1
     - name: Authenticate to EKS
       run: |
-        aws eks update-kubeconfig --name ${{ inputs.chart-name }}
+        aws eks update-kubeconfig --name ${{ inputs.cluster-name }}
         echo "Successfully configured kubectl. Context is:"
         kubectl config current-context
     - name: Deploy to EKS
