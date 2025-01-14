@@ -49,6 +49,7 @@ jobs:
       run: |
         yq --version
         which yq
+        which docker
         IMAGE_PATHS=$(/usr/bin/yq eval '.. | select(has("repository") and has("tag")) | path | join(".")' values.yaml)
         for PATH in $IMAGE_PATHS; do
           REGISTRY=$(/usr/bin/yq eval ".$PATH.registry // \"docker.io\"" values.yaml)
