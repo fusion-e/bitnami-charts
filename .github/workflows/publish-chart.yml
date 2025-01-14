@@ -87,9 +87,41 @@ jobs:
     - name: Sync image to ECR
       working-directory: bitnami/neo4j
       run: |
-        #IMAGE_PATHS=$(yq eval '.. | select(has("repository") and has("tag")) | path | join(".")' values.yaml)
         IMAGE_PATHS=$(yq eval '.. | select(has("repository") and has("tag")) | path | join(".")' values.yaml)
-        echo $IMAGE_PATHS
+        for PATH in $IMAGE_PATHS; do
+          REGISTRY=$(yq eval ".$PATH.registry // \"docker.io\"" values.yaml)
+          REPOSITORY=$(yq eval ".$PATH.repository" values.yaml)
+          TAG=$(yq eval ".$PATH.tag" values.yaml)
+        
+          if [[ -z "$REPOSITORY" || -z "$TAG" ]]; then
+            echo "Details not found at path: $PATH"
+            continue
+          fi
+        
+          IMAGE="$REGISTRY/$REPOSITORY:$TAG"
+          echo "Processing image: $IMAGE"
+                        
+          # Define target ECR image
+          TARGET_IMAGE="702886132326.dkr.ecr.eu-west-1.amazonaws.com/$REPOSITORY:$TAG"
+
+            # Check if the image already exists in ECR
+          if aws ecr describe-images --repository-name "$REPOSITORY" --image-ids imageTag="$TAG" > /dev/null 2>&1; then
+            echo "Image already exists in ECR: $TARGET_IMAGE"
+            continue
+          fi
+
+          # Pull the image from docker Hub
+          docker pull "$IMAGE"
+          
+          # Tag and push the image to ECR
+          docker tag "$IMAGE" "$TARGET_IMAGE"
+          docker push "$TARGET_IMAGE"
+                
+          echo "Successfully processed and pushed: $IMAGE to $TARGET_IMAGE"
+        done
+        yq eval ".global.image.registry = \"702886132326.dkr.ecr.eu-west-1.amazonaws.com\"" -i values.yaml
+        
+        
         REGISTRY=$(yq eval '.image.registry' values.yaml)
         REPOSITORY=$(yq eval '.image.repository' values.yaml)
         TAG=$(yq eval '.image.tag' values.yaml)
