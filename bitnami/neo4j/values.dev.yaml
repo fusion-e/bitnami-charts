@@ -620,10 +620,11 @@ ingress:
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80},{"HTTPS": 443}]'
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=4000
-    alb.ingress.kubernetes.io/healthcheck-port: {{ .Values.service.http.port | quote }}
-    alb.ingress.kubernetes.io/healthcheck-protocol: 7474
+    alb.ingress.kubernetes.io/healthcheck-port: 7474
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
     alb.ingress.kubernetes.io/success-codes: '200'
-    alb.ingress.kubernetes.io/healthcheck-path: {{ .Values.livenessProbe.httpGet.path | default "/" | quote }}
+    alb.ingress.kubernetes.io/healthcheck-path: '/'
+
   ## @param ingress.tls Enable TLS configuration for the host defined at `ingress.hostname` parameter
   ## TLS certificates will be retrieved from a TLS secret with name: `{{- printf "%s-tls" .Values.ingress.hostname }}`
   ## You can:
