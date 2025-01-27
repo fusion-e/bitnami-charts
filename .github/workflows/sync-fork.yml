@@ -1,0 +1,20 @@
+name: Sync fork with upstream main branch
+run-name: "Sync fork with upstream main branch"
+on:
+  schedule:
+    - cron: '0 0 * * *' # daily midnight
+  workflow_dispatch:
+    tags:
+      description: "manual-run"
+   
+jobs:
+  sync:
+
+    runs-on: arc-runner-eks-small
+
+    steps:
+      - uses: tgymnich/fork-sync@v1.8
+        with:
+          owner: llvm
+          base: master
+          head: master   
