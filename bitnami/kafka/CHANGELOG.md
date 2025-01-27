@@ -1,8 +1,17 @@
 # Changelog
 
-## 31.1.1 (2024-12-22)
+## 31.3.0 (2025-01-21)
 
-* [bitnami/kafka] Release 31.1.1 ([#31139](https://github.com/bitnami/charts/pull/31139))
+* [binami/kafka] Setting broker.rack for azure based on brokerRackAssignment parameter ([#31496](https://github.com/bitnami/charts/pull/31496))
+
+## 31.2.0 (2025-01-08)
+
+* [bitnami/kafka] chore(jmx-exporter): Upgrade image and change args (#31108) ([70d7aac](https://github.com/bitnami/charts/commit/70d7aac72b9adf6496589418054d5b4f66c16b18)), closes [#31108](https://github.com/bitnami/charts/issues/31108)
+
+## <small>31.1.1 (2024-12-22)</small>
+
+* [bitnami/*] Fix typo in README (#31052) ([b41a51d](https://github.com/bitnami/charts/commit/b41a51d1bd04841fc108b78d3b8357a5292771c8)), closes [#31052](https://github.com/bitnami/charts/issues/31052)
+* [bitnami/kafka] Release 31.1.1 (#31139) ([61131de](https://github.com/bitnami/charts/commit/61131de7b63913f4ef1cb9e7b5b2e8c593178b42)), closes [#31139](https://github.com/bitnami/charts/issues/31139)
 
 ## 31.1.0 (2024-12-10)
 
