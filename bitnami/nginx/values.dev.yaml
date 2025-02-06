@@ -22,7 +22,7 @@ ingress:
   ## @param ingress.enabled Set to true to enable ingress record generation
   ##
   enabled: true
-  hostname: dsp-portal.dev.sp.dell.com
+  hostname: dsp-golang-app-template-dsp-portal-usr-karl-nginx-proxy.dev.sp.dell.com
   path: /*
   annotations:
     alb.ingress.kubernetes.io/scheme: internal
@@ -67,6 +67,11 @@ serverBlock: |-
       proxy_set_header Host $host;
       proxy_set_header X-Real-IP $remote_addr;
       proxy_pass http://dsp-portal-service-b:5000/health;
+    }
+    location /golang-template {
+      proxy_set_header Host $host;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_pass http://dsp-golang-app-template:5000/health;
     }
   }
   
