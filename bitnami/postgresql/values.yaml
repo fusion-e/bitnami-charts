@@ -354,7 +354,7 @@ primary:
     ##      echo "Do something."
     ##
     scripts: []
-    ## @param primary.initdb.scriptsConfigMap ConfigMap with scripts tnameo be run at first boot
+    ## @param primary.initdb.scriptsConfigMap ConfigMap with scripts to be run at first boot
     ## NOTE: This will override `primary.initdb.scripts`
     ##
     scriptsConfigMap: ""
@@ -1664,7 +1664,7 @@ serviceAccount:
 ## @param rbac.create Create Role and RoleBinding (required for PSP to work)
 ##
 rbac:
-  create: true
+  create: false
   ## @param rbac.rules Custom RBAC rules to set
   ## e.g:
   ## rules:
