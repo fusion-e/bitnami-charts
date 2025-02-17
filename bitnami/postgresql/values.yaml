@@ -1676,22 +1676,7 @@ rbac:
   ##       - get
   ##       - list
   ##
-  rules:
-    - apiGroups:
-        - ""
-      resources:
-        - secrets
-      verbs:
-        - create
-        - get
-        - update
-        - patch
-    - apiGroups:
-        - ""
-      resources:
-        - pods
-      verbs:
-        - get
+  rules: []
 ## Pod Security Policy
 ## ref: https://kubernetes.io/docs/concepts/policy/pod-security-policy/
 ## @param psp.create Whether to create a PodSecurityPolicy. WARNING: PodSecurityPolicy is deprecated in Kubernetes v1.21 or later, unavailable in v1.25 or later
