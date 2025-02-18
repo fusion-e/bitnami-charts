@@ -95,7 +95,7 @@ Return the name for a custom database to create
 Get the password secret.
 */}}
 {{- define "postgresql.v1.secretName" -}}
-{{- if .Values.global.iam.enbaled -}}
+{{- if .Values.global.createDatabases.enbaled -}}
     {{- "postgres-secret" -}}
 {{- else if .Values.global.postgresql.auth.existingSecret -}}
     {{- printf "%s" (tpl .Values.global.postgresql.auth.existingSecret $) -}}

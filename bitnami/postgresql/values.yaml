@@ -5,8 +5,8 @@
 ## Please, note that this will override the parameters, including dependencies, configured to use the global value
 ##
 global:
-  iam:
-    enbaled: false
+  createDatabases:
+    enbaled: true
 
   ## @param global.imageRegistry Global Docker image registry
   ##

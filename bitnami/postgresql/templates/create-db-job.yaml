@@ -1,4 +1,4 @@
-{{- if and .Values.global.iam.enbaled }}
+{{- if and .Values.global.createDatabases.enbaled }}
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -124,7 +124,7 @@ spec:
               secretKeyRef:
                 name: "postgres-secret"
                 key: "dsp-iam-policy-svc-password"
-         - name: CATALOG_PASSWORD
+          - name: CATALOG_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: "postgres-secret"
