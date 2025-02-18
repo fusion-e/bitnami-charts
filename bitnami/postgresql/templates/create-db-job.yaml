@@ -54,6 +54,7 @@ spec:
             hzp_iam_policy_svc_password="$POLICY_PASSWORD"word
             hzp_iam_session_svc_password="$SESSION_PASSWORD"
             hzp_iam_org_svc_password="$ORG_PASSWORD"
+            catalog_password="$CATALOG_PASSWORD"        
 
             for name in $databases; do
               echo "Creating database: $name"
@@ -123,5 +124,9 @@ spec:
               secretKeyRef:
                 name: "postgres-secret"
                 key: "dsp-iam-policy-svc-password"
-              
+         - name: CATALOG_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: "postgres-secret"
+                key: "catalog-db-password"         
 {{ end }}
