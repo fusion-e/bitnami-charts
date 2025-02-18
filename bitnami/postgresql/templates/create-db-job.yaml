@@ -47,7 +47,7 @@ spec:
             psql -h $host -U $user -d template1 -c "REINDEX DATABASE template1;"
 
             # List of databases to create
-            databases="keycloak hzp_iam_policy_svc hzp_iam_session_svc hzp_iam_org_svc"
+            databases="catalog keycloak hzp_iam_policy_svc hzp_iam_session_svc hzp_iam_org_svc"
 
             # Passwords
             keycloak_password="$KEYCLOAK_PASSWORD"
