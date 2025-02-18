@@ -6,7 +6,7 @@
 ##
 global:
   createDatabases:
-    enbaled: true
+    enbaled: false
 
   ## @param global.imageRegistry Global Docker image registry
   ##
