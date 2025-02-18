@@ -470,7 +470,7 @@ Function to get postgres host. Default to postgres if .Values.global.postgresql.
 */}}
 
 {{- define "getPostgresHost" -}}
-{{- "postgres" }}
+{{- "postgresql" }}
 {{- end -}}
 {{/*
 Function to get postgres port. Default to 5432 if .Values.global.postgresql.remote.port is not defined
