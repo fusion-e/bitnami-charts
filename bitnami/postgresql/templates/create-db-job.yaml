@@ -51,7 +51,7 @@ spec:
 
             # Passwords
             keycloak_password="$KEYCLOAK_PASSWORD"
-            hzp_iam_policy_svc_password="$POLICY_PASSWORD"word
+            hzp_iam_policy_svc_password="$POLICY_PASSWORD"
             hzp_iam_session_svc_password="$SESSION_PASSWORD"
             hzp_iam_org_svc_password="$ORG_PASSWORD"
             catalog_password="$CATALOG_PASSWORD"        
