@@ -1,13 +1,13 @@
-{{- if and .Values.global.createDatabases.enbaled }}
+{{- if and .Values.global.createDatabases.enabled }}
 apiVersion: batch/v1
 kind: Job
 metadata:
   name: "{{ .Release.Name }}-create-db-job"
   namespace: {{ .Release.Namespace }}
   annotations:
-    "helm.sh/hook": "post-install"
     "helm.sh/hook-delete-policy": "before-hook-creation,hook-succeeded"
 spec:
+  ttlSecondsAfterFinished: 300  # Deletes the Job 5 minutes after completion
   template:
     spec:
       serviceAccountName: {{ include "postgresql.v1.serviceAccountName" . }}
