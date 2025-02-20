@@ -7,6 +7,7 @@ metadata:
   annotations:
     "helm.sh/hook-delete-policy": "before-hook-creation,hook-succeeded"
 spec:
+  ttlSecondsAfterFinished: 300  # Deletes the Job 5 minutes after completion
   template:
     spec:
       serviceAccountName: {{ include "postgresql.v1.serviceAccountName" . }}
