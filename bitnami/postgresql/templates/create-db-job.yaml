@@ -33,7 +33,7 @@ spec:
 
             export PGPASSWORD=$POSTGRES_PASSWORD
 
-            sleep 60 
+            sleep 35
 
             # Create a template database with pgcrypto and uuid-ossp extensions
             psql -h $host -U $user -tc "SELECT 1 FROM pg_database WHERE datname = 'template_pgcrypto'" | grep -q 1 || \
