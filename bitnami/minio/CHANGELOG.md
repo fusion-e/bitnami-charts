@@ -1,8 +1,173 @@
 # Changelog
 
-## 15.0.3 (2025-02-08)
+## 17.0.23 (2025-12-01)
 
-* [bitnami/minio] Release 15.0.3 ([#31841](https://github.com/bitnami/charts/pull/31841))
+* [bitnami/minio] extraRules must contain the fields paths and pathType ([#36395](https://github.com/bitnami/charts/pull/36395))
+
+## <small>17.0.21 (2025-08-14)</small>
+
+* [bitnami/minio] :zap: :arrow_up: Update dependency references (#35907) ([b0009f1](https://github.com/bitnami/charts/commit/b0009f197122278bdb15514ac2c879b9b7fd9ae1)), closes [#35907](https://github.com/bitnami/charts/issues/35907)
+
+## <small>17.0.20 (2025-08-14)</small>
+
+* [bitnami/minio] :zap: :arrow_up: Update dependency references (#35885) ([d02f68d](https://github.com/bitnami/charts/commit/d02f68dfaf8ff8a99415eeea40e69de69d5f82f9)), closes [#35885](https://github.com/bitnami/charts/issues/35885)
+
+## <small>17.0.19 (2025-08-07)</small>
+
+* [bitnami/minio] :zap: :arrow_up: Update dependency references (#35674) ([cb559e9](https://github.com/bitnami/charts/commit/cb559e9017581109c5c78dfd592b30a28536c272)), closes [#35674](https://github.com/bitnami/charts/issues/35674)
+
+## <small>17.0.18 (2025-08-07)</small>
+
+* [bitnami/minio] :zap: :arrow_up: Update dependency references (#35645) ([d3554ff](https://github.com/bitnami/charts/commit/d3554ff9c8e6c8871a79e682ef1ab93ba60c1738)), closes [#35645](https://github.com/bitnami/charts/issues/35645)
+
+## <small>17.0.17 (2025-08-07)</small>
+
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/minio] :zap: :arrow_up: Update dependency references (#35503) ([114d0a3](https://github.com/bitnami/charts/commit/114d0a32b0f8cb0a4163fe5a532d1ec5ee07e666)), closes [#35503](https://github.com/bitnami/charts/issues/35503)
+
+## <small>17.0.16 (2025-07-23)</small>
+
+* [bitnami/minio] :zap: :arrow_up: Update dependency references (#35268) ([c9a44e5](https://github.com/bitnami/charts/commit/c9a44e5bf08bf071db446c5b1a6a976720aac460)), closes [#35268](https://github.com/bitnami/charts/issues/35268)
+
+## <small>17.0.15 (2025-07-19)</small>
+
+* [bitnami/minio] :zap: :arrow_up: Update dependency references (#35215) ([a9d3186](https://github.com/bitnami/charts/commit/a9d3186c238d5883805b9caa544894c5703a3022)), closes [#35215](https://github.com/bitnami/charts/issues/35215)
+
+## <small>17.0.14 (2025-07-18)</small>
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/minio] :zap: :arrow_up: Update dependency references (#35209) ([56b06c9](https://github.com/bitnami/charts/commit/56b06c93b89be5a885e780b06ffa9fea0c1f673e)), closes [#35209](https://github.com/bitnami/charts/issues/35209)
+
+## <small>17.0.13 (2025-07-15)</small>
+
+* [bitnami/minio] :zap: :arrow_up: Update dependency references (#35109) ([70e8f83](https://github.com/bitnami/charts/commit/70e8f83e2d7512a18c57a448eff6305271685f7e)), closes [#35109](https://github.com/bitnami/charts/issues/35109)
+
+## <small>17.0.12 (2025-07-14)</small>
+
+* [bitnami/minio] bugfix: reference to non-existing parameter (#35036) ([bb67a61](https://github.com/bitnami/charts/commit/bb67a61959568f980f7953f8706787e30425f380)), closes [#35036](https://github.com/bitnami/charts/issues/35036)
+
+## <small>17.0.11 (2025-07-09)</small>
+
+* [bitnami/minio] :zap: :arrow_up: Update dependency references (#34936) ([41e1a62](https://github.com/bitnami/charts/commit/41e1a6216d9520f36cf92dd4f5225731b3962956)), closes [#34936](https://github.com/bitnami/charts/issues/34936)
+
+## <small>17.0.10 (2025-07-09)</small>
+
+* [bitnami/minio] :zap: :arrow_up: Update dependency references (#34926) ([e9541fb](https://github.com/bitnami/charts/commit/e9541fb1f3dd7827edfe0dc99f2694c0cd217188)), closes [#34926](https://github.com/bitnami/charts/issues/34926)
+
+## <small>17.0.9 (2025-06-26)</small>
+
+* [bitnami/minio] Adapt Console Deployment's PodSecurityContext for OpenShift (#34580) ([eb7567c](https://github.com/bitnami/charts/commit/eb7567c88d7e78f736fbcdfdbafa341385601bff)), closes [#34580](https://github.com/bitnami/charts/issues/34580)
+
+## <small>17.0.8 (2025-06-24)</small>
+
+* [bitnami/minio] :zap: :arrow_up: Update dependency references (#34595) ([5508ae1](https://github.com/bitnami/charts/commit/5508ae1c9e3f261e729f534325abe98d558eda79)), closes [#34595](https://github.com/bitnami/charts/issues/34595)
+
+## <small>17.0.7 (2025-06-24)</small>
+
+* [bitnami/minio] :zap: :arrow_up: Update dependency references (#34594) ([0fb1e88](https://github.com/bitnami/charts/commit/0fb1e885345eb342ef385d4d332209f6b761fa05)), closes [#34594](https://github.com/bitnami/charts/issues/34594)
+
+## <small>17.0.6 (2025-06-19)</small>
+
+* [bitnami/minio] :zap: :arrow_up: Update dependency references (#34556) ([1f0d9e8](https://github.com/bitnami/charts/commit/1f0d9e8d99735ea2479224b14cbf83a71be5e660)), closes [#34556](https://github.com/bitnami/charts/issues/34556)
+
+## <small>17.0.5 (2025-06-16)</small>
+
+* [bitnami/minio] :zap: :arrow_up: Update dependency references (#34339) ([040a7bc](https://github.com/bitnami/charts/commit/040a7bcdbe9df037a3fab06b39095cf666d585d7)), closes [#34339](https://github.com/bitnami/charts/issues/34339)
+
+## <small>17.0.4 (2025-06-11)</small>
+
+*  [bitnami/minio] fix: chown in the volume-permissions will only work if the CHOWN capability is adde ([84b733b](https://github.com/bitnami/charts/commit/84b733b9426b91973701f95772e1f01c780d5f5e)), closes [#34311](https://github.com/bitnami/charts/issues/34311)
+
+## <small>17.0.3 (2025-06-06)</small>
+
+* [bitnami/minio] :zap: :arrow_up: Update dependency references (#34195) ([303327d](https://github.com/bitnami/charts/commit/303327d49a16222d82bf2fca322794990fc469f9)), closes [#34195](https://github.com/bitnami/charts/issues/34195)
+
+## <small>17.0.2 (2025-06-04)</small>
+
+* [bitnami/minio] bugfix: wrong svc port target on ingress (#34097) ([a4cefcd](https://github.com/bitnami/charts/commit/a4cefcd1e1bd46a5b18086facc3e559ad3f3ad78)), closes [#34097](https://github.com/bitnami/charts/issues/34097)
+
+## <small>17.0.1 (2025-06-03)</small>
+
+* [bitnami/minio] :zap: :arrow_up: Update dependency references (#34070) ([383030c](https://github.com/bitnami/charts/commit/383030cf3e762b8e7988d7d4664d886b48bddac7)), closes [#34070](https://github.com/bitnami/charts/issues/34070)
+
+## 17.0.0 (2025-06-03)
+
+* [bitnami/minio] feat: run Console UI as a separate component (#34037) ([9d122cd](https://github.com/bitnami/charts/commit/9d122cdc904ad90305caa0223d208d783bcb470b)), closes [#34037](https://github.com/bitnami/charts/issues/34037)
+
+## <small>16.0.11 (2025-06-02)</small>
+
+* [bitnami/*] Add CNAB link for charts on Azure MP (#33695) ([6312371](https://github.com/bitnami/charts/commit/63123718de94dbedd798d380807b57031e98ed4f)), closes [#33695](https://github.com/bitnami/charts/issues/33695)
+* [bitnami/*] Update CNAB tip (#33741) ([2bc74f3](https://github.com/bitnami/charts/commit/2bc74f3f539481ceaa12833c114047583912b748)), closes [#33741](https://github.com/bitnami/charts/issues/33741)
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+* [bitnami/minio] Update dependencies (#34029) ([f70e5be](https://github.com/bitnami/charts/commit/f70e5be7d646d522d336f1c70ce07776934ed26f)), closes [#34029](https://github.com/bitnami/charts/issues/34029)
+
+## <small>16.0.10 (2025-05-07)</small>
+
+* [bitnami/minio] Release 16.0.10 (#33488) ([055477f](https://github.com/bitnami/charts/commit/055477f89bc7da14e5674c15f1f280f9ae0bdf0c)), closes [#33488](https://github.com/bitnami/charts/issues/33488)
+
+## <small>16.0.9 (2025-05-07)</small>
+
+* [bitnami/minio] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (#33402) ([5216440](https://github.com/bitnami/charts/commit/5216440c5e490930e43e523cae0540c78f2dd514)), closes [#33402](https://github.com/bitnami/charts/issues/33402)
+
+## <small>16.0.8 (2025-04-23)</small>
+
+* [bitnami/minio] Release 16.0.8 (#33132) ([990c323](https://github.com/bitnami/charts/commit/990c323b2ca280d5f7b9ed94f2302d9f63ff6765)), closes [#33132](https://github.com/bitnami/charts/issues/33132)
+
+## <small>16.0.7 (2025-04-09)</small>
+
+* [bitnami/minio] Release 16.0.7 (#32944) ([d60498a](https://github.com/bitnami/charts/commit/d60498aba9a35307591b36f1dae948ba5a9f3c19)), closes [#32944](https://github.com/bitnami/charts/issues/32944)
+
+## <small>16.0.6 (2025-04-09)</small>
+
+* [bitnami/minio] Release 16.0.6 (#32930) ([a10696b](https://github.com/bitnami/charts/commit/a10696bedd25e2c6c678f2f4ac12c91ff4e002f9)), closes [#32930](https://github.com/bitnami/charts/issues/32930)
+
+## <small>16.0.5 (2025-04-09)</small>
+
+* [bitnami/minio] Release 16.0.5 (#32892) ([f707614](https://github.com/bitnami/charts/commit/f7076146788b35017b744a06f4b66f5725838043)), closes [#32892](https://github.com/bitnami/charts/issues/32892)
+
+## <small>16.0.4 (2025-04-09)</small>
+
+* [bitnami/minio] Fix issue when using custom secret keys (#32882) ([05bd253](https://github.com/bitnami/charts/commit/05bd253ba79de4518ee665da2a9c6e8f5cd5b4f7)), closes [#32882](https://github.com/bitnami/charts/issues/32882)
+
+## <small>16.0.3 (2025-04-08)</small>
+
+* [bitnami/minio] Release 16.0.3 (#32877) ([3dc1ea0](https://github.com/bitnami/charts/commit/3dc1ea0dbbcf21bd58182639486c7be75b20524d)), closes [#32877](https://github.com/bitnami/charts/issues/32877)
+
+## <small>16.0.2 (2025-04-03)</small>
+
+* [bitnami/minio] Release 16.0.2 (#32806) ([c163d18](https://github.com/bitnami/charts/commit/c163d18d92e8a2c3fcfd16596b395659ca83a675)), closes [#32806](https://github.com/bitnami/charts/issues/32806)
+
+## <small>16.0.1 (2025-04-02)</small>
+
+* [bitnami/minio] Release 16.0.1 (#32749) ([351fb51](https://github.com/bitnami/charts/commit/351fb511b701966825902719875eac6a8a1c08be)), closes [#32749](https://github.com/bitnami/charts/issues/32749)
+
+## 16.0.0 (2025-03-27)
+
+* [bitnami/minio] Set `usePasswordFiles=true` by default (#32361) ([4f16379](https://github.com/bitnami/charts/commit/4f1637923c52c3f209a20e3dc617c3433de4083c)), closes [#32361](https://github.com/bitnami/charts/issues/32361)
+
+## <small>15.0.7 (2025-03-12)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/minio] Release 15.0.7 (#32425) ([48a854a](https://github.com/bitnami/charts/commit/48a854ac39c08841258ab185f7af68024ab8569e)), closes [#32425](https://github.com/bitnami/charts/issues/32425)
+
+## <small>15.0.6 (2025-03-05)</small>
+
+* [bitnami/minio] Release 15.0.6 (#32305) ([b92a3c3](https://github.com/bitnami/charts/commit/b92a3c35e7ef2cba0216fbd9b28d276d7961d397)), closes [#32305](https://github.com/bitnami/charts/issues/32305)
+
+## <small>15.0.5 (2025-02-28)</small>
+
+* [bitnami/minio] Release 15.0.5 (#32222) ([a1e4a21](https://github.com/bitnami/charts/commit/a1e4a216587f5caab4653cbee8f83b615bd73934)), closes [#32222](https://github.com/bitnami/charts/issues/32222)
+
+## <small>15.0.4 (2025-02-19)</small>
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/minio] Release 15.0.4 (#32019) ([cb930d3](https://github.com/bitnami/charts/commit/cb930d302faf70eccc8a6383df4584ba44a2a4cc)), closes [#32019](https://github.com/bitnami/charts/issues/32019)
+
+## <small>15.0.3 (2025-02-08)</small>
+
+* [bitnami/minio] Release 15.0.3 (#31841) ([4d202ee](https://github.com/bitnami/charts/commit/4d202eee46ee58372c9b906b1426a3cd80fba4e9)), closes [#31841](https://github.com/bitnami/charts/issues/31841)
 
 ## <small>15.0.2 (2025-02-05)</small>
 
@@ -829,7 +994,7 @@
 ## <small>12.2.3 (2023-03-29)</small>
 
 * [bitnami/minio] Fix minio policy to version minio:2023.3.20  (#15718) ([4f07299](https://github.com/bitnami/charts/commit/4f07299a738c531840ed60c6a7b556d20c2c6dcd)), closes [#15718](https://github.com/bitnami/charts/issues/15718)
-* Bumb version of chart for resolve issue #15718. (#15795) ([877afd5](https://github.com/bitnami/charts/commit/877afd59b602077a4836904fd9608a2e9ffe7e82)), closes [#15718](https://github.com/bitnami/charts/issues/15718) [#15795](https://github.com/bitnami/charts/issues/15795)
+* Bumb version of chart for resolve issue #15718. (#15795) ([877afd5](https://github.com/bitnami/charts/commit/877afd59b602077a4836904fd9608a2e9ffe7e82)), closes [#15795](https://github.com/bitnami/charts/issues/15795)
 
 ## <small>12.2.2 (2023-03-28)</small>
 
@@ -2564,7 +2729,7 @@
 
 ## <small>0.1.6 (2019-05-29)</small>
 
-* Fix https://github.com/helm/charts/pull/14199\#issuecomment-496883321 and support _sha256_ as an imm ([95957ea](https://github.com/bitnami/charts/commit/95957ea6430f28ec3593053afb0bfccb75703c79)), closes [#issuecomment-496883321](https://github.com/bitnami/charts/issues/issuecomment-496883321)
+* Fix https://github.com/helm/charts/pull/14199\#issuecomment-496883321 and support _sha256_ as an imm ([95957ea](https://github.com/bitnami/charts/commit/95957ea6430f28ec3593053afb0bfccb75703c79))
 
 ## <small>0.1.5 (2019-05-28)</small>
 

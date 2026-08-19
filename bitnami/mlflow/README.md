@@ -1,6 +1,6 @@
 <!--- app-name: MLflow -->
 
-# Bitnami package for MLflow
+# Bitnami Secure Images Helm chart for MLflow
 
 MLflow is an open-source platform designed to manage the end-to-end machine learning lifecycle. It allows you to track experiments, package code into reproducible runs, and share and deploy models.
 
@@ -14,15 +14,28 @@ Trademarks: This software listing is packaged by Bitnami. The respective tradema
 helm install my-release oci://registry-1.docker.io/bitnamicharts/mlflow
 ```
 
-Looking to use MLflow in production? Try [VMware Tanzu Application Catalog](https://bitnami.com/enterprise), the commercial edition of the Bitnami catalog.
+## Why use Bitnami Secure Images?
+
+Those are hardened, minimal CVE images built and maintained by Bitnami. Bitnami Secure Images are based on the cloud-optimized, security-hardened enterprise [OS Photon Linux](https://vmware.github.io/photon/). Why choose BSI images?
+
+- Hardened secure images of popular open source software with Near-Zero Vulnerabilities
+- Vulnerability Triage & Prioritization with VEX Statements, KEV and EPSS Scores
+- Compliance focus with FIPS, STIG, and air-gap options, including secure bill of materials (SBOM)
+- Software supply chain provenance attestation through in-toto
+- First class support for the internet’s favorite Helm charts
+
+Each image comes with valuable security metadata. You can view the metadata in [our public catalog here](https://app-catalog.vmware.com/bitnami/apps). Note: Some data is only available with [commercial subscriptions to BSI](https://bitnami.com/).
+
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%201.png?raw=true "Application details")
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%202.png?raw=true "Packaging report")
+
+If you are looking for our previous generation of images based on Debian Linux, please see the [Bitnami Legacy registry](https://hub.docker.com/u/bitnamilegacy).
 
 ## Introduction
 
 This chart bootstraps a [MLflow](https://github.com/bitnami/containers/tree/main/bitnami/mlflow) deployment on a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
 Python is built for full integration into Python that enables you to use it with its libraries and main packages.
-
-Bitnami charts can be used with [Kubeapps](https://kubeapps.dev/) for deployment and management of Helm Charts in clusters.
 
 ## Prerequisites
 
@@ -91,7 +104,6 @@ To back up and restore Helm chart deployments on Kubernetes, you need to back up
 | `global.imageRegistry`                                | Global Docker image registry                                                                                                                                                                                                                                                                                                                                        | `""`    |
 | `global.imagePullSecrets`                             | Global Docker registry secret names as an array                                                                                                                                                                                                                                                                                                                     | `[]`    |
 | `global.defaultStorageClass`                          | Global default StorageClass for Persistent Volume(s)                                                                                                                                                                                                                                                                                                                | `""`    |
-| `global.storageClass`                                 | DEPRECATED: use global.defaultStorageClass instead                                                                                                                                                                                                                                                                                                                  | `""`    |
 | `global.security.allowInsecureImages`                 | Allows skipping image verification                                                                                                                                                                                                                                                                                                                                  | `false` |
 | `global.compatibility.openshift.adaptSecurityContext` | Adapt the securityContext sections of the deployment to make them compatible with Openshift restricted-v2 SCC: remove runAsUser, runAsGroup and fsGroup and let the platform use their allowed default IDs. Possible values: auto (apply if the detected running cluster is Openshift), force (perform the adaptation always), disabled (do not perform adaptation) | `auto`  |
 
@@ -100,6 +112,7 @@ To back up and restore Helm chart deployments on Kubernetes, you need to back up
 | Name                     | Description                                                                             | Value           |
 | ------------------------ | --------------------------------------------------------------------------------------- | --------------- |
 | `kubeVersion`            | Override Kubernetes version                                                             | `""`            |
+| `apiVersions`            | Override Kubernetes API versions reported by .Capabilities                              | `[]`            |
 | `nameOverride`           | String to partially override common.names.name                                          | `""`            |
 | `fullnameOverride`       | String to fully override common.names.fullname                                          | `""`            |
 | `namespaceOverride`      | String to fully override common.names.namespace                                         | `""`            |
@@ -176,9 +189,11 @@ To back up and restore Helm chart deployments on Kubernetes, you need to back up
 | `tracking.auth.enabled`                                      | Enable basic authentication                                                                                                                                                                                                         | `true`           |
 | `tracking.auth.username`                                     | Admin username                                                                                                                                                                                                                      | `user`           |
 | `tracking.auth.password`                                     | Admin password                                                                                                                                                                                                                      | `""`             |
+| `tracking.auth.flaskServerSecretKey`                         | Flask server secret key (required for enabling CSRF protection)                                                                                                                                                                     | `""`             |
 | `tracking.auth.existingSecret`                               | Name of a secret containing the admin password                                                                                                                                                                                      | `""`             |
 | `tracking.auth.existingSecretUserKey`                        | Key inside the secret containing the admin password                                                                                                                                                                                 | `""`             |
 | `tracking.auth.existingSecretPasswordKey`                    | Key inside the secret containing the admin password                                                                                                                                                                                 | `""`             |
+| `tracking.auth.existingSecretFlaskServerSecretKey`           | Key inside the secret containing the flask server secret key                                                                                                                                                                        | `""`             |
 | `tracking.auth.extraOverrides`                               | Add extra settings to the basic_auth.ini file                                                                                                                                                                                       | `{}`             |
 | `tracking.auth.overridesConfigMap`                           | Name of a ConfigMap containing overrides to the basic_auth.ini file                                                                                                                                                                 | `""`             |
 | `tracking.tls.enabled`                                       | Enable TLS traffic support                                                                                                                                                                                                          | `false`          |
@@ -263,6 +278,13 @@ To back up and restore Helm chart deployments on Kubernetes, you need to back up
 | `tracking.ingress.extraTls`                      | TLS configuration for additional hostname(s) to be covered with this ingress record                                              | `[]`                     |
 | `tracking.ingress.secrets`                       | Custom TLS certificates as secrets                                                                                               | `[]`                     |
 | `tracking.ingress.extraRules`                    | Additional rules to be covered with this ingress record                                                                          | `[]`                     |
+| `tracking.httproute.enabled`                     | Enable Gateway API HTTPRoute record generation for mlflow tracking                                                               | `false`                  |
+| `tracking.httproute.hostname`                    | Default hostname for the HTTPRoute                                                                                               | `mlflow.local`           |
+| `tracking.httproute.path`                        | Default path for the HTTPRoute                                                                                                   | `/`                      |
+| `tracking.httproute.annotations`                 | Additional annotations for the HTTPRoute resource                                                                                | `{}`                     |
+| `tracking.httproute.parentRefs`                  | List of Gateway parentRefs the HTTPRoute should attach to                                                                        | `[]`                     |
+| `tracking.httproute.extraHostnames`              | An array with additional hostnames to be covered with the HTTPRoute                                                              | `[]`                     |
+| `tracking.httproute.extraRules`                  | Additional rules to be added to the HTTPRoute                                                                                    | `[]`                     |
 | `tracking.networkPolicy.enabled`                 | Enable creation of NetworkPolicy resources                                                                                       | `true`                   |
 | `tracking.networkPolicy.allowExternal`           | The Policy model to apply                                                                                                        | `true`                   |
 | `tracking.networkPolicy.allowExternalEgress`     | Allow the pod to access any range of port and all destinations.                                                                  | `true`                   |
@@ -273,19 +295,21 @@ To back up and restore Helm chart deployments on Kubernetes, you need to back up
 
 ### MLflow Tracking Persistence Parameters
 
-| Name                                 | Description                                                                                             | Value               |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------- | ------------------- |
-| `tracking.persistence.enabled`       | Enable persistence using Persistent Volume Claims                                                       | `true`              |
-| `tracking.persistence.mountPath`     | Path to mount the volume at.                                                                            | `/bitnami/mlflow`   |
-| `tracking.persistence.subPath`       | The subdirectory of the volume to mount to, useful in dev environments and one PV for multiple services | `""`                |
-| `tracking.persistence.storageClass`  | Storage class of backing PVC                                                                            | `""`                |
-| `tracking.persistence.labels`        | Persistent Volume labels                                                                                | `{}`                |
-| `tracking.persistence.annotations`   | Persistent Volume Claim annotations                                                                     | `{}`                |
-| `tracking.persistence.accessModes`   | Persistent Volume Access Modes                                                                          | `["ReadWriteOnce"]` |
-| `tracking.persistence.size`          | Size of data volume                                                                                     | `8Gi`               |
-| `tracking.persistence.existingClaim` | The name of an existing PVC to use for persistence                                                      | `""`                |
-| `tracking.persistence.selector`      | Selector to match an existing Persistent Volume for MLflow data PVC                                     | `{}`                |
-| `tracking.persistence.dataSource`    | Custom PVC data source                                                                                  | `{}`                |
+| Name                                               | Description                                                                                             | Value               |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------- |
+| `tracking.persistence.enabled`                     | Enable persistence using Persistent Volume Claims                                                       | `true`              |
+| `tracking.persistence.mountPath`                   | Path to mount the volume at.                                                                            | `/bitnami/mlflow`   |
+| `tracking.persistence.subPath`                     | The subdirectory of the volume to mount to, useful in dev environments and one PV for multiple services | `""`                |
+| `tracking.persistence.storageClass`                | Storage class of backing PVC                                                                            | `""`                |
+| `tracking.persistence.labels`                      | Persistent Volume labels                                                                                | `{}`                |
+| `tracking.persistence.annotations`                 | Persistent Volume Claim annotations                                                                     | `{}`                |
+| `tracking.persistence.accessModes`                 | Persistent Volume Access Modes                                                                          | `["ReadWriteOnce"]` |
+| `tracking.persistence.size`                        | Size of data volume                                                                                     | `8Gi`               |
+| `tracking.persistence.existingClaim`               | The name of an existing PVC to use for persistence                                                      | `""`                |
+| `tracking.persistence.selector`                    | Selector to match an existing Persistent Volume for MLflow data PVC                                     | `{}`                |
+| `tracking.persistence.dataSource`                  | Custom PVC data source                                                                                  | `{}`                |
+| `tracking.tmpVolume.ephemeral.enabled`             | Use a generic ephemeral volume for `/tmp` instead of `emptyDir`                                         | `false`             |
+| `tracking.tmpVolume.ephemeral.volumeClaimTemplate` | Custom `volumeClaimTemplate` for the ephemeral volume (YAML map)                                        | `{}`                |
 
 ### MLflow Tracking Other Parameters
 
@@ -482,6 +506,7 @@ To back up and restore Helm chart deployments on Kubernetes, you need to back up
 | `minio.service.type`               | MinIO&reg; service type                                                                                                           | `ClusterIP`                                         |
 | `minio.service.loadBalancerIP`     | MinIO&reg; service LoadBalancer IP                                                                                                | `""`                                                |
 | `minio.service.ports.api`          | MinIO&reg; service port                                                                                                           | `80`                                                |
+| `minio.console.enabled`            | Enable MinIO&reg; Console                                                                                                         | `false`                                             |
 
 ### External S3 parameters
 
@@ -553,6 +578,14 @@ run.source.git.revision=master
 Find more information about how to deal with common errors related to Bitnami's Helm charts in [this troubleshooting guide](https://docs.bitnami.com/general/how-to/troubleshoot-helm-chart-issues).
 
 ## Upgrading
+
+### To 4.0.0
+
+This major updates the `minio` subchart to its newest major, 17.0.0. For more information on this subchart's major, please refer to [minio upgrade notes](https://github.com/bitnami/charts/tree/main/bitnami/minio#to-1700).
+
+### To 3.0.0
+
+This major updates the `minio` subchart to its newest major, 16.0.0. For more information on this subchart's major, please refer to [minio upgrade notes](https://github.com/bitnami/charts/tree/main/bitnami/minio#to-1600).
 
 ### To 2.3.0
 

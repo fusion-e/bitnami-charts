@@ -1,8 +1,168 @@
 # Changelog
 
-## 4.7.4 (2025-02-04)
+## 6.0.8 (2025-10-18)
 
-* [bitnami/grafana-loki] Release 4.7.4 ([#31755](https://github.com/bitnami/charts/pull/31755))
+* [bitnami/grafana-loki] Support alloy extraConfig ([#36342](https://github.com/bitnami/charts/pull/36342))
+
+## <small>6.0.6 (2025-08-13)</small>
+
+* [bitnami/grafana-loki] :zap: :arrow_up: Update dependency references (#35847) ([72956c9](https://github.com/bitnami/charts/commit/72956c92cd969055035272eaef1fbba04f65ff73)), closes [#35847](https://github.com/bitnami/charts/issues/35847)
+
+## <small>6.0.5 (2025-08-13)</small>
+
+* [bitnami/grafana-loki] :zap: :arrow_up: Update dependency references (#35800) ([ad43907](https://github.com/bitnami/charts/commit/ad439073d42227c06d14d478cfb8bfd24a885b43)), closes [#35800](https://github.com/bitnami/charts/issues/35800)
+
+## <small>6.0.4 (2025-08-07)</small>
+
+* [bitnami/grafana-loki] :zap: :arrow_up: Update dependency references (#35609) ([7e2c6f4](https://github.com/bitnami/charts/commit/7e2c6f422093e4b2a8088dcb99425b88aefefab7)), closes [#35609](https://github.com/bitnami/charts/issues/35609)
+
+## <small>6.0.3 (2025-08-07)</small>
+
+* [bitnami/grafana-loki] :zap: :arrow_up: Update dependency references (#35481) ([0dd57e8](https://github.com/bitnami/charts/commit/0dd57e85c1968d17c17010d9bea9b69a2fa4c399)), closes [#35481](https://github.com/bitnami/charts/issues/35481)
+
+## <small>6.0.2 (2025-07-31)</small>
+
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/grafana-loki] :zap: :arrow_up: Update dependency references (#35358) ([a25b9e1](https://github.com/bitnami/charts/commit/a25b9e1001bc61e5fd897364437259394233ffd2)), closes [#35358](https://github.com/bitnami/charts/issues/35358)
+
+## <small>6.0.1 (2025-07-23)</small>
+
+* [bitnami/grafana-loki] :zap: :arrow_up: Update dependency references (#35258) ([8a5ef64](https://github.com/bitnami/charts/commit/8a5ef64223917a13e5ced8b3d91f5f48aa91a0b9)), closes [#35258](https://github.com/bitnami/charts/issues/35258)
+
+## 6.0.0 (2025-07-18)
+
+* [bitnami/grafana-loki] Upgrade Alloy chart (#35197) ([4b503a5](https://github.com/bitnami/charts/commit/4b503a5d6e6e855ce5786ec9ddf52d7c4dfc2701)), closes [#35197](https://github.com/bitnami/charts/issues/35197)
+
+## <small>5.0.7 (2025-07-17)</small>
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/grafana-loki] :zap: :arrow_up: Update dependency references (#35177) ([b71a747](https://github.com/bitnami/charts/commit/b71a747b26b885e1f634e18eac29cb061ad46da7)), closes [#35177](https://github.com/bitnami/charts/issues/35177)
+
+## <small>5.0.6 (2025-07-15)</small>
+
+* [bitnami/grafana-loki] :zap: :arrow_up: Update dependency references (#35095) ([a8d1bd3](https://github.com/bitnami/charts/commit/a8d1bd312e60c0ebafd1c739b5e1de9251d7c91b)), closes [#35095](https://github.com/bitnami/charts/issues/35095)
+
+## <small>5.0.5 (2025-07-11)</small>
+
+* [bitnami/grafana-loki] :zap: :arrow_up: Update dependency references (#35019) ([cc231c8](https://github.com/bitnami/charts/commit/cc231c804653bacbc7367b43ab552224ea6ec243)), closes [#35019](https://github.com/bitnami/charts/issues/35019)
+
+## <small>5.0.4 (2025-07-09)</small>
+
+* [bitnami/grafana-loki] :zap: :arrow_up: Update dependency references (#34898) ([3999e3d](https://github.com/bitnami/charts/commit/3999e3dce59d7774f7cfb5640ec75f4947d1fa2f)), closes [#34898](https://github.com/bitnami/charts/issues/34898)
+
+## <small>5.0.3 (2025-06-30)</small>
+
+* [bitnami/grafana-loki] :zap: :arrow_up: Update dependency references (#34715) ([dfdc532](https://github.com/bitnami/charts/commit/dfdc532e3fecf7662f932ce720e035cd705b09e4)), closes [#34715](https://github.com/bitnami/charts/issues/34715)
+
+## <small>5.0.2 (2025-06-26)</small>
+
+* [bitnami/grafana-loki] :zap: :arrow_up: Update dependency references (#34657) ([06f7005](https://github.com/bitnami/charts/commit/06f7005886729f5173fd5b2be3e475adb5a7015b)), closes [#34657](https://github.com/bitnami/charts/issues/34657)
+
+## <small>5.0.1 (2025-06-13)</small>
+
+* [bitnami/grafana-loki] :zap: :arrow_up: Update dependency references (#34433) ([9c4e353](https://github.com/bitnami/charts/commit/9c4e3537c5eae296d41ac5112a5612547c9ba534)), closes [#34433](https://github.com/bitnami/charts/issues/34433)
+
+## 5.0.0 (2025-06-13)
+
+* [bitnami/grafana-loki] Replace promtail with alloy (#34338) ([be47a45](https://github.com/bitnami/charts/commit/be47a45923483300e4360b1a39c0207dfed3b778)), closes [#34338](https://github.com/bitnami/charts/issues/34338)
+
+## <small>4.8.15 (2025-06-10)</small>
+
+* [bitnami/grafana-loki] :zap: :arrow_up: Update dependency references (#34323) ([efeaa1b](https://github.com/bitnami/charts/commit/efeaa1b851fb106475612293f0def90ecd8860f9)), closes [#34323](https://github.com/bitnami/charts/issues/34323)
+
+## <small>4.8.14 (2025-06-06)</small>
+
+* [bitnami/grafana-loki] :zap: :arrow_up: Update dependency references (#34212) ([f240bfa](https://github.com/bitnami/charts/commit/f240bfa9629882b51c5f8076da5aa5bd764a5080)), closes [#34212](https://github.com/bitnami/charts/issues/34212)
+
+## <small>4.8.13 (2025-06-06)</small>
+
+* [bitnami/grafana-loki] :zap: :arrow_up: Update dependency references (#34165) ([f09e04e](https://github.com/bitnami/charts/commit/f09e04eda65c3fbbd043e796f97f500b994563ad)), closes [#34165](https://github.com/bitnami/charts/issues/34165)
+
+## <small>4.8.12 (2025-05-30)</small>
+
+* [bitnami/grafana-loki] :zap: :arrow_up: Update dependency references (#34000) ([4aca48a](https://github.com/bitnami/charts/commit/4aca48af04bc093f5a78e022b4a3b03cbd47b802)), closes [#34000](https://github.com/bitnami/charts/issues/34000)
+
+## <small>4.8.11 (2025-05-29)</small>
+
+* [bitnami/grafana-loki] :zap: :arrow_up: Update dependency references (#33963) ([bbdcad4](https://github.com/bitnami/charts/commit/bbdcad4aec6ebe286802e039f70fafe7a6670963)), closes [#33963](https://github.com/bitnami/charts/issues/33963)
+
+## <small>4.8.10 (2025-05-22)</small>
+
+* [bitnami/grafana-loki] :zap: :arrow_up: Update dependency references (#33850) ([ec51491](https://github.com/bitnami/charts/commit/ec514912ab46afc3c2bb8f301f8e26f065676a31)), closes [#33850](https://github.com/bitnami/charts/issues/33850)
+
+## <small>4.8.9 (2025-05-19)</small>
+
+* [bitnami/grafana-loki] dataDir value substitution instead of static config (#33668) ([ba11956](https://github.com/bitnami/charts/commit/ba1195649e2085ed8f410add025b7498f8578c50)), closes [#33668](https://github.com/bitnami/charts/issues/33668)
+
+## <small>4.8.8 (2025-05-13)</small>
+
+* [bitnami/grafana-loki] :zap: :arrow_up: Update dependency references (#33632) ([3d2c31e](https://github.com/bitnami/charts/commit/3d2c31e50c1c140229b33cb7f43834f1b3ded3a7)), closes [#33632](https://github.com/bitnami/charts/issues/33632)
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+
+## <small>4.8.7 (2025-05-07)</small>
+
+* [bitnami/grafana-loki] Release 4.8.7 (#33476) ([226fdbc](https://github.com/bitnami/charts/commit/226fdbcdaa03b1ad0a03eca9dfeff5177e20d432)), closes [#33476](https://github.com/bitnami/charts/issues/33476)
+
+## <small>4.8.6 (2025-05-06)</small>
+
+* [bitnami/grafana-loki] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (# ([e2d7ad4](https://github.com/bitnami/charts/commit/e2d7ad49b2ab3ea1d1ed85d8fdae1e8492216308)), closes [#33368](https://github.com/bitnami/charts/issues/33368)
+
+## <small>4.8.5 (2025-04-30)</small>
+
+* [bitnami/grafana-loki] add /otlp/v1/logs as gateway-endpoint for distributor via gateway (#33190) ([130ffd1](https://github.com/bitnami/charts/commit/130ffd163382dffd5762034291203a3ac2792fba)), closes [#33190](https://github.com/bitnami/charts/issues/33190)
+
+## <small>4.8.4 (2025-04-28)</small>
+
+* [bitnami/grafana-loki] Release 4.8.4 (#33208) ([25336fa](https://github.com/bitnami/charts/commit/25336fa2c1a002fd7dc483f726d59bf1d416cae3)), closes [#33208](https://github.com/bitnami/charts/issues/33208)
+
+## <small>4.8.3 (2025-04-25)</small>
+
+* [bitnami/grafana-loki] add missing queryScheduler.enabled parameter (#33072) ([fd1a9e5](https://github.com/bitnami/charts/commit/fd1a9e5ec72680cfc8b0d737785fcc7203e06e1b)), closes [#33072](https://github.com/bitnami/charts/issues/33072)
+
+## <small>4.8.2 (2025-04-23)</small>
+
+* [bitnami/grafana-loki] Release 4.8.2 (#33137) ([844ebb5](https://github.com/bitnami/charts/commit/844ebb5048a830968d9053bad74f89a9a7888f52)), closes [#33137](https://github.com/bitnami/charts/issues/33137)
+
+## <small>4.8.1 (2025-04-23)</small>
+
+* [bitnami/grafana-loki] Release 4.8.1 (#33133) ([61f3ddb](https://github.com/bitnami/charts/commit/61f3ddb44d6ea09b0e64e0f0020e2b7da9479f8a)), closes [#33133](https://github.com/bitnami/charts/issues/33133)
+
+## 4.8.0 (2025-04-16)
+
+* [bitnami/grafana-loki] Add support to override client_max_body_size in nginx (#32955) ([9354dd0](https://github.com/bitnami/charts/commit/9354dd06459286bc49e29c499fe3e4774792a5b2)), closes [#32955](https://github.com/bitnami/charts/issues/32955)
+
+## <small>4.7.10 (2025-04-09)</small>
+
+* [bitnami/grafana-loki] Release 4.7.10 (#32927) ([f530b84](https://github.com/bitnami/charts/commit/f530b844a26186b9c4852af11c582d3df61af5f2)), closes [#32927](https://github.com/bitnami/charts/issues/32927)
+
+## <small>4.7.9 (2025-04-09)</small>
+
+* [bitnami/grafana-loki] Release 4.7.9 (#32903) ([7e2d4dd](https://github.com/bitnami/charts/commit/7e2d4dd7aa5bf57df38325595c8a9ef383dd588c)), closes [#32903](https://github.com/bitnami/charts/issues/32903)
+
+## <small>4.7.8 (2025-04-04)</small>
+
+* [bitnami/grafana-loki] Release 4.7.8 (#32818) ([17c21d4](https://github.com/bitnami/charts/commit/17c21d46945596a7fbb452dd9d54c7b4f8218307)), closes [#32818](https://github.com/bitnami/charts/issues/32818)
+
+## <small>4.7.7 (2025-04-01)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/grafana-loki] Release 4.7.7 (#32733) ([0a73e2b](https://github.com/bitnami/charts/commit/0a73e2bbc57dfa6a0114f40730717a1f79f918f7)), closes [#32733](https://github.com/bitnami/charts/issues/32733)
+
+## <small>4.7.6 (2025-03-05)</small>
+
+* [bitnami/grafana-loki] Release 4.7.6 (#32290) ([b88e4c4](https://github.com/bitnami/charts/commit/b88e4c40285eee65ea33132671cf7de0e27ca0ac)), closes [#32290](https://github.com/bitnami/charts/issues/32290)
+
+## <small>4.7.5 (2025-02-19)</small>
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/grafana-loki] Release 4.7.5 (#31998) ([270b97e](https://github.com/bitnami/charts/commit/270b97e77c02faaf5cc4297a184e1a5ab683ed4b)), closes [#31998](https://github.com/bitnami/charts/issues/31998)
+
+## <small>4.7.4 (2025-02-04)</small>
+
+* [bitnami/grafana-loki] Release 4.7.4 (#31755) ([be0b82c](https://github.com/bitnami/charts/commit/be0b82c2bfab634f0a8bd34bfff69e3d75022cc7)), closes [#31755](https://github.com/bitnami/charts/issues/31755)
+* Update copyright year (#31682) ([e9f02f5](https://github.com/bitnami/charts/commit/e9f02f5007068751f7eb2270fece811e685c99b6)), closes [#31682](https://github.com/bitnami/charts/issues/31682)
 
 ## <small>4.7.3 (2025-01-24)</small>
 

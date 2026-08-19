@@ -1,8 +1,108 @@
 # Changelog
 
-## 23.1.2 (2025-01-28)
+## 26.1.1 (2026-03-06)
 
-* [bitnami/schema-registry] Release 23.1.2 ([#31640](https://github.com/bitnami/charts/pull/31640))
+* [bitnami/schema-registry] Resolve port always being 0 in HTTPRoute resource ([#36477](https://github.com/bitnami/charts/pull/36477))
+
+## 26.1.0 (2026-02-19)
+
+* [bitnami/*] Remove annotations.category (#36224) ([2abc0f9](https://github.com/bitnami/charts/commit/2abc0f9d7e89a5453e57f029c66f581b3d5855ef)), closes [#36224](https://github.com/bitnami/charts/issues/36224)
+* [bitnami/*][TNZ-62332] Modify charts' READMEs title (#36372) ([2012e46](https://github.com/bitnami/charts/commit/2012e46699f555bb1e10134691031975bb5ca50b)), closes [#36372](https://github.com/bitnami/charts/issues/36372)
+* [bitnami/schema-registry] Add support for HTTPRoute resources (#36458) ([a9905ea](https://github.com/bitnami/charts/commit/a9905eabb01e11d669bffecdab1e55475df72eeb)), closes [#36458](https://github.com/bitnami/charts/issues/36458)
+* Change wording in Chart's READMEs (#36379) ([a4ef0a6](https://github.com/bitnami/charts/commit/a4ef0a63877fcf32895869ceef0916c15a4718e5)), closes [#36379](https://github.com/bitnami/charts/issues/36379)
+* Remove TAC sentence present in some READMEs (#36381) ([e07d331](https://github.com/bitnami/charts/commit/e07d3319b61f49ddf6f431da3ed7ec0e0be3d5d0)), closes [#36381](https://github.com/bitnami/charts/issues/36381)
+
+## <small>26.0.5 (2025-08-13)</small>
+
+* [bitnami/schema-registry] Fix Schema Registry with SCRAM-SHA-512 and external MSK fails due to manda ([18d8436](https://github.com/bitnami/charts/commit/18d843613cfa32edb3de20379394985184152cba)), closes [#35772](https://github.com/bitnami/charts/issues/35772)
+
+## <small>26.0.4 (2025-08-07)</small>
+
+* [bitnami/schema-registry] :zap: :arrow_up: Update dependency references (#35675) ([fd44940](https://github.com/bitnami/charts/commit/fd44940e5ae1d5f6fe355662959b32b78bd80de5)), closes [#35675](https://github.com/bitnami/charts/issues/35675)
+
+## <small>26.0.3 (2025-08-01)</small>
+
+* [bitnami/schema-registry] :zap: :arrow_up: Update dependency references (#35383) ([a5ead70](https://github.com/bitnami/charts/commit/a5ead70044125768dd7c76ececa13af12098723b)), closes [#35383](https://github.com/bitnami/charts/issues/35383)
+
+## <small>26.0.2 (2025-07-30)</small>
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/schema-registry] :zap: :arrow_up: Update dependency references (#35344) ([4def43f](https://github.com/bitnami/charts/commit/4def43f5f00c3eba0f7699d7735d5814336dd5a1)), closes [#35344](https://github.com/bitnami/charts/issues/35344)
+
+## <small>26.0.1 (2025-06-30)</small>
+
+* [bitnami/schema-registry] :zap: :arrow_up: Update dependency references (#34721) ([52de879](https://github.com/bitnami/charts/commit/52de879090888f1274c6530818f5f76b228c10ab)), closes [#34721](https://github.com/bitnami/charts/issues/34721)
+
+## 26.0.0 (2025-06-23)
+
+* [bitnami/schema-registry] :zap: :arrow_up: Update dependency references (#34586) ([70c6d74](https://github.com/bitnami/charts/commit/70c6d744a514f02af8237c2a630d65c2231ff81b)), closes [#34586](https://github.com/bitnami/charts/issues/34586)
+
+## <small>25.1.9 (2025-06-18)</small>
+
+* [bitnami/schema-registry] :zap: :arrow_up: Update dependency references (#34551) ([d9e9b0c](https://github.com/bitnami/charts/commit/d9e9b0c0152e2e09344e0502fda10f297500d332)), closes [#34551](https://github.com/bitnami/charts/issues/34551)
+
+## <small>25.1.8 (2025-06-11)</small>
+
+* [bitnami/schema-registry] :zap: :arrow_up: Update dependency references (#34349) ([c4bfe6b](https://github.com/bitnami/charts/commit/c4bfe6b54218417b5a6694b05302ffade5120df1)), closes [#34349](https://github.com/bitnami/charts/issues/34349)
+
+## <small>25.1.7 (2025-06-07)</small>
+
+* [bitnami/schema-registry] Remove duplicate @param entries from chart (#34245) ([9e91a64](https://github.com/bitnami/charts/commit/9e91a64e7c710785319e3617ce76964bfce1ecd3)), closes [#34245](https://github.com/bitnami/charts/issues/34245)
+
+## <small>25.1.6 (2025-05-12)</small>
+
+* [bitnami/schema-registry] :zap: :arrow_up: Update dependency references (#33615) ([67a2ddc](https://github.com/bitnami/charts/commit/67a2ddcc1b699ed3cbfb98122eec26655294c43a)), closes [#33615](https://github.com/bitnami/charts/issues/33615)
+
+## <small>25.1.5 (2025-05-12)</small>
+
+* [bitnami/schema-registry] :zap: :arrow_up: Update dependency references (#33614) ([c02a6c2](https://github.com/bitnami/charts/commit/c02a6c2cfcb8d97599b985367386ef0cc75af794)), closes [#33614](https://github.com/bitnami/charts/issues/33614)
+
+## <small>25.1.4 (2025-05-12)</small>
+
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+* [bitnami/schema-registry] :zap: :arrow_up: Update dependency references (#33603) ([475edf8](https://github.com/bitnami/charts/commit/475edf87dcc2e0bdfb9e0c68984fe9c337e11513)), closes [#33603](https://github.com/bitnami/charts/issues/33603)
+
+## <small>25.1.3 (2025-05-07)</small>
+
+* [bitnami/schema-registry] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references ([4e7a54e](https://github.com/bitnami/charts/commit/4e7a54ee3bf4d18b6801193fc99869087a02fe63)), closes [#33431](https://github.com/bitnami/charts/issues/33431) [#33391](https://github.com/bitnami/charts/issues/33391) [#33397](https://github.com/bitnami/charts/issues/33397) [#33409](https://github.com/bitnami/charts/issues/33409) [#33406](https://github.com/bitnami/charts/issues/33406) [#33414](https://github.com/bitnami/charts/issues/33414) [#33430](https://github.com/bitnami/charts/issues/33430) [#33425](https://github.com/bitnami/charts/issues/33425) [#33450](https://github.com/bitnami/charts/issues/33450) [#33448](https://github.com/bitnami/charts/issues/33448) [#33384](https://github.com/bitnami/charts/issues/33384)
+
+## <small>25.1.2 (2025-04-11)</small>
+
+* [bitnami/schema-registry] Release 25.1.2 (#32975) ([a8d6f60](https://github.com/bitnami/charts/commit/a8d6f602ce1fab4459e308ae1e2236a633356fdd)), closes [#32975](https://github.com/bitnami/charts/issues/32975)
+
+## <small>25.1.1 (2025-04-11)</small>
+
+* Update HPA with statefulset as reference instead of deployment (#32945) ([a313f9f](https://github.com/bitnami/charts/commit/a313f9f2d32f5d6847e75668953d054f819beb15)), closes [#32945](https://github.com/bitnami/charts/issues/32945)
+
+## 25.1.0 (2025-04-04)
+
+* [bitnami/schema-registry] Set `usePasswordFiles=true` by default (#32713) ([c9033c6](https://github.com/bitnami/charts/commit/c9033c64e2a9872b805936416d0a4940ec8ceced)), closes [#32713](https://github.com/bitnami/charts/issues/32713)
+
+## 25.0.0 (2025-03-26)
+
+* [bitnami/schema-registry] feat: bump major due to major bump on Kafka dep (#32618) ([d1bd546](https://github.com/bitnami/charts/commit/d1bd54623e3b6c26ae2358a5295e106b396e3702)), closes [#32618](https://github.com/bitnami/charts/issues/32618)
+
+## 24.0.0 (2025-03-12)
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/schema-registry] Release 24.0.0 (#32424) ([1817445](https://github.com/bitnami/charts/commit/18174456aa09c324493c5e1d08c4b9f3c68891d7)), closes [#32424](https://github.com/bitnami/charts/issues/32424)
+
+## <small>23.1.4 (2025-03-04)</small>
+
+* [bitnami/schema-registry] Release 23.1.4 (#32264) ([3477fc1](https://github.com/bitnami/charts/commit/3477fc14499c31ae4280b0f49bd2b516bcda4c42)), closes [#32264](https://github.com/bitnami/charts/issues/32264)
+
+## <small>23.1.3 (2025-02-21)</small>
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/schema-registry] Release 23.1.3 (#32104) ([bdb8188](https://github.com/bitnami/charts/commit/bdb818815325b07e681d8545df39ec169fe50061)), closes [#32104](https://github.com/bitnami/charts/issues/32104)
+* Update copyright year (#31682) ([e9f02f5](https://github.com/bitnami/charts/commit/e9f02f5007068751f7eb2270fece811e685c99b6)), closes [#31682](https://github.com/bitnami/charts/issues/31682)
+
+## <small>23.1.2 (2025-01-28)</small>
+
+* [bitnami/schema-registry] Release 23.1.2 (#31640) ([4658912](https://github.com/bitnami/charts/commit/465891264547c39d6ef0530c61ba2536308791c7)), closes [#31640](https://github.com/bitnami/charts/issues/31640)
 
 ## <small>23.1.1 (2025-01-13)</small>
 

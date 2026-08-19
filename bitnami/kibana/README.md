@@ -1,6 +1,6 @@
 <!--- app-name: Kibana -->
 
-# Bitnami package for Kibana
+# Bitnami Secure Images Helm chart for Kibana
 
 Kibana is an open source, browser based analytics and search dashboard for Elasticsearch. Kibana strives to be easy to get started with, while also being flexible and powerful.
 
@@ -14,13 +14,26 @@ Trademarks: This software listing is packaged by Bitnami. The respective tradema
 helm install my-release oci://registry-1.docker.io/bitnamicharts/kibana --set elasticsearch.hosts[0]=<Hostname of your ES instance> --set elasticsearch.port=<port of your ES instance>
 ```
 
-Looking to use Kibana in production? Try [VMware Tanzu Application Catalog](https://bitnami.com/enterprise), the commercial edition of the Bitnami catalog.
+## Why use Bitnami Secure Images?
+
+Those are hardened, minimal CVE images built and maintained by Bitnami. Bitnami Secure Images are based on the cloud-optimized, security-hardened enterprise [OS Photon Linux](https://vmware.github.io/photon/). Why choose BSI images?
+
+- Hardened secure images of popular open source software with Near-Zero Vulnerabilities
+- Vulnerability Triage & Prioritization with VEX Statements, KEV and EPSS Scores
+- Compliance focus with FIPS, STIG, and air-gap options, including secure bill of materials (SBOM)
+- Software supply chain provenance attestation through in-toto
+- First class support for the internet’s favorite Helm charts
+
+Each image comes with valuable security metadata. You can view the metadata in [our public catalog here](https://app-catalog.vmware.com/bitnami/apps). Note: Some data is only available with [commercial subscriptions to BSI](https://bitnami.com/).
+
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%201.png?raw=true "Application details")
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%202.png?raw=true "Packaging report")
+
+If you are looking for our previous generation of images based on Debian Linux, please see the [Bitnami Legacy registry](https://hub.docker.com/u/bitnamilegacy).
 
 ## Introduction
 
 This chart bootstraps a [Kibana](https://github.com/bitnami/containers/tree/main/bitnami/kibana) deployment on a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
-
-Bitnami charts can be used with [Kubeapps](https://kubeapps.dev/) for deployment and management of Helm Charts in clusters.
 
 ## Prerequisites
 
@@ -283,6 +296,7 @@ You can enable this initContainer by setting `volumePermissions.enabled` to `tru
 | `commonLabels`           | Labels to add to all deployed objects                                                                     | `{}`            |
 | `extraDeploy`            | A list of extra kubernetes resources to be deployed                                                       | `[]`            |
 | `clusterDomain`          | Kubernetes cluster domain name                                                                            | `cluster.local` |
+| `usePasswordFiles`       | Mount credentials as files instead of using environment variables                                         | `true`          |
 | `diagnosticMode.enabled` | Enable diagnostic mode (all probes will be disabled and the command will be overridden)                   | `false`         |
 | `diagnosticMode.command` | Command to override all containers in the the deployment(s)/statefulset(s)                                | `["sleep"]`     |
 | `diagnosticMode.args`    | Args to override all containers in the the deployment(s)/statefulset(s)                                   | `["infinity"]`  |
@@ -299,6 +313,7 @@ You can enable this initContainer by setting `volumePermissions.enabled` to `tru
 | `image.debug`                                       | Enable %%MAIN_CONTAINER%% image debug mode                                                                                                                                                                                                            | `false`                    |
 | `replicaCount`                                      | Number of replicas of the Kibana Pod                                                                                                                                                                                                                  | `1`                        |
 | `updateStrategy.type`                               | Set up update strategy for Kibana installation.                                                                                                                                                                                                       | `RollingUpdate`            |
+| `revisionHistoryLimit`                              | Number of old replicasets to retain                                                                                                                                                                                                                   | `10`                       |
 | `schedulerName`                                     | Alternative scheduler                                                                                                                                                                                                                                 | `""`                       |
 | `priorityClassName`                                 | %%MAIN_CONTAINER_NAME%% pods' priorityClassName                                                                                                                                                                                                       | `""`                       |
 | `terminationGracePeriodSeconds`                     | In seconds, time the given to the %%MAIN_CONTAINER_NAME%% pod needs to terminate gracefully                                                                                                                                                           | `""`                       |
@@ -308,6 +323,7 @@ You can enable this initContainer by setting `volumePermissions.enabled` to `tru
 | `plugins`                                           | Array containing the Kibana plugins to be installed in deployment                                                                                                                                                                                     | `[]`                       |
 | `savedObjects.urls`                                 | Array containing links to NDJSON files to be imported during Kibana initialization                                                                                                                                                                    | `[]`                       |
 | `savedObjects.configmap`                            | Configmap containing NDJSON files to be imported during Kibana initialization (evaluated as a template)                                                                                                                                               | `""`                       |
+| `savedObjects.overwrite`                            | Overwrite saved objects                                                                                                                                                                                                                               | `false`                    |
 | `extraConfiguration`                                | Extra settings to be added to the default kibana.yml configmap that the chart creates (unless replaced using `configurationCM`). Evaluated as a template                                                                                              | `{}`                       |
 | `configurationCM`                                   | ConfigMap containing a kibana.yml file that will replace the default one specified in configuration.yaml                                                                                                                                              | `""`                       |
 | `command`                                           | Override default container command (useful when using custom images)                                                                                                                                                                                  | `[]`                       |
@@ -381,14 +397,14 @@ You can enable this initContainer by setting `volumePermissions.enabled` to `tru
 | `ingress.enabled`                                   | Enable ingress controller resource                                                                                                                                                                                                                    | `false`                    |
 | `ingress.pathType`                                  | Ingress Path type                                                                                                                                                                                                                                     | `ImplementationSpecific`   |
 | `ingress.apiVersion`                                | Override API Version (automatically detected if not set)                                                                                                                                                                                              | `""`                       |
-| `ingress.hostname`                                  | Default host for the ingress resource. If specified as "*" no host rule is configured                                                                                                                                                                 | `kibana.local`             |
+| `ingress.hostname`                                  | Default host for the ingress resource. Evaluated as a template. If specified as "*" no host rule is configured                                                                                                                                        | `kibana.local`             |
 | `ingress.path`                                      | The Path to Kibana. You may need to set this to '/*' in order to use this with ALB ingress controllers.                                                                                                                                               | `/`                        |
 | `ingress.annotations`                               | Additional annotations for the Ingress resource. To enable certificate autogeneration, place here your cert-manager annotations.                                                                                                                      | `{}`                       |
 | `ingress.tls`                                       | Enable TLS configuration for the hostname defined at ingress.hostname parameter                                                                                                                                                                       | `false`                    |
 | `ingress.selfSigned`                                | Create a TLS secret for this ingress record using self-signed certificates generated by Helm                                                                                                                                                          | `false`                    |
-| `ingress.extraHosts`                                | The list of additional hostnames to be covered with this ingress record.                                                                                                                                                                              | `[]`                       |
-| `ingress.extraPaths`                                | Additional arbitrary path/backend objects                                                                                                                                                                                                             | `[]`                       |
-| `ingress.extraTls`                                  | The tls configuration for additional hostnames to be covered with this ingress record.                                                                                                                                                                | `[]`                       |
+| `ingress.extraHosts`                                | The list of additional hostnames to be covered with this ingress record. Evaluated as a template.                                                                                                                                                     | `[]`                       |
+| `ingress.extraPaths`                                | Additional arbitrary path/backend objects. Evaluated as a template.                                                                                                                                                                                   | `[]`                       |
+| `ingress.extraTls`                                  | The tls configuration for additional hostnames to be covered with this ingress record. Evaluated as a template.                                                                                                                                       | `[]`                       |
 | `ingress.secrets`                                   | If you're providing your own certificates, please use this to add the certificates as secrets                                                                                                                                                         | `[]`                       |
 | `ingress.ingressClassName`                          | IngressClass that will be be used to implement the Ingress (Kubernetes 1.18+)                                                                                                                                                                         | `""`                       |
 | `ingress.extraRules`                                | The list of additional rules to be added to this ingress record. Evaluated as a template                                                                                                                                                              | `[]`                       |

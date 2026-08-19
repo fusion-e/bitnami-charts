@@ -9,7 +9,6 @@
 ## @param global.imageRegistry Global Docker image registry
 ## @param global.imagePullSecrets Global Docker registry secret names as an array
 ## @param global.defaultStorageClass Global default StorageClass for Persistent Volume(s)
-## @param global.storageClass DEPRECATED: use global.defaultStorageClass instead
 ##
 global:
   imageRegistry: ""
@@ -19,7 +18,6 @@ global:
   ##
   imagePullSecrets: []
   defaultStorageClass: ""
-  storageClass: ""
   ## Security parameters
   ##
   security:
@@ -71,7 +69,7 @@ extraDeploy: []
 image:
   registry: docker.io
   repository: bitnami/thanos
-  tag: 0.37.2-debian-12-r5
+  tag: 0.39.2-debian-12-r2
   digest: ""
   ## ref: https://kubernetes.io/docs/concepts/containers/images/#pre-pulled-images
   ##
@@ -617,6 +615,12 @@ query:
       ## @param query.service.headless.annotations Annotations for the headless service.
       ##
       annotations: {}
+    ## @param query.service.ipFamilyPolicy Sets the IP family policy for the Service to be able to configure dual-stack; see [Configure dual-stack](https://kubernetes.io/docs/concepts/services-networking/dual-stack/#services).
+    ##
+    ipFamilyPolicy: ""
+    ## @param query.service.ipFamilies A list of IP families for the Service that should be supported, in the order in which they should be applied. Can be "IPv4" and/or "IPv6".
+    ##
+    ipFamilies: []
   ## Service GRPC parameters
   ##
   serviceGrpc:
@@ -674,6 +678,12 @@ query:
       ## @param query.serviceGrpc.headless.annotations Annotations for the headless service.
       ##
       annotations: {}
+    ## @param query.serviceGrpc.ipFamilyPolicy Sets the IP family policy for the Service to be able to configure dual-stack; see [Configure dual-stack](https://kubernetes.io/docs/concepts/services-networking/dual-stack/#services).
+    ##
+    ipFamilyPolicy: ""
+    ## @param query.serviceGrpc.ipFamilies A list of IP families for the Service that should be supported, in the order in which they should be applied. Can be "IPv4" and/or "IPv6".
+    ##
+    ipFamilies: []
   ## Autoscaling parameters
   ## @param query.automountServiceAccountToken Enable/disable auto mounting of the service account token only for the deployment
   ##
@@ -719,6 +729,8 @@ query:
   ## @param query.autoscaling.targetCPU Target CPU utilization percentage
   ## @param query.autoscaling.targetMemory Target Memory utilization percentage
   ## @param query.autoscaling.targetPodMetrics [array] List of custom pod metrics name and averageValue to evaluate for scaling
+  ## @param query.autoscaling.behavior HPA Behavior
+  ## @param query.externalAutoscaler Specifies whether the Thanos Query deployment is scaled by an external autoscaler
   ## e.g.
   ## targetPodMetrics:
   ## - name: thanos_query_range_query_duration
@@ -733,6 +745,8 @@ query:
     targetCPU: ""
     targetMemory: ""
     targetPodMetrics: []
+    behavior: {}
+  externalAutoscaler: false
   ## Thanos Query Pod Disruption Budget configuration
   ## ref: https://kubernetes.io/docs/tasks/run-application/configure-pdb
   ## @param query.pdb.create Enable/disable a Pod Disruption Budget creation for Thanos Query
@@ -761,6 +775,13 @@ query:
     ## ref: https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/
     ##
     ingressClassName: ""
+    ## @param query.ingress.labels Additional label for the Ingress resource.
+    ## Use this parameter to set the required labels for your needs
+    ## e.g:
+    ## labels:
+    ##   dns-managed-by-external-dns: 'true'
+    ##
+    labels: {}
     ## @param query.ingress.annotations Additional annotations for the Ingress resource. To enable certificate autogeneration, place here your cert-manager annotations.
     ## For a full list of possible ingress annotations, please see
     ## ref: https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/nginx-configuration/annotations.md
@@ -938,6 +959,72 @@ query:
       ## @param query.ingress.grpc.pathType Ingress Path type
       ##
       pathType: ImplementationSpecific
+  ## Configure Thanos Query HTTPRoute
+  ## ref: https://gateway-api.sigs.k8s.io/api-types/httproute/
+  ##
+  httpRoute:
+    ## @param query.httpRoute.enabled Enable the creation of HTTPRoute resource for Thanos Query
+    ##
+    enabled: false
+    ## @param query.httpRoute.annotations Additional annotations for the HTTPRoute resource
+    ##
+    annotations: {}
+    ## @param query.httpRoute.labels Additional labels for the HTTPRoute resource
+    ##
+    labels: {}
+    ## @param query.httpRoute.parentRefs List of parent Gateway references this HTTPRoute should attach to
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#parentreference
+    ## e.g:
+    ## parentRefs:
+    ##   - name: gateway
+    ##     namespace: gateway-system
+    ##     sectionName: https
+    ##
+    parentRefs: []
+    ## @param query.httpRoute.hostnames List of hostnames to be covered by this HTTPRoute
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#hostname
+    ##
+    hostnames:
+      - query.thanos.local
+    ## @param query.httpRoute.matches[0].path.type HTTPRoute path match type (Exact, PathPrefix, or RegularExpression)
+    ## @param query.httpRoute.matches[0].path.value HTTPRoute path match value
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#httprouterule
+    ##
+    matches:
+      - path:
+          type: PathPrefix
+          value: /
+    ## @param query.httpRoute.filters HTTPRoute filters for request/response manipulation
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#httproutefilter
+    ## e.g:
+    ## filters:
+    ##   - type: RequestHeaderModifier
+    ##     requestHeaderModifier:
+    ##       add:
+    ##         - name: X-Forwarded-Proto
+    ##           value: https
+    ##
+    filters: []
+    ## @param query.httpRoute.timeouts Timeout configuration for the HTTPRoute
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#httproutetimeouts
+    ## e.g:
+    ## timeouts:
+    ##   request: 30s
+    ##   backendRequest: 10s
+    ##
+    timeouts: {}
+    ## @param query.httpRoute.extraRules Additional custom rules to append to the HTTPRoute
+    ## e.g:
+    ## extraRules:
+    ##   - backendRefs:
+    ##       - name: other-service
+    ##         port: 9090
+    ##     matches:
+    ##       - path:
+    ##           type: PathPrefix
+    ##           value: /api
+    ##
+    extraRules: []
 ## @section Thanos Query Frontend parameters
 queryFrontend:
   ## @param queryFrontend.enabled Enable/disable Thanos Query Frontend component
@@ -1316,6 +1403,12 @@ queryFrontend:
     ## @param queryFrontend.service.labelSelectorsOverride Selector for Thanos Query service
     ##
     labelSelectorsOverride: {}
+    ## @param queryFrontend.service.ipFamilyPolicy Sets the IP family policy for the Service to be able to configure dual-stack; see [Configure dual-stack](https://kubernetes.io/docs/concepts/services-networking/dual-stack/#services).
+    ##
+    ipFamilyPolicy: ""
+    ## @param queryFrontend.service.ipFamilies A list of IP families for the Service that should be supported, in the order in which they should be applied. Can be "IPv4" and/or "IPv6".
+    ##
+    ipFamilies: []
   ## @param queryFrontend.automountServiceAccountToken Enable/disable auto mounting of the service account token only for the deployment
   ##
   automountServiceAccountToken: true
@@ -1359,6 +1452,8 @@ queryFrontend:
   ## @param queryFrontend.autoscaling.maxReplicas Maximum number of Thanos Query Frontend replicas
   ## @param queryFrontend.autoscaling.targetCPU Target CPU utilization percentage
   ## @param queryFrontend.autoscaling.targetMemory Target Memory utilization percentage
+  ## @param queryFrontend.autoscaling.behavior HPA Behavior
+  ## @param queryFrontend.externalAutoscaler Specifies whether the Thanos Query Frontend deployment is scaled by an external autoscaler
   ##
   autoscaling:
     enabled: false
@@ -1366,6 +1461,8 @@ queryFrontend:
     maxReplicas: ""
     targetCPU: ""
     targetMemory: ""
+    behavior: {}
+  externalAutoscaler: false
   ## Thanos Query Frontend Pod Disruption Budget configuration
   ## ref: https://kubernetes.io/docs/tasks/run-application/configure-pdb
   ## @param queryFrontend.pdb.create Enable/disable a Pod Disruption Budget creation for Thanos Query Frontend
@@ -1395,6 +1492,13 @@ queryFrontend:
     ## ref: https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/
     ##
     ingressClassName: ""
+    ## @param queryFrontend.ingress.labels Additional label for the Ingress resource.
+    ## Use this parameter to set the required labels for your needs
+    ## e.g:
+    ## labels:
+    ##   dns-managed-by-external-dns: 'true'
+    ##
+    labels: {}
     ## @param queryFrontend.ingress.annotations Additional annotations for the Ingress resource. To enable certificate autogeneration, place here your cert-manager annotations.
     ## For a full list of possible ingress annotations, please see
     ## ref: https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/nginx-configuration/annotations.md
@@ -1472,6 +1576,72 @@ queryFrontend:
     ## @param queryFrontend.ingress.pathType Ingress path type
     ##
     pathType: ImplementationSpecific
+  ## Configure Thanos QueryFrontend HTTPRoute
+  ## ref: https://gateway-api.sigs.k8s.io/api-types/httproute/
+  ##
+  httpRoute:
+    ## @param queryFrontend.httpRoute.enabled Enable the creation of HTTPRoute resource for Thanos QueryFrontend
+    ##
+    enabled: false
+    ## @param queryFrontend.httpRoute.annotations Additional annotations for the HTTPRoute resource
+    ##
+    annotations: {}
+    ## @param queryFrontend.httpRoute.labels Additional labels for the HTTPRoute resource
+    ##
+    labels: {}
+    ## @param queryFrontend.httpRoute.parentRefs List of parent Gateway references this HTTPRoute should attach to
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#parentreference
+    ## e.g:
+    ## parentRefs:
+    ##   - name: gateway
+    ##     namespace: gateway-system
+    ##     sectionName: https
+    ##
+    parentRefs: []
+    ## @param queryFrontend.httpRoute.hostnames List of hostnames to be covered by this HTTPRoute
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#hostname
+    ##
+    hostnames:
+      - query-frontend.thanos.local
+    ## @param queryFrontend.httpRoute.matches[0].path.type HTTPRoute path match type (Exact, PathPrefix, or RegularExpression)
+    ## @param queryFrontend.httpRoute.matches[0].path.value HTTPRoute path match value
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#httprouterule
+    ##
+    matches:
+      - path:
+          type: PathPrefix
+          value: /
+    ## @param queryFrontend.httpRoute.filters HTTPRoute filters for request/response manipulation
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#httproutefilter
+    ## e.g:
+    ## filters:
+    ##   - type: RequestHeaderModifier
+    ##     requestHeaderModifier:
+    ##       add:
+    ##         - name: X-Forwarded-Proto
+    ##           value: https
+    ##
+    filters: []
+    ## @param queryFrontend.httpRoute.timeouts Timeout configuration for the HTTPRoute
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#httproutetimeouts
+    ## e.g:
+    ## timeouts:
+    ##   request: 30s
+    ##   backendRequest: 10s
+    ##
+    timeouts: {}
+    ## @param queryFrontend.httpRoute.extraRules Additional custom rules to append to the HTTPRoute
+    ## e.g:
+    ## extraRules:
+    ##   - backendRefs:
+    ##       - name: other-service
+    ##         port: 9090
+    ##     matches:
+    ##       - path:
+    ##           type: PathPrefix
+    ##           value: /api
+    ##
+    extraRules: []
 ## @section Thanos Bucket Web parameters
 bucketweb:
   ## @param bucketweb.enabled Enable/disable Thanos Bucket Web component
@@ -1846,6 +2016,12 @@ bucketweb:
     ## @param bucketweb.service.labelSelectorsOverride Selector for Thanos Query service
     ##
     labelSelectorsOverride: {}
+    ## @param bucketweb.service.ipFamilyPolicy Sets the IP family policy for the Service to be able to configure dual-stack; see [Configure dual-stack](https://kubernetes.io/docs/concepts/services-networking/dual-stack/#services).
+    ##
+    ipFamilyPolicy: ""
+    ## @param bucketweb.service.ipFamilies A list of IP families for the Service that should be supported, in the order in which they should be applied. Can be "IPv4" and/or "IPv6".
+    ##
+    ipFamilies: []
   ## @param bucketweb.automountServiceAccountToken Enable/disable auto mounting of the service account token only for the deployment
   ##
   automountServiceAccountToken: true
@@ -1867,6 +2043,8 @@ bucketweb:
   ## @param bucketweb.autoscaling.maxReplicas Maximum number of Thanos Bucket Web replicas
   ## @param bucketweb.autoscaling.targetCPU Target CPU utilization percentage
   ## @param bucketweb.autoscaling.targetMemory Target Memory utilization percentage
+  ## @param bucketweb.autoscaling.behavior HPA Behavior
+  ## @param bucketweb.externalAutoscaler Specifies whether the Thanos Bucket Web deployment is scaled by an external autoscaler
   ##
   autoscaling:
     enabled: false
@@ -1874,6 +2052,8 @@ bucketweb:
     maxReplicas: ""
     targetCPU: ""
     targetMemory: ""
+    behavior: {}
+  externalAutoscaler: false
   ## Thanos Bucket Web Pod Disruption Budget configuration
   ## ref: https://kubernetes.io/docs/tasks/run-application/configure-pdb
   ## @param bucketweb.pdb.create Enable/disable a Pod Disruption Budget creation for Thanos Bucket Web
@@ -1899,6 +2079,13 @@ bucketweb:
     ## ref: https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/
     ##
     ingressClassName: ""
+    ## @param bucketweb.ingress.labels Additional label for the Ingress resource.
+    ## Use this parameter to set the required labels for your needs
+    ## e.g:
+    ## labels:
+    ##   dns-managed-by-external-dns: 'true'
+    ##
+    labels: {}
     ## @param bucketweb.ingress.annotations Additional annotations for the Ingress resource. To enable certificate autogeneration, place here your cert-manager annotations.
     ## For a full list of possible ingress annotations, please see
     ## ref: https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/nginx-configuration/annotations.md
@@ -1976,6 +2163,72 @@ bucketweb:
     ## @param bucketweb.ingress.pathType Ingress path type
     ##
     pathType: ImplementationSpecific
+  ## Configure Thanos Bucketweb HTTPRoute
+  ## ref: https://gateway-api.sigs.k8s.io/api-types/httproute/
+  ##
+  httpRoute:
+    ## @param bucketweb.httpRoute.enabled Enable the creation of HTTPRoute resource for Thanos Bucketweb
+    ##
+    enabled: false
+    ## @param bucketweb.httpRoute.annotations Additional annotations for the HTTPRoute resource
+    ##
+    annotations: {}
+    ## @param bucketweb.httpRoute.labels Additional labels for the HTTPRoute resource
+    ##
+    labels: {}
+    ## @param bucketweb.httpRoute.parentRefs List of parent Gateway references this HTTPRoute should attach to
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#parentreference
+    ## e.g:
+    ## parentRefs:
+    ##   - name: gateway
+    ##     namespace: gateway-system
+    ##     sectionName: https
+    ##
+    parentRefs: []
+    ## @param bucketweb.httpRoute.hostnames List of hostnames to be covered by this HTTPRoute
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#hostname
+    ##
+    hostnames:
+      - bucketweb.thanos.local
+    ## @param bucketweb.httpRoute.matches[0].path.type HTTPRoute path match type (Exact, PathPrefix, or RegularExpression)
+    ## @param bucketweb.httpRoute.matches[0].path.value HTTPRoute path match value
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#httprouterule
+    ##
+    matches:
+      - path:
+          type: PathPrefix
+          value: /
+    ## @param bucketweb.httpRoute.filters HTTPRoute filters for request/response manipulation
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#httproutefilter
+    ## e.g:
+    ## filters:
+    ##   - type: RequestHeaderModifier
+    ##     requestHeaderModifier:
+    ##       add:
+    ##         - name: X-Forwarded-Proto
+    ##           value: https
+    ##
+    filters: []
+    ## @param bucketweb.httpRoute.timeouts Timeout configuration for the HTTPRoute
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#httproutetimeouts
+    ## e.g:
+    ## timeouts:
+    ##   request: 30s
+    ##   backendRequest: 10s
+    ##
+    timeouts: {}
+    ## @param bucketweb.httpRoute.extraRules Additional custom rules to append to the HTTPRoute
+    ## e.g:
+    ## extraRules:
+    ##   - backendRefs:
+    ##       - name: other-service
+    ##         port: 8080
+    ##     matches:
+    ##       - path:
+    ##           type: PathPrefix
+    ##           value: /api
+    ##
+    extraRules: []
 ## @section Thanos Compactor parameters
 compactor:
   ## @param compactor.enabled Enable/disable Thanos Compactor component
@@ -2249,6 +2502,10 @@ compactor:
   ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
   ##
   podAnnotations: {}
+  ## @param compactor.deploymentAnnotations Thanos Compactor deployment annotations
+  ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+  ##
+  deploymentAnnotations: {}
   ## @param compactor.dnsConfig Deployment pod DNS config
   ## ref: https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/
   ## E.g.
@@ -2387,6 +2644,12 @@ compactor:
     ## @param compactor.service.labelSelectorsOverride Selector for Thanos Query service
     ##
     labelSelectorsOverride: {}
+    ## @param compactor.service.ipFamilyPolicy Sets the IP family policy for the Service to be able to configure dual-stack; see [Configure dual-stack](https://kubernetes.io/docs/concepts/services-networking/dual-stack/#services).
+    ##
+    ipFamilyPolicy: ""
+    ## @param compactor.service.ipFamilies A list of IP families for the Service that should be supported, in the order in which they should be applied. Can be "IPv4" and/or "IPv6".
+    ##
+    ipFamilies: []
   ## @param compactor.automountServiceAccountToken Enable/disable auto mounting of the service account token only for the deployment
   ##
   automountServiceAccountToken: true
@@ -2416,6 +2679,13 @@ compactor:
     ## ref: https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/
     ##
     ingressClassName: ""
+    ## @param compactor.ingress.labels Additional label for the Ingress resource.
+    ## Use this parameter to set the required labels for your needs
+    ## e.g:
+    ## labels:
+    ##   dns-managed-by-external-dns: 'true'
+    ##
+    labels: {}
     ## @param compactor.ingress.annotations Additional annotations for the Ingress resource. To enable certificate autogeneration, place here your cert-manager annotations.
     ## For a full list of possible ingress annotations, please see
     ## ref: https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/nginx-configuration/annotations.md
@@ -2493,6 +2763,72 @@ compactor:
     ## @param compactor.ingress.pathType Ingress path type
     ##
     pathType: ImplementationSpecific
+  ## Configure Thanos Compactor HTTPRoute
+  ## ref: https://gateway-api.sigs.k8s.io/api-types/httproute/
+  ##
+  httpRoute:
+    ## @param compactor.httpRoute.enabled Enable the creation of HTTPRoute resource for Thanos Compactor
+    ##
+    enabled: false
+    ## @param compactor.httpRoute.annotations Additional annotations for the HTTPRoute resource
+    ##
+    annotations: {}
+    ## @param compactor.httpRoute.labels Additional labels for the HTTPRoute resource
+    ##
+    labels: {}
+    ## @param compactor.httpRoute.parentRefs List of parent Gateway references this HTTPRoute should attach to
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#parentreference
+    ## e.g:
+    ## parentRefs:
+    ##   - name: gateway
+    ##     namespace: gateway-system
+    ##     sectionName: https
+    ##
+    parentRefs: []
+    ## @param compactor.httpRoute.hostnames List of hostnames to be covered by this HTTPRoute
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#hostname
+    ##
+    hostnames:
+      - compactor.thanos.local
+    ## @param compactor.httpRoute.matches[0].path.type HTTPRoute path match type (Exact, PathPrefix, or RegularExpression)
+    ## @param compactor.httpRoute.matches[0].path.value HTTPRoute path match value
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#httprouterule
+    ##
+    matches:
+      - path:
+          type: PathPrefix
+          value: /
+    ## @param compactor.httpRoute.filters HTTPRoute filters for request/response manipulation
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#httproutefilter
+    ## e.g:
+    ## filters:
+    ##   - type: RequestHeaderModifier
+    ##     requestHeaderModifier:
+    ##       add:
+    ##         - name: X-Forwarded-Proto
+    ##           value: https
+    ##
+    filters: []
+    ## @param compactor.httpRoute.timeouts Timeout configuration for the HTTPRoute
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#httproutetimeouts
+    ## e.g:
+    ## timeouts:
+    ##   request: 30s
+    ##   backendRequest: 10s
+    ##
+    timeouts: {}
+    ## @param compactor.httpRoute.extraRules Additional custom rules to append to the HTTPRoute
+    ## e.g:
+    ## extraRules:
+    ##   - backendRefs:
+    ##       - name: other-service
+    ##         port: 9090
+    ##     matches:
+    ##       - path:
+    ##           type: PathPrefix
+    ##           value: /api
+    ##
+    extraRules: []
   ## Persistence parameters
   ##
   persistence:
@@ -2810,6 +3146,14 @@ storegateway:
   ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
   ##
   podAnnotations: {}
+  ## @param storegateway.statefulsetLabels Thanos Store Gateway statefulset labels
+  ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+  ##
+  statefulsetLabels: {}
+  ## @param storegateway.statefulsetAnnotations Thanos Store Gateway statefulset annotations
+  ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+  ##
+  statefulsetAnnotations: {}
   ## @param storegateway.dnsConfig Deployment pod DNS config
   ## ref: https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/
   ## E.g.
@@ -2961,6 +3305,12 @@ storegateway:
       ## @param storegateway.service.headless.annotations Annotations for the headless service.
       ##
       annotations: {}
+    ## @param storegateway.service.ipFamilyPolicy Sets the IP family policy for the Service to be able to configure dual-stack; see [Configure dual-stack](https://kubernetes.io/docs/concepts/services-networking/dual-stack/#services).
+    ##
+    ipFamilyPolicy: ""
+    ## @param storegateway.service.ipFamilies A list of IP families for the Service that should be supported, in the order in which they should be applied. Can be "IPv4" and/or "IPv6".
+    ##
+    ipFamilies: []
   ## Persistence parameters
   ##
   persistence:
@@ -3025,6 +3375,8 @@ storegateway:
   ## @param storegateway.autoscaling.maxReplicas Maximum number of Thanos Store Gateway replicas
   ## @param storegateway.autoscaling.targetCPU Target CPU utilization percentage
   ## @param storegateway.autoscaling.targetMemory Target Memory utilization percentage
+  ## @param storegateway.autoscaling.behavior HPA Behavior
+  ## @param storegateway.externalAutoscaler Specifies whether the Thanos Store Gateway statefulset is scaled by an external autoscaler
   ##
   autoscaling:
     enabled: false
@@ -3032,6 +3384,8 @@ storegateway:
     maxReplicas: ""
     targetCPU: ""
     targetMemory: ""
+    behavior: {}
+  externalAutoscaler: false
   ## Thanos Store Gateway Pod Disruption Budget configuration
   ## ref: https://kubernetes.io/docs/tasks/run-application/configure-pdb
   ## @param storegateway.pdb.create Enable/disable a Pod Disruption Budget creation for Thanos Store Gateway
@@ -3057,6 +3411,13 @@ storegateway:
     ## ref: https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/
     ##
     ingressClassName: ""
+    ## @param storegateway.ingress.labels Additional label for the Ingress resource.
+    ## Use this parameter to set the required labels for your needs
+    ## e.g:
+    ## labels:
+    ##   dns-managed-by-external-dns: 'true'
+    ##
+    labels: {}
     ## @param storegateway.ingress.annotations Additional annotations for the Ingress resource. To enable certificate autogeneration, place here your cert-manager annotations.
     ## For a full list of possible ingress annotations, please see
     ## ref: https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/nginx-configuration/annotations.md
@@ -3231,6 +3592,72 @@ storegateway:
       ## @param storegateway.ingress.grpc.pathType Ingress Path type
       ##
       pathType: ImplementationSpecific
+  ## Configure Thanos Storegateway HTTPRoute
+  ## ref: https://gateway-api.sigs.k8s.io/api-types/httproute/
+  ##
+  httpRoute:
+    ## @param storegateway.httpRoute.enabled Enable the creation of HTTPRoute resource for Thanos Storegateway
+    ##
+    enabled: false
+    ## @param storegateway.httpRoute.annotations Additional annotations for the HTTPRoute resource
+    ##
+    annotations: {}
+    ## @param storegateway.httpRoute.labels Additional labels for the HTTPRoute resource
+    ##
+    labels: {}
+    ## @param storegateway.httpRoute.parentRefs List of parent Gateway references this HTTPRoute should attach to
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#parentreference
+    ## e.g:
+    ## parentRefs:
+    ##   - name: gateway
+    ##     namespace: gateway-system
+    ##     sectionName: https
+    ##
+    parentRefs: []
+    ## @param storegateway.httpRoute.hostnames List of hostnames to be covered by this HTTPRoute
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#hostname
+    ##
+    hostnames:
+      - storegateway.thanos.local
+    ## @param storegateway.httpRoute.matches[0].path.type HTTPRoute path match type (Exact, PathPrefix, or RegularExpression)
+    ## @param storegateway.httpRoute.matches[0].path.value HTTPRoute path match value
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#httprouterule
+    ##
+    matches:
+      - path:
+          type: PathPrefix
+          value: /
+    ## @param storegateway.httpRoute.filters HTTPRoute filters for request/response manipulation
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#httproutefilter
+    ## e.g:
+    ## filters:
+    ##   - type: RequestHeaderModifier
+    ##     requestHeaderModifier:
+    ##       add:
+    ##         - name: X-Forwarded-Proto
+    ##           value: https
+    ##
+    filters: []
+    ## @param storegateway.httpRoute.timeouts Timeout configuration for the HTTPRoute
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#httproutetimeouts
+    ## e.g:
+    ## timeouts:
+    ##   request: 30s
+    ##   backendRequest: 10s
+    ##
+    timeouts: {}
+    ## @param storegateway.httpRoute.extraRules Additional custom rules to append to the HTTPRoute
+    ## e.g:
+    ## extraRules:
+    ##   - backendRefs:
+    ##       - name: other-service
+    ##         port: 9090
+    ##     matches:
+    ##       - path:
+    ##           type: PathPrefix
+    ##           value: /api
+    ##
+    extraRules: []
   ## Sharded parameters
   ## @param storegateway.sharded.enabled Enable sharding for Thanos Store Gateway
   ## @param storegateway.sharded.hashPartitioning.shards Setting hashPartitioning will create multiple store statefulsets based on the number of shards specified using the hashmod of the blocks
@@ -3241,6 +3668,25 @@ storegateway:
   ##     source_labels: ["region"]
   ##     regex: cn-zhangjiakou
   ## @param storegateway.sharded.timePartitioning [array] Setting time timePartitioning will create multiple store deployments based on the number of partitions
+  ## Each `timePartitioning` entry may also set per-shard `resources` and `extraFlags`:
+  ##   - `resources` (dict) overrides `storegateway.resources` for this shard only.
+  ##   - `extraFlags` (list) is appended to the global `storegateway.extraFlags` for this shard.
+  ## The shard index is available as `.shardLoopId` inside `affinity`, `nodeSelector`,
+  ## `tolerations`, `topologySpreadConstraints`, and `extraFlags` values, so per-shard
+  ## selectors can be expressed with templated labels.
+  ## e.g:
+  ## timePartitioning:
+  ##   - min: "-30d"
+  ##     max: ""
+  ##     resources:
+  ##       requests:
+  ##         memory: 4Gi
+  ##       limits:
+  ##         memory: 6Gi
+  ##     extraFlags:
+  ##       - --store.index-header-lazy-reader-idle-timeout=24h
+  ##   - min: ""
+  ##     max: "-30d"
   ## @param storegateway.sharded.service.clusterIPs Array of cluster IPs for each Store Gateway service. Length must be the same as the number of shards
   ## e.g:
   ## clusterIPs:
@@ -3318,7 +3764,7 @@ ruler:
   ##       timeout: 10s
   ##       api_version: v2
   ##
-  alertmanagersConfig: ""
+  alertmanagersConfig: {}
   ## @param ruler.evalInterval The default evaluation interval to use
   ##
   evalInterval: 1m
@@ -3567,6 +4013,14 @@ ruler:
   ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
   ##
   podAnnotations: {}
+  ## @param ruler.statefulsetLabels Thanos Ruler statefulset labels
+  ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+  ##
+  statefulsetLabels: {}
+  ## @param ruler.statefulsetAnnotations Thanos Ruler statefulset annotations
+  ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+  ##
+  statefulsetAnnotations: {}
   ## @param ruler.dnsConfig Deployment pod DNS config
   ## ref: https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/
   ## E.g.
@@ -3718,6 +4172,12 @@ ruler:
       ## @param ruler.service.headless.annotations Annotations for the headless service.
       ##
       annotations: {}
+    ## @param ruler.service.ipFamilyPolicy Sets the IP family policy for the Service to be able to configure dual-stack; see [Configure dual-stack](https://kubernetes.io/docs/concepts/services-networking/dual-stack/#services).
+    ##
+    ipFamilyPolicy: ""
+    ## @param ruler.service.ipFamilies A list of IP families for the Service that should be supported, in the order in which they should be applied. Can be "IPv4" and/or "IPv6".
+    ##
+    ipFamilies: []
   ## Persistence parameters
   ##
   persistence:
@@ -3779,6 +4239,8 @@ ruler:
   ## @param ruler.autoscaling.maxReplicas Maximum number of Thanos Ruler replicas
   ## @param ruler.autoscaling.targetCPU Target CPU utilization percentage
   ## @param ruler.autoscaling.targetMemory Target Memory utilization percentage
+  ## @param ruler.autoscaling.behavior HPA Behavior
+  ## @param ruler.externalAutoscaler Specifies whether the Thanos Ruler statefulset is scaled by an external autoscaler
   ##
   autoscaling:
     enabled: false
@@ -3786,6 +4248,8 @@ ruler:
     maxReplicas: ""
     targetCPU: ""
     targetMemory: ""
+    behavior: {}
+  externalAutoscaler: false
   ## Thanos Ruler Pod Disruption Budget configuration
   ## ref: https://kubernetes.io/docs/tasks/run-application/configure-pdb
   ## @param ruler.pdb.create Enable/disable a Pod Disruption Budget creation for Thanos Ruler
@@ -3811,6 +4275,13 @@ ruler:
     ## ref: https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/
     ##
     ingressClassName: ""
+    ## @param ruler.ingress.labels Additional label for the Ingress resource.
+    ## Use this parameter to set the required labels for your needs
+    ## e.g:
+    ## labels:
+    ##   dns-managed-by-external-dns: 'true'
+    ##
+    labels: {}
     ## @param ruler.ingress.annotations Additional annotations for the Ingress resource. To enable certificate autogeneration, place here your cert-manager annotations.
     ## For a full list of possible ingress annotations, please see
     ## ref: https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/nginx-configuration/annotations.md
@@ -3877,6 +4348,72 @@ ruler:
     ## @param ruler.ingress.pathType Ingress path type
     ##
     pathType: ImplementationSpecific
+  ## Configure Thanos Ruler Route
+  ## ref: https://gateway-api.sigs.k8s.io/api-types/httproute/
+  ##
+  httpRoute:
+    ## @param ruler.httpRoute.enabled Enable the creation of HTTPRoute resource for Thanos Ruler
+    ##
+    enabled: false
+    ## @param ruler.httpRoute.annotations Additional annotations for the HTTPRoute resource
+    ##
+    annotations: {}
+    ## @param ruler.httpRoute.labels Additional labels for the HTTPRoute resource
+    ##
+    labels: {}
+    ## @param ruler.httpRoute.parentRefs List of parent Gateway references this HTTPRoute should attach to
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#parentreference
+    ## e.g:
+    ## parentRefs:
+    ##   - name: gateway
+    ##     namespace: gateway-system
+    ##     sectionName: https
+    ##
+    parentRefs: []
+    ## @param ruler.httpRoute.hostnames List of hostnames to be covered by this HTTPRoute
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#hostname
+    ##
+    hostnames:
+      - ruler.thanos.local
+    ## @param ruler.httpRoute.matches[0].path.type HTTPRoute path match type (Exact, PathPrefix, or RegularExpression)
+    ## @param ruler.httpRoute.matches[0].path.value HTTPRoute path match value
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#httprouterule
+    ##
+    matches:
+      - path:
+          type: PathPrefix
+          value: /
+    ## @param ruler.httpRoute.filters HTTPRoute filters for request/response manipulation
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#httproutefilter
+    ## e.g:
+    ## filters:
+    ##   - type: RequestHeaderModifier
+    ##     requestHeaderModifier:
+    ##       add:
+    ##         - name: X-Forwarded-Proto
+    ##           value: https
+    ##
+    filters: []
+    ## @param ruler.httpRoute.timeouts Timeout configuration for the HTTPRoute
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#httproutetimeouts
+    ## e.g:
+    ## timeouts:
+    ##   request: 30s
+    ##   backendRequest: 10s
+    ##
+    timeouts: {}
+    ## @param ruler.httpRoute.extraRules Additional custom rules to append to the HTTPRoute
+    ## e.g:
+    ## extraRules:
+    ##   - backendRefs:
+    ##       - name: other-service
+    ##         port: 9090
+    ##     matches:
+    ##       - path:
+    ##           type: PathPrefix
+    ##           value: /api
+    ##
+    extraRules: []
 ## @section Thanos Receive parameters
 receive:
   ## @param receive.enabled Enable/disable Thanos Receive component
@@ -4185,6 +4722,10 @@ receive:
   ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
   ##
   statefulsetLabels: {}
+  ## @param receive.statefulsetAnnotations Thanos Receive statefulset annotations
+  ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+  ##
+  statefulsetAnnotations: {}
   ## @param receive.podLabels Thanos Receive pod labels
   ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
   ##
@@ -4354,6 +4895,12 @@ receive:
       ## @param receive.service.headless.annotations Annotations for the headless service.
       ##
       annotations: {}
+    ## @param receive.service.ipFamilyPolicy Sets the IP family policy for the Service to be able to configure dual-stack; see [Configure dual-stack](https://kubernetes.io/docs/concepts/services-networking/dual-stack/#services).
+    ##
+    ipFamilyPolicy: ""
+    ## @param receive.service.ipFamilies A list of IP families for the Service that should be supported, in the order in which they should be applied. Can be "IPv4" and/or "IPv6".
+    ##
+    ipFamilies: []
   ## @param receive.automountServiceAccountToken Enable/disable auto mounting of the service account token only for the sts
   ##
   automountServiceAccountToken: true
@@ -4375,6 +4922,8 @@ receive:
   ## @param receive.autoscaling.maxReplicas Maximum number of Thanos Receive replicas
   ## @param receive.autoscaling.targetCPU Target CPU utilization percentage
   ## @param receive.autoscaling.targetMemory Target Memory utilization percentage
+  ## @param receive.autoscaling.behavior HPA Behavior
+  ## @param receive.externalAutoscaler Specifies whether the Thanos Receive statefulset is scaled by an external autoscaler
   ##
   autoscaling:
     enabled: false
@@ -4382,6 +4931,8 @@ receive:
     maxReplicas: ""
     targetCPU: ""
     targetMemory: ""
+    behavior: {}
+  externalAutoscaler: false
   ## Thanos Receive Pod Disruption Budget configuration
   ## ref: https://kubernetes.io/docs/tasks/run-application/configure-pdb
   ## @param receive.pdb.create Enable/disable a Pod Disruption Budget creation for Thanos Receive
@@ -4450,6 +5001,13 @@ receive:
     ## ref: https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/
     ##
     ingressClassName: ""
+    ## @param receive.ingress.labels Additional label for the Ingress resource.
+    ## Use this parameter to set the required labels for your needs
+    ## e.g:
+    ## labels:
+    ##   dns-managed-by-external-dns: 'true'
+    ##
+    labels: {}
     ## @param receive.ingress.annotations Additional annotations for the Ingress resource. To enable certificate autogeneration, place here your cert-manager annotations.
     ## For a full list of possible ingress annotations, please see
     ## ref: https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/nginx-configuration/annotations.md
@@ -4528,6 +5086,72 @@ receive:
     ## @param receive.ingress.pathType Ingress Path type
     ##
     pathType: ImplementationSpecific
+  ## Configure Thanos Receive Route
+  ## ref: https://gateway-api.sigs.k8s.io/api-types/httproute/
+  ##
+  httpRoute:
+    ## @param receive.httpRoute.enabled Enable the creation of HTTPRoute resource for Thanos Receive
+    ##
+    enabled: false
+    ## @param receive.httpRoute.annotations Additional annotations for the HTTPRoute resource
+    ##
+    annotations: {}
+    ## @param receive.httpRoute.labels Additional labels for the HTTPRoute resource
+    ##
+    labels: {}
+    ## @param receive.httpRoute.parentRefs List of parent Gateway references this HTTPRoute should attach to
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#parentreference
+    ## e.g:
+    ## parentRefs:
+    ##   - name: gateway
+    ##     namespace: gateway-system
+    ##     sectionName: https
+    ##
+    parentRefs: []
+    ## @param receive.httpRoute.hostnames List of hostnames to be covered by this HTTPRoute
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#hostname
+    ##
+    hostnames:
+      - receive.thanos.local
+    ## @param receive.httpRoute.matches[0].path.type HTTPRoute path match type (Exact, PathPrefix, or RegularExpression)
+    ## @param receive.httpRoute.matches[0].path.value HTTPRoute path match value
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#httprouterule
+    ##
+    matches:
+      - path:
+          type: PathPrefix
+          value: /
+    ## @param receive.httpRoute.filters HTTPRoute filters for request/response manipulation
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#httproutefilter
+    ## e.g:
+    ## filters:
+    ##   - type: RequestHeaderModifier
+    ##     requestHeaderModifier:
+    ##       add:
+    ##         - name: X-Forwarded-Proto
+    ##           value: https
+    ##
+    filters: []
+    ## @param receive.httpRoute.timeouts Timeout configuration for the HTTPRoute
+    ## ref: https://gateway-api.sigs.k8s.io/reference/spec/#httproutetimeouts
+    ## e.g:
+    ## timeouts:
+    ##   request: 30s
+    ##   backendRequest: 10s
+    ##
+    timeouts: {}
+    ## @param receive.httpRoute.extraRules Additional custom rules to append to the HTTPRoute
+    ## e.g:
+    ## extraRules:
+    ##   - backendRefs:
+    ##       - name: other-service
+    ##         port: 10902
+    ##     matches:
+    ##       - path:
+    ##           type: PathPrefix
+    ##           value: /api
+    ##
+    extraRules: []
 ## @section Thanos Receive Distributor parameters
 receiveDistributor:
   ## @param receiveDistributor.enabled Enable/disable Thanos Receive Distributor component
@@ -4826,6 +5450,8 @@ receiveDistributor:
   ## @param receiveDistributor.autoscaling.maxReplicas Maximum number of Thanos Receive Distributor replicas
   ## @param receiveDistributor.autoscaling.targetCPU Target CPU utilization percentage
   ## @param receiveDistributor.autoscaling.targetMemory Target Memory utilization percentage
+  ## @param receiveDistributor.autoscaling.behavior HPA Behavior
+  ## @param receiveDistributor.externalAutoscaler Specifies whether the Thanos Receive Distributor deployment is scaled by an external autoscaler
   ##
   autoscaling:
     enabled: false
@@ -4833,6 +5459,8 @@ receiveDistributor:
     maxReplicas: ""
     targetCPU: ""
     targetMemory: ""
+    behavior: {}
+  externalAutoscaler: false
   ## Thanos Receive Distributor Pod Disruption Budget configuration
   ## ref: https://kubernetes.io/docs/tasks/run-application/configure-pdb
   ## @param receiveDistributor.pdb.create Enable/disable a Pod Disruption Budget creation for Thanos Receive Distributor
@@ -5007,7 +5635,7 @@ volumePermissions:
   image:
     registry: docker.io
     repository: bitnami/os-shell
-    tag: 12-debian-12-r36
+    tag: 12-debian-12-r50
     digest: ""
     ## ref: https://kubernetes.io/docs/concepts/containers/images/#pre-pulled-images
     ##
@@ -5060,3 +5688,7 @@ minio:
   ##     memory: 1024Mi
   ##
   resources: {}
+  ## @param minio.console.enabled Enable MinIO&reg; Console
+  ##
+  console:
+    enabled: false

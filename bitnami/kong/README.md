@@ -1,6 +1,6 @@
 <!--- app-name: Kong -->
 
-# Bitnami package for Kong
+# Bitnami Secure Images Helm chart for Kong
 
 Kong is an open source Microservice API gateway and platform designed for managing microservices requests of high-availability, fault-tolerance, and distributed systems.
 
@@ -14,15 +14,28 @@ Trademarks: This software listing is packaged by Bitnami. The respective tradema
 helm install my-release oci://registry-1.docker.io/bitnamicharts/kong
 ```
 
-Looking to use Kong in production? Try [VMware Tanzu Application Catalog](https://bitnami.com/enterprise), the commercial edition of the Bitnami catalog.
+## Why use Bitnami Secure Images?
+
+Those are hardened, minimal CVE images built and maintained by Bitnami. Bitnami Secure Images are based on the cloud-optimized, security-hardened enterprise [OS Photon Linux](https://vmware.github.io/photon/). Why choose BSI images?
+
+- Hardened secure images of popular open source software with Near-Zero Vulnerabilities
+- Vulnerability Triage & Prioritization with VEX Statements, KEV and EPSS Scores
+- Compliance focus with FIPS, STIG, and air-gap options, including secure bill of materials (SBOM)
+- Software supply chain provenance attestation through in-toto
+- First class support for the internet’s favorite Helm charts
+
+Each image comes with valuable security metadata. You can view the metadata in [our public catalog here](https://app-catalog.vmware.com/bitnami/apps). Note: Some data is only available with [commercial subscriptions to BSI](https://bitnami.com/).
+
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%201.png?raw=true "Application details")
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%202.png?raw=true "Packaging report")
+
+If you are looking for our previous generation of images based on Debian Linux, please see the [Bitnami Legacy registry](https://hub.docker.com/u/bitnamilegacy).
 
 ## Introduction
 
 This chart bootstraps a [kong](https://github.com/bitnami/containers/tree/main/bitnami/kong) deployment on a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager. It also includes the [kong-ingress-controller](https://github.com/bitnami/containers/tree/main/bitnami/kong-ingress-controller) container for managing Ingress resources using Kong.
 
 Extra functionalities beyond the Kong core are extended through plugins. Kong is built on top of reliable technologies like NGINX and provides an easy-to-use RESTful API to operate and configure the system.
-
-Bitnami charts can be used with [Kubeapps](https://kubeapps.dev/) for deployment and management of Helm Charts in clusters.
 
 ## Prerequisites
 
@@ -242,12 +255,14 @@ As an alternative, you can use of the preset configurations for pod affinity, po
 | Name                     | Description                                                                                               | Value           |
 | ------------------------ | --------------------------------------------------------------------------------------------------------- | --------------- |
 | `kubeVersion`            | Force target Kubernetes version (using Helm capabilities if not set)                                      | `""`            |
+| `apiVersions`            | Override Kubernetes API versions reported by .Capabilities                                                | `[]`            |
 | `nameOverride`           | String to partially override common.names.fullname template with a string (will prepend the release name) | `""`            |
 | `fullnameOverride`       | String to fully override common.names.fullname template with a string                                     | `""`            |
 | `commonAnnotations`      | Common annotations to add to all Kong resources (sub-charts are not considered). Evaluated as a template  | `{}`            |
 | `commonLabels`           | Common labels to add to all Kong resources (sub-charts are not considered). Evaluated as a template       | `{}`            |
 | `clusterDomain`          | Kubernetes cluster domain                                                                                 | `cluster.local` |
 | `extraDeploy`            | Array of extra objects to deploy with the release (evaluated as a template).                              | `[]`            |
+| `usePasswordFiles`       | Mount credentials as files instead of using environment variables                                         | `true`          |
 | `diagnosticMode.enabled` | Enable diagnostic mode (all probes will be disabled and the command will be overridden)                   | `false`         |
 | `diagnosticMode.command` | Command to override all containers in the daemonset/deployment                                            | `["sleep"]`     |
 | `diagnosticMode.args`    | Args to override all containers in the daemonset/deployment                                               | `["infinity"]`  |
@@ -481,7 +496,6 @@ As an alternative, you can use of the preset configurations for pod affinity, po
 | `postgresql.auth.password`                      | Password for the custom user to create                                                                                                                                                                                     | `""`         |
 | `postgresql.auth.database`                      | Name for a custom database to create                                                                                                                                                                                       | `kong`       |
 | `postgresql.auth.existingSecret`                | Name of existing secret to use for PostgreSQL credentials                                                                                                                                                                  | `""`         |
-| `postgresql.auth.usePasswordFiles`              | Mount credentials as a files instead of using an environment variable                                                                                                                                                      | `false`      |
 | `postgresql.architecture`                       | PostgreSQL architecture (`standalone` or `replication`)                                                                                                                                                                    | `standalone` |
 | `postgresql.primary.resourcesPreset`            | Set container resources according to one common preset (allowed values: none, nano, small, medium, large, xlarge, 2xlarge). This is ignored if primary.resources is set (primary.resources is recommended for production). | `nano`       |
 | `postgresql.primary.resources`                  | Set container requests and limits for different resources like CPU or memory (essential for production workloads)                                                                                                          | `{}`         |
@@ -501,7 +515,6 @@ As an alternative, you can use of the preset configurations for pod affinity, po
 | `cassandra.dbUser.user`                        | Cassandra admin user                                                                                                                                                                                       | `kong`  |
 | `cassandra.dbUser.password`                    | Password for `cassandra.dbUser.user`. Randomly generated if empty                                                                                                                                          | `""`    |
 | `cassandra.dbUser.existingSecret`              | Name of existing secret to use for Cassandra credentials                                                                                                                                                   | `""`    |
-| `cassandra.usePasswordFile`                    | Mount credentials as a files instead of using an environment variable                                                                                                                                      | `false` |
 | `cassandra.replicaCount`                       | Number of Cassandra replicas                                                                                                                                                                               | `1`     |
 | `cassandra.external.hosts`                     | List of Cassandra hosts                                                                                                                                                                                    | `[]`    |
 | `cassandra.external.port`                      | Cassandra port number                                                                                                                                                                                      | `9042`  |

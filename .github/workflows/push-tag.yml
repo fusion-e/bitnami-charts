@@ -20,8 +20,9 @@ jobs:
     outputs:
       chart: ${{ steps.get-chart.outputs.chart }}
       result: ${{ steps.get-chart.outputs.result }}
+    if: ${{ github.repository_owner == 'bitnami' }}
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           path: charts
           fetch-depth: 2 # to be able to obtain files changed in the latest commit
@@ -55,7 +56,7 @@ jobs:
       - id: show-error
         name: 'Show error'
         if: ${{ steps.get-chart.outputs.result == 'fail' }}
-        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         with:
           script: |
               core.setFailed('${{ steps.get-chart.outputs.error }}')
@@ -68,7 +69,7 @@ jobs:
     name: Push tag
     if: ${{ needs.get-chart.outputs.result == 'ok' }}
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           path: charts
           fetch-depth: 2 # to be able to obtain files changed in the latest commit
@@ -86,3 +87,14 @@ jobs:
             git tag ${CHART}/${chart_version}
             git push --tags
           fi
+  notify:
+    name: Send notification
+    needs:
+      - push-tag
+    if: ${{ always() && (needs.push-tag.result == 'failure') }}
+    uses: bitnami/support/.github/workflows/gchat-notification.yml@main
+    with:
+      workflow: ${{ github.workflow }}
+      job-url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    secrets:
+      webhook-url: ${{ secrets.GCHAT_CONTENT_ALERTS_WEBHOOK_URL }}

@@ -1,8 +1,96 @@
 # Changelog
 
-## 11.4.4 (2025-01-30)
+## 12.1.10 (2025-08-21)
 
-* [bitnami/kibana] Release 11.4.4 ([#31675](https://github.com/bitnami/charts/pull/31675))
+* [bitnami/kibana] add revisionHistoryLimit for deployments ([#35298](https://github.com/bitnami/charts/pull/35298))
+
+## <small>12.1.9 (2025-08-13)</small>
+
+* [bitnami/kibana] :zap: :arrow_up: Update dependency references (#35779) ([b3130ee](https://github.com/bitnami/charts/commit/b3130ee8577511a79b8f6457d3a2076fe7d47fdb)), closes [#35779](https://github.com/bitnami/charts/issues/35779)
+
+## <small>12.1.8 (2025-08-07)</small>
+
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/kibana] :zap: :arrow_up: Update dependency references (#35597) ([475cfb4](https://github.com/bitnami/charts/commit/475cfb43836025e3d9009ad32eff06d43ee3642a)), closes [#35597](https://github.com/bitnami/charts/issues/35597)
+
+## <small>12.1.7 (2025-07-29)</small>
+
+* [bitnami/kibana] :zap: :arrow_up: Update dependency references (#35333) ([749bd2b](https://github.com/bitnami/charts/commit/749bd2b13559206239b51320f06067e7687156f3)), closes [#35333](https://github.com/bitnami/charts/issues/35333)
+
+## <small>12.1.6 (2025-07-22)</small>
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/kibana] :zap: :arrow_up: Update dependency references (#35246) ([9f9b925](https://github.com/bitnami/charts/commit/9f9b925fe66a5297f8d4048df0edf7059eacb625)), closes [#35246](https://github.com/bitnami/charts/issues/35246)
+
+## <small>12.1.5 (2025-07-15)</small>
+
+* [bitnami/kibana] :zap: :arrow_up: Update dependency references (#35100) ([5d3dbde](https://github.com/bitnami/charts/commit/5d3dbdebecc4fa822cb4bdb03a3033347df19cd7)), closes [#35100](https://github.com/bitnami/charts/issues/35100)
+
+## <small>12.1.4 (2025-06-27)</small>
+
+* [bitnami/kibana] Support TLS and Authentication in Kibana dashboard import script (#34562) ([8a397a1](https://github.com/bitnami/charts/commit/8a397a1d43268b028ecc9fcd7064083fe682aa50)), closes [#34562](https://github.com/bitnami/charts/issues/34562)
+
+## <small>12.1.3 (2025-06-24)</small>
+
+* [bitnami/kibana] :zap: :arrow_up: Update dependency references (#34604) ([ae475c8](https://github.com/bitnami/charts/commit/ae475c80a52127cbdab36276ed2d071c4495c785)), closes [#34604](https://github.com/bitnami/charts/issues/34604)
+
+## <small>12.1.2 (2025-06-13)</small>
+
+* [bitnami/kibana] :zap: :arrow_up: Update dependency references (#34454) ([202ba80](https://github.com/bitnami/charts/commit/202ba803323dd898d998d5af3f1e19a7c69ecd14)), closes [#34454](https://github.com/bitnami/charts/issues/34454)
+
+## <small>12.1.1 (2025-06-03)</small>
+
+* [bitnami/kibana] :zap: :arrow_up: Update dependency references (#34083) ([ef295dc](https://github.com/bitnami/charts/commit/ef295dcd770e2206e04b3145065bbe9ae82af67b)), closes [#34083](https://github.com/bitnami/charts/issues/34083)
+
+## 12.1.0 (2025-05-14)
+
+* [bitnami/kibana] Add overwrite parameter to import saved objects managing (#33282) ([c8e3e76](https://github.com/bitnami/charts/commit/c8e3e76d9d2da66286eb512390ed7ce49199676b)), closes [#33282](https://github.com/bitnami/charts/issues/33282)
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+
+## <small>12.0.2 (2025-05-07)</small>
+
+* [bitnami/kibana] Release 12.0.2 (#33499) ([c461c0a](https://github.com/bitnami/charts/commit/c461c0a50b8519e07f7e975d9ea66dd1061159f5)), closes [#33499](https://github.com/bitnami/charts/issues/33499)
+
+## <small>12.0.1 (2025-05-06)</small>
+
+* [bitnami/kibana] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (#33383) ([a05c481](https://github.com/bitnami/charts/commit/a05c481865114bfc6083c7d22ba4153228bde48b)), closes [#33383](https://github.com/bitnami/charts/issues/33383)
+
+## 12.0.0 (2025-04-29)
+
+* [bitnami/kibana] Release 12.0.0 (#33244) ([389d46f](https://github.com/bitnami/charts/commit/389d46f68a2a84b0239e93d5c361e548c6d0f7c9)), closes [#33244](https://github.com/bitnami/charts/issues/33244)
+
+## 11.6.0 (2025-04-04)
+
+* [bitnami/kibana] Set `usePasswordFiles=true` by default (#32636) ([5ee2a7e](https://github.com/bitnami/charts/commit/5ee2a7edaf8731c0590c65b47b9bd5d9201386fa)), closes [#32636](https://github.com/bitnami/charts/issues/32636)
+
+## <small>11.5.3 (2025-03-25)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/kibana] Release 11.5.3 (#32604) ([2bc41c9](https://github.com/bitnami/charts/commit/2bc41c9aa9ff2014a0c89cd626e0039a0108b29d)), closes [#32604](https://github.com/bitnami/charts/issues/32604)
+
+## <small>11.5.2 (2025-03-04)</small>
+
+* [bitnami/kibana] Release 11.5.2 (#32270) ([73c6f3c](https://github.com/bitnami/charts/commit/73c6f3c2a2c770b567be70a89cfe6f83b5830b84)), closes [#32270](https://github.com/bitnami/charts/issues/32270)
+
+## <small>11.5.1 (2025-03-04)</small>
+
+* [bitnami/kibana] Update configmap definition (#32246) ([9c6ab89](https://github.com/bitnami/charts/commit/9c6ab89a2ad4ffee6fd96617add1dd46bf486e6d)), closes [#32246](https://github.com/bitnami/charts/issues/32246)
+
+## 11.5.0 (2025-02-24)
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/kibana] Template hostname everywhere (#30807) ([82d4893](https://github.com/bitnami/charts/commit/82d4893118dc94da0fea5055188c3a750cc414ae)), closes [#30807](https://github.com/bitnami/charts/issues/30807)
+
+## <small>11.4.5 (2025-02-11)</small>
+
+* [bitnami/kibana] Release 11.4.5 (#31871) ([b99a5eb](https://github.com/bitnami/charts/commit/b99a5eb6f8510efc5d3a5c75e176889c176fb00f)), closes [#31871](https://github.com/bitnami/charts/issues/31871)
+* Update copyright year (#31682) ([e9f02f5](https://github.com/bitnami/charts/commit/e9f02f5007068751f7eb2270fece811e685c99b6)), closes [#31682](https://github.com/bitnami/charts/issues/31682)
+
+## <small>11.4.4 (2025-01-30)</small>
+
+* [bitnami/kibana] Release 11.4.4 (#31675) ([78e07d6](https://github.com/bitnami/charts/commit/78e07d6801aad0461c4c371ca0c83ad921465a62)), closes [#31675](https://github.com/bitnami/charts/issues/31675)
 
 ## <small>11.4.3 (2025-01-23)</small>
 

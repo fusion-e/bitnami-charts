@@ -1,6 +1,6 @@
 <!--- app-name: HashiCorp Vault -->
 
-# Bitnami package for HashiCorp Vault
+# Bitnami Secure Images Helm chart for HashiCorp Vault
 
 Vault is a tool for securely managing and accessing secrets using a unified interface. Features secure storage, dynamic secrets, data encryption and revocation.
 
@@ -14,13 +14,26 @@ Trademarks: This software listing is packaged by Bitnami. The respective tradema
 helm install my-release oci://registry-1.docker.io/bitnamicharts/vault
 ```
 
-Looking to use HashiCorp Vault in production? Try [VMware Tanzu Application Catalog](https://bitnami.com/enterprise), the commercial edition of the Bitnami catalog.
+## Why use Bitnami Secure Images?
+
+Those are hardened, minimal CVE images built and maintained by Bitnami. Bitnami Secure Images are based on the cloud-optimized, security-hardened enterprise [OS Photon Linux](https://vmware.github.io/photon/). Why choose BSI images?
+
+- Hardened secure images of popular open source software with Near-Zero Vulnerabilities
+- Vulnerability Triage & Prioritization with VEX Statements, KEV and EPSS Scores
+- Compliance focus with FIPS, STIG, and air-gap options, including secure bill of materials (SBOM)
+- Software supply chain provenance attestation through in-toto
+- First class support for the internet’s favorite Helm charts
+
+Each image comes with valuable security metadata. You can view the metadata in [our public catalog here](https://app-catalog.vmware.com/bitnami/apps). Note: Some data is only available with [commercial subscriptions to BSI](https://bitnami.com/).
+
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%201.png?raw=true "Application details")
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%202.png?raw=true "Packaging report")
+
+If you are looking for our previous generation of images based on Debian Linux, please see the [Bitnami Legacy registry](https://hub.docker.com/u/bitnamilegacy).
 
 ## Introduction
 
 This chart bootstraps a [HashiCorp Vault](https://github.com/bitnami/containers/tree/main/bitnami/vault) deployment on a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
-
-Bitnami charts can be used with [Kubeapps](https://kubeapps.dev/) for deployment and management of Helm Charts in clusters.
 
 ## Prerequisites
 
@@ -255,7 +268,7 @@ The [Bitnami vault](https://github.com/bitnami/containers/tree/main/bitnami/vaul
 | `server.customLivenessProbe`                               | Custom livenessProbe that overrides the default one                                                                                                                                                                             | `{}`                    |
 | `server.customReadinessProbe`                              | Custom readinessProbe that overrides the default one                                                                                                                                                                            | `{}`                    |
 | `server.customStartupProbe`                                | Custom startupProbe that overrides the default one                                                                                                                                                                              | `{}`                    |
-| `server.resourcesPreset`                                   | Set container resources according to one common preset (allowed values: none, nano, micro, small, medium, large, xlarge, 2xlarge). This is ignored if server.resources is set (server.resources is recommended for production). | `nano`                  |
+| `server.resourcesPreset`                                   | Set container resources according to one common preset (allowed values: none, nano, micro, small, medium, large, xlarge, 2xlarge). This is ignored if server.resources is set (server.resources is recommended for production). | `micro`                 |
 | `server.resources`                                         | Set container requests and limits for different resources like CPU or memory (essential for production workloads)                                                                                                               | `{}`                    |
 | `server.podSecurityContext.enabled`                        | Enabled Vault Server pods' Security Context                                                                                                                                                                                     | `true`                  |
 | `server.podSecurityContext.fsGroupChangePolicy`            | Set filesystem group change policy                                                                                                                                                                                              | `Always`                |
@@ -363,6 +376,9 @@ The [Bitnami vault](https://github.com/bitnami/containers/tree/main/bitnami/vaul
 | Name                                                 | Description                                                      | Value   |
 | ---------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | `server.rbac.create`                                 | Specifies whether RBAC resources should be created               | `true`  |
+| `server.rbac.createClusterRoleBinding`               | Specifies whether a ClusterRoleBinding should be created         | `true`  |
+| `server.rbac.leaderElection.rules`                   | Specifies the leader election role rules                         | `[]`    |
+| `server.rbac.discovery.rules`                        | Specifies the discovery role rules                               | `[]`    |
 | `server.serviceAccount.create`                       | Specifies whether a ServiceAccount should be created             | `true`  |
 | `server.serviceAccount.name`                         | The name of the ServiceAccount to use.                           | `""`    |
 | `server.serviceAccount.annotations`                  | Additional Service Account annotations (evaluated as a template) | `{}`    |

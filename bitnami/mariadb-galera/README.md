@@ -1,6 +1,6 @@
 <!--- app-name: MariaDB Galera -->
 
-# Bitnami package for MariaDB Galera
+# Bitnami Secure Images Helm chart for MariaDB Galera
 
 MariaDB Galera is a multi-primary database cluster solution for synchronous replication and high availability.
 
@@ -14,13 +14,26 @@ Trademarks: This software listing is packaged by Bitnami. The respective tradema
 helm install my-release oci://registry-1.docker.io/bitnamicharts/mariadb-galera
 ```
 
-Looking to use MariaDB Galera in production? Try [VMware Tanzu Application Catalog](https://bitnami.com/enterprise), the commercial edition of the Bitnami catalog.
+## Why use Bitnami Secure Images?
+
+Those are hardened, minimal CVE images built and maintained by Bitnami. Bitnami Secure Images are based on the cloud-optimized, security-hardened enterprise [OS Photon Linux](https://vmware.github.io/photon/). Why choose BSI images?
+
+- Hardened secure images of popular open source software with Near-Zero Vulnerabilities
+- Vulnerability Triage & Prioritization with VEX Statements, KEV and EPSS Scores
+- Compliance focus with FIPS, STIG, and air-gap options, including secure bill of materials (SBOM)
+- Software supply chain provenance attestation through in-toto
+- First class support for the internet’s favorite Helm charts
+
+Each image comes with valuable security metadata. You can view the metadata in [our public catalog here](https://app-catalog.vmware.com/bitnami/apps). Note: Some data is only available with [commercial subscriptions to BSI](https://bitnami.com/).
+
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%201.png?raw=true "Application details")
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%202.png?raw=true "Packaging report")
+
+If you are looking for our previous generation of images based on Debian Linux, please see the [Bitnami Legacy registry](https://hub.docker.com/u/bitnamilegacy).
 
 ## Introduction
 
 This chart bootstraps a [MariaDB Galera](https://github.com/bitnami/containers/tree/main/bitnami/mariadb-galera) cluster on [Kubernetes](https://kubernetes.io) using the [Helm](https://helm.sh) package manager.
-
-Bitnami charts can be used with [Kubeapps](https://kubeapps.dev/) for deployment and management of Helm Charts in clusters.
 
 ## Differences between the the Bitnami MariaDB Galera and Bitnami MariaDB Helm charts
 
@@ -506,7 +519,7 @@ The chart mounts a [Persistent Volume](https://kubernetes.io/docs/concepts/stora
 | `rootUser.password`                                         | Password for the admin user. Ignored if existing secret is provided.                                                                                                                                                              | `""`                              |
 | `rootUser.forcePassword`                                    | Option to force users to specify a password. That is required for 'helm upgrade' to work properly.                                                                                                                                | `false`                           |
 | `existingSecret`                                            | Use existing secret for password details (`rootUser.password`, `db.password`, `galera.mariabackup.password` will be ignored and picked up from this secret)                                                                       | `""`                              |
-| `usePasswordFiles`                                          | Mount credentials as a files instead of using an environment variable.                                                                                                                                                            | `false`                           |
+| `usePasswordFiles`                                          | Mount credentials as a files instead of using an environment variable.                                                                                                                                                            | `true`                            |
 | `customPasswordFiles`                                       | Use custom password files when `usePasswordFiles` is set to `true`. Define path for keys `root`, `user`, and `mariabackup`.                                                                                                       | `{}`                              |
 | `db.user`                                                   | Username of new user to create                                                                                                                                                                                                    | `""`                              |
 | `db.password`                                               | Password for the new user. Ignored if existing secret is provided.                                                                                                                                                                | `""`                              |
@@ -574,7 +587,7 @@ The chart mounts a [Persistent Volume](https://kubernetes.io/docs/concepts/stora
 | `sidecars`                                                  | Add additional sidecar containers (this value is evaluated as a template)                                                                                                                                                         | `[]`                              |
 | `extraVolumes`                                              | Extra volumes                                                                                                                                                                                                                     | `[]`                              |
 | `extraVolumeMounts`                                         | Mount extra volume(s)                                                                                                                                                                                                             | `[]`                              |
-| `resourcesPreset`                                           | Set container resources according to one common preset (allowed values: none, nano, micro, small, medium, large, xlarge, 2xlarge). This is ignored if resources is set (resources is recommended for production).                 | `small`                           |
+| `resourcesPreset`                                           | Set container resources according to one common preset (allowed values: none, nano, micro, small, medium, large, xlarge, 2xlarge). This is ignored if resources is set (resources is recommended for production).                 | `medium`                          |
 | `resources`                                                 | Set container requests and limits for different resources like CPU or memory (essential for production workloads)                                                                                                                 | `{}`                              |
 | `livenessProbe.enabled`                                     | Turn on and off liveness probe                                                                                                                                                                                                    | `true`                            |
 | `livenessProbe.initialDelaySeconds`                         | Delay before liveness probe is initiated                                                                                                                                                                                          | `120`                             |

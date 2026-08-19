@@ -1,6 +1,6 @@
 <!--- app-name: Chainloop -->
 
-# Bitnami package for Chainloop
+# Bitnami Secure Images Helm chart for Chainloop
 
 Chainloop is an open-source Software Supply Chain control plane, a single source of truth for metadata and artifacts, plus a declarative attestation process.
 
@@ -14,7 +14,22 @@ Trademarks: This software listing is packaged by Bitnami. The respective tradema
 helm install my-release oci://registry-1.docker.io/bitnamicharts/chainloop
 ```
 
-Looking to use Chainloop in production? Try [VMware Tanzu Application Catalog](https://bitnami.com/enterprise), the commercial edition of the Bitnami catalog.
+## Why use Bitnami Secure Images?
+
+Those are hardened, minimal CVE images built and maintained by Bitnami. Bitnami Secure Images are based on the cloud-optimized, security-hardened enterprise [OS Photon Linux](https://vmware.github.io/photon/). Why choose BSI images?
+
+- Hardened secure images of popular open source software with Near-Zero Vulnerabilities
+- Vulnerability Triage & Prioritization with VEX Statements, KEV and EPSS Scores
+- Compliance focus with FIPS, STIG, and air-gap options, including secure bill of materials (SBOM)
+- Software supply chain provenance attestation through in-toto
+- First class support for the internet’s favorite Helm charts
+
+Each image comes with valuable security metadata. You can view the metadata in [our public catalog here](https://app-catalog.vmware.com/bitnami/apps). Note: Some data is only available with [commercial subscriptions to BSI](https://bitnami.com/).
+
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%201.png?raw=true "Application details")
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%202.png?raw=true "Packaging report")
+
+If you are looking for our previous generation of images based on Debian Linux, please see the [Bitnami Legacy registry](https://hub.docker.com/u/bitnamilegacy).
 
 ## Introduction
 
@@ -22,7 +37,7 @@ This chart bootstraps a [Chainloop](https://github.com/chainloop-dev/chainloop) 
 
 ## Prerequisites
 
-- Kubernetes 1.19+
+- Kubernetes 1.23+
 - Helm 3.2.0+
 - PV provisioner support in the underlying infrastructure (If built-in PostgreSQL is enabled)
 
@@ -493,14 +508,18 @@ chainloop config save \
 
 ### Common parameters
 
-| Name                | Description                                        | Value   |
-| ------------------- | -------------------------------------------------- | ------- |
-| `kubeVersion`       | Override Kubernetes version                        | `""`    |
-| `commonAnnotations` | Annotations to add to all deployed objects         | `{}`    |
-| `commonLabels`      | Labels to add to all deployed objects              | `{}`    |
-| `extraDeploy`       | Array of extra objects to deploy with the release  | `[]`    |
-| `rbac.create`       | Specifies whether RBAC resources should be created | `false` |
-| `rbac.rules`        | Custom RBAC rules to set                           | `[]`    |
+| Name                | Description                                                | Value   |
+| ------------------- | ---------------------------------------------------------- | ------- |
+| `kubeVersion`       | Override Kubernetes version                                | `""`    |
+| `apiVersions`       | Override Kubernetes API versions reported by .Capabilities | `[]`    |
+| `nameOverride`      | String to partially override common.names.name             | `""`    |
+| `fullnameOverride`  | String to fully override common.names.fullname             | `""`    |
+| `namespaceOverride` | String to fully override common.names.namespace            | `""`    |
+| `commonAnnotations` | Annotations to add to all deployed objects                 | `{}`    |
+| `commonLabels`      | Labels to add to all deployed objects                      | `{}`    |
+| `extraDeploy`       | Array of extra objects to deploy with the release          | `[]`    |
+| `rbac.create`       | Specifies whether RBAC resources should be created         | `false` |
+| `rbac.rules`        | Custom RBAC rules to set                                   | `[]`    |
 
 ### Secrets Backend
 
@@ -1023,6 +1042,10 @@ service_registration "kubernetes" {}` |
 | `dex.pdb.maxUnavailable`                                | Maximum number/percentage of pods that may be made unavailable. Defaults to `1` if both `dex.pdb.minAvailable` and `dex.pdb.maxUnavailable` are empty.                                                                    | `""`                                                                                     |
 
 ## Upgrading
+
+### To 3.0.0
+
+This version increases minimum Kubernetes version to 1.23. Follow the [official docs](https://kubernetes.io/docs/tasks/administer-cluster/cluster-upgrade/) to upgrade your Kubernetes cluster. If the Kubernetes version is already >=1.23 no major issues are expected during the upgrade operation.
 
 ### To 2.1.0
 

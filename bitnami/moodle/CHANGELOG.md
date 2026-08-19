@@ -1,8 +1,165 @@
 # Changelog
 
-## 25.1.2 (2025-01-18)
+## 28.0.0 (2025-08-18)
 
-* [bitnami/moodle] Release 25.1.2 ([#31464](https://github.com/bitnami/charts/pull/31464))
+* [bitnami/moodle] Upgrade to MariaDB 12.0 ([#36117](https://github.com/bitnami/charts/pull/36117))
+
+## <small>27.0.23 (2025-08-18)</small>
+
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#36104) ([a4cd856](https://github.com/bitnami/charts/commit/a4cd8569dd367f49923d1e918bed8a15d0c0d5ed)), closes [#36104](https://github.com/bitnami/charts/issues/36104)
+
+## <small>27.0.22 (2025-08-17)</small>
+
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#36051) ([23cd7ba](https://github.com/bitnami/charts/commit/23cd7ba04fd9b77514f9ae7ec70c872c54220dae)), closes [#36051](https://github.com/bitnami/charts/issues/36051)
+
+## <small>27.0.21 (2025-08-15)</small>
+
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#36041) ([94f635b](https://github.com/bitnami/charts/commit/94f635be24413248a5c48e374317fb30aa86e350)), closes [#36041](https://github.com/bitnami/charts/issues/36041)
+
+## <small>27.0.20 (2025-08-15)</small>
+
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#36036) ([f014812](https://github.com/bitnami/charts/commit/f0148126b816bc8d3c6626dfa6459e33e4766f24)), closes [#36036](https://github.com/bitnami/charts/issues/36036)
+
+## <small>27.0.19 (2025-08-15)</small>
+
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#36030) ([0e46927](https://github.com/bitnami/charts/commit/0e469275272f63774eca96b258e31d51f215740c)), closes [#36030](https://github.com/bitnami/charts/issues/36030)
+
+## <small>27.0.18 (2025-08-15)</small>
+
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#36012) ([a16d057](https://github.com/bitnami/charts/commit/a16d0578634304a1212770cb7ddbe96b7975ba42)), closes [#36012](https://github.com/bitnami/charts/issues/36012)
+
+## <small>27.0.17 (2025-08-15)</small>
+
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#36004) ([e6f4b12](https://github.com/bitnami/charts/commit/e6f4b12d051e95d6d2c3a013182958df9ec5a4bb)), closes [#36004](https://github.com/bitnami/charts/issues/36004)
+
+## <small>27.0.16 (2025-08-15)</small>
+
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#35999) ([511b98a](https://github.com/bitnami/charts/commit/511b98ab2cd8f8bedfb90f15a0cf74cf257f06bd)), closes [#35999](https://github.com/bitnami/charts/issues/35999)
+
+## <small>27.0.15 (2025-08-15)</small>
+
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#35987) ([2016249](https://github.com/bitnami/charts/commit/2016249c0ff9bb104f57dcf410cc7e85952977e1)), closes [#35987](https://github.com/bitnami/charts/issues/35987)
+
+## <small>27.0.14 (2025-08-15)</small>
+
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#35978) ([5002c28](https://github.com/bitnami/charts/commit/5002c28d0aa4951bf7ad0432779378d050bec8b1)), closes [#35978](https://github.com/bitnami/charts/issues/35978)
+
+## <small>27.0.13 (2025-08-14)</small>
+
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#35966) ([b198913](https://github.com/bitnami/charts/commit/b198913adf6f81c60fa57e45d3e20e7eaeb00e52)), closes [#35966](https://github.com/bitnami/charts/issues/35966)
+
+## <small>27.0.12 (2025-08-14)</small>
+
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#35958) ([93bab51](https://github.com/bitnami/charts/commit/93bab513f4d112e55b487fc722387cd983b57c15)), closes [#35958](https://github.com/bitnami/charts/issues/35958)
+
+## <small>27.0.11 (2025-08-14)</small>
+
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#35943) ([cad0ca3](https://github.com/bitnami/charts/commit/cad0ca3138202858fef38023b4f01b36a774ed8b)), closes [#35943](https://github.com/bitnami/charts/issues/35943)
+
+## <small>27.0.10 (2025-08-14)</small>
+
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#35938) ([eb8ff0e](https://github.com/bitnami/charts/commit/eb8ff0edbfe483768e09cc69111cee1fcf30b9bf)), closes [#35938](https://github.com/bitnami/charts/issues/35938)
+
+## <small>27.0.9 (2025-08-14)</small>
+
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#35928) ([840de49](https://github.com/bitnami/charts/commit/840de49ed9c09abbdc71ad73efd7ad0653e86162)), closes [#35928](https://github.com/bitnami/charts/issues/35928)
+
+## <small>27.0.8 (2025-08-14)</small>
+
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#35917) ([d375ad2](https://github.com/bitnami/charts/commit/d375ad284c2cb3b08a2e24047448d241ea4e9c2f)), closes [#35917](https://github.com/bitnami/charts/issues/35917)
+
+## <small>27.0.7 (2025-08-14)</small>
+
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#35903) ([82d32cf](https://github.com/bitnami/charts/commit/82d32cfb5cc8e5965310c312020b43f4aacda85e)), closes [#35903](https://github.com/bitnami/charts/issues/35903)
+
+## <small>27.0.6 (2025-08-11)</small>
+
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#35718) ([37f9689](https://github.com/bitnami/charts/commit/37f9689f9d0a2f609e4120f4ad39ededbad884d0)), closes [#35718](https://github.com/bitnami/charts/issues/35718)
+
+## <small>27.0.5 (2025-08-07)</small>
+
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#35626) ([a5292e4](https://github.com/bitnami/charts/commit/a5292e422f9656384796ee3c3ac2a66dcc5e0d92)), closes [#35626](https://github.com/bitnami/charts/issues/35626)
+
+## <small>27.0.4 (2025-08-06)</small>
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#35446) ([83131f2](https://github.com/bitnami/charts/commit/83131f2e88e01db6ff8e9da85d8975fb9f72528f)), closes [#35446](https://github.com/bitnami/charts/issues/35446)
+
+## <small>27.0.3 (2025-07-15)</small>
+
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#35115) ([a35aa17](https://github.com/bitnami/charts/commit/a35aa17f568e44948b5c26abddf885a7101233ae)), closes [#35115](https://github.com/bitnami/charts/issues/35115)
+
+## <small>27.0.2 (2025-07-10)</small>
+
+* [bitnami/moodle] Fix hostAliases Bug in Moodle deployment.yaml (#34839) ([26d0084](https://github.com/bitnami/charts/commit/26d00844ebd6006d819e2a708489dca05b3a4d0e)), closes [#34839](https://github.com/bitnami/charts/issues/34839)
+
+## <small>27.0.1 (2025-07-08)</small>
+
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#34862) ([e299e92](https://github.com/bitnami/charts/commit/e299e92ff4be3ddb8baf0a01a4f767970a50d2d4)), closes [#34862](https://github.com/bitnami/charts/issues/34862)
+
+## 27.0.0 (2025-06-25)
+
+* [bitnami/moodle] Upgrade MariaDB 11.8 (#34631) ([7fb4217](https://github.com/bitnami/charts/commit/7fb42171b0bb270ba790fb2a78ee49b6107b6e62)), closes [#34631](https://github.com/bitnami/charts/issues/34631)
+
+## <small>26.0.5 (2025-06-13)</small>
+
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#34394) ([53257c3](https://github.com/bitnami/charts/commit/53257c3bf4a5738616244dd6a2d20a4725e50255)), closes [#34394](https://github.com/bitnami/charts/issues/34394)
+
+## <small>26.0.4 (2025-06-09)</small>
+
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#34273) ([34d587b](https://github.com/bitnami/charts/commit/34d587b70f86e3428fbb54e1fc07effff7c865c6)), closes [#34273](https://github.com/bitnami/charts/issues/34273)
+
+## <small>26.0.3 (2025-06-05)</small>
+
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#34136) ([987941b](https://github.com/bitnami/charts/commit/987941bc13a6d5d7ea95a811f210a2ae51868ac0)), closes [#34136](https://github.com/bitnami/charts/issues/34136)
+
+## <small>26.0.2 (2025-05-09)</small>
+
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+* [bitnami/moodle] :zap: :arrow_up: Update dependency references (#33592) ([07b03f6](https://github.com/bitnami/charts/commit/07b03f6ef68dd03e72c387127d7c9a8c43dad03c)), closes [#33592](https://github.com/bitnami/charts/issues/33592)
+
+## <small>26.0.1 (2025-05-06)</small>
+
+* [bitnami/moodle] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (#33407) ([502482e](https://github.com/bitnami/charts/commit/502482e304fc70f6286939b5eb050ff92fc37ec6)), closes [#33407](https://github.com/bitnami/charts/issues/33407)
+
+## 26.0.0 (2025-04-30)
+
+* [bitnami/moodle] Release 26.0.0 (#33267) ([e83e3be](https://github.com/bitnami/charts/commit/e83e3be7a4c094947e7b1012d828e157c92c6bc5)), closes [#33267](https://github.com/bitnami/charts/issues/33267)
+
+## <small>25.2.2 (2025-04-16)</small>
+
+* [bitnami/moodle] Release 25.2.2 (#33042) ([c59ae4e](https://github.com/bitnami/charts/commit/c59ae4e423d0179cd00bb5cf8872fcf09698dd9c)), closes [#33042](https://github.com/bitnami/charts/issues/33042)
+
+## <small>25.2.1 (2025-04-16)</small>
+
+* [bitnami/moodle] Release 25.2.1 (#33030) ([00d63ef](https://github.com/bitnami/charts/commit/00d63efcda779c41bff2429fab8f8703abe9b8dc)), closes [#33030](https://github.com/bitnami/charts/issues/33030)
+
+## 25.2.0 (2025-04-04)
+
+* [bitnami/moodle] Set `usePasswordFiles=true` by default (#32705) ([1414fd1](https://github.com/bitnami/charts/commit/1414fd1b628b67034905dd591ef58cdc8009115f)), closes [#32705](https://github.com/bitnami/charts/issues/32705)
+
+## <small>25.1.5 (2025-03-17)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/moodle] Release 25.1.5 (#32473) ([313c5b6](https://github.com/bitnami/charts/commit/313c5b61f8981333edbe04e7b66d37594f04dc1a)), closes [#32473](https://github.com/bitnami/charts/issues/32473)
+
+## <small>25.1.4 (2025-02-21)</small>
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/moodle] Release 25.1.4 (#32103) ([f95a5d9](https://github.com/bitnami/charts/commit/f95a5d9c6bf68248e3e55aafc3e00a8df4de1a0a)), closes [#32103](https://github.com/bitnami/charts/issues/32103)
+
+## <small>25.1.3 (2025-02-10)</small>
+
+* [bitnami/clickhouse][bitnami/moodle] Remove references to deprecated kube-lego (#31726) ([4e44ec5](https://github.com/bitnami/charts/commit/4e44ec50d9144f8c3c017afa4e518c43d8f3847b)), closes [#31726](https://github.com/bitnami/charts/issues/31726)
+* [bitnami/moodle] Release 25.1.3 (#31845) ([bfa6335](https://github.com/bitnami/charts/commit/bfa63352e071c36ae8d2399e102ce96891422353)), closes [#31845](https://github.com/bitnami/charts/issues/31845)
+* Update copyright year (#31682) ([e9f02f5](https://github.com/bitnami/charts/commit/e9f02f5007068751f7eb2270fece811e685c99b6)), closes [#31682](https://github.com/bitnami/charts/issues/31682)
+
+## <small>25.1.2 (2025-01-18)</small>
+
+* [bitnami/moodle] Release 25.1.2 (#31464) ([2dac33a](https://github.com/bitnami/charts/commit/2dac33a352eb558e87134eb8d91029ace3e9dbbb)), closes [#31464](https://github.com/bitnami/charts/issues/31464)
 
 ## <small>25.1.1 (2025-01-08)</small>
 

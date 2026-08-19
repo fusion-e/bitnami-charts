@@ -1,8 +1,151 @@
 # Changelog
 
-## 5.1.12 (2025-02-05)
+## 5.1.47 (2025-09-11)
 
-* [bitnami/concourse] Release 5.1.12 ([#31796](https://github.com/bitnami/charts/pull/31796))
+* [bitnami/concourse] Add in SSL Mode for external databases. ([#36249](https://github.com/bitnami/charts/pull/36249))
+
+## <small>5.1.45 (2025-08-07)</small>
+
+* [bitnami/concourse] :zap: :arrow_up: Update dependency references (#35598) ([5d1e20b](https://github.com/bitnami/charts/commit/5d1e20bb8b79825dc7f189fd2cfe21e8b2770fa4)), closes [#35598](https://github.com/bitnami/charts/issues/35598)
+
+## <small>5.1.44 (2025-08-07)</small>
+
+* [bitnami/concourse] :zap: :arrow_up: Update dependency references (#35463) ([fb561e0](https://github.com/bitnami/charts/commit/fb561e0f6d28f13b3f0d00a7688e4c14d3a20da5)), closes [#35463](https://github.com/bitnami/charts/issues/35463)
+
+## <small>5.1.43 (2025-08-01)</small>
+
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/concourse] :zap: :arrow_up: Update dependency references (#35384) ([af55f1f](https://github.com/bitnami/charts/commit/af55f1f7c658d2c8845ec6e00e3983e3554df6d6)), closes [#35384](https://github.com/bitnami/charts/issues/35384)
+
+## <small>5.1.42 (2025-07-26)</small>
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/concourse] :zap: :arrow_up: Update dependency references (#35304) ([d3b6151](https://github.com/bitnami/charts/commit/d3b615191c9b8dd35ccd5c9e4914bf81a8feb4a2)), closes [#35304](https://github.com/bitnami/charts/issues/35304)
+
+## <small>5.1.41 (2025-07-15)</small>
+
+* [bitnami/concourse] :zap: :arrow_up: Update dependency references (#35085) ([941ab45](https://github.com/bitnami/charts/commit/941ab45b6b46918a554510dbe6d39dcab0f426bd)), closes [#35085](https://github.com/bitnami/charts/issues/35085)
+
+## <small>5.1.40 (2025-07-09)</small>
+
+* [bitnami/concourse] :zap: :arrow_up: Update dependency references (#34912) ([d2581eb](https://github.com/bitnami/charts/commit/d2581eb2d597e363d2c47c67c022d3a66516a9fd)), closes [#34912](https://github.com/bitnami/charts/issues/34912)
+
+## <small>5.1.39 (2025-06-28)</small>
+
+* [bitnami/concourse] :zap: :arrow_up: Update dependency references (#34644) ([d632023](https://github.com/bitnami/charts/commit/d632023ce16a6c94f474e5baa129962ce8262395)), closes [#34644](https://github.com/bitnami/charts/issues/34644)
+
+## <small>5.1.38 (2025-06-27)</small>
+
+* [bitnami/concourse] Update deps and test (#34688) ([c4e66cd](https://github.com/bitnami/charts/commit/c4e66cdd2a3f75b76bb832593e2f2d8c5881a6e0)), closes [#34688](https://github.com/bitnami/charts/issues/34688)
+
+## <small>5.1.37 (2025-06-13)</small>
+
+* [bitnami/concourse] :zap: :arrow_up: Update dependency references (#34425) ([47d3adc](https://github.com/bitnami/charts/commit/47d3adc0ac52ab5d0ae74f9603a70ebeb05f2459)), closes [#34425](https://github.com/bitnami/charts/issues/34425)
+
+## <small>5.1.36 (2025-06-11)</small>
+
+* [bitnami/concourse] :zap: :arrow_up: Update dependency references (#34358) ([e17ed03](https://github.com/bitnami/charts/commit/e17ed03ce7e83d450aa25c9d0bd2909cbba615e9)), closes [#34358](https://github.com/bitnami/charts/issues/34358)
+
+## <small>5.1.35 (2025-06-11)</small>
+
+* [bitnami/concourse] :zap: :arrow_up: Update dependency references (#34325) ([3c57bc6](https://github.com/bitnami/charts/commit/3c57bc663bfca7c88c09f0d76731575e8a38bb35)), closes [#34325](https://github.com/bitnami/charts/issues/34325)
+
+## <small>5.1.34 (2025-06-05)</small>
+
+* [bitnami/concourse] :zap: :arrow_up: Update dependency references (#34145) ([ae49739](https://github.com/bitnami/charts/commit/ae4973970e1509c98983467f2729465df5dfb6ba)), closes [#34145](https://github.com/bitnami/charts/issues/34145)
+
+## <small>5.1.33 (2025-06-03)</small>
+
+* [bitnami/concourse] :zap: :arrow_up: Update dependency references (#34073) ([ad7c9f9](https://github.com/bitnami/charts/commit/ad7c9f96248e5b7a9530b37bdc371c87b9c9d2b4)), closes [#34073](https://github.com/bitnami/charts/issues/34073)
+
+## <small>5.1.32 (2025-05-23)</small>
+
+* [bitnami/concourse] :zap: :arrow_up: Update dependency references (#33868) ([3001192](https://github.com/bitnami/charts/commit/3001192942b19d81cf20dd051c8998e489ba2c59)), closes [#33868](https://github.com/bitnami/charts/issues/33868)
+
+## <small>5.1.31 (2025-05-16)</small>
+
+* [bitnami/concourse] :zap: :arrow_up: Update dependency references (#33754) ([efe9468](https://github.com/bitnami/charts/commit/efe94689d045c518a84580da4653a2e7607b272d)), closes [#33754](https://github.com/bitnami/charts/issues/33754)
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+
+## <small>5.1.30 (2025-05-08)</small>
+
+* [bitnami/concourse] :zap: :arrow_up: Update dependency references (#33560) ([0c0c895](https://github.com/bitnami/charts/commit/0c0c895389674cbb26f604b2e46fe545bc175f50)), closes [#33560](https://github.com/bitnami/charts/issues/33560)
+
+## <small>5.1.29 (2025-05-07)</small>
+
+* [bitnami/concourse] Release 5.1.29 (#33510) ([eb6f982](https://github.com/bitnami/charts/commit/eb6f9826cd4e472ea98a705d3f2ed2e870a01972)), closes [#33510](https://github.com/bitnami/charts/issues/33510)
+
+## <small>5.1.28 (2025-05-06)</small>
+
+* [bitnami/concourse] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (#333 ([20e8c18](https://github.com/bitnami/charts/commit/20e8c18fa51f6435d4768e712a73e4447ecaf3ff)), closes [#33348](https://github.com/bitnami/charts/issues/33348)
+
+## <small>5.1.27 (2025-05-05)</small>
+
+* [bitnami/concourse] Release 5.1.27 (#33328) ([32a1154](https://github.com/bitnami/charts/commit/32a11548d42e2faa90ca978552d0831c17da3b53)), closes [#33328](https://github.com/bitnami/charts/issues/33328)
+
+## <small>5.1.26 (2025-04-29)</small>
+
+* [bitnami/concourse] Release 5.1.26 (#33252) ([2b044e8](https://github.com/bitnami/charts/commit/2b044e855625a0047c1ebe713bceebb872bffb68)), closes [#33252](https://github.com/bitnami/charts/issues/33252)
+
+## <small>5.1.25 (2025-04-25)</small>
+
+* [bitnami/concourse] Release 5.1.25 (#33183) ([18dd2c0](https://github.com/bitnami/charts/commit/18dd2c0062b99799ec5ebacf10552078ce2ad988)), closes [#33183](https://github.com/bitnami/charts/issues/33183)
+
+## <small>5.1.24 (2025-04-10)</small>
+
+* [bitnami/concourse] Release 5.1.24 (#32946) ([d8ed62a](https://github.com/bitnami/charts/commit/d8ed62a36d73ee04d631da044fe2966c7945c8a5)), closes [#32946](https://github.com/bitnami/charts/issues/32946)
+
+## <small>5.1.23 (2025-04-09)</small>
+
+* [bitnami/concourse] Release 5.1.23 (#32941) ([58aee8b](https://github.com/bitnami/charts/commit/58aee8b6cbd12e046221e74816f0be298081cc49)), closes [#32941](https://github.com/bitnami/charts/issues/32941)
+
+## <small>5.1.22 (2025-04-09)</small>
+
+* [bitnami/concourse] Release 5.1.22 (#32940) ([5b16416](https://github.com/bitnami/charts/commit/5b16416c03542e1fd9f7219526b2ddb65ccfde6c)), closes [#32940](https://github.com/bitnami/charts/issues/32940)
+
+## <small>5.1.21 (2025-04-09)</small>
+
+* [bitnami/concourse] Release 5.1.21 (#32936) ([489697a](https://github.com/bitnami/charts/commit/489697ae5d554cc551b5b866eefa904b9e6dc9d0)), closes [#32936](https://github.com/bitnami/charts/issues/32936)
+
+## <small>5.1.20 (2025-04-09)</small>
+
+* [bitnami/concourse] Release 5.1.20 (#32931) ([66f1bf3](https://github.com/bitnami/charts/commit/66f1bf3a27e8702df9fe17b66ff086ad6c626891)), closes [#32931](https://github.com/bitnami/charts/issues/32931)
+
+## <small>5.1.19 (2025-04-01)</small>
+
+* [bitnami/concourse] Release 5.1.19 (#32724) ([f6c9831](https://github.com/bitnami/charts/commit/f6c9831e6e56f3c07b0b14aa38e62849ef3fe20e)), closes [#32724](https://github.com/bitnami/charts/issues/32724)
+
+## <small>5.1.18 (2025-03-17)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/concourse] Release 5.1.18 (#32491) ([27841fb](https://github.com/bitnami/charts/commit/27841fb4e7c2ce55e22041e4a9a4d0a2f6a14e53)), closes [#32491](https://github.com/bitnami/charts/issues/32491)
+
+## <small>5.1.17 (2025-03-04)</small>
+
+* [bitnami/concourse] Release 5.1.17 (#32283) ([b1ed30c](https://github.com/bitnami/charts/commit/b1ed30c4bf7d8bacfd27b5fd84646cc44077f594)), closes [#32283](https://github.com/bitnami/charts/issues/32283)
+
+## <small>5.1.16 (2025-03-04)</small>
+
+* [bitnami/concourse] Release 5.1.16 (#32269) ([224ca88](https://github.com/bitnami/charts/commit/224ca88e7e935d3eccb01137476936a2d9063f69)), closes [#32269](https://github.com/bitnami/charts/issues/32269)
+
+## <small>5.1.15 (2025-02-27)</small>
+
+* [bitnami/concourse] Release 5.1.15 (#32197) ([637796b](https://github.com/bitnami/charts/commit/637796b7e078f96b7375a721a7456e29a2d6b211)), closes [#32197](https://github.com/bitnami/charts/issues/32197)
+
+## <small>5.1.14 (2025-02-19)</small>
+
+* [bitnami/concourse] Release 5.1.14 (#31979) ([cfa5547](https://github.com/bitnami/charts/commit/cfa554753fb3840fd7a29d53e90f2c09fb839757)), closes [#31979](https://github.com/bitnami/charts/issues/31979)
+
+## <small>5.1.13 (2025-02-14)</small>
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/concourse] Release 5.1.13 (#31923) ([0f72679](https://github.com/bitnami/charts/commit/0f726790be67f367a5828f335c86ce12dc354e76)), closes [#31923](https://github.com/bitnami/charts/issues/31923)
+
+## <small>5.1.12 (2025-02-05)</small>
+
+* [bitnami/concourse] Release 5.1.12 (#31796) ([67d7ab2](https://github.com/bitnami/charts/commit/67d7ab24868dd35ecc34c2177d3e46e149f6ea80)), closes [#31796](https://github.com/bitnami/charts/issues/31796)
 
 ## <small>5.1.11 (2025-02-04)</small>
 

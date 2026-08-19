@@ -1,8 +1,108 @@
 # Changelog
 
-## 2.4.5 (2025-02-07)
+## 3.1.13 (2025-08-15)
 
-* [bitnami/fluent-bit] Release 2.4.5 ([#31835](https://github.com/bitnami/charts/pull/31835))
+* [bitnami/fluent-bit] :zap: :arrow_up: Update dependency references ([#36031](https://github.com/bitnami/charts/pull/36031))
+
+## <small>3.1.12 (2025-08-14)</small>
+
+* [bitnami/fluent-bit] fix: add extraContainerPorts value(s) to container configuration for fluent-bit ([c445c14](https://github.com/bitnami/charts/commit/c445c14826478cd9bb27b4569e3da3ffe608ca9f)), closes [#35806](https://github.com/bitnami/charts/issues/35806)
+
+## <small>3.1.11 (2025-08-07)</small>
+
+* [bitnami/fluent-bit] :zap: :arrow_up: Update dependency references (#35534) ([06c5301](https://github.com/bitnami/charts/commit/06c5301163a515c698b45a6a26adeaeacbba4ab8)), closes [#35534](https://github.com/bitnami/charts/issues/35534)
+
+## <small>3.1.10 (2025-08-04)</small>
+
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/fluent-bit] :zap: :arrow_up: Update dependency references (#35393) ([e9c0b8d](https://github.com/bitnami/charts/commit/e9c0b8dfa35c66f03290ba97265b12efeb7c226b)), closes [#35393](https://github.com/bitnami/charts/issues/35393)
+
+## <small>3.1.9 (2025-07-23)</small>
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/fluent-bit] :zap: :arrow_up: Update dependency references (#35250) ([da8a832](https://github.com/bitnami/charts/commit/da8a8322cdbbdb12c5cdf573d4833f57069aee3b)), closes [#35250](https://github.com/bitnami/charts/issues/35250)
+
+## <small>3.1.8 (2025-07-09)</small>
+
+* [bitnami/fluent-bit] :zap: :arrow_up: Update dependency references (#34976) ([15a4e75](https://github.com/bitnami/charts/commit/15a4e755979a53e4a447110b513caf0dbc9e4ef4)), closes [#34976](https://github.com/bitnami/charts/issues/34976)
+
+## <small>3.1.7 (2025-07-07)</small>
+
+* [bitnami/fluent-bit] Remove healthcheck VIB test (#34829) ([86395d4](https://github.com/bitnami/charts/commit/86395d4011a3b031f5f37f867b0a4ccba3d676e1)), closes [#34829](https://github.com/bitnami/charts/issues/34829)
+
+## <small>3.1.6 (2025-06-29)</small>
+
+* [bitnami/fluent-bit] :zap: :arrow_up: Update dependency references (#34704) ([4a29a32](https://github.com/bitnami/charts/commit/4a29a322d558718ff9e3a582e38faef1c5c49026)), closes [#34704](https://github.com/bitnami/charts/issues/34704)
+
+## <small>3.1.5 (2025-06-03)</small>
+
+* [bitnami/fluent-bit] Fix HPA  target type (#34052) ([b38ed91](https://github.com/bitnami/charts/commit/b38ed9161d728c576666940106b27a669abf3e7d)), closes [#34052](https://github.com/bitnami/charts/issues/34052)
+
+## <small>3.1.4 (2025-05-30)</small>
+
+* [bitnami/fluent-bit] :zap: :arrow_up: Update dependency references (#34019) ([3c8dd6f](https://github.com/bitnami/charts/commit/3c8dd6ff2c92ee698869434becb5331dca4b8fa9)), closes [#34019](https://github.com/bitnami/charts/issues/34019)
+
+## <small>3.1.3 (2025-05-13)</small>
+
+* [bitnami/fluent-bit] :zap: :arrow_up: Update dependency references (#33674) ([7d4b3e4](https://github.com/bitnami/charts/commit/7d4b3e4c7bbacfc703daf2da91b8443702f1817e)), closes [#33674](https://github.com/bitnami/charts/issues/33674)
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+
+## <small>3.1.2 (2025-05-06)</small>
+
+* [bitnami/fluent-bit] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (#33 ([412517d](https://github.com/bitnami/charts/commit/412517d16ac16572752b4f142991d26693da4d55)), closes [#33361](https://github.com/bitnami/charts/issues/33361)
+
+## <small>3.1.1 (2025-04-23)</small>
+
+* [bitnami/fluent-bit] Release 3.1.1 (#33151) ([79e0e18](https://github.com/bitnami/charts/commit/79e0e185755f4b4b058ac3697761025df6c03532)), closes [#33151](https://github.com/bitnami/charts/issues/33151)
+
+## 3.1.0 (2025-04-21)
+
+* [bitnami/fluent-bit] Added support for extraContainerPorts (#33083) ([d1089a0](https://github.com/bitnami/charts/commit/d1089a0eab6f5a0c3a451806b1f58287fe727d1e)), closes [#33083](https://github.com/bitnami/charts/issues/33083)
+
+## 3.0.0 (2025-04-02)
+
+* [bitnami/fluent-bit] Release 3.0.0 (#32779) ([1c82162](https://github.com/bitnami/charts/commit/1c821623a0a03ad80ff88c64fe6bb54347a09772)), closes [#32779](https://github.com/bitnami/charts/issues/32779)
+
+## <small>2.5.7 (2025-03-25)</small>
+
+* [bitnami/fluent-bit] Release 2.5.7 (#32602) ([4a96af6](https://github.com/bitnami/charts/commit/4a96af6ec5c150b3306866d381466fb6c0c6d667)), closes [#32602](https://github.com/bitnami/charts/issues/32602)
+
+## <small>2.5.6 (2025-03-17)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/fluent-bit] Release 2.5.6 (#32489) ([47dca7d](https://github.com/bitnami/charts/commit/47dca7dc7527ee9fd39a88e76f14e2594f9bf410)), closes [#32489](https://github.com/bitnami/charts/issues/32489)
+
+## <small>2.5.5 (2025-03-04)</small>
+
+* [bitnami/fluent-bit] Release 2.5.5 (#32255) ([64c11bc](https://github.com/bitnami/charts/commit/64c11bc51e9a921a70bf06fed57c44013bc57db1)), closes [#32255](https://github.com/bitnami/charts/issues/32255)
+
+## <small>2.5.4 (2025-03-03)</small>
+
+* [bitnami/fluent-bit] Release 2.5.4 (#32247) ([74b219d](https://github.com/bitnami/charts/commit/74b219dcca1cbcb6aa59ecc91f5dd3a38b4286a6)), closes [#32247](https://github.com/bitnami/charts/issues/32247)
+
+## <small>2.5.3 (2025-03-03)</small>
+
+* [bitnami/fluent-bit] Release 2.5.3 (#32245) ([f9cba71](https://github.com/bitnami/charts/commit/f9cba711df3ae367c26a34bea5344a4622da0f64)), closes [#32245](https://github.com/bitnami/charts/issues/32245)
+
+## <small>2.5.2 (2025-03-03)</small>
+
+* [bitnami/fluent-bit] Release 2.5.2 (#32242) ([af34835](https://github.com/bitnami/charts/commit/af348355f1917e339120f0de74ba6c5fb417f32a)), closes [#32242](https://github.com/bitnami/charts/issues/32242)
+
+## <small>2.5.1 (2025-02-20)</small>
+
+* [bitnami/fluent-bit] Release 2.5.1 (#32090) ([5e1ff1f](https://github.com/bitnami/charts/commit/5e1ff1f9c34224f8053af5051f28b56155d720ea)), closes [#32090](https://github.com/bitnami/charts/issues/32090)
+
+## 2.5.0 (2025-02-20)
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/fluent-bit] feat: use new helper for checking API versions (#32049) ([d098ed1](https://github.com/bitnami/charts/commit/d098ed13754597c257fd32a09228b09f31b09b0b)), closes [#32049](https://github.com/bitnami/charts/issues/32049)
+
+## <small>2.4.5 (2025-02-07)</small>
+
+* [bitnami/fluent-bit] Release 2.4.5 (#31835) ([ade7a48](https://github.com/bitnami/charts/commit/ade7a48bd37b52a6d70cecb1fa2670eb25480c72)), closes [#31835](https://github.com/bitnami/charts/issues/31835)
+* Update copyright year (#31682) ([e9f02f5](https://github.com/bitnami/charts/commit/e9f02f5007068751f7eb2270fece811e685c99b6)), closes [#31682](https://github.com/bitnami/charts/issues/31682)
 
 ## <small>2.4.4 (2025-01-24)</small>
 

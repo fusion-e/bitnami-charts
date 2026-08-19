@@ -1,8 +1,181 @@
 # Changelog
 
+## 9.4.7 (2026-04-15)
+
+* [bitnami/clickhouse] Clickhouse "configuration" value template ([#36510](https://github.com/bitnami/charts/pull/36510))
+
+## <small>9.4.4 (2025-08-27)</small>
+
+* [bitnami/clickhouse] :zap: :arrow_up: Update dependency references (#36201) ([679acf7](https://github.com/bitnami/charts/commit/679acf7eb5d0e5b52a730f7fa290f2d65308f8a4)), closes [#36201](https://github.com/bitnami/charts/issues/36201)
+
+## <small>9.4.3 (2025-08-14)</small>
+
+* [bitnami/clickhouse] :zap: :arrow_up: Update dependency references (#35883) ([d7ba4ec](https://github.com/bitnami/charts/commit/d7ba4ec682c5280e405233595a5f6580a5d63c95)), closes [#35883](https://github.com/bitnami/charts/issues/35883)
+
+## <small>9.4.2 (2025-08-12)</small>
+
+* [bitnami/clickhouse] :zap: :arrow_up: Update dependency references (#35764) ([b1412c8](https://github.com/bitnami/charts/commit/b1412c8697d67a799a562530f5997f39012b38a8)), closes [#35764](https://github.com/bitnami/charts/issues/35764)
+
+## <small>9.4.1 (2025-08-10)</small>
+
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/clickhouse] :zap: :arrow_up: Update dependency references (#35335) ([4c817e4](https://github.com/bitnami/charts/commit/4c817e49f46faf737d63e3483489dbbaf75df4b1)), closes [#35335](https://github.com/bitnami/charts/issues/35335)
+
+## 9.4.0 (2025-07-25)
+
+* [bitnami/clickhouse] feat: MySQL & PostgreSQL ports to be optionally exposed (#35294) ([bff9e31](https://github.com/bitnami/charts/commit/bff9e31d396d064fc9c7a0fbeda3bfecf999e1b2)), closes [#35294](https://github.com/bitnami/charts/issues/35294)
+
+## <small>9.3.11 (2025-07-24)</small>
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/clickhouse] :zap: :arrow_up: Update dependency references (#35283) ([b266e90](https://github.com/bitnami/charts/commit/b266e9010ee1cf4c6d0fbf1b5444e57ecf281ec3)), closes [#35283](https://github.com/bitnami/charts/issues/35283)
+
+## <small>9.3.10 (2025-07-15)</small>
+
+* [bitnami/clickhouse] :zap: :arrow_up: Update dependency references (#35073) ([ea52dae](https://github.com/bitnami/charts/commit/ea52daef3837825321b6851f06dc945f6e5a3f91)), closes [#35073](https://github.com/bitnami/charts/issues/35073)
+
+## <small>9.3.9 (2025-07-10)</small>
+
+* [bitnami/clickhouse] :zap: :arrow_up: Update dependency references (#34995) ([d440e80](https://github.com/bitnami/charts/commit/d440e80abce56277bacd6489306507d62ba08fc6)), closes [#34995](https://github.com/bitnami/charts/issues/34995)
+
+## <small>9.3.8 (2025-06-27)</small>
+
+* [bitnami/clickhouse] :zap: :arrow_up: Update dependency references (#34695) ([7d05156](https://github.com/bitnami/charts/commit/7d051567bf7982fe42ce908fe025ff1470daa17d)), closes [#34695](https://github.com/bitnami/charts/issues/34695)
+
+## <small>9.3.7 (2025-06-26)</small>
+
+* [bitnami/clickhouse] :zap: :arrow_up: Update dependency references (#34671) ([321ca30](https://github.com/bitnami/charts/commit/321ca30734698c763c233274f3ed508b6e50f9eb)), closes [#34671](https://github.com/bitnami/charts/issues/34671)
+
+## <small>9.3.6 (2025-06-26)</small>
+
+* [bitnami/clickhouse] :zap: :arrow_up: Update dependency references (#34664) ([eaa64a6](https://github.com/bitnami/charts/commit/eaa64a698636f871df89e00c509e099806875dd5)), closes [#34664](https://github.com/bitnami/charts/issues/34664)
+
+## <small>9.3.5 (2025-06-26)</small>
+
+* [bitnami/clickhouse] Update dependencies (#34647) ([08fb26c](https://github.com/bitnami/charts/commit/08fb26ce60273f1bf7f9cf2995d60507e6620987)), closes [#34647](https://github.com/bitnami/charts/issues/34647)
+
+## <small>9.3.4 (2025-06-20)</small>
+
+* [bitnami/clickhouse] :zap: :arrow_up: Update dependency references (#34570) ([d00e319](https://github.com/bitnami/charts/commit/d00e319eeaabb35420364078e18b6e6d2741536a)), closes [#34570](https://github.com/bitnami/charts/issues/34570)
+
+## <small>9.3.3 (2025-06-13)</small>
+
+* [bitnami/clickhouse] :zap: :arrow_up: Update dependency references (#34412) ([27dacea](https://github.com/bitnami/charts/commit/27dacea8b42af8b09fd372c17d6b7601a6dd2c6b)), closes [#34412](https://github.com/bitnami/charts/issues/34412)
+
+## <small>9.3.2 (2025-06-06)</small>
+
+* [bitnami/clickhouse] :zap: :arrow_up: Update dependency references (#34242) ([88c1463](https://github.com/bitnami/charts/commit/88c14631f9c84360b14f5782ff4b2edbb417247f)), closes [#34242](https://github.com/bitnami/charts/issues/34242)
+
+## <small>9.3.1 (2025-06-06)</small>
+
+* [bitnami/clickhouse] Add CHOWN capability to volume-permissions init container (#34225) ([eb89ebc](https://github.com/bitnami/charts/commit/eb89ebc57f39a36e01e71140a51c263c5b232bd0)), closes [#34225](https://github.com/bitnami/charts/issues/34225)
+
+## 9.3.0 (2025-06-04)
+
+* [bitnami/clickhouse] Add persistence.volumeName (#33991) ([cc78215](https://github.com/bitnami/charts/commit/cc78215c73cf597e3b928019204edb48d7537521)), closes [#33991](https://github.com/bitnami/charts/issues/33991)
+
+## <small>9.2.7 (2025-06-03)</small>
+
+* [bitnami/clickhouse] :zap: :arrow_up: Update dependency references (#34067) ([c77cc95](https://github.com/bitnami/charts/commit/c77cc95447711fb5af803c033cd67424fc23a5fc)), closes [#34067](https://github.com/bitnami/charts/issues/34067)
+
+## <small>9.2.6 (2025-05-30)</small>
+
+* [bitnami/clickhouse] :zap: :arrow_up: Update dependency references (#34001) ([83007bd](https://github.com/bitnami/charts/commit/83007bd27de053be5ed3e8fb99481ceb064cd27a)), closes [#34001](https://github.com/bitnami/charts/issues/34001)
+
+## <small>9.2.5 (2025-05-29)</small>
+
+* [bitnami/clickhouse] :zap: :arrow_up: Update dependency references (#33966) ([f3e6b4c](https://github.com/bitnami/charts/commit/f3e6b4cc45edfe01fd7a1c5935e011117ee41529)), closes [#33966](https://github.com/bitnami/charts/issues/33966)
+
+## <small>9.2.4 (2025-05-22)</small>
+
+* [bitnami/clickhouse] :zap: :arrow_up: Update dependency references (#33846) ([fa15d6e](https://github.com/bitnami/charts/commit/fa15d6e4bf757bb94859ad72672424da6bf0edd7)), closes [#33846](https://github.com/bitnami/charts/issues/33846)
+
+## <small>9.2.3 (2025-05-20)</small>
+
+* [bitnami/*] Add CNAB link for charts on Azure MP (#33695) ([6312371](https://github.com/bitnami/charts/commit/63123718de94dbedd798d380807b57031e98ed4f)), closes [#33695](https://github.com/bitnami/charts/issues/33695)
+* [bitnami/*] Update CNAB tip (#33741) ([2bc74f3](https://github.com/bitnami/charts/commit/2bc74f3f539481ceaa12833c114047583912b748)), closes [#33741](https://github.com/bitnami/charts/issues/33741)
+* [bitnami/clickhouse] :zap: :arrow_up: Update dependency references (#33601) ([788718d](https://github.com/bitnami/charts/commit/788718d0999fa2ebb8953eb604e3df5226f7c84c)), closes [#33601](https://github.com/bitnami/charts/issues/33601)
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+
+## <small>9.2.2 (2025-05-07)</small>
+
+* [bitnami/clickhouse] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (#33 ([6924c7c](https://github.com/bitnami/charts/commit/6924c7cec199259b74f06c3d9eba4cba80cfbede)), closes [#33345](https://github.com/bitnami/charts/issues/33345)
+
+## <small>9.2.1 (2025-05-05)</small>
+
+* [bitnami/clickhouse] Release 9.2.1 (#33281) ([fda5a85](https://github.com/bitnami/charts/commit/fda5a85abeb936230adcfa45f2461a21d516e762)), closes [#33281](https://github.com/bitnami/charts/issues/33281)
+
+## 9.2.0 (2025-04-24)
+
+* [bitnami/clickhouse] feat: add TLS support for communications with Keeper (#33158) ([9cb93de](https://github.com/bitnami/charts/commit/9cb93de6a93117b06cc3644ef277cc496081ddb9)), closes [#33158](https://github.com/bitnami/charts/issues/33158)
+
+## <small>9.1.3 (2025-04-23)</small>
+
+* [bitnami/clickhouse] Release 9.1.3 (#33131) ([e0b3724](https://github.com/bitnami/charts/commit/e0b372450e35ebf9884851aa144e25a7daa82079)), closes [#33131](https://github.com/bitnami/charts/issues/33131)
+
+## <small>9.1.2 (2025-04-22)</small>
+
+* [bitnami/clickhouse] Release 9.1.2 (#33122) ([fc309eb](https://github.com/bitnami/charts/commit/fc309eb7c483e31cb26b0ff7d802536c6c8417f0)), closes [#33122](https://github.com/bitnami/charts/issues/33122)
+
+## <small>9.1.1 (2025-04-21)</small>
+
+* [bitnami/clickhouse] bugfix: prometheus.io/scrape label (#33091) ([f7c9301](https://github.com/bitnami/charts/commit/f7c93019cdb4e1b6c17c6f5260a81b5bb22a555a)), closes [#33091](https://github.com/bitnami/charts/issues/33091)
+
+## 9.1.0 (2025-04-15)
+
+* [bitnami/clickhouse] Stops unnecessary logging (#32988) ([24167d1](https://github.com/bitnami/charts/commit/24167d12f4a9b9088ad36b7aa6cacb2e1f458826)), closes [#32988](https://github.com/bitnami/charts/issues/32988)
+
+## 9.0.0 (2025-04-15)
+
+* [bitnami/clickhouse] feat: replace ZooKeeper with ClickHouse Keeper (#32958) ([d526c9a](https://github.com/bitnami/charts/commit/d526c9a5b91e206e3c00f944c80178c1cf6ccd34)), closes [#32958](https://github.com/bitnami/charts/issues/32958)
+
+## <small>8.0.10 (2025-04-09)</small>
+
+* [bitnami/clickhouse] Release 8.0.10 (#32898) ([c52bca4](https://github.com/bitnami/charts/commit/c52bca4a603ab3072d5d4ecbb36a341f44c67332)), closes [#32898](https://github.com/bitnami/charts/issues/32898)
+
+## <small>8.0.9 (2025-04-07)</small>
+
+* [bitnami/clickhouse] Release 8.0.9 (#32838) ([1ba3356](https://github.com/bitnami/charts/commit/1ba33566f406b8e52287c8123f2289a97fcd28fd)), closes [#32838](https://github.com/bitnami/charts/issues/32838)
+
+## <small>8.0.8 (2025-03-28)</small>
+
+* [bitnami/clickhouse] Release 8.0.8 (#32647) ([70e2932](https://github.com/bitnami/charts/commit/70e293203a962fc57f56cee7bfc69820361cedd8)), closes [#32647](https://github.com/bitnami/charts/issues/32647)
+
+## <small>8.0.7 (2025-03-20)</small>
+
+* [bitnami/clickhouse] Release 8.0.7 (#32539) ([6c44e43](https://github.com/bitnami/charts/commit/6c44e439ffd630991652e4cd99499686925e88ee)), closes [#32539](https://github.com/bitnami/charts/issues/32539)
+
+## <small>8.0.6 (2025-03-13)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/clickhouse] Release 8.0.6 (#32441) ([b8f8bf3](https://github.com/bitnami/charts/commit/b8f8bf38a3569513f38674d8514cfe8002ea187c)), closes [#32441](https://github.com/bitnami/charts/issues/32441)
+
+## <small>8.0.5 (2025-02-28)</small>
+
+* [bitnami/clickhouse] Release 8.0.5 (#32213) ([de0ac14](https://github.com/bitnami/charts/commit/de0ac1461d486cd15f4a0a3eed8cf75ffcd55995)), closes [#32213](https://github.com/bitnami/charts/issues/32213)
+
+## <small>8.0.4 (2025-02-25)</small>
+
+* [bitnami/clickhouse] Release 8.0.4 (#32160) ([8305d61](https://github.com/bitnami/charts/commit/8305d61069371326e0334f70ddea8ad26e382dfa)), closes [#32160](https://github.com/bitnami/charts/issues/32160)
+
+## <small>8.0.3 (2025-02-19)</small>
+
+* [bitnami/clickhouse] Release 8.0.3 (#31992) ([bbacec4](https://github.com/bitnami/charts/commit/bbacec42b6d825e6787aff1d591d7cbd7c6d9144)), closes [#31992](https://github.com/bitnami/charts/issues/31992)
+
+## <small>8.0.2 (2025-02-19)</small>
+
+* [bitnami/clickhouse] Release 8.0.2 (#31978) ([a05641e](https://github.com/bitnami/charts/commit/a05641ec0e0b76d763dd0dead06a2acfb3e7002b)), closes [#31978](https://github.com/bitnami/charts/issues/31978)
+
+## <small>8.0.1 (2025-02-14)</small>
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/clickhouse] Release 8.0.1 (#31930) ([38df2f9](https://github.com/bitnami/charts/commit/38df2f906e48433c8bc3e4346f3021b49299a458)), closes [#31930](https://github.com/bitnami/charts/issues/31930)
+
 ## 8.0.0 (2025-02-05)
 
-* [bitnami/clickhouse] Release 8.0.0 ([#31786](https://github.com/bitnami/charts/pull/31786))
+* [bitnami/clickhouse] Release 8.0.0 (#31786) ([4741129](https://github.com/bitnami/charts/commit/47411290720e640cb2950efa5329efe3bf971106)), closes [#31786](https://github.com/bitnami/charts/issues/31786)
 
 ## <small>7.2.1 (2025-02-04)</small>
 

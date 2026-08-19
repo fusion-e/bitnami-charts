@@ -1,6 +1,6 @@
 <!--- app-name: Memcached -->
 
-# Bitnami package for Memcached
+# Bitnami Secure Images Helm chart for Memcached
 
 Memcached is an high-performance, distributed memory object caching system, generic in nature, but intended for use in speeding up dynamic web applications by alleviating database load.
 
@@ -14,13 +14,26 @@ Trademarks: This software listing is packaged by Bitnami. The respective tradema
 helm install my-release oci://registry-1.docker.io/bitnamicharts/memcached
 ```
 
-Looking to use Memcached in production? Try [VMware Tanzu Application Catalog](https://bitnami.com/enterprise), the commercial edition of the Bitnami catalog.
+## Why use Bitnami Secure Images?
+
+Those are hardened, minimal CVE images built and maintained by Bitnami. Bitnami Secure Images are based on the cloud-optimized, security-hardened enterprise [OS Photon Linux](https://vmware.github.io/photon/). Why choose BSI images?
+
+- Hardened secure images of popular open source software with Near-Zero Vulnerabilities
+- Vulnerability Triage & Prioritization with VEX Statements, KEV and EPSS Scores
+- Compliance focus with FIPS, STIG, and air-gap options, including secure bill of materials (SBOM)
+- Software supply chain provenance attestation through in-toto
+- First class support for the internet’s favorite Helm charts
+
+Each image comes with valuable security metadata. You can view the metadata in [our public catalog here](https://app-catalog.vmware.com/bitnami/apps). Note: Some data is only available with [commercial subscriptions to BSI](https://bitnami.com/).
+
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%201.png?raw=true "Application details")
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%202.png?raw=true "Packaging report")
+
+If you are looking for our previous generation of images based on Debian Linux, please see the [Bitnami Legacy registry](https://hub.docker.com/u/bitnamilegacy).
 
 ## Introduction
 
 This chart bootstraps a [Memcached](https://github.com/bitnami/containers/tree/main/bitnami/memcached) deployment on a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
-
-Bitnami charts can be used with [Kubeapps](https://kubeapps.dev/) for deployment and management of Helm Charts in clusters.
 
 ## Prerequisites
 
@@ -183,6 +196,7 @@ If you encounter errors when working with persistent volumes, refer to our [trou
 | `auth.username`               | Memcached admin user                                                                                      | `""`                        |
 | `auth.password`               | Memcached admin password                                                                                  | `""`                        |
 | `auth.existingPasswordSecret` | Existing secret with Memcached credentials (must contain a value for `memcached-password` key)            | `""`                        |
+| `auth.usePasswordFiles`       | Mount credentials as files instead of using environment variables                                         | `true`                      |
 | `command`                     | Override default container command (useful when using custom images)                                      | `[]`                        |
 | `args`                        | Override default container args (useful when using custom images)                                         | `[]`                        |
 | `extraEnvVars`                | Array with extra environment variables to add to Memcached nodes                                          | `[]`                        |
@@ -236,6 +250,7 @@ If you encounter errors when working with persistent volumes, refer to our [trou
 | `containerSecurityContext.seccompProfile.type`      | Set container's Security Context seccomp profile                                                                                                                                                                  | `RuntimeDefault` |
 | `automountServiceAccountToken`                      | Mount Service Account token in pod                                                                                                                                                                                | `false`          |
 | `hostAliases`                                       | Add deployment host aliases                                                                                                                                                                                       | `[]`             |
+| `hostNetwork`                                       | Use host's network namespace                                                                                                                                                                                      | `false`          |
 | `podLabels`                                         | Extra labels for Memcached pods                                                                                                                                                                                   | `{}`             |
 | `podAnnotations`                                    | Annotations for Memcached pods                                                                                                                                                                                    | `{}`             |
 | `podAffinityPreset`                                 | Pod affinity preset. Ignored if `affinity` is set. Allowed values: `soft` or `hard`                                                                                                                               | `""`             |
@@ -277,6 +292,7 @@ If you encounter errors when working with persistent volumes, refer to our [trou
 | `service.nodePorts.memcached`           | Node port for Memcached                                                                                       | `""`        |
 | `service.sessionAffinity`               | Control where client requests go, to the same pod or round-robin                                              | `""`        |
 | `service.sessionAffinityConfig`         | Additional settings for the sessionAffinity                                                                   | `{}`        |
+| `service.trafficDistribution`           | Traffic distribution preference                                                                               | `""`        |
 | `service.clusterIP`                     | Memcached service Cluster IP                                                                                  | `""`        |
 | `service.loadBalancerIP`                | Memcached service Load Balancer IP                                                                            | `""`        |
 | `service.loadBalancerSourceRanges`      | Memcached service Load Balancer sources                                                                       | `[]`        |
@@ -378,6 +394,7 @@ If you encounter errors when working with persistent volumes, refer to our [trou
 | `metrics.serviceMonitor.interval`                           | Interval at which metrics should be scraped.                                                                                                                                                                                                          | `""`                                 |
 | `metrics.serviceMonitor.scrapeTimeout`                      | Timeout after which the scrape is ended                                                                                                                                                                                                               | `""`                                 |
 | `metrics.serviceMonitor.labels`                             | Additional labels that can be used so ServiceMonitor will be discovered by Prometheus                                                                                                                                                                 | `{}`                                 |
+| `metrics.serviceMonitor.podTargetLabels`                    | Labels from the Kubernetes pod to be transferred to the created metrics                                                                                                                                                                               | `[]`                                 |
 | `metrics.serviceMonitor.selector`                           | Prometheus instance selector labels                                                                                                                                                                                                                   | `{}`                                 |
 | `metrics.serviceMonitor.relabelings`                        | RelabelConfigs to apply to samples before scraping                                                                                                                                                                                                    | `[]`                                 |
 | `metrics.serviceMonitor.metricRelabelings`                  | MetricRelabelConfigs to apply to samples before ingestion                                                                                                                                                                                             | `[]`                                 |

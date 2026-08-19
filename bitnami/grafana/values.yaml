@@ -48,6 +48,9 @@ nameOverride: ""
 ## @param fullnameOverride String to fully override grafana.fullname template
 ##
 fullnameOverride: ""
+## @param namespaceOverride String to fully override common.names.namespace
+##
+namespaceOverride: ""
 ## @param clusterDomain Default Kubernetes cluster domain
 ##
 clusterDomain: cluster.local
@@ -57,6 +60,9 @@ commonLabels: {}
 ## @param commonAnnotations Annotations to add to all deployed objects
 ##
 commonAnnotations: {}
+## @param usePasswordFiles Mount credentials as files instead of using environment variables
+##
+usePasswordFiles: true
 ## @section Grafana parameters
 
 ## Bitnami Grafana image version
@@ -71,7 +77,7 @@ commonAnnotations: {}
 image:
   registry: docker.io
   repository: bitnami/grafana
-  tag: 11.5.1-debian-12-r1
+  tag: 12.1.1-debian-12-r1
   digest: ""
   ## Specify a imagePullPolicy
   ## ref: https://kubernetes.io/docs/concepts/containers/images/#pre-pulled-images
@@ -298,6 +304,14 @@ grafana:
   ## @param grafana.replicaCount Number of Grafana nodes
   ##
   replicaCount: 1
+  ## @param grafana.kind Use either Deployment or StatefulSet (default)
+  ## ref: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/
+  ##
+  kind: Deployment
+  ## @param grafana.podManagementPolicy StatefulSet pod management policy
+  ## ref: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#pod-management-policies
+  ##
+  podManagementPolicy: Parallel
   ## @param grafana.updateStrategy.type Set up update strategy for Grafana installation.
   ## Set to Recreate if you use persistent volume that cannot be mounted by more than one pods to make sure the pods is destroyed first.
   ## ref: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy
@@ -560,9 +574,15 @@ grafana:
   ## @param grafana.extraEnvVarsCM Name of existing ConfigMap containing extra env vars for Grafana nodes
   ##
   extraEnvVarsCM: ""
+  ## @param grafana.extraEnvVarsCMOptional Whether to still run the Grafana node if the ConfigMap does not exist
+  ##
+  extraEnvVarsCMOptional: false
   ## @param grafana.extraEnvVarsSecret Name of existing Secret containing extra env vars for Grafana nodes
   ##
   extraEnvVarsSecret: ""
+  ## @param grafana.extraEnvVarsSecretOptional Whether to still run the Grafana node if the Secret does not exist
+  ##
+  extraEnvVarsSecretOptional: false
   ## @param grafana.extraEnvVars Array containing extra env vars to configure Grafana
   ## For example:
   ## extraEnvVars:
@@ -604,7 +624,7 @@ grafana:
 ## @param persistence.accessMode Persistent Volume Access Mode
 ## @param persistence.accessModes Persistent Volume Access Modes
 ## @param persistence.storageClass Storage class to use with the PVC
-## @param persistence.existingClaim If you want to reuse an existing claim, you can pass the name of the PVC using the existingClaim variable
+## @param persistence.existingClaim If you want to reuse an existing claim, you can pass the name of the PVC using the existingClaim variable. Please note that this setting will be ignored when `grafana.kind` is set to `StatefulSet`.
 ## @param persistence.size Size for the PV
 ##
 persistence:
@@ -964,7 +984,7 @@ volumePermissions:
   image:
     registry: docker.io
     repository: bitnami/os-shell
-    tag: 12-debian-12-r36
+    tag: 12-debian-12-r50
     digest: ""
     pullPolicy: IfNotPresent
     ## Optionally specify an array of imagePullSecrets.

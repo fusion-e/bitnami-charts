@@ -1,8 +1,143 @@
 # Changelog
 
-## 2.0.3 (2025-02-04)
+## 3.1.8 (2025-08-23)
 
-* [bitnami/cilium] Release 2.0.3 ([#31746](https://github.com/bitnami/charts/pull/31746))
+* [bitnami/cilium] :zap: :arrow_up: Update dependency references ([#36177](https://github.com/bitnami/charts/pull/36177))
+
+## <small>3.1.7 (2025-08-16)</small>
+
+* [bitnami/cilium] :zap: :arrow_up: Update dependency references (#35873) ([a6c3469](https://github.com/bitnami/charts/commit/a6c346978af292999df8079ad3e29e8da298eb09)), closes [#35873](https://github.com/bitnami/charts/issues/35873)
+
+## <small>3.1.6 (2025-08-13)</small>
+
+* [bitnami/cilium] :zap: :arrow_up: Update dependency references (#35793) ([84fc27d](https://github.com/bitnami/charts/commit/84fc27d1604d895424a1b85652c9d56289cbddea)), closes [#35793](https://github.com/bitnami/charts/issues/35793)
+
+## <small>3.1.5 (2025-08-08)</small>
+
+* [bitnami/cilium] :zap: :arrow_up: Update dependency references (#35582) ([9018d14](https://github.com/bitnami/charts/commit/9018d14629bed87a90d23126899b5f2890fc4005)), closes [#35582](https://github.com/bitnami/charts/issues/35582)
+
+## <small>3.1.4 (2025-08-07)</small>
+
+* [bitnami/cilium] :zap: :arrow_up: Update dependency references (#35565) ([d71a677](https://github.com/bitnami/charts/commit/d71a677fab5d32c4332342733225f0a1a208b861)), closes [#35565](https://github.com/bitnami/charts/issues/35565)
+
+## <small>3.1.3 (2025-08-07)</small>
+
+* [bitnami/cilium] :zap: :arrow_up: Update dependency references (#35547) ([fdb555b](https://github.com/bitnami/charts/commit/fdb555b6fe7ec4ac3c60f6b92b46949954e9a166)), closes [#35547](https://github.com/bitnami/charts/issues/35547)
+
+## <small>3.1.2 (2025-08-07)</small>
+
+* [bitnami/cilium] :zap: :arrow_up: Update dependency references (#35487) ([d3545c6](https://github.com/bitnami/charts/commit/d3545c6237001a07ee73dfec81e605acc8122363)), closes [#35487](https://github.com/bitnami/charts/issues/35487)
+
+## <small>3.1.1 (2025-08-07)</small>
+
+* [bitnami/cilium] :zap: :arrow_up: Update dependency references (#35458) ([6004a46](https://github.com/bitnami/charts/commit/6004a46f244f09ccfba86969c583f6d882d28b03)), closes [#35458](https://github.com/bitnami/charts/issues/35458)
+
+## 3.1.0 (2025-08-01)
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/cilium] :zap: :arrow_up: Update dependency references (#35330) ([4caffbb](https://github.com/bitnami/charts/commit/4caffbb4b784e851aceb982937f4dd028ca3ff76)), closes [#35330](https://github.com/bitnami/charts/issues/35330)
+
+## <small>3.0.8 (2025-07-16)</small>
+
+* [bitnami/cilium] :zap: :arrow_up: Update dependency references (#35154) ([853dcab](https://github.com/bitnami/charts/commit/853dcabd887a965a5b8ea16ed2cb39f221672d4f)), closes [#35154](https://github.com/bitnami/charts/issues/35154)
+
+## <small>3.0.7 (2025-07-09)</small>
+
+* [bitnami/cilium] :zap: :arrow_up: Update dependency references (#34909) ([c248921](https://github.com/bitnami/charts/commit/c248921abd6cb74e91f22ed201337972777b57bd)), closes [#34909](https://github.com/bitnami/charts/issues/34909)
+
+## <small>3.0.6 (2025-07-08)</small>
+
+* [bitnami/cilium] :zap: :arrow_up: Update dependency references (#34861) ([7a3f034](https://github.com/bitnami/charts/commit/7a3f0342e726e2828e51788a43f105db3b0867c6)), closes [#34861](https://github.com/bitnami/charts/issues/34861)
+
+## <small>3.0.5 (2025-06-19)</small>
+
+* [bitnami/cilium] :zap: :arrow_up: Update dependency references (#34554) ([3806754](https://github.com/bitnami/charts/commit/3806754ac4c2939c4864336cea155211837b0bde)), closes [#34554](https://github.com/bitnami/charts/issues/34554)
+
+## <small>3.0.4 (2025-06-13)</small>
+
+* [bitnami/cilium] :zap: :arrow_up: Update dependency references (#34449) ([0b72b16](https://github.com/bitnami/charts/commit/0b72b16f34f35ac38ad0b37a640098a082279ef2)), closes [#34449](https://github.com/bitnami/charts/issues/34449)
+
+## <small>3.0.3 (2025-06-13)</small>
+
+* [bitnami/cilium] :zap: :arrow_up: Update dependency references (#34411) ([cf4ea1f](https://github.com/bitnami/charts/commit/cf4ea1f741c3ec7fbd6fb1be7bbe37781aa74ba1)), closes [#34411](https://github.com/bitnami/charts/issues/34411)
+
+## <small>3.0.2 (2025-06-06)</small>
+
+* [bitnami/cilium] :zap: :arrow_up: Update dependency references (#34241) ([db84d80](https://github.com/bitnami/charts/commit/db84d8087850082a13f9605dcff7e86ba0c4547f)), closes [#34241](https://github.com/bitnami/charts/issues/34241)
+
+## <small>3.0.1 (2025-06-06)</small>
+
+* [bitnami/cilium] :zap: :arrow_up: Update dependency references (#34143) ([b8eb4ec](https://github.com/bitnami/charts/commit/b8eb4ec1d227541001ccfb0484f80d552003d1e8)), closes [#34143](https://github.com/bitnami/charts/issues/34143)
+
+## 3.0.0 (2025-05-27)
+
+* [bitnami/cilium] Update ETCD subchart (#33879) ([0814b9f](https://github.com/bitnami/charts/commit/0814b9f498a6dd00fbc575389060c390ad21cfdb)), closes [#33879](https://github.com/bitnami/charts/issues/33879)
+
+## <small>2.1.12 (2025-05-27)</small>
+
+* [bitnami/cilium] :zap: :arrow_up: Update dependency references (#33895) ([f11c343](https://github.com/bitnami/charts/commit/f11c3430724347a8ff177f6ed917d5d97815a685)), closes [#33895](https://github.com/bitnami/charts/issues/33895)
+
+## <small>2.1.11 (2025-05-19)</small>
+
+* [bitnami/cilium] :zap: :arrow_up: Update dependency references (#33719) ([b374c97](https://github.com/bitnami/charts/commit/b374c976d4243f56f1cae687df38bd9208904424)), closes [#33719](https://github.com/bitnami/charts/issues/33719)
+
+## <small>2.1.10 (2025-05-13)</small>
+
+* [bitnami/cilium] :zap: :arrow_up: Update dependency references (#33655) ([bebf87b](https://github.com/bitnami/charts/commit/bebf87b2d4e0c6352807f70775ac0d919754b6ae)), closes [#33655](https://github.com/bitnami/charts/issues/33655)
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+
+## <small>2.1.9 (2025-05-06)</small>
+
+* [bitnami/cilium] Release 2.1.9 (#33469) ([38c6023](https://github.com/bitnami/charts/commit/38c6023a92a11ae98f16badcccd3838da69bc9fd)), closes [#33469](https://github.com/bitnami/charts/issues/33469)
+
+## <small>2.1.8 (2025-05-06)</small>
+
+* [bitnami/cilium] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (#33344) ([99c4868](https://github.com/bitnami/charts/commit/99c4868670d065b2f42e98abd4d596056b347e3d)), closes [#33344](https://github.com/bitnami/charts/issues/33344)
+
+## <small>2.1.7 (2025-04-25)</small>
+
+* [bitnami/cilium] Release 2.1.7 (#33184) ([9c2f6dd](https://github.com/bitnami/charts/commit/9c2f6dd6fa278be47e52003cc645fb9878b86fe0)), closes [#33184](https://github.com/bitnami/charts/issues/33184)
+
+## <small>2.1.6 (2025-04-25)</small>
+
+* [bitnami/cilium] Release 2.1.6 (#33179) ([6ca5222](https://github.com/bitnami/charts/commit/6ca52227ed9fceff4685f5c28a909dedaa0fd3e6)), closes [#33179](https://github.com/bitnami/charts/issues/33179)
+
+## <small>2.1.5 (2025-04-14)</small>
+
+* [bitnami/cilium] Release 2.1.5 (#32998) ([40b6117](https://github.com/bitnami/charts/commit/40b6117c7bbcbcbe78aad39a184c17471928ba18)), closes [#32998](https://github.com/bitnami/charts/issues/32998)
+
+## <small>2.1.4 (2025-04-04)</small>
+
+* [bitnami/cilium] Release 2.1.4 (#32722) ([226ee09](https://github.com/bitnami/charts/commit/226ee094e658e49d389be228efaf4055c280123f)), closes [#32722](https://github.com/bitnami/charts/issues/32722)
+
+## <small>2.1.3 (2025-03-14)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/cilium] Release 2.1.3 (#32463) ([88d08c0](https://github.com/bitnami/charts/commit/88d08c0ac887ef0c89d37c421aa76dc501237a5f)), closes [#32463](https://github.com/bitnami/charts/issues/32463)
+
+## <small>2.1.2 (2025-03-04)</small>
+
+* [bitnami/cilium] Release 2.1.2 (#32281) ([95573f8](https://github.com/bitnami/charts/commit/95573f8302bf79081d60e97b0c68f725980cfc47)), closes [#32281](https://github.com/bitnami/charts/issues/32281)
+
+## <small>2.1.1 (2025-02-20)</small>
+
+* [bitnami/cilium] Release 2.1.1 (#32089) ([be747d9](https://github.com/bitnami/charts/commit/be747d935c070c7e3c7d0e38dfa59bd18a4bb6ad)), closes [#32089](https://github.com/bitnami/charts/issues/32089)
+
+## 2.1.0 (2025-02-20)
+
+* [bitnami/cilium] feat: use new helper for checking API versions (#32047) ([6fb5bfe](https://github.com/bitnami/charts/commit/6fb5bfe5ea8479d401b2586e8fc1c64e05029b70)), closes [#32047](https://github.com/bitnami/charts/issues/32047)
+
+## <small>2.0.4 (2025-02-12)</small>
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/cilium] Release 2.0.4 (#31884) ([ad40116](https://github.com/bitnami/charts/commit/ad40116c062a9ead17080e22c5cc597f5466d360)), closes [#31884](https://github.com/bitnami/charts/issues/31884)
+
+## <small>2.0.3 (2025-02-04)</small>
+
+* [bitnami/cilium] Release 2.0.3 (#31746) ([a36fa56](https://github.com/bitnami/charts/commit/a36fa56ebc8b4a64b0728628bc497ed24ea191e9)), closes [#31746](https://github.com/bitnami/charts/issues/31746)
 
 ## <small>2.0.2 (2025-02-04)</small>
 

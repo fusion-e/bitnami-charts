@@ -131,8 +131,7 @@ spec:
           args:
             - server
             {{- if .Values.tracking.tls.enabled }}
-            - --gunicorn-opts
-            - --certfile {{ include "mlflow.v0.tracking.tlsCert" . }} --keyfile {{ include "mlflow.v0.tracking.tlsCertKey" . }} {{- if (include "mlflow.v0.tracking.tlsCACert" .)}} --ca-certs {{ include "mlflow.v0.tracking.tlsCACert" . }}{{- end }}
+            - --uvicorn-opts='--ssl-certfile {{ include "mlflow.v0.tracking.tlsCert" . }} --ssl-keyfile {{ include "mlflow.v0.tracking.tlsCertKey" . }} {{- if (include "mlflow.v0.tracking.tlsCACert" .)}} --ssl-ca-certs {{ include "mlflow.v0.tracking.tlsCACert" . }}{{- end }}'
             {{- end }}
             {{- if (include "mlflow.v0.database.enabled" .) }}
             - --backend-store-uri={{ include "mlflow.v0.database.uri" . }}
@@ -175,6 +174,14 @@ spec:
           env:
             - name: BITNAMI_DEBUG
               value: {{ ternary "true" "false" (or .Values.image.debug .Values.diagnosticMode.enabled) | quote }}
+            {{- if .Values.tracking.auth.enabled }}
+            - name: MLFLOW_FLASK_SERVER_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "mlflow.v0.tracking.secretName" . }}
+                  key: {{ include "mlflow.v0.tracking.flaskServerSecretKey" . | quote }}
+            {{- end }}
+
             {{- if (include "mlflow.v0.database.enabled" .) }}
             - name: MLFLOW_DATABASE_PASSWORD
               valueFrom:
@@ -355,7 +362,13 @@ spec:
         {{- end }}
       volumes:
         - name: tmp
+        {{- if .Values.tracking.tmpVolume.ephemeral.enabled }}
+          ephemeral:
+            volumeClaimTemplate:
+              {{- include "common.tplvalues.render" (dict "value" .Values.tracking.tmpVolume.ephemeral.volumeClaimTemplate "context" $) | nindent 14 }}
+        {{- else }}
           emptyDir: {}
+        {{- end }}
         - name: mlruns
           emptyDir: {}
         - name: mlartifacts

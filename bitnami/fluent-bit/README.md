@@ -1,6 +1,6 @@
 <!--- app-name: Fluent Bit -->
 
-# Bitnami package for Fluent Bit
+# Bitnami Secure Images Helm chart for Fluent Bit
 
 Fluent Bit is a Fast and Lightweight Log Processor and Forwarder. It has been made with a strong focus on performance to allow the collection of events from different sources without complexity.
 
@@ -14,13 +14,26 @@ Trademarks: This software listing is packaged by Bitnami. The respective tradema
 helm install my-release oci://registry-1.docker.io/bitnamicharts/fluent-bit
 ```
 
-Looking to use Fluent Bit in production? Try [VMware Tanzu Application Catalog](https://bitnami.com/enterprise), the commercial edition of the Bitnami catalog.
+## Why use Bitnami Secure Images?
+
+Those are hardened, minimal CVE images built and maintained by Bitnami. Bitnami Secure Images are based on the cloud-optimized, security-hardened enterprise [OS Photon Linux](https://vmware.github.io/photon/). Why choose BSI images?
+
+- Hardened secure images of popular open source software with Near-Zero Vulnerabilities
+- Vulnerability Triage & Prioritization with VEX Statements, KEV and EPSS Scores
+- Compliance focus with FIPS, STIG, and air-gap options, including secure bill of materials (SBOM)
+- Software supply chain provenance attestation through in-toto
+- First class support for the internet’s favorite Helm charts
+
+Each image comes with valuable security metadata. You can view the metadata in [our public catalog here](https://app-catalog.vmware.com/bitnami/apps). Note: Some data is only available with [commercial subscriptions to BSI](https://bitnami.com/).
+
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%201.png?raw=true "Application details")
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%202.png?raw=true "Packaging report")
+
+If you are looking for our previous generation of images based on Debian Linux, please see the [Bitnami Legacy registry](https://hub.docker.com/u/bitnamilegacy).
 
 ## Introduction
 
 This chart bootstraps a [fluent-bit](https://github.com/bitnami/containers/tree/main/bitnami/fluent-bit) deployment on a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
-
-Bitnami charts can be used with [Kubeapps](https://kubeapps.dev/) for deployment and management of Helm Charts in clusters.
 
 ## Prerequisites
 
@@ -74,6 +87,25 @@ Install the [Bitnami Kube Prometheus helm chart](https://github.com/bitnami/char
 It is strongly recommended to use immutable tags in a production environment. This ensures your deployment does not change automatically if the same tag is updated with a different image.
 
 Bitnami will release a new chart updating its containers if a new version of the main container, significant changes, or critical vulnerabilities exist.
+
+### Configure extraPorts
+
+- Based on your fluent-bit configuration, edit the `extraContainerPorts` and `service.extraPorts` parameters. In the `extraContainerPorts` parameter, set the extra ports that the fluent-bit configuration uses, and in the `service.extraPorts` parameter, set the extra ports to be externally exposed.
+
+  Example:
+
+  ```yaml
+  service:
+    extraPorts:
+      - name: forward
+        port: 24224 # We use port 24224 for receiving logs over TCP
+        protocol: TCP
+        targetPort: forward
+
+  extraContainerPorts:
+    - name: forward
+      containerPort: 24224
+  ```
 
 ### Backup and restore
 
@@ -150,6 +182,7 @@ The [Bitnami Fluent Bit](https://github.com/bitnami/containers/tree/main/bitnami
 
 | Name                     | Description                                                                             | Value          |
 | ------------------------ | --------------------------------------------------------------------------------------- | -------------- |
+| `apiVersions`            | Override Kubernetes API versions reported by .Capabilities                              | `[]`           |
 | `nameOverride`           | String to partially override common.names.fullname                                      | `""`           |
 | `fullnameOverride`       | String to fully override common.names.fullname                                          | `""`           |
 | `kubeVersion`            | Force target Kubernetes version (using Helm capabilities if not set)                    | `""`           |
@@ -219,6 +252,7 @@ The [Bitnami Fluent Bit](https://github.com/bitnami/containers/tree/main/bitnami
 | `resources`                                         | Set container requests and limits for different resources like CPU or memory (essential for production workloads)                                                                                                 | `{}`                         |
 | `extraVolumeMounts`                                 | Optionally specify extra list of additional volumeMounts for fluent-bit container                                                                                                                                 | `[]`                         |
 | `containerPorts.http`                               | Port for HTTP port                                                                                                                                                                                                | `2020`                       |
+| `extraContainerPorts`                               | Optionally specify extra list of additional ports for fluent-bit containers                                                                                                                                       | `[]`                         |
 | `service.type`                                      | Fluent Bit service type                                                                                                                                                                                           | `ClusterIP`                  |
 | `service.ports.http`                                | Port for HTTP port                                                                                                                                                                                                | `2020`                       |
 | `service.nodePorts.http`                            | Node port for HTTP port                                                                                                                                                                                           | `""`                         |

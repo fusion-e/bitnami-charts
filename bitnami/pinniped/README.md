@@ -1,6 +1,6 @@
 <!--- app-name: Pinniped -->
 
-# Bitnami package for Pinniped
+# Bitnami Secure Images Helm chart for Pinniped
 
 Pinniped is an identity service provider for Kubernetes. It supplies a consistent and unified login experience across all your clusters. Pinniped is securely integrated with enterprise IDP protocols.
 
@@ -14,15 +14,28 @@ Trademarks: This software listing is packaged by Bitnami. The respective tradema
 helm install my-release oci://registry-1.docker.io/bitnamicharts/pinniped
 ```
 
-Looking to use Pinniped in production? Try [VMware Tanzu Application Catalog](https://bitnami.com/enterprise), the commercial edition of the Bitnami catalog.
+## Why use Bitnami Secure Images?
+
+Those are hardened, minimal CVE images built and maintained by Bitnami. Bitnami Secure Images are based on the cloud-optimized, security-hardened enterprise [OS Photon Linux](https://vmware.github.io/photon/). Why choose BSI images?
+
+- Hardened secure images of popular open source software with Near-Zero Vulnerabilities
+- Vulnerability Triage & Prioritization with VEX Statements, KEV and EPSS Scores
+- Compliance focus with FIPS, STIG, and air-gap options, including secure bill of materials (SBOM)
+- Software supply chain provenance attestation through in-toto
+- First class support for the internet’s favorite Helm charts
+
+Each image comes with valuable security metadata. You can view the metadata in [our public catalog here](https://app-catalog.vmware.com/bitnami/apps). Note: Some data is only available with [commercial subscriptions to BSI](https://bitnami.com/).
+
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%201.png?raw=true "Application details")
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%202.png?raw=true "Packaging report")
+
+If you are looking for our previous generation of images based on Debian Linux, please see the [Bitnami Legacy registry](https://hub.docker.com/u/bitnamilegacy).
 
 ## Introduction
 
 Bitnami charts for Helm are carefully engineered, actively maintained and are the quickest and easiest way to deploy containers on a Kubernetes cluster that are ready to handle production workloads.
 
 This chart bootstraps a [Pinniped](https://pinniped.dev/) Deployment in a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
-
-Bitnami charts can be used with [Kubeapps](https://kubeapps.dev/) for deployment and management of Helm Charts in clusters. This Helm chart has been tested on top of [Bitnami Kubernetes Production Runtime](https://kubeprod.io/) (BKPR). Deploy BKPR to get automated TLS certificates, logging and monitoring for your applications.
 
 ## Prerequisites
 
@@ -225,7 +238,7 @@ The [Bitnami pinniped](https://github.com/bitnami/containers/tree/main/bitnami/p
 | `concierge.tolerations`                                       | Tolerations for Concierge pods assignment                                                                                                                                                                                             | `[]`             |
 | `concierge.updateStrategy.type`                               | Concierge statefulset strategy type                                                                                                                                                                                                   | `RollingUpdate`  |
 | `concierge.priorityClassName`                                 | Concierge pods' priorityClassName                                                                                                                                                                                                     | `""`             |
-| `concierge.topologySpreadConstraints`                         | Topology Spread Constraints for pod assignment spread across your cluster among failure-domains. Evaluated as a template                                                                                                              | `{}`             |
+| `concierge.topologySpreadConstraints`                         | Topology Spread Constraints for pod assignment spread across your cluster among failure-domains. Evaluated as a template                                                                                                              | `[]`             |
 | `concierge.schedulerName`                                     | Name of the k8s scheduler (other than default) for Concierge pods                                                                                                                                                                     | `""`             |
 | `concierge.terminationGracePeriodSeconds`                     | Seconds Redmine pod needs to terminate gracefully                                                                                                                                                                                     | `""`             |
 | `concierge.lifecycleHooks`                                    | for the Concierge container(s) to automate configuration before or after startup                                                                                                                                                      | `{}`             |
@@ -348,7 +361,7 @@ The [Bitnami pinniped](https://github.com/bitnami/containers/tree/main/bitnami/p
 | `supervisor.tolerations`                                       | Tolerations for Supervisor pods assignment                                                                                                                                                                                              | `[]`             |
 | `supervisor.updateStrategy.type`                               | Supervisor statefulset strategy type                                                                                                                                                                                                    | `RollingUpdate`  |
 | `supervisor.priorityClassName`                                 | Supervisor pods' priorityClassName                                                                                                                                                                                                      | `""`             |
-| `supervisor.topologySpreadConstraints`                         | Topology Spread Constraints for pod assignment spread across your cluster among failure-domains. Evaluated as a template                                                                                                                | `{}`             |
+| `supervisor.topologySpreadConstraints`                         | Topology Spread Constraints for pod assignment spread across your cluster among failure-domains. Evaluated as a template                                                                                                                | `[]`             |
 | `supervisor.schedulerName`                                     | Name of the k8s scheduler (other than default) for Supervisor pods                                                                                                                                                                      | `""`             |
 | `supervisor.terminationGracePeriodSeconds`                     | Seconds Redmine pod needs to terminate gracefully                                                                                                                                                                                       | `""`             |
 | `supervisor.lifecycleHooks`                                    | for the Supervisor container(s) to automate configuration before or after startup                                                                                                                                                       | `{}`             |

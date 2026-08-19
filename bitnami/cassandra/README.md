@@ -1,6 +1,6 @@
 <!--- app-name: Apache Cassandra -->
 
-# Bitnami package for Apache Cassandra
+# Bitnami Secure Images Helm chart for Apache Cassandra
 
 Apache Cassandra is an open source distributed database management system designed to handle large amounts of data across many servers, providing high availability with no single point of failure.
 
@@ -14,13 +14,26 @@ Trademarks: This software listing is packaged by Bitnami. The respective tradema
 helm install my-release oci://registry-1.docker.io/bitnamicharts/cassandra
 ```
 
-Looking to use Apache Cassandra in production? Try [VMware Tanzu Application Catalog](https://bitnami.com/enterprise), the commercial edition of the Bitnami catalog.
+## Why use Bitnami Secure Images?
+
+Those are hardened, minimal CVE images built and maintained by Bitnami. Bitnami Secure Images are based on the cloud-optimized, security-hardened enterprise [OS Photon Linux](https://vmware.github.io/photon/). Why choose BSI images?
+
+- Hardened secure images of popular open source software with Near-Zero Vulnerabilities
+- Vulnerability Triage & Prioritization with VEX Statements, KEV and EPSS Scores
+- Compliance focus with FIPS, STIG, and air-gap options, including secure bill of materials (SBOM)
+- Software supply chain provenance attestation through in-toto
+- First class support for the internet’s favorite Helm charts
+
+Each image comes with valuable security metadata. You can view the metadata in [our public catalog here](https://app-catalog.vmware.com/bitnami/apps). Note: Some data is only available with [commercial subscriptions to BSI](https://bitnami.com/).
+
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%201.png?raw=true "Application details")
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%202.png?raw=true "Packaging report")
+
+If you are looking for our previous generation of images based on Debian Linux, please see the [Bitnami Legacy registry](https://hub.docker.com/u/bitnamilegacy).
 
 ## Introduction
 
 This chart bootstraps an [Apache Cassandra](https://github.com/bitnami/containers/tree/main/bitnami/cassandra) deployment on a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
-
-Bitnami charts can be used with [Kubeapps](https://kubeapps.dev/) for deployment and management of Helm Charts in clusters.
 
 ## Prerequisites
 
@@ -188,45 +201,52 @@ As the image run as non-root by default, it is necessary to adjust the ownership
 | `commonAnnotations`      | Annotations to add to all deployed objects                                              | `{}`            |
 | `clusterDomain`          | Kubernetes cluster domain name                                                          | `cluster.local` |
 | `extraDeploy`            | Array of extra objects to deploy with the release                                       | `[]`            |
+| `usePasswordFiles`       | Mount credentials as files instead of using environment variables                       | `true`          |
 | `diagnosticMode.enabled` | Enable diagnostic mode (all probes will be disabled and the command will be overridden) | `false`         |
 | `diagnosticMode.command` | Command to override all containers in the deployment                                    | `["sleep"]`     |
 | `diagnosticMode.args`    | Args to override all containers in the deployment                                       | `["infinity"]`  |
 
 ### Cassandra parameters
 
-| Name                       | Description                                                                                                            | Value                       |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------- | --------------------------- |
-| `image.registry`           | Cassandra image registry                                                                                               | `REGISTRY_NAME`             |
-| `image.repository`         | Cassandra image repository                                                                                             | `REPOSITORY_NAME/cassandra` |
-| `image.digest`             | Cassandra image digest in the way sha256:aa.... Please note this parameter, if set, will override the tag              | `""`                        |
-| `image.pullPolicy`         | image pull policy                                                                                                      | `IfNotPresent`              |
-| `image.pullSecrets`        | Cassandra image pull secrets                                                                                           | `[]`                        |
-| `image.debug`              | Enable image debug mode                                                                                                | `false`                     |
-| `dbUser.user`              | Cassandra admin user                                                                                                   | `cassandra`                 |
-| `dbUser.forcePassword`     | Force the user to provide a non                                                                                        | `false`                     |
-| `dbUser.password`          | Password for `dbUser.user`. Randomly generated if empty                                                                | `""`                        |
-| `dbUser.existingSecret`    | Use an existing secret object for `dbUser.user` password (will ignore `dbUser.password`)                               | `""`                        |
-| `initDB`                   | Object with cql scripts. Useful for creating a keyspace and pre-populating data                                        | `{}`                        |
-| `initDBConfigMap`          | ConfigMap with cql scripts. Useful for creating a keyspace and pre-populating data                                     | `""`                        |
-| `initDBSecret`             | Secret with cql script (with sensitive data). Useful for creating a keyspace and pre-populating data                   | `""`                        |
-| `existingConfiguration`    | ConfigMap with custom cassandra configuration files. This overrides any other Cassandra configuration set in the chart | `""`                        |
-| `cluster.name`             | Cassandra cluster name                                                                                                 | `cassandra`                 |
-| `cluster.seedCount`        | Number of seed nodes                                                                                                   | `1`                         |
-| `cluster.numTokens`        | Number of tokens for each node                                                                                         | `256`                       |
-| `cluster.datacenter`       | Datacenter name                                                                                                        | `dc1`                       |
-| `cluster.rack`             | Rack name                                                                                                              | `rack1`                     |
-| `cluster.endpointSnitch`   | Endpoint Snitch                                                                                                        | `SimpleSnitch`              |
-| `cluster.clientEncryption` | Client Encryption                                                                                                      | `false`                     |
-| `cluster.extraSeeds`       | For an external/second cassandra ring.                                                                                 | `[]`                        |
-| `cluster.enableUDF`        | Enable User defined functions                                                                                          | `false`                     |
-| `jvm.extraOpts`            | Set the value for Java Virtual Machine extra options                                                                   | `""`                        |
-| `jvm.maxHeapSize`          | Set Java Virtual Machine maximum heap size (MAX_HEAP_SIZE). Calculated automatically if `nil`                          | `""`                        |
-| `jvm.newHeapSize`          | Set Java Virtual Machine new heap size (HEAP_NEWSIZE). Calculated automatically if `nil`                               | `""`                        |
-| `command`                  | Command for running the container (set to default if not set). Use array form                                          | `[]`                        |
-| `args`                     | Args for running the container (set to default if not set). Use array form                                             | `[]`                        |
-| `extraEnvVars`             | Extra environment variables to be set on cassandra container                                                           | `[]`                        |
-| `extraEnvVarsCM`           | Name of existing ConfigMap containing extra env vars                                                                   | `""`                        |
-| `extraEnvVarsSecret`       | Name of existing Secret containing extra env vars                                                                      | `""`                        |
+| Name                                     | Description                                                                                                                           | Value                       |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
+| `image.registry`                         | Cassandra image registry                                                                                                              | `REGISTRY_NAME`             |
+| `image.repository`                       | Cassandra image repository                                                                                                            | `REPOSITORY_NAME/cassandra` |
+| `image.digest`                           | Cassandra image digest in the way sha256:aa.... Please note this parameter, if set, will override the tag                             | `""`                        |
+| `image.pullPolicy`                       | image pull policy                                                                                                                     | `IfNotPresent`              |
+| `image.pullSecrets`                      | Cassandra image pull secrets                                                                                                          | `[]`                        |
+| `image.debug`                            | Enable image debug mode                                                                                                               | `false`                     |
+| `dbUser.user`                            | Cassandra admin user                                                                                                                  | `cassandra`                 |
+| `dbUser.forcePassword`                   | Force the user to provide a non                                                                                                       | `false`                     |
+| `dbUser.password`                        | Password for `dbUser.user`. Randomly generated if empty                                                                               | `""`                        |
+| `dbUser.existingSecret`                  | Use an existing secret object for `dbUser.user` password (will ignore `dbUser.password`)                                              | `""`                        |
+| `initDB`                                 | Object with cql scripts. Useful for creating a keyspace and pre-populating data                                                       | `{}`                        |
+| `initDBConfigMap`                        | ConfigMap with cql scripts. Useful for creating a keyspace and pre-populating data                                                    | `""`                        |
+| `initDBSecret`                           | Secret with cql script (with sensitive data). Useful for creating a keyspace and pre-populating data                                  | `""`                        |
+| `existingConfiguration`                  | ConfigMap with custom cassandra configuration files. This overrides any other Cassandra configuration set in the chart                | `""`                        |
+| `cluster.name`                           | Cassandra cluster name                                                                                                                | `cassandra`                 |
+| `cluster.seedCount`                      | Number of seed nodes                                                                                                                  | `1`                         |
+| `cluster.numTokens`                      | Number of tokens for each node                                                                                                        | `256`                       |
+| `cluster.datacenter`                     | Datacenter name                                                                                                                       | `dc1`                       |
+| `cluster.rack`                           | Rack name                                                                                                                             | `rack1`                     |
+| `cluster.endpointSnitch`                 | Endpoint Snitch                                                                                                                       | `SimpleSnitch`              |
+| `cluster.clientEncryption`               | Client Encryption                                                                                                                     | `false`                     |
+| `cluster.extraSeeds`                     | For an external/second cassandra ring.                                                                                                | `[]`                        |
+| `cluster.enableUDF`                      | Enable User defined functions                                                                                                         | `false`                     |
+| `dynamicSeedDiscovery.enabled`           | Enable dynamic-seed-discovery init container                                                                                          | `false`                     |
+| `dynamicSeedDiscovery.image.registry`    | Init container dynamic-seed-discovery image registry                                                                                  | `REGISTRY_NAME`             |
+| `dynamicSeedDiscovery.image.repository`  | Init container dynamic-seed-discovery image repository                                                                                | `REPOSITORY_NAME/alpine`    |
+| `dynamicSeedDiscovery.image.digest`      | Init container dynamic-seed-discovery image digest in the way sha256:aa.... Please note this parameter, if set, will override the tag | `""`                        |
+| `dynamicSeedDiscovery.image.pullPolicy`  | Init container dynamic-seed-discovery pull policy                                                                                     | `IfNotPresent`              |
+| `dynamicSeedDiscovery.image.pullSecrets` | Specify docker-registry secret names as an array                                                                                      | `[]`                        |
+| `jvm.extraOpts`                          | Set the value for Java Virtual Machine extra options                                                                                  | `""`                        |
+| `jvm.maxHeapSize`                        | Set Java Virtual Machine maximum heap size (MAX_HEAP_SIZE). Calculated automatically if `nil`                                         | `""`                        |
+| `jvm.newHeapSize`                        | Set Java Virtual Machine new heap size (HEAP_NEWSIZE). Calculated automatically if `nil`                                              | `""`                        |
+| `command`                                | Command for running the container (set to default if not set). Use array form                                                         | `[]`                        |
+| `args`                                   | Args for running the container (set to default if not set). Use array form                                                            | `[]`                        |
+| `extraEnvVars`                           | Extra environment variables to be set on cassandra container                                                                          | `[]`                        |
+| `extraEnvVarsCM`                         | Name of existing ConfigMap containing extra env vars                                                                                  | `""`                        |
+| `extraEnvVarsSecret`                     | Name of existing Secret containing extra env vars                                                                                     | `""`                        |
 
 ### Statefulset parameters
 

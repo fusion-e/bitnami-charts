@@ -1,8 +1,128 @@
 # Changelog
 
-## 2.2.7 (2025-02-04)
+## 3.0.1 (2026-02-03)
 
-* [bitnami/haproxy] Release 2.2.7 ([#31759](https://github.com/bitnami/charts/pull/31759))
+* feat(haproxy): add IPv6 dual-stack support with ipFamilyPolicy and ip… ([#36385](https://github.com/bitnami/charts/pull/36385))
+
+## <small>2.2.34 (2025-08-13)</small>
+
+* [bitnami/haproxy] :zap: :arrow_up: Update dependency references (#35817) ([88590a8](https://github.com/bitnami/charts/commit/88590a857b3aa4ad3c6038053f82c337e9226505)), closes [#35817](https://github.com/bitnami/charts/issues/35817)
+
+## <small>2.2.33 (2025-08-13)</small>
+
+* [bitnami/haproxy] :zap: :arrow_up: Update dependency references (#35813) ([a8aeecd](https://github.com/bitnami/charts/commit/a8aeecd3bdf80ce0fdc3254f53ee26562b694899)), closes [#35813](https://github.com/bitnami/charts/issues/35813)
+
+## <small>2.2.32 (2025-08-07)</small>
+
+* [bitnami/haproxy] :zap: :arrow_up: Update dependency references (#35596) ([32fc4e7](https://github.com/bitnami/charts/commit/32fc4e752d76236b792899d48e08104b49576ffa)), closes [#35596](https://github.com/bitnami/charts/issues/35596)
+
+## <small>2.2.31 (2025-08-07)</small>
+
+* [bitnami/haproxy] :zap: :arrow_up: Update dependency references (#35585) ([8225480](https://github.com/bitnami/charts/commit/8225480b9f475fba1231520bb655511a5de67e14)), closes [#35585](https://github.com/bitnami/charts/issues/35585)
+
+## <small>2.2.30 (2025-08-07)</small>
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/haproxy] :zap: :arrow_up: Update dependency references (#35486) ([e2ddc20](https://github.com/bitnami/charts/commit/e2ddc20b9ffe030c1987d88acb71d33e0b2b53ce)), closes [#35486](https://github.com/bitnami/charts/issues/35486)
+
+## <small>2.2.29 (2025-07-09)</small>
+
+* [bitnami/haproxy] :zap: :arrow_up: Update dependency references (#34964) ([602ab75](https://github.com/bitnami/charts/commit/602ab753f059e29810880aa756c700bec85834c9)), closes [#34964](https://github.com/bitnami/charts/issues/34964)
+
+## <small>2.2.28 (2025-07-09)</small>
+
+* [bitnami/haproxy] :zap: :arrow_up: Update dependency references (#34905) ([5c0ad14](https://github.com/bitnami/charts/commit/5c0ad1424c3f2ffd2edfacaa43efef746a5e405d)), closes [#34905](https://github.com/bitnami/charts/issues/34905)
+
+## <small>2.2.27 (2025-07-02)</small>
+
+* [bitnami/haproxy] :zap: :arrow_up: Update dependency references (#34765) ([01d628c](https://github.com/bitnami/charts/commit/01d628c2520fc96592772a4bc6ad4a19b39da0d1)), closes [#34765](https://github.com/bitnami/charts/issues/34765)
+
+## <small>2.2.26 (2025-06-16)</small>
+
+* [bitnami/haproxy] :zap: :arrow_up: Update dependency references (#34515) ([335b1b5](https://github.com/bitnami/charts/commit/335b1b56394da6b2de4bfd9904706dc572e616d5)), closes [#34515](https://github.com/bitnami/charts/issues/34515)
+
+## <small>2.2.25 (2025-06-13)</small>
+
+* [bitnami/haproxy] :zap: :arrow_up: Update dependency references (#34447) ([d372fad](https://github.com/bitnami/charts/commit/d372fadbc066f148f6f18392f8be9493e5d4f84e)), closes [#34447](https://github.com/bitnami/charts/issues/34447)
+
+## <small>2.2.24 (2025-06-11)</small>
+
+* [bitnami/haproxy] :zap: :arrow_up: Update dependency references (#34351) ([e165f98](https://github.com/bitnami/charts/commit/e165f984502d21e10a05499d895f83b2b189d375)), closes [#34351](https://github.com/bitnami/charts/issues/34351)
+
+## <small>2.2.23 (2025-06-06)</small>
+
+* [bitnami/haproxy] :zap: :arrow_up: Update dependency references (#34174) ([1dcb4e3](https://github.com/bitnami/charts/commit/1dcb4e31096045b3500351c6a72f64bb9041f25f)), closes [#34174](https://github.com/bitnami/charts/issues/34174)
+
+## <small>2.2.22 (2025-05-28)</small>
+
+* [bitnami/haproxy] :zap: :arrow_up: Update dependency references (#33944) ([9594f4d](https://github.com/bitnami/charts/commit/9594f4d2745c80e866512e4fd69c9da92ef797a0)), closes [#33944](https://github.com/bitnami/charts/issues/33944)
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+
+## <small>2.2.21 (2025-05-07)</small>
+
+* [bitnami/haproxy] Release 2.2.21 (#33491) ([6aaad85](https://github.com/bitnami/charts/commit/6aaad85480fdc3a9f10f30891e9de996a2760eb7)), closes [#33491](https://github.com/bitnami/charts/issues/33491)
+
+## <small>2.2.20 (2025-05-06)</small>
+
+* [bitnami/haproxy] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (#33372 ([caafefd](https://github.com/bitnami/charts/commit/caafefdf9d60e49d350a3628a3f82d4239dfdbe0)), closes [#33372](https://github.com/bitnami/charts/issues/33372)
+
+## <small>2.2.19 (2025-04-22)</small>
+
+* [bitnami/haproxy] Release 2.2.19 (#33116) ([0a86886](https://github.com/bitnami/charts/commit/0a868860a0ab8500f1aaff75e2c9d0d667ddeef4)), closes [#33116](https://github.com/bitnami/charts/issues/33116)
+
+## <small>2.2.18 (2025-04-17)</small>
+
+* [bitnami/haproxy] Release 2.2.18 (#33064) ([8d0d375](https://github.com/bitnami/charts/commit/8d0d375e41b7870668d3cb45b1775c1a212c7bc4)), closes [#33064](https://github.com/bitnami/charts/issues/33064)
+
+## <small>2.2.17 (2025-04-01)</small>
+
+* [bitnami/haproxy] Release 2.2.17 (#32736) ([211459e](https://github.com/bitnami/charts/commit/211459e1a19fe8d6bdf29ed2e0169471ee2857a9)), closes [#32736](https://github.com/bitnami/charts/issues/32736)
+
+## <small>2.2.16 (2025-03-28)</small>
+
+* [bitnami/haproxy] Release 2.2.16 (#32671) ([4c8e0f6](https://github.com/bitnami/charts/commit/4c8e0f67c321e1ea6655f9ab76dbe3d0b27da365)), closes [#32671](https://github.com/bitnami/charts/issues/32671)
+
+## <small>2.2.15 (2025-03-20)</small>
+
+* [bitnami/haproxy] Release 2.2.15 (#32533) ([93b0792](https://github.com/bitnami/charts/commit/93b0792f94ffe6753187d3a200aca830f8df2c63)), closes [#32533](https://github.com/bitnami/charts/issues/32533)
+
+## <small>2.2.14 (2025-03-18)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/haproxy] Release 2.2.14 (#32501) ([8293073](https://github.com/bitnami/charts/commit/829307324ea68250cfe0649f5d537bfe2c2dfaa4)), closes [#32501](https://github.com/bitnami/charts/issues/32501)
+
+## <small>2.2.13 (2025-03-06)</small>
+
+* [bitnami/haproxy] Release 2.2.13 (#32341) ([efd9591](https://github.com/bitnami/charts/commit/efd9591294ebe652d936442aae9b6f5d7b4b580d)), closes [#32341](https://github.com/bitnami/charts/issues/32341)
+
+## <small>2.2.12 (2025-03-05)</small>
+
+* [bitnami/haproxy] Release 2.2.12 (#32295) ([16ad539](https://github.com/bitnami/charts/commit/16ad539685f83a4fff716611d77e163883d3d862)), closes [#32295](https://github.com/bitnami/charts/issues/32295)
+
+## <small>2.2.11 (2025-02-25)</small>
+
+* [bitnami/haproxy] Release 2.2.11 (#32166) ([7af34f6](https://github.com/bitnami/charts/commit/7af34f63e42c3a44ff1c3f1192045d4d3b9b545d)), closes [#32166](https://github.com/bitnami/charts/issues/32166)
+
+## <small>2.2.10 (2025-02-20)</small>
+
+* [bitnami/haproxy] Release 2.2.10 (#32083) ([d9121e3](https://github.com/bitnami/charts/commit/d9121e33bc135a3591284257c8c07122fa2c7764)), closes [#32083](https://github.com/bitnami/charts/issues/32083)
+
+## <small>2.2.9 (2025-02-19)</small>
+
+* [bitnami/haproxy] Release 2.2.9 (#32005) ([275b708](https://github.com/bitnami/charts/commit/275b70884a7150c49bc3ba82c24a24a25950b29a)), closes [#32005](https://github.com/bitnami/charts/issues/32005)
+
+## <small>2.2.8 (2025-02-12)</small>
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/haproxy] Release 2.2.8 (#31890) ([cb84b0c](https://github.com/bitnami/charts/commit/cb84b0cef5e1ba778adec03030c3e5a2d62238bb)), closes [#31890](https://github.com/bitnami/charts/issues/31890)
+
+## <small>2.2.7 (2025-02-04)</small>
+
+* [bitnami/haproxy] Release 2.2.7 (#31759) ([34021cb](https://github.com/bitnami/charts/commit/34021cb4a569af9278cfae48918bf746a373b1f7)), closes [#31759](https://github.com/bitnami/charts/issues/31759)
+* Update copyright year (#31682) ([e9f02f5](https://github.com/bitnami/charts/commit/e9f02f5007068751f7eb2270fece811e685c99b6)), closes [#31682](https://github.com/bitnami/charts/issues/31682)
 
 ## <small>2.2.6 (2025-01-29)</small>
 

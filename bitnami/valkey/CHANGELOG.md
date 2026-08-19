@@ -1,8 +1,198 @@
 # Changelog
 
-## 2.2.3 (2025-01-10)
+## 4.0.2 (2025-10-22)
 
-* [bitnami/valkey] bugfix: instructions to obtain password on installation notes ([#31287](https://github.com/bitnami/charts/pull/31287))
+* [bitnami/valkey] fix: adjust statefullset valkey container port to the headless service port ([#36363](https://github.com/bitnami/charts/pull/36363))
+
+## <small>4.0.1 (2025-09-04)</small>
+
+* [bitnami/*] Remove annotations.category (#36224) ([2abc0f9](https://github.com/bitnami/charts/commit/2abc0f9d7e89a5453e57f029c66f581b3d5855ef)), closes [#36224](https://github.com/bitnami/charts/issues/36224)
+* [bitnami/valkey] doc: fix default value in README (#35741) ([0b16d82](https://github.com/bitnami/charts/commit/0b16d82f0d3816c42e8490a4c4fc7c4faf8ed1d1)), closes [#35741](https://github.com/bitnami/charts/issues/35741)
+
+## <small>3.0.31 (2025-08-23)</small>
+
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#36174) ([bfa74fb](https://github.com/bitnami/charts/commit/bfa74fb5cb43be45e0238a6fc4db88ae4dad4f78)), closes [#36174](https://github.com/bitnami/charts/issues/36174)
+
+## <small>3.0.30 (2025-08-14)</small>
+
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#35859) ([7d00ea2](https://github.com/bitnami/charts/commit/7d00ea291c92e2055652c2c20fb3f0e80ceb5c54)), closes [#35859](https://github.com/bitnami/charts/issues/35859)
+
+## <small>3.0.29 (2025-08-13)</small>
+
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#35830) ([b67e53b](https://github.com/bitnami/charts/commit/b67e53bd415fc59019df7cfa4af014e66bbde6f5)), closes [#35830](https://github.com/bitnami/charts/issues/35830)
+
+## <small>3.0.28 (2025-08-09)</small>
+
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#35714) ([9036385](https://github.com/bitnami/charts/commit/9036385f6a1ffbdfb8c766a789aa05006b073164)), closes [#35714](https://github.com/bitnami/charts/issues/35714)
+
+## <small>3.0.27 (2025-08-08)</small>
+
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#35695) ([415f564](https://github.com/bitnami/charts/commit/415f56454bd400b902f80cd1594f17a96ed71488)), closes [#35695](https://github.com/bitnami/charts/issues/35695)
+
+## <small>3.0.26 (2025-08-07)</small>
+
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#35658) ([2dbe59c](https://github.com/bitnami/charts/commit/2dbe59c8bfba5d3060fb6ffa7549110d53878113)), closes [#35658](https://github.com/bitnami/charts/issues/35658)
+
+## <small>3.0.25 (2025-08-07)</small>
+
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#35587) ([ae6515c](https://github.com/bitnami/charts/commit/ae6515cafc50a1fbf0ad97304f7ea619f721298b)), closes [#35587](https://github.com/bitnami/charts/issues/35587)
+
+## <small>3.0.24 (2025-08-07)</small>
+
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#35524) ([fb3d7fb](https://github.com/bitnami/charts/commit/fb3d7fb0dcf8aedf29b73ebfad11c78dccaf50c3)), closes [#35524](https://github.com/bitnami/charts/issues/35524)
+
+## <small>3.0.23 (2025-08-07)</small>
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#35500) ([5d3fdef](https://github.com/bitnami/charts/commit/5d3fdef041d34c0ba161b6405b4a9d5cb58051c8)), closes [#35500](https://github.com/bitnami/charts/issues/35500)
+
+## <small>3.0.22 (2025-07-16)</small>
+
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#35151) ([8d6e4e5](https://github.com/bitnami/charts/commit/8d6e4e5a2a12142518f833a5de7624e05e9d0f55)), closes [#35151](https://github.com/bitnami/charts/issues/35151)
+
+## <small>3.0.21 (2025-07-15)</small>
+
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#35135) ([4a16d74](https://github.com/bitnami/charts/commit/4a16d74eebb0f13d8423403bb4390c3cac30bd4a)), closes [#35135](https://github.com/bitnami/charts/issues/35135)
+
+## <small>3.0.20 (2025-07-09)</small>
+
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#34952) ([39c73b3](https://github.com/bitnami/charts/commit/39c73b37c8afd5414d7bdb2311ef6e5fff59c71d)), closes [#34952](https://github.com/bitnami/charts/issues/34952)
+
+## <small>3.0.19 (2025-07-09)</small>
+
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#34922) ([4a25dbc](https://github.com/bitnami/charts/commit/4a25dbc8e5a453d19fa8648af179398b9bed0353)), closes [#34922](https://github.com/bitnami/charts/issues/34922)
+
+## <small>3.0.18 (2025-07-08)</small>
+
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#34849) ([9a2b90b](https://github.com/bitnami/charts/commit/9a2b90b7d7f8e9ee0b164738e7dae4f5c4d54693)), closes [#34849](https://github.com/bitnami/charts/issues/34849)
+
+## <small>3.0.17 (2025-07-07)</small>
+
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#34833) ([e824d09](https://github.com/bitnami/charts/commit/e824d0901f695edbd5aba67419b1b73dd2a8ca38)), closes [#34833](https://github.com/bitnami/charts/issues/34833)
+
+## <small>3.0.16 (2025-06-26)</small>
+
+* [bitnami/valkey] Fix key on condition to create PodDisruptionBudget (#34641) ([be1c518](https://github.com/bitnami/charts/commit/be1c518fbde7a4bd1459d29155b3874180cbf405)), closes [#34641](https://github.com/bitnami/charts/issues/34641)
+
+## <small>3.0.15 (2025-06-18)</small>
+
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#34549) ([efaba92](https://github.com/bitnami/charts/commit/efaba9295865e5ee85201399acb23d6875b509a1)), closes [#34549](https://github.com/bitnami/charts/issues/34549)
+
+## <small>3.0.14 (2025-06-16)</small>
+
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#34462) ([458f0ef](https://github.com/bitnami/charts/commit/458f0ef13a9b458d80d7ee5805dd931535c26f09)), closes [#34462](https://github.com/bitnami/charts/issues/34462)
+
+## <small>3.0.13 (2025-06-11)</small>
+
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#34361) ([ab18df0](https://github.com/bitnami/charts/commit/ab18df0a21f34dd0bb41bc430c54dbadc52c5543)), closes [#34361](https://github.com/bitnami/charts/issues/34361)
+
+## <small>3.0.12 (2025-06-10)</small>
+
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#34322) ([4ea6675](https://github.com/bitnami/charts/commit/4ea66757c88a14c81058ff34358b2daddb235449)), closes [#34322](https://github.com/bitnami/charts/issues/34322)
+
+## <small>3.0.11 (2025-06-08)</small>
+
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#34248) ([e945325](https://github.com/bitnami/charts/commit/e9453256b0091b47900a79e7499aefd1d2b3fae7)), closes [#34248](https://github.com/bitnami/charts/issues/34248)
+
+## <small>3.0.10 (2025-06-06)</small>
+
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#34189) ([6fa7396](https://github.com/bitnami/charts/commit/6fa7396b58ea4c9533dfc61f158e9d736346e097)), closes [#34189](https://github.com/bitnami/charts/issues/34189)
+* [bitnami/valkey] Fix info about Sentinel StatefulSet in README (#33881) ([ddc76cc](https://github.com/bitnami/charts/commit/ddc76cc1f4b83f1dad14315f3c7d3cdf17c120fc)), closes [#33881](https://github.com/bitnami/charts/issues/33881)
+
+## <small>3.0.9 (2025-05-22)</small>
+
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#33827) ([075989d](https://github.com/bitnami/charts/commit/075989dd653c0a01c6305bb3ab56b17f0788debf)), closes [#33827](https://github.com/bitnami/charts/issues/33827)
+
+## <small>3.0.8 (2025-05-20)</small>
+
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#33792) ([d6c42e4](https://github.com/bitnami/charts/commit/d6c42e478de942c621c8761d8b49c2eff21956e9)), closes [#33792](https://github.com/bitnami/charts/issues/33792)
+
+## <small>3.0.7 (2025-05-19)</small>
+
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#33750) ([86df5cd](https://github.com/bitnami/charts/commit/86df5cdea912a9798d0c2a32c8c9fd5cd506b4de)), closes [#33750](https://github.com/bitnami/charts/issues/33750)
+
+## <small>3.0.6 (2025-05-15)</small>
+
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#33733) ([c311405](https://github.com/bitnami/charts/commit/c3114052350aa4af97eea798f4e8fcb328079807)), closes [#33733](https://github.com/bitnami/charts/issues/33733)
+
+## <small>3.0.5 (2025-05-15)</small>
+
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+* [bitnami/valkey] :zap: :arrow_up: Update dependency references (#33652) ([8b9a514](https://github.com/bitnami/charts/commit/8b9a514fd5bb6ed5492b7f3707f71d80b9305a43)), closes [#33652](https://github.com/bitnami/charts/issues/33652)
+
+## <small>3.0.4 (2025-05-06)</small>
+
+* [bitnami/valkey] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (#33443) ([81a1707](https://github.com/bitnami/charts/commit/81a1707cc7c34b9f294c6cc1959e266989f50f56)), closes [#33443](https://github.com/bitnami/charts/issues/33443)
+
+## <small>3.0.3 (2025-04-28)</small>
+
+* [bitnami/valkey] Release 3.0.3 (#33219) ([d3fe92b](https://github.com/bitnami/charts/commit/d3fe92bf477d3d52bfc92b63fbcecce85ed50c6a)), closes [#33219](https://github.com/bitnami/charts/issues/33219)
+
+## <small>3.0.2 (2025-04-23)</small>
+
+* [bitnami/valkey] Release 3.0.2 (#33150) ([7a5f15c](https://github.com/bitnami/charts/commit/7a5f15cc8aa8e8c608593f0465c7fd7b28d40644)), closes [#33150](https://github.com/bitnami/charts/issues/33150)
+
+## <small>3.0.1 (2025-04-09)</small>
+
+* [bitnami/valkey] Release 3.0.1 (#32942) ([8c1ed1f](https://github.com/bitnami/charts/commit/8c1ed1f1a11d94ce018b7f980331a87b8e41455e)), closes [#32942](https://github.com/bitnami/charts/issues/32942)
+
+## 3.0.0 (2025-04-09)
+
+* [bitnami/valkey] Release 3.0.0 (#32933) ([8f9b1d1](https://github.com/bitnami/charts/commit/8f9b1d1f793b830f462cbca18050d8e33bdaf3c0)), closes [#32933](https://github.com/bitnami/charts/issues/32933)
+
+## <small>2.4.7 (2025-03-22)</small>
+
+* [bitnami/valkey] Release 2.4.7 (#32563) ([7808e9d](https://github.com/bitnami/charts/commit/7808e9d5a234c8f41aea2302fea83013d84fdc39)), closes [#32563](https://github.com/bitnami/charts/issues/32563)
+
+## <small>2.4.6 (2025-03-12)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/valkey] Fix issue when using custom password secret key (#32375) ([28a30f1](https://github.com/bitnami/charts/commit/28a30f13f993f5e6e66772ffa324830fe35c71e3)), closes [#32375](https://github.com/bitnami/charts/issues/32375)
+
+## <small>2.4.5 (2025-03-10)</small>
+
+* [bitnami/valkey]: add apiVersion and kind to sentinel statefulset (#32356) ([8c1620e](https://github.com/bitnami/charts/commit/8c1620e5cc40471808b0099a41d44fe7b1141f65)), closes [#32356](https://github.com/bitnami/charts/issues/32356)
+
+## <small>2.4.4 (2025-03-05)</small>
+
+* [bitnami/valkey] Fix usage of valkey .metrics.serviceMonitor.additionalEndpoints (#32217) ([304c018](https://github.com/bitnami/charts/commit/304c018c6ffbf6146eb88f095d7064daf878c793)), closes [#32217](https://github.com/bitnami/charts/issues/32217)
+
+## <small>2.4.3 (2025-03-04)</small>
+
+* [bitnami/valkey] Fix usePasswordFile typo in metrics container (#32260) ([956a457](https://github.com/bitnami/charts/commit/956a457bae2a4eb0049fbf9443acf8ee2e28939f)), closes [#32260](https://github.com/bitnami/charts/issues/32260)
+
+## <small>2.4.2 (2025-03-03)</small>
+
+* [bitnami]/valkey update _helpers.tpl to be in line with Valkey-Cluster. (#32203) ([5619378](https://github.com/bitnami/charts/commit/5619378c4014210b2934ad3e803bf72361cafdea)), closes [#32203](https://github.com/bitnami/charts/issues/32203)
+
+## <small>2.4.1 (2025-02-27)</small>
+
+* [bitnami/valkey] Check is auth.enabled before auth.usePasswordFiles (#32157) ([a3059b7](https://github.com/bitnami/charts/commit/a3059b7e78e7eca71778cf1a0c591b6f8d2314f9)), closes [#32157](https://github.com/bitnami/charts/issues/32157)
+
+## 2.4.0 (2025-02-24)
+
+* [bitnami/valkey] Set `usePasswordFiles=true` by default (#32121) ([9c8e329](https://github.com/bitnami/charts/commit/9c8e32945c31ba7ac0d74f70c928fb598cae761b)), closes [#32121](https://github.com/bitnami/charts/issues/32121)
+
+## 2.3.0 (2025-02-20)
+
+* [bitnami/valkey] feat: use new helper for checking API versions (#32064) ([b780cc1](https://github.com/bitnami/charts/commit/b780cc181c1f22e89f01aa5f2eb5f2516a0986de)), closes [#32064](https://github.com/bitnami/charts/issues/32064)
+
+## <small>2.2.5 (2025-02-20)</small>
+
+* [bitnami/valkey] Release 2.2.5 (#32067) ([a410e1e](https://github.com/bitnami/charts/commit/a410e1e40380759aa5721748ca9ba7c276df5c8a)), closes [#32067](https://github.com/bitnami/charts/issues/32067)
+
+## <small>2.2.4 (2025-02-17)</small>
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/valkey] Release 2.2.4 (#31946) ([f578883](https://github.com/bitnami/charts/commit/f578883ec3e15a7781b72be5ecdf40beb7b353af)), closes [#31946](https://github.com/bitnami/charts/issues/31946)
+* Update copyright year (#31682) ([e9f02f5](https://github.com/bitnami/charts/commit/e9f02f5007068751f7eb2270fece811e685c99b6)), closes [#31682](https://github.com/bitnami/charts/issues/31682)
+
+## <small>2.2.3 (2025-01-10)</small>
+
+* [bitnami/valkey] bugfix: instructions to obtain password on installation notes (#31287) ([a1d5cd2](https://github.com/bitnami/charts/commit/a1d5cd259aaf9b96fb447ade0bc5827ac6e49531)), closes [#31287](https://github.com/bitnami/charts/issues/31287)
 
 ## <small>2.2.2 (2025-01-08)</small>
 

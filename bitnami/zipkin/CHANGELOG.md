@@ -1,8 +1,76 @@
 # Changelog
 
-## 1.1.3 (2025-01-28)
+## 1.3.11 (2025-08-11)
 
-* [bitnami/zipkin] Release 1.1.3 ([#31630](https://github.com/bitnami/charts/pull/31630))
+* [bitnami/zipkin] :zap: :arrow_up: Update dependency references ([#35735](https://github.com/bitnami/charts/pull/35735))
+
+## <small>1.3.10 (2025-08-07)</small>
+
+* [bitnami/zipkin] :zap: :arrow_up: Update dependency references (#35685) ([dbc1d5a](https://github.com/bitnami/charts/commit/dbc1d5ab9755b04569ee83db887b756bbe0735e5)), closes [#35685](https://github.com/bitnami/charts/issues/35685)
+
+## <small>1.3.9 (2025-08-07)</small>
+
+* [bitnami/zipkin] :zap: :arrow_up: Update dependency references (#35548) ([f0305bd](https://github.com/bitnami/charts/commit/f0305bd08a012fa1a8fa8684e200a0dc63ddae5d)), closes [#35548](https://github.com/bitnami/charts/issues/35548)
+
+## <small>1.3.8 (2025-08-05)</small>
+
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/zipkin] :zap: :arrow_up: Update dependency references (#35421) ([9ca0a96](https://github.com/bitnami/charts/commit/9ca0a9628c62595baecdd250ce2692f9b6f16e4f)), closes [#35421](https://github.com/bitnami/charts/issues/35421)
+
+## <small>1.3.7 (2025-07-26)</small>
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/zipkin] :zap: :arrow_up: Update dependency references (#35306) ([744fd96](https://github.com/bitnami/charts/commit/744fd96775a619218e75a90f7559b9f2c33df274)), closes [#35306](https://github.com/bitnami/charts/issues/35306)
+
+## <small>1.3.6 (2025-06-26)</small>
+
+* [bitnami/zipkin] :zap: :arrow_up: Update dependency references (#34681) ([c726346](https://github.com/bitnami/charts/commit/c726346ac0e010e5bfa5b9803476768888bda989)), closes [#34681](https://github.com/bitnami/charts/issues/34681)
+
+## <small>1.3.5 (2025-05-27)</small>
+
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+* [bitnami/zipkin] :zap: :arrow_up: Update dependency references (#33925) ([bbbbaff](https://github.com/bitnami/charts/commit/bbbbaffe7096281c8d3e2a0280160d6ecb44fd05)), closes [#33925](https://github.com/bitnami/charts/issues/33925)
+
+## <small>1.3.4 (2025-05-06)</small>
+
+* [bitnami/zipkin] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (#33450) ([c6d9976](https://github.com/bitnami/charts/commit/c6d99763f46a2e590d1f113f39133dd78cd507a0)), closes [#33450](https://github.com/bitnami/charts/issues/33450)
+
+## <small>1.3.3 (2025-04-27)</small>
+
+* [bitnami/zipkin] Release 1.3.3 (#33199) ([2c6e421](https://github.com/bitnami/charts/commit/2c6e421d6500787ff96e29da085f42abc5ba074c)), closes [#33199](https://github.com/bitnami/charts/issues/33199)
+
+## <small>1.3.2 (2025-04-17)</small>
+
+* [bitnami/zipkin] Release 1.3.2 (#33065) ([ad4d926](https://github.com/bitnami/charts/commit/ad4d926dcd262d576b331b9bdca15f2c5a812dc5)), closes [#33065](https://github.com/bitnami/charts/issues/33065)
+
+## <small>1.3.1 (2025-03-18)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/zipkin] Release 1.3.1 (#32502) ([001ea6c](https://github.com/bitnami/charts/commit/001ea6c355828c523501081c53b23f4e8768fe8d)), closes [#32502](https://github.com/bitnami/charts/issues/32502)
+
+## 1.3.0 (2025-02-24)
+
+* [bitnami/zipkin] Set `usePasswordFiles=true` by default (#32123) ([4b885c6](https://github.com/bitnami/charts/commit/4b885c6c5439d558dc7528c456ad06380151a87f)), closes [#32123](https://github.com/bitnami/charts/issues/32123)
+
+## 1.2.0 (2025-02-20)
+
+* [bitnami/zipkin] feat: use new helper for checking API versions (#32065) ([bf89424](https://github.com/bitnami/charts/commit/bf894249b47cefa40e7dc44e8f8948c827415c54)), closes [#32065](https://github.com/bitnami/charts/issues/32065)
+
+## <small>1.1.5 (2025-02-16)</small>
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/zipkin] Release 1.1.5 (#31944) ([5072271](https://github.com/bitnami/charts/commit/5072271dff68637bd7b6654bfd4fbb7875b4cd61)), closes [#31944](https://github.com/bitnami/charts/issues/31944)
+
+## <small>1.1.4 (2025-02-11)</small>
+
+* bitnami/zipkin Remove quote for the host (#31866) ([0d71362](https://github.com/bitnami/charts/commit/0d71362df6c8dd87396ff8bd9f9959a0d9ac2815)), closes [#31866](https://github.com/bitnami/charts/issues/31866)
+* Update copyright year (#31682) ([e9f02f5](https://github.com/bitnami/charts/commit/e9f02f5007068751f7eb2270fece811e685c99b6)), closes [#31682](https://github.com/bitnami/charts/issues/31682)
+
+## <small>1.1.3 (2025-01-28)</small>
+
+* [bitnami/zipkin] Release 1.1.3 (#31630) ([48a4008](https://github.com/bitnami/charts/commit/48a400808a562d555cca8731a9adb395989ae743)), closes [#31630](https://github.com/bitnami/charts/issues/31630)
 
 ## <small>1.1.2 (2025-01-21)</small>
 

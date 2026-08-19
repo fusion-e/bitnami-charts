@@ -40,6 +40,9 @@ global:
 ## @param kubeVersion Override Kubernetes version
 ##
 kubeVersion: ""
+## @param apiVersions Override Kubernetes API versions reported by .Capabilities
+##
+apiVersions: []
 ## @param nameOverride String to partially override common.names.fullname
 ##
 nameOverride: ""
@@ -61,6 +64,9 @@ extraDeploy: []
 ## @param namespaceOverride String to fully override common.names.namespace
 ##
 namespaceOverride: ""
+## @param usePasswordFiles Mount credentials as files instead of using environment variables
+##
+usePasswordFiles: true
 ## Enable diagnostic mode in the deployment
 ##
 diagnosticMode:
@@ -193,7 +199,7 @@ useIstioLabels: true
 image:
   registry: docker.io
   repository: bitnami/opensearch
-  tag: 2.18.0-debian-12-r4
+  tag: 3.2.0-debian-12-r0
   digest: ""
   ## Specify a imagePullPolicy
   ## ref: http://kubernetes.io/docs/concepts/containers/images/#pre-pulled-images
@@ -345,8 +351,19 @@ security:
     ##
     nodesDN: ""
     ## @param security.tls.adminDN A comma separated list of DN for admins
+    ## Note that this parameter has lower priority than extraConfig.plugins.security.authcz.admin_dn and will be overridden if both parameters are set.
+    ## See https://github.com/bitnami/charts/issues/35666 for details. (valid for images newer than bitnami/opensearch:3.1.0-debian-12-r2)
     ##
-    adminDN: ""
+    ## Also, due to specifics of the config bootstrap script implementation, spaces will be treated as separators.  
+    ## For example, "CN=admin,O=Some Organisation,L=SomeCity,C=SomeCountry" will become:
+    ##   admin_dn:
+    ##   - CN=admin,O=Some
+    ##   - Organisation,L=SomeCity,C=SomeCountry
+    ##
+    ## To avoid this, consider using extraConfig.plugins.security.authcz.admin_dn instead.
+    ##
+    ##
+    adminDN: "CN=admin;CN=admin"
 
 ## @section Traffic Exposure Parameters
 
@@ -541,6 +558,7 @@ master:
   ##
   fullnameOverride: ""
   ## @param master.servicenameOverride String to fully override opensearch.master.servicename
+  ## DEPRECATED: Use master.service.headless.nameOverride instead
   ##
   servicenameOverride: ""
   ## @param master.annotations [object] Annotations for the master statefulset
@@ -560,7 +578,7 @@ master:
   ## @param master.resourcesPreset Set container resources according to one common preset (allowed values: none, nano, micro, small, medium, large, xlarge, 2xlarge). This is ignored if master.resources is set (master.resources is recommended for production).
   ## More information: https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15
   ##
-  resourcesPreset: "small"
+  resourcesPreset: "medium"
   ## @param master.resources Set container requests and limits for different resources like CPU or memory (essential for production workloads)
   ## Example:
   ## resources:
@@ -578,7 +596,7 @@ master:
   ## Example:
   ##   heapSize: 128m
   ##
-  heapSize: 128m
+  heapSize: 512m
   ## Configure Pods Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod
   ## @param master.podSecurityContext.enabled Enabled master-eligible pods' Security Context
@@ -716,7 +734,7 @@ master:
   ##
   livenessProbe:
     enabled: true
-    initialDelaySeconds: 90
+    initialDelaySeconds: 180
     periodSeconds: 10
     timeoutSeconds: 5
     successThreshold: 1
@@ -938,6 +956,22 @@ master:
       ## @param master.autoscaling.hpa.targetMemory Target Memory utilization percentage
       ##
       targetMemory: ""
+  ## Master-eligible service parameters
+  ##
+  service:
+    ## Headless service properties
+    ##
+    headless:
+      ## @param master.service.headless.annotations Annotations for the Master-eligible headless service.
+      ##
+      annotations: {}
+      ## @param master.service.headless.nameOverride String to fully override opensearch.master.servicename
+      ##
+      nameOverride: ""
+      ## @param master.service.headless.trafficDistribution String Traffic distribution for the master headless service
+      ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#traffic-distribution
+      ##
+      trafficDistribution: "PreferClose"
   ## Metrics configuration for master-eligible node
   ##
   metrics:
@@ -1066,6 +1100,7 @@ data:
   ##
   fullnameOverride: ""
   ## @param data.servicenameOverride String to fully override opensearch.data.servicename
+  ## DEPRECATED: Use data.service.headless.nameOverride instead
   ##
   servicenameOverride: ""
   ## @param data.annotations [object] Annotations for the data statefulset
@@ -1237,7 +1272,7 @@ data:
   ##
   livenessProbe:
     enabled: true
-    initialDelaySeconds: 90
+    initialDelaySeconds: 180
     periodSeconds: 10
     timeoutSeconds: 5
     successThreshold: 1
@@ -1459,6 +1494,22 @@ data:
       ## @param data.autoscaling.hpa.targetMemory Target Memory utilization percentage
       ##
       targetMemory: ""
+  ## Data service parameters
+  ##
+  service:
+    ## Headless service properties
+    ##
+    headless:
+      ## @param data.service.headless.annotations Annotations for the data headless service.
+      ##
+      annotations: {}
+      ## @param data.service.headless.nameOverride String to fully override opensearch.data.servicename
+      ##
+      nameOverride: ""
+      ## @param data.service.headless.trafficDistribution String Traffic distribution for the data headless service
+      ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#traffic-distribution
+      ##
+      trafficDistribution: "PreferClose"
   ## Metrics configuration for data node
   ##
   metrics:
@@ -1588,6 +1639,7 @@ coordinating:
   ##
   fullnameOverride: ""
   ## @param coordinating.servicenameOverride String to fully override opensearch.coordinating.servicename
+  ## DEPRECATED: Use coordinating.service.headless.nameOverride instead
   ##
   servicenameOverride: ""
   ## @param coordinating.annotations [object] Annotations for the coordinating-only statefulset
@@ -1603,7 +1655,7 @@ coordinating:
   ## @param coordinating.resourcesPreset Set container resources according to one common preset (allowed values: none, nano, micro, small, medium, large, xlarge, 2xlarge). This is ignored if coordinating.resources is set (coordinating.resources is recommended for production).
   ## More information: https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15
   ##
-  resourcesPreset: "small"
+  resourcesPreset: "medium"
   ## @param coordinating.resources Set container requests and limits for different resources like CPU or memory (essential for production workloads)
   ## Example:
   ## resources:
@@ -1621,7 +1673,7 @@ coordinating:
   ## Example:
   ##   heapSize: 128m
   ##
-  heapSize: 128m
+  heapSize: 512m
   ## Configure Pods Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod
   ## @param coordinating.podSecurityContext.enabled Enabled coordinating-only pods' Security Context
@@ -1759,7 +1811,7 @@ coordinating:
   ##
   livenessProbe:
     enabled: true
-    initialDelaySeconds: 90
+    initialDelaySeconds: 180
     periodSeconds: 10
     timeoutSeconds: 5
     successThreshold: 1
@@ -1942,6 +1994,22 @@ coordinating:
       ## @param coordinating.autoscaling.hpa.targetMemory Target Memory utilization percentage
       ##
       targetMemory: ""
+  ## Coordinating-only service parameters
+  ##
+  service:
+    ## Headless service properties
+    ##
+    headless:
+      ## @param coordinating.service.headless.annotations Annotations for the coordinating-only headless service.
+      ##
+      annotations: {}
+      ## @param coordinating.service.headless.nameOverride String to fully override opensearch.coordinating.servicename
+      ##
+      nameOverride: ""
+      ## @param coordinating.service.headless.trafficDistribution String Traffic distribution for the coordinating headless service
+      ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#traffic-distribution
+      ##
+      trafficDistribution: "PreferClose"
   ## Metrics configuration for coordinating node
   ##
   metrics:
@@ -2072,7 +2140,8 @@ ingest:
   ## @param ingest.fullnameOverride String to fully override opensearch.ingest.fullname
   ##
   fullnameOverride: ""
-  ## @param ingest.servicenameOverride String to fully override ingest.master.servicename
+  ## @param ingest.servicenameOverride String to fully override opensearch.ingest.servicename
+  ## DEPRECATED: Use ingest.service.headless.nameOverride instead
   ##
   servicenameOverride: ""
   ## @param ingest.annotations [object] Annotations for the ingest statefulset
@@ -2088,7 +2157,7 @@ ingest:
   ## @param ingest.resourcesPreset Set container resources according to one common preset (allowed values: none, nano, micro, small, medium, large, xlarge, 2xlarge). This is ignored if ingest.resources is set (ingest.resources is recommended for production).
   ## More information: https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15
   ##
-  resourcesPreset: "small"
+  resourcesPreset: "medium"
   ## @param ingest.resources Set container requests and limits for different resources like CPU or memory (essential for production workloads)
   ## Example:
   ## resources:
@@ -2106,7 +2175,7 @@ ingest:
   ## Example:
   ##   heapSize: 128m
   ##
-  heapSize: 128m
+  heapSize: 512m
   ## Configure Pods Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod
   ## @param ingest.podSecurityContext.enabled Enabled ingest-only pods' Security Context
@@ -2244,7 +2313,7 @@ ingest:
   ##
   livenessProbe:
     enabled: true
-    initialDelaySeconds: 90
+    initialDelaySeconds: 180
     periodSeconds: 10
     timeoutSeconds: 5
     successThreshold: 1
@@ -2489,6 +2558,19 @@ ingest:
     ##     timeoutSeconds: 300
     ##
     sessionAffinityConfig: {}
+    ## Headless service properties
+    ##
+    headless:
+      ## @param ingest.service.headless.annotations Annotations for the ingest headless service.
+      ##
+      annotations: {}
+      ## @param ingest.service.headless.nameOverride String to fully override opensearch.ingest.servicename
+      ##
+      nameOverride: ""
+      ## @param ingest.service.headless.trafficDistribution String Traffic distribution for the ingest headless service
+      ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#traffic-distribution
+      ##
+      trafficDistribution: "PreferClose"
   ## OpenSearch Ingest-only ingress parameters
   ## ref: http://kubernetes.io/docs/concepts/services-networking/ingress/
   ##
@@ -2715,7 +2797,7 @@ volumePermissions:
   image:
     registry: docker.io
     repository: bitnami/os-shell
-    tag: 12-debian-12-r35
+    tag: 12-debian-12-r51
     digest: ""
     pullPolicy: IfNotPresent
     ## Optionally specify an array of imagePullSecrets.
@@ -2762,7 +2844,7 @@ sysctlImage:
   ##
   registry: docker.io
   repository: bitnami/os-shell
-  tag: 12-debian-12-r35
+  tag: 12-debian-12-r51
   digest: ""
   ## Specify a imagePullPolicy
   ## ref: https://kubernetes.io/docs/concepts/containers/images/#pre-pulled-images
@@ -2816,7 +2898,7 @@ dashboards:
   image:
     registry: docker.io
     repository: bitnami/opensearch-dashboards
-    tag: 2.18.0-debian-12-r4
+    tag: 3.2.0-debian-12-r0
     digest: ""
     ## Specify a imagePullPolicy
     ## ref: http://kubernetes.io/docs/concepts/containers/images/#pre-pulled-images
@@ -2886,6 +2968,9 @@ dashboards:
     ##     timeoutSeconds: 300
     ##
     sessionAffinityConfig: {}
+    ## @param dashboards.service.nameOverride String to fully override opensearch.dashboards.servicename
+    ##
+    nameOverride: ""
   ## OpenSearch Dashboards ingress parameters
   ## ref: https://kubernetes.io/docs/concepts/services-networking/ingress/
   ##
@@ -3017,6 +3102,7 @@ dashboards:
   ##
   fullnameOverride: ""
   ## @param dashboards.servicenameOverride String to fully override opensearch.dashboards.servicename
+  ## DEPRECATED: Use dashboards.service.nameOverride instead
   ##
   servicenameOverride: ""
   ## @param dashboards.updateStrategy.type Data-only nodes statefulset strategy type
@@ -3474,7 +3560,7 @@ snapshots:
   image:
     registry: docker.io
     repository: bitnami/os-shell
-    tag: 12-debian-12-r35
+    tag: 12-debian-12-r51
     digest: ""
     ## Specify a imagePullPolicy
     ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'

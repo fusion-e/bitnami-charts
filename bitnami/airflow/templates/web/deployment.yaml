@@ -44,8 +44,8 @@ spec:
       affinity: {{- include "common.tplvalues.render" (dict "value" .Values.web.affinity "context" $) | nindent 8 }}
       {{- else }}
       affinity:
-        podAffinity: {{- include "common.affinities.pods" (dict "type" .Values.web.podAffinityPreset "component" "web" "customLabels" $podLabels "context" $) | nindent 10 }}
-        podAntiAffinity: {{- include "common.affinities.pods" (dict "type" .Values.web.podAntiAffinityPreset "component" "web" "customLabels" $podLabels "context" $) | nindent 10 }}
+        podAffinity: {{- include "common.affinities.pods" (dict "type" .Values.web.podAffinityPreset "component" "web" "customLabels" $podLabels "topologyKey" .Values.web.topologyKey "context" $) | nindent 10 }}
+        podAntiAffinity: {{- include "common.affinities.pods" (dict "type" .Values.web.podAntiAffinityPreset "component" "web" "customLabels" $podLabels "topologyKey" .Values.web.topologyKey "context" $) | nindent 10 }}
         nodeAffinity: {{- include "common.affinities.nodes" (dict "type" .Values.web.nodeAffinityPreset.type "key" .Values.web.nodeAffinityPreset.key "values" .Values.web.nodeAffinityPreset.values) | nindent 10 }}
       {{- end }}
       {{- if .Values.web.nodeSelector }}
@@ -73,6 +73,7 @@ spec:
       initContainers:
         {{- include "airflow.defaultInitContainers.prepareConfig" . | nindent 8 }}
         {{- include "airflow.defaultInitContainers.prepareWebConfig" . | nindent 8 }}
+        {{- include "airflow.defaultInitContainers.prepareVenv" . | nindent 8 }}
         {{- if .Values.dags.enabled }}
         {{- include "airflow.defaultInitContainers.loadDAGs" . | nindent 8 }}
         {{- end }}
@@ -112,11 +113,22 @@ spec:
             {{- if not .Values.setupDBJob.enabled }}
             - name: AIRFLOW_USERNAME
               value: {{ .Values.auth.username }}
+            {{- if .Values.usePasswordFiles }}
+            - name: AIRFLOW_PASSWORD_FILE
+              value: "/opt/bitnami/airflow/secrets/airflow-password"
+            {{- else }}
             - name: AIRFLOW_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: {{ include "airflow.secretName" . }}
                   key: airflow-password
+            {{- end }}
+            {{- end }}
+            - name: PYTHONPYCACHEPREFIX
+              value: "/opt/bitnami/airflow/venv/tmp"
+            {{- if (include "airflow.isImageMajorVersion2" .) }}
+            - name: AIRFLOW_COMPONENT_TYPE
+              value: "webserver"
             {{- end }}
             {{- if .Values.extraEnvVars }}
             {{- include "common.tplvalues.render" (dict "value" .Values.extraEnvVars "context" $) | nindent 12 }}
@@ -124,11 +136,23 @@ spec:
             {{- if .Values.web.extraEnvVars }}
             {{- include "common.tplvalues.render" (dict "value" .Values.web.extraEnvVars "context" $) | nindent 12 }}
             {{- end }}
-          {{- if or .Values.web.extraEnvVarsCM .Values.web.extraEnvVarsSecret .Values.web.extraEnvVarsSecrets .Values.extraEnvVarsCM .Values.extraEnvVarsSecret .Values.extraEnvVarsSecrets }}
+          {{- if or .Values.web.extraEnvVarsCM .Values.web.extraEnvVarsCMs .Values.web.extraEnvVarsSecret .Values.web.extraEnvVarsSecrets .Values.extraEnvVarsCM .Values.extraEnvVarsCMs .Values.extraEnvVarsSecret .Values.extraEnvVarsSecrets }}
           envFrom:
             {{- if .Values.extraEnvVarsCM }}
             - configMapRef:
                 name: {{ .Values.extraEnvVarsCM }}
+            {{- end }}
+            {{- if .Values.extraEnvVarsCMs }}
+            {{- range .Values.extraEnvVarsCMs }}
+            - configMapRef:
+                name: {{ . }}
+            {{- end }}
+            {{- end }}
+            {{- if .Values.web.extraEnvVarsCMs }}
+            {{- range .Values.web.extraEnvVarsCMs }}
+            - configMapRef:
+                name: {{ . }}
+            {{- end }}
             {{- end }}
             {{- if .Values.extraEnvVarsSecret }}
             - secretRef:
@@ -174,7 +198,7 @@ spec:
               command:
                 - pgrep
                 - -f
-                - airflow-webserver
+                - airflow
           {{- end }}
           {{- if .Values.web.customReadinessProbe }}
           readinessProbe: {{- include "common.tplvalues.render" (dict "value" .Values.web.customReadinessProbe "context" $) | nindent 12 }}
@@ -182,7 +206,11 @@ spec:
           readinessProbe: {{- include "common.tplvalues.render" (dict "value" (omit .Values.web.readinessProbe "enabled") "context" $) | nindent 12 }}
             {{- if contains "127.0.0.1" (include "airflow.baseUrl" .) }}
             httpGet:
+              {{- if (include "airflow.isImageMajorVersion3" .) }}
+              path: /api/v2/monitor/health
+              {{- else }}
               path: /health
+              {{- end }}
               port: http
               scheme: {{ ternary "HTTPS" "HTTP" .Values.web.tls.enabled }}
             {{- else }}
@@ -224,6 +252,13 @@ spec:
             - name: empty-dir
               mountPath: /opt/bitnami/airflow/webserver_config.py
               subPath: app-base-dir/webserver_config.py
+            - name: empty-dir
+              mountPath: /opt/bitnami/airflow/venv
+              subPath: venv-base-dir
+            {{- if  .Values.usePasswordFiles }}
+            - name: airflow-secrets
+              mountPath: /opt/bitnami/airflow/secrets
+            {{- end }}
             {{- if and .Values.ldap.enabled .Values.ldap.tls.enabled }}
             - name: airflow-ldap-ca-certificate
               mountPath: {{ .Values.ldap.tls.certificatesMountPath }}
@@ -260,7 +295,34 @@ spec:
         {{- end }}
       volumes:
         - name: empty-dir
+          {{- if .Values.web.ephemeral.enabled }}
+          ephemeral:
+            volumeClaimTemplate:
+              {{- if or .Values.web.ephemeral.annotations .Values.commonAnnotations .Values.commonLabels }}
+              metadata:
+                {{- if or .Values.web.ephemeral.annotations .Values.commonAnnotations }}
+                {{- $claimAnnotations := include "common.tplvalues.merge" (dict "values" .Values.web.ephemeral.annotations .Values.commonAnnotations "context" .) | fromYaml }}
+                annotations: {{- include "common.tplvalues.render" ( dict "value" $claimAnnotations "context" $ ) | nindent 18 }}
+                {{- end }}
+                {{- if .Values.commonLabels }}
+                labels: {{- include "common.labels.matchLabels" ( dict "customLabels" .Values.commonLabels "context" $ ) | nindent 18 }}
+                {{- end }}
+              {{- end }}
+              spec:
+                accessModes:
+                {{- range .Values.web.ephemeral.accessModes }}
+                  - {{ . | quote }}
+                {{- end }}
+                resources:
+                  requests:
+                    storage: {{ .Values.web.ephemeral.size | quote }}
+                {{- include "common.storage.class" (dict "persistence" .Values.web.ephemeral "global" .Values.global) | nindent 16 }}
+          {{- else if .Values.web.emptyDir.medium }}
+          emptyDir:
+            medium: {{ .Values.web.emptyDir.medium }}
+          {{- else }}
           emptyDir: {}
+          {{- end }}
         - name: configuration
           configMap:
             name: {{ include "airflow.configMapName"  . }}
@@ -268,6 +330,23 @@ spec:
         - name: webserver-configuration
           configMap:
             name: {{ include "airflow.web.configMapName" . }}
+        {{- if .Values.usePasswordFiles }}
+        - name: airflow-secrets
+          projected:
+            sources:
+              - secret:
+                  name: {{ include "airflow.secretName" . }}
+              - secret:
+                  name: {{ include "airflow.database.secretName" . }}
+              {{- if .Values.ldap.enabled }}
+              - secret:
+                  name: {{ include "airflow.ldap.secretName" . }}
+              {{- end }}
+              {{- if or (contains "CeleryExecutor" .Values.executor) (eq .Values.executor "CeleryKubernetesExecutor") }}
+              - secret:
+                  name: {{ include "airflow.redis.secretName" . }}
+              {{- end }}
+        {{- end }}
         {{- if .Values.dags.enabled }}
         {{- include "airflow.dags.volumes" . | nindent 8 }}
         {{- end }}

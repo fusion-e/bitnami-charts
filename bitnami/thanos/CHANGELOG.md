@@ -1,8 +1,184 @@
 # Changelog
 
-## 15.12.2 (2025-02-07)
+## 17.6.0 (2026-06-03)
 
-* [bitnami/thanos] Release 15.12.2 ([#31831](https://github.com/bitnami/charts/pull/31831))
+* [bitnami/thanos] per-shard extraFlags + shardLoopId in sharded storegateway ([#36543](https://github.com/bitnami/charts/pull/36543))
+
+## <small>17.5.2 (2026-05-25)</small>
+
+* [bitnami/thanos] Fix `containerPorts` in query deployment (#36533) ([b1f6087](https://github.com/bitnami/charts/commit/b1f6087ca0727b8764b3b5a79875f1286300ac17)), closes [#36533](https://github.com/bitnami/charts/issues/36533)
+
+## <small>17.5.1 (2026-05-19)</small>
+
+* [bitnami/thanos] Change hpa bucketweb component label to bucketweb (#36531) ([242f0b8](https://github.com/bitnami/charts/commit/242f0b8106575d3853509806fe23d4bad067846c)), closes [#36531](https://github.com/bitnami/charts/issues/36531)
+
+## 17.5.0 (2026-05-19)
+
+* [bitnami/thanos] Add Thanos httproute (#36529) ([73c0faa](https://github.com/bitnami/charts/commit/73c0faa841fdb2f6b604bb6662dafa29a074df18)), closes [#36529](https://github.com/bitnami/charts/issues/36529)
+
+## <small>17.4.1 (2026-04-17)</small>
+
+* [bitnami/thanos] Fix invalid YAML syntax on the query deployment template when `storegateway.useEndp ([a7fb7ee](https://github.com/bitnami/charts/commit/a7fb7ee67a1afdbf4de5b4afb48e7ffeeea1397c)), closes [#36485](https://github.com/bitnami/charts/issues/36485)
+
+## 17.4.0 (2026-02-09)
+
+* [bitnami/thanos]: Adds compactor.deploymentAnnotation to thanos compactor options (#36453) ([c21afd6](https://github.com/bitnami/charts/commit/c21afd6f1b2e696f925869962cf1353a054ac15f)), closes [#36453](https://github.com/bitnami/charts/issues/36453)
+
+## <small>17.3.4 (2026-01-12)</small>
+
+* [bitnami/thanos] Fix sharded storegateway endpoints not respecting dnsDiscovery setting (#36418) ([ac5177e](https://github.com/bitnami/charts/commit/ac5177e824beaeedd694d0a0edcaaf5a02fddb9b)), closes [#36418](https://github.com/bitnami/charts/issues/36418)
+* Change wording in Chart's READMEs (#36379) ([a4ef0a6](https://github.com/bitnami/charts/commit/a4ef0a63877fcf32895869ceef0916c15a4718e5)), closes [#36379](https://github.com/bitnami/charts/issues/36379)
+* Fix documentation typos in README files (#36429) ([93c07b0](https://github.com/bitnami/charts/commit/93c07b0ef0f76ef6967eda3df76ae8f130bd6677)), closes [#36429](https://github.com/bitnami/charts/issues/36429)
+* Remove TAC sentence present in some READMEs (#36381) ([e07d331](https://github.com/bitnami/charts/commit/e07d3319b61f49ddf6f431da3ed7ec0e0be3d5d0)), closes [#36381](https://github.com/bitnami/charts/issues/36381)
+
+## <small>17.3.3 (2025-11-03)</small>
+
+* [bitnami/*] Remove annotations.category (#36224) ([2abc0f9](https://github.com/bitnami/charts/commit/2abc0f9d7e89a5453e57f029c66f581b3d5855ef)), closes [#36224](https://github.com/bitnami/charts/issues/36224)
+* [bitnami/*][TNZ-62332] Modify charts' READMEs title (#36372) ([2012e46](https://github.com/bitnami/charts/commit/2012e46699f555bb1e10134691031975bb5ca50b)), closes [#36372](https://github.com/bitnami/charts/issues/36372)
+* bitnami/thanos template extraFlags in sharded statefulset storegateway like the template for non-sha ([2dfd26c](https://github.com/bitnami/charts/commit/2dfd26cbcbda4961168712b1709ef4c52368b623)), closes [#36360](https://github.com/bitnami/charts/issues/36360)
+
+## <small>17.3.1 (2025-08-13)</small>
+
+* [bitnami/thanos] :zap: :arrow_up: Update dependency references (#35837) ([45fdbef](https://github.com/bitnami/charts/commit/45fdbef14937e342e0af545ca3c9fade84de8346)), closes [#35837](https://github.com/bitnami/charts/issues/35837)
+
+## 17.3.0 (2025-08-13)
+
+* [bitnami/thanos] Add hpa behavior (#35753) ([3f96f2e](https://github.com/bitnami/charts/commit/3f96f2e5ffcb34e08ec6cdeb9e5b5141722a76d8)), closes [#35753](https://github.com/bitnami/charts/issues/35753)
+
+## <small>17.2.6 (2025-08-08)</small>
+
+* [bitnami/thanos]: correct labelSelector with shard key for storegateway affinity (#35440) ([fd5ce7a](https://github.com/bitnami/charts/commit/fd5ce7a7568e423e1659946aa4e2febaf67044a8)), closes [#35440](https://github.com/bitnami/charts/issues/35440)
+
+## <small>17.2.5 (2025-08-07)</small>
+
+* [bitnami/thanos] :zap: :arrow_up: Update dependency references (#35635) ([3356744](https://github.com/bitnami/charts/commit/3356744640e3af8a7d3db823f15ce442e157abeb)), closes [#35635](https://github.com/bitnami/charts/issues/35635)
+
+## <small>17.2.4 (2025-08-07)</small>
+
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/thanos] :zap: :arrow_up: Update dependency references (#35533) ([9c6effd](https://github.com/bitnami/charts/commit/9c6effd63b2073ef38cf8e2a82729f07a2b01d8c)), closes [#35533](https://github.com/bitnami/charts/issues/35533)
+
+## <small>17.2.3 (2025-07-23)</small>
+
+* [bitnami/thanos] Fix commonLabels on sharded storegateway (#35238) ([c72feda](https://github.com/bitnami/charts/commit/c72feda3e1ee6850375c93657af2c81f9cd9bddf)), closes [#35238](https://github.com/bitnami/charts/issues/35238)
+
+## <small>17.2.2 (2025-07-21)</small>
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/thanos] :zap: :arrow_up: Update dependency references (#35226) ([efbbe03](https://github.com/bitnami/charts/commit/efbbe03289f99a78de4ac4c8eeb66d64d4b79bcd)), closes [#35226](https://github.com/bitnami/charts/issues/35226)
+
+## <small>17.2.1 (2025-07-15)</small>
+
+* [bitnami/thanos] :zap: :arrow_up: Update dependency references (#35131) ([b84a27d](https://github.com/bitnami/charts/commit/b84a27db4a60d92308cf7d61122f6cebeeff75ab)), closes [#35131](https://github.com/bitnami/charts/issues/35131)
+
+## 17.2.0 (2025-07-09)
+
+* [bitnami/thanos] addition of parameter to configure statefulset annotations (#33988) ([4232306](https://github.com/bitnami/charts/commit/42323062d64cb6f071615e93c0bc8e0542425c20)), closes [#33988](https://github.com/bitnami/charts/issues/33988) [#34825](https://github.com/bitnami/charts/issues/34825)
+
+## 17.1.0 (2025-07-09)
+
+* [bitnami/thanos] feat: Added support for configuring dual-stack for services (#34825) ([ee5ebdd](https://github.com/bitnami/charts/commit/ee5ebddd317f9b1bb39f4b6c3da9297713b2b156)), closes [#34825](https://github.com/bitnami/charts/issues/34825)
+
+## <small>17.0.7 (2025-07-09)</small>
+
+* [bitnami/thanos] :zap: :arrow_up: Update dependency references (#34956) ([fdff255](https://github.com/bitnami/charts/commit/fdff2559fd6ffc710a8425f49b045477431b4ea4)), closes [#34956](https://github.com/bitnami/charts/issues/34956)
+
+## <small>17.0.6 (2025-07-01)</small>
+
+* [bitnami/thanos] :zap: :arrow_up: Update dependency references (#34747) ([44e6ce5](https://github.com/bitnami/charts/commit/44e6ce5b0d24eb53252484ad6cf7efe4f24bab8c)), closes [#34747](https://github.com/bitnami/charts/issues/34747)
+
+## <small>17.0.5 (2025-06-27)</small>
+
+* [bitnami/thanos] Conditional creation of HorizontalPodAutoscaler resources for Thanos components (#3 ([879bca6](https://github.com/bitnami/charts/commit/879bca6783b372641facf6332eb179dd10569590)), closes [#34256](https://github.com/bitnami/charts/issues/34256)
+
+## <small>17.0.4 (2025-06-25)</small>
+
+* [bitnami/thanos] :zap: :arrow_up: Update dependency references (#34622) ([b98bf4b](https://github.com/bitnami/charts/commit/b98bf4b149114396ab00faf491efb38aff2b509d)), closes [#34622](https://github.com/bitnami/charts/issues/34622)
+
+## <small>17.0.3 (2025-06-13)</small>
+
+* [bitnami/thanos] :zap: :arrow_up: Update dependency references (#34496) ([fe5afc2](https://github.com/bitnami/charts/commit/fe5afc2d868484a9b20b210307131d881568dd70)), closes [#34496](https://github.com/bitnami/charts/issues/34496)
+
+## <small>17.0.2 (2025-06-09)</small>
+
+* [bitnami/thanos] Disable MinIO Console (#34269) ([a92a7fe](https://github.com/bitnami/charts/commit/a92a7fec980c003b23748a3a8db91c07450a44a0)), closes [#34269](https://github.com/bitnami/charts/issues/34269)
+
+## <small>17.0.1 (2025-06-06)</small>
+
+* [bitnami/thanos] :zap: :arrow_up: Update dependency references (#34222) ([48654e6](https://github.com/bitnami/charts/commit/48654e6c16ca5e0f972cf94c1010fa94800a2f96)), closes [#34222](https://github.com/bitnami/charts/issues/34222)
+
+## 17.0.0 (2025-06-04)
+
+* [bitnami/thanos] feat: major version due to Minio major bump (#34091) ([f4be07e](https://github.com/bitnami/charts/commit/f4be07e37cdaac258143bf33ebac05ad31947c14)), closes [#34091](https://github.com/bitnami/charts/issues/34091)
+
+## <small>16.0.7 (2025-05-16)</small>
+
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+* [bitnami/thanos] Allow custom objstore secret key in receive component (#33180) ([9a93d4f](https://github.com/bitnami/charts/commit/9a93d4ff1261a9a49cb94c69fd9597ba57668c58)), closes [#33180](https://github.com/bitnami/charts/issues/33180)
+
+## <small>16.0.6 (2025-05-07)</small>
+
+* [bitnami/thanos] Release 16.0.6 (#33544) ([c00f5d8](https://github.com/bitnami/charts/commit/c00f5d8074ad84eee1af26bdd73bce1f9aa1cad8)), closes [#33544](https://github.com/bitnami/charts/issues/33544)
+
+## <small>16.0.5 (2025-05-06)</small>
+
+* [bitnami/thanos] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (#33441) ([1f4814b](https://github.com/bitnami/charts/commit/1f4814b1ac7289d8635101aeb4a9a3edc5af1761)), closes [#33441](https://github.com/bitnami/charts/issues/33441)
+
+## <small>16.0.4 (2025-04-22)</small>
+
+* [bitnami/thanos] Release 16.0.4 (#33109) ([e88eeed](https://github.com/bitnami/charts/commit/e88eeed2db08e09cb06ba2cdbbaa5ab1a8d8f4fc)), closes [#33109](https://github.com/bitnami/charts/issues/33109)
+
+## <small>16.0.3 (2025-04-09)</small>
+
+* [bitnami/thanos] Release 16.0.3 (#32920) ([06b8213](https://github.com/bitnami/charts/commit/06b82139571baa2eb87e023f64a7942d618ada5f)), closes [#32920](https://github.com/bitnami/charts/issues/32920)
+
+## <small>16.0.2 (2025-04-08)</small>
+
+* [bitnami/thanos] Release 16.0.2 (#32875) ([d627749](https://github.com/bitnami/charts/commit/d627749913f9adb01494f022206a357aafee7524)), closes [#32875](https://github.com/bitnami/charts/issues/32875)
+
+## <small>16.0.1 (2025-04-07)</small>
+
+* [bitnami/thanos] Fix default value for ruler.alertmanagersconfig (#32812) ([2e66e3e](https://github.com/bitnami/charts/commit/2e66e3e37eca2c934b66d988a486f07530664c23)), closes [#32812](https://github.com/bitnami/charts/issues/32812)
+
+## 16.0.0 (2025-04-03)
+
+* [bitnami/thanos] Bump MinIO major version 16.x.x (#32703) ([ef3b5b1](https://github.com/bitnami/charts/commit/ef3b5b1e69200239d9efa4b31887baeb71bd6d17)), closes [#32703](https://github.com/bitnami/charts/issues/32703)
+
+## <small>15.14.1 (2025-04-02)</small>
+
+* [bitnami/thanos] Release 15.14.1 (#32764) ([41ff3b1](https://github.com/bitnami/charts/commit/41ff3b1ab077594728c97e522c21837c6fef1106)), closes [#32764](https://github.com/bitnami/charts/issues/32764)
+
+## 15.14.0 (2025-04-01)
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/thanos] feature: allow configuring labels for all ingress (#32511) ([d65f94a](https://github.com/bitnami/charts/commit/d65f94a5bb8d2ba12d0c5ee59e2c4fee9b534578)), closes [#32511](https://github.com/bitnami/charts/issues/32511)
+
+## <small>15.13.2 (2025-03-06)</small>
+
+* [bitnami/thanos] fix: remove quotes from ruler.ruleFile parameter (#32201) ([1086c9b](https://github.com/bitnami/charts/commit/1086c9b831ade76d81749c91c4056531c050aba8)), closes [#32201](https://github.com/bitnami/charts/issues/32201)
+
+## <small>15.13.1 (2025-03-05)</small>
+
+* [bitnami/thanos] Release 15.13.1 (#32318) ([daa1b61](https://github.com/bitnami/charts/commit/daa1b61c13d2859964313c13dfa9bc6558be7f0d)), closes [#32318](https://github.com/bitnami/charts/issues/32318)
+
+## 15.13.0 (2025-03-03)
+
+* [bitnami/thanos] feature: allow configuring labels for query ingress (#32240) ([a49eff3](https://github.com/bitnami/charts/commit/a49eff3cf435a92a021e741870fce2dcdb429d4b)), closes [#32240](https://github.com/bitnami/charts/issues/32240)
+
+## <small>15.12.4 (2025-02-21)</small>
+
+* [bitnami/thanos] Release 15.12.4 (#32102) ([7063858](https://github.com/bitnami/charts/commit/7063858b70a50657dcd25755270cafd12b74b86f)), closes [#32102](https://github.com/bitnami/charts/issues/32102)
+
+## <small>15.12.3 (2025-02-14)</small>
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/thanos] Add common annotations to pod templates (#31928) ([11e4087](https://github.com/bitnami/charts/commit/11e4087799b594ba4a592d70667195c2d3af0dd8)), closes [#31928](https://github.com/bitnami/charts/issues/31928)
+
+## <small>15.12.2 (2025-02-07)</small>
+
+* [bitnami/thanos] Release 15.12.2 (#31831) ([bd298e4](https://github.com/bitnami/charts/commit/bd298e442152ae47a719974e87e48dc61705f061)), closes [#31831](https://github.com/bitnami/charts/issues/31831)
 
 ## <small>15.12.1 (2025-02-05)</small>
 
@@ -301,7 +477,7 @@
 
 ## <small>15.0.2 (2024-04-03)</small>
 
-* [bitnami/thanos]Fix: Make prometheus rules reliable with release name (#24655) ([a2a6eab](https://github.com/bitnami/charts/commit/a2a6eabda632d12ded2b2d0959c44aca2b73fab8)), closes [#24655](https://github.com/bitnami/charts/issues/24655) [#24651](https://github.com/bitnami/charts/issues/24651) [#24651](https://github.com/bitnami/charts/issues/24651)
+* [bitnami/thanos]Fix: Make prometheus rules reliable with release name (#24655) ([a2a6eab](https://github.com/bitnami/charts/commit/a2a6eabda632d12ded2b2d0959c44aca2b73fab8)), closes [#24655](https://github.com/bitnami/charts/issues/24655) [#24651](https://github.com/bitnami/charts/issues/24651)
 * Update resourcesPreset comments (#24467) ([92e3e8a](https://github.com/bitnami/charts/commit/92e3e8a507326d2a20a8f10ab3e7746a2ec5c554)), closes [#24467](https://github.com/bitnami/charts/issues/24467)
 
 ## <small>15.0.1 (2024-04-03)</small>
@@ -1387,7 +1563,7 @@
 
 ## <small>3.8.6 (2021-02-15)</small>
 
-* [bitnami/thanos] fix query TLS client in a modular way (#5437) (#5457) ([bbbf490](https://github.com/bitnami/charts/commit/bbbf490439643e885529c1c4f25aeb7c9c29dc93)), closes [#5437](https://github.com/bitnami/charts/issues/5437) [#5457](https://github.com/bitnami/charts/issues/5457) [#5437](https://github.com/bitnami/charts/issues/5437) [#3988](https://github.com/bitnami/charts/issues/3988)
+* [bitnami/thanos] fix query TLS client in a modular way (#5437) (#5457) ([bbbf490](https://github.com/bitnami/charts/commit/bbbf490439643e885529c1c4f25aeb7c9c29dc93)), closes [#5437](https://github.com/bitnami/charts/issues/5437) [#5457](https://github.com/bitnami/charts/issues/5457)
 
 ## <small>3.8.5 (2021-02-12)</small>
 
@@ -1569,7 +1745,7 @@
 
 ## 2.2.0 (2020-08-12)
 
-* [bitnami/thanos] Add cache configuration blocks to Thanos store. Index and Bucket (#3387) ([2f2e1dd](https://github.com/bitnami/charts/commit/2f2e1ddcc594c1a6538c1820867862775e009740)), closes [#3387](https://github.com/bitnami/charts/issues/3387) [#3384](https://github.com/bitnami/charts/issues/3384) [#3384](https://github.com/bitnami/charts/issues/3384)
+* [bitnami/thanos] Add cache configuration blocks to Thanos store. Index and Bucket (#3387) ([2f2e1dd](https://github.com/bitnami/charts/commit/2f2e1ddcc594c1a6538c1820867862775e009740)), closes [#3387](https://github.com/bitnami/charts/issues/3387) [#3384](https://github.com/bitnami/charts/issues/3384)
 
 ## <small>2.1.1 (2020-08-07)</small>
 

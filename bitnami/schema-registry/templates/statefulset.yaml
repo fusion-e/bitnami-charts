@@ -100,7 +100,7 @@ spec:
             - /bin/bash
             - -ec
             - |
-              {{- if contains "SSL" $kafkaProtocol }}
+              {{- if and (contains "SSL" $kafkaProtocol) .Values.auth.kafka.jksSecret }}
               ID="${MY_POD_NAME#"{{ $fullname }}-"}"
               if [[ -f "/certs/schema-registry.truststore.jks" ]] && [[ -f "/certs/schema-registry-${ID}.keystore.jks" ]]; then
                   mkdir -p /opt/bitnami/schema-registry/certs
@@ -156,7 +156,7 @@ spec:
               {{- if .Values.kafka.enabled }}
               {{- $brokers := list }}
               {{- $kafkaBrokerReplicaCount := int .Values.kafka.broker.replicaCount }}
-              {{- $kafkaControllerReplicaCount := ternary 0 (int .Values.kafka.controller.replicaCount) (or (not .Values.kafka.kraft.enabled) (.Values.kafka.controller.controllerOnly)) }}
+              {{- $kafkaControllerReplicaCount := ternary 0 (int .Values.kafka.controller.replicaCount) (.Values.kafka.controller.controllerOnly) }}
               {{- range $e, $i := until $kafkaBrokerReplicaCount }}
               {{- $brokers = append $brokers (printf "%s://%s-broker-%d.%s-broker-headless.%s.svc.%s:%d" $kafkaProtocol $kafkaFullname $i $kafkaFullname $releaseNamespace $clusterDomain $kafkaPort) }}
               {{- end }}
@@ -176,11 +176,16 @@ spec:
               {{- else }}
               value: {{ .Values.externalKafka.sasl.user | quote }}
               {{- end }}
+            {{- if .Values.userPasswordFiles }}
+            - name: SCHEMA_REGISTRY_KAFKA_SASL_PASSWORDS
+              value: "/opt/bitnami/schema-registry/secrets/client-passwords"
+            {{- else }}
             - name: SCHEMA_REGISTRY_KAFKA_SASL_PASSWORDS
               valueFrom:
                 secretKeyRef:
                   name: {{ include "schema-registry.secretName" . }}
                   key: client-passwords
+            {{- end }}
             {{- end }}
             {{- if contains "SSL" $kafkaProtocol }}
             - name: SCHEMA_REGISTRY_SSL_ENDPOINT_IDENTIFICATION_ALGORITHM
@@ -255,6 +260,10 @@ spec:
             - name: empty-dir
               mountPath: /opt/bitnami/schema-registry/logs
               subPath: app-logs-dir
+            {{- if and .Values.usePasswordFiles (contains "SASL" $kafkaProtocol) }}
+            - name: schema-registry-secrets
+              mountPath: /opt/bitnami/schema-registry/secrets
+            {{- end }}
             {{- if or .Values.configuration .Values.existingConfigmap }}
             - name: configuration
               mountPath: /bitnami/schema-registry/etc/schema-registry/schema-registry.properties
@@ -265,7 +274,7 @@ spec:
               mountPath: /bitnami/schema-registry/etc/schema-registry/log4j.properties
               subPath: log4j.properties
             {{- end }}
-            {{- if contains "SSL" $kafkaProtocol }}
+            {{- if and (contains "SSL" $kafkaProtocol) .Values.auth.kafka.jksSecret }}
             - name: certificates
               mountPath: /certs
               readOnly: true
@@ -279,6 +288,13 @@ spec:
       volumes:
         - name: empty-dir
           emptyDir: {}
+        {{- if and .Values.usePasswordFiles (contains "SASL" $kafkaProtocol) }}
+        - name: schema-registry-secrets
+          projected:
+            sources:
+              - secret:
+                  name: {{ include "schema-registry.secretName" . }}
+        {{- end }}
         {{- if or .Values.configuration .Values.existingConfigmap }}
         - name: configuration
           configMap:
@@ -289,12 +305,12 @@ spec:
           configMap:
             name: {{ include "schema-registry.log4j.configmapName" . }}
         {{ end }}
-        {{- if or (contains "SSL" $kafkaProtocol) .Values.auth.tls.enabled }}
+        {{- if or (and (contains "SSL" $kafkaProtocol) .Values.auth.kafka.jksSecret) .Values.auth.tls.enabled }}
         - name: certificates
           projected:
             defaultMode: 0400
             sources:
-            {{- if contains "SSL" $kafkaProtocol }}
+            {{- if and (contains "SSL" $kafkaProtocol) .Values.auth.kafka.jksSecret }}
             - secret:
                 name: {{ printf "%s" (tpl .Values.auth.kafka.jksSecret $) }}
             {{- end }}

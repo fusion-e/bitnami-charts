@@ -1,6 +1,6 @@
 <!--- app-name: Grafana Operator -->
 
-# Bitnami package for Grafana Operator
+# Bitnami Secure Images Helm chart for Grafana Operator
 
 Grafana Operator is a Kubernetes operator that enables the installation and management of Grafana instances, dashboards and plugins.
 
@@ -14,15 +14,28 @@ Trademarks: This software listing is packaged by Bitnami. The respective tradema
 helm install my-release oci://registry-1.docker.io/bitnamicharts/grafana-operator
 ```
 
-Looking to use Grafana Operator in production? Try [VMware Tanzu Application Catalog](https://bitnami.com/enterprise), the commercial edition of the Bitnami catalog.
+## Why use Bitnami Secure Images?
+
+Those are hardened, minimal CVE images built and maintained by Bitnami. Bitnami Secure Images are based on the cloud-optimized, security-hardened enterprise [OS Photon Linux](https://vmware.github.io/photon/). Why choose BSI images?
+
+- Hardened secure images of popular open source software with Near-Zero Vulnerabilities
+- Vulnerability Triage & Prioritization with VEX Statements, KEV and EPSS Scores
+- Compliance focus with FIPS, STIG, and air-gap options, including secure bill of materials (SBOM)
+- Software supply chain provenance attestation through in-toto
+- First class support for the internet’s favorite Helm charts
+
+Each image comes with valuable security metadata. You can view the metadata in [our public catalog here](https://app-catalog.vmware.com/bitnami/apps). Note: Some data is only available with [commercial subscriptions to BSI](https://bitnami.com/).
+
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%201.png?raw=true "Application details")
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%202.png?raw=true "Packaging report")
+
+If you are looking for our previous generation of images based on Debian Linux, please see the [Bitnami Legacy registry](https://hub.docker.com/u/bitnamilegacy).
 
 ## Introduction
 
 Bitnami charts for Helm are carefully engineered, actively maintained and are the quickest and easiest way to deploy containers on a Kubernetes cluster that are ready to handle production workloads.
 
 This chart bootstraps a [Grafana Operator](https://github.com/integr8ly/grafana-operator/blob/master/documentation/deploy_grafana.md) Deployment [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
-
-Bitnami charts can be used with [Kubeapps](https://kubeapps.dev/) for deployment and management of Helm Charts in clusters.
 
 ## Differences between the Bitnami Grafana chart and the Bitnami Grafana Operator chart
 
@@ -163,7 +176,7 @@ Install the [Bitnami Kube Prometheus helm chart](https://github.com/bitnami/char
 
 After the installation, create Dashboards under a CRD of your Kubernetes cluster.
 
-For more details regarding what is possible with those CRDs please have a look at [Working with Dashboards](https://github.com/integr8ly/grafana-operator/blob/master/documentation/dashboards.md).
+For more details regarding what is possible with those CRDs please have a look at [Working with Dashboards](https://github.com/grafana/grafana-operator/blob/master/docs/docs/dashboards.md).
 
 ### Deploy extra Grafana resources or objects
 
@@ -350,6 +363,7 @@ extraDeploy:
 | Name                                                        | Description                                                                                                                                                                                                                       | Value                     |
 | ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
 | `grafana.enabled`                                           | Enabled the deployment of the Grafana CRD object into the cluster                                                                                                                                                                 | `true`                    |
+| `grafana.disableDefaultAdminSecret`                         | Disables the creation of the default admin secret                                                                                                                                                                                 | `false`                   |
 | `grafana.image.registry`                                    | Grafana image registry                                                                                                                                                                                                            | `REGISTRY_NAME`           |
 | `grafana.image.repository`                                  | Grafana image name                                                                                                                                                                                                                | `REPOSITORY_NAME/grafana` |
 | `grafana.image.digest`                                      | Grafana image digest in the way sha256:aa.... Please note this parameter, if set, will override the tag                                                                                                                           | `""`                      |

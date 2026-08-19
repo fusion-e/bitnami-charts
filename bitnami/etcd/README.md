@@ -1,6 +1,6 @@
 <!--- app-name: Etcd -->
 
-# Bitnami package for Etcd
+# Bitnami Secure Images Helm chart for Etcd
 
 etcd is a distributed key-value store designed to securely store data across a cluster. etcd is widely used in production on account of its reliability, fault-tolerance and ease of use.
 
@@ -14,13 +14,26 @@ Trademarks: This software listing is packaged by Bitnami. The respective tradema
 helm install my-release oci://registry-1.docker.io/bitnamicharts/etcd
 ```
 
-Looking to use Etcd in production? Try [VMware Tanzu Application Catalog](https://bitnami.com/enterprise), the commercial edition of the Bitnami catalog.
+## Why use Bitnami Secure Images?
+
+Those are hardened, minimal CVE images built and maintained by Bitnami. Bitnami Secure Images are based on the cloud-optimized, security-hardened enterprise [OS Photon Linux](https://vmware.github.io/photon/). Why choose BSI images?
+
+- Hardened secure images of popular open source software with Near-Zero Vulnerabilities
+- Vulnerability Triage & Prioritization with VEX Statements, KEV and EPSS Scores
+- Compliance focus with FIPS, STIG, and air-gap options, including secure bill of materials (SBOM)
+- Software supply chain provenance attestation through in-toto
+- First class support for the internet’s favorite Helm charts
+
+Each image comes with valuable security metadata. You can view the metadata in [our public catalog here](https://app-catalog.vmware.com/bitnami/apps). Note: Some data is only available with [commercial subscriptions to BSI](https://bitnami.com/).
+
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%201.png?raw=true "Application details")
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%202.png?raw=true "Packaging report")
+
+If you are looking for our previous generation of images based on Debian Linux, please see the [Bitnami Legacy registry](https://hub.docker.com/u/bitnamilegacy).
 
 ## Introduction
 
 This chart bootstraps a [etcd](https://github.com/bitnami/containers/tree/main/bitnami/etcd) deployment on a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
-
-Bitnami charts can be used with [Kubeapps](https://kubeapps.dev/) for deployment and management of Helm Charts in clusters.
 
 ## Prerequisites
 
@@ -348,7 +361,6 @@ If you encounter errors when working with persistent volumes, refer to our [trou
 | `global.imageRegistry`                                | Global Docker image registry                                                                                                                                                                                                                                                                                                                                        | `""`    |
 | `global.imagePullSecrets`                             | Global Docker registry secret names as an array                                                                                                                                                                                                                                                                                                                     | `[]`    |
 | `global.defaultStorageClass`                          | Global default StorageClass for Persistent Volume(s)                                                                                                                                                                                                                                                                                                                | `""`    |
-| `global.storageClass`                                 | DEPRECATED: use global.defaultStorageClass instead                                                                                                                                                                                                                                                                                                                  | `""`    |
 | `global.security.allowInsecureImages`                 | Allows skipping image verification                                                                                                                                                                                                                                                                                                                                  | `false` |
 | `global.compatibility.openshift.adaptSecurityContext` | Adapt the securityContext sections of the deployment to make them compatible with Openshift restricted-v2 SCC: remove runAsUser, runAsGroup and fsGroup and let the platform use their allowed default IDs. Possible values: auto (apply if the detected running cluster is Openshift), force (perform the adaptation always), disabled (do not perform adaptation) | `auto`  |
 
@@ -359,10 +371,12 @@ If you encounter errors when working with persistent volumes, refer to our [trou
 | `kubeVersion`            | Force target Kubernetes version (using Helm capabilities if not set)                         | `""`            |
 | `nameOverride`           | String to partially override common.names.fullname template (will maintain the release name) | `""`            |
 | `fullnameOverride`       | String to fully override common.names.fullname template                                      | `""`            |
+| `namespaceOverride`      | String to fully override common.names.namespace template                                     | `""`            |
 | `commonLabels`           | Labels to add to all deployed objects                                                        | `{}`            |
 | `commonAnnotations`      | Annotations to add to all deployed objects                                                   | `{}`            |
 | `clusterDomain`          | Default Kubernetes cluster domain                                                            | `cluster.local` |
 | `extraDeploy`            | Array of extra objects to deploy with the release                                            | `[]`            |
+| `usePasswordFiles`       | Mount credentials as files instead of using environment variables                            | `true`          |
 | `diagnosticMode.enabled` | Enable diagnostic mode (all probes will be disabled and the command will be overridden)      | `false`         |
 | `diagnosticMode.command` | Command to override all containers in the deployment                                         | `["sleep"]`     |
 | `diagnosticMode.args`    | Args to override all containers in the deployment                                            | `["infinity"]`  |
@@ -625,6 +639,42 @@ If you encounter errors when working with persistent volumes, refer to our [trou
 | `serviceAccount.annotations`                  | Additional annotations to be included on the service account | `{}`    |
 | `serviceAccount.labels`                       | Additional labels to be included on the service account      | `{}`    |
 
+### etcd "pre-upgrade" K8s Job parameters
+
+| Name                                                              | Description                                                                                                                                                                                                                                                     | Value            |
+| ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| `preUpgradeJob.enabled`                                           | Enable running a pre-upgrade job on Helm upgrades that removes obsolete members                                                                                                                                                                                 | `true`           |
+| `preUpgradeJob.annotations`                                       | Add annotations to the etcd "pre-upgrade" job                                                                                                                                                                                                                   | `{}`             |
+| `preUpgradeJob.podLabels`                                         | Additional pod labels for etcd "pre-upgrade" job                                                                                                                                                                                                                | `{}`             |
+| `preUpgradeJob.podAnnotations`                                    | Additional pod annotations for etcd "pre-upgrade" job                                                                                                                                                                                                           | `{}`             |
+| `preUpgradeJob.podAffinityPreset`                                 | Pod affinity preset. Ignored if `affinity` is set. Allowed values: `soft` or `hard`                                                                                                                                                                             | `""`             |
+| `preUpgradeJob.podAntiAffinityPreset`                             | Pod anti-affinity preset. Ignored if `affinity` is set. Allowed values: `soft` or `hard`                                                                                                                                                                        | `soft`           |
+| `preUpgradeJob.nodeAffinityPreset.type`                           | Node affinity preset type. Ignored if `affinity` is set. Allowed values: `soft` or `hard`                                                                                                                                                                       | `""`             |
+| `preUpgradeJob.nodeAffinityPreset.key`                            | Node label key to match. Ignored if `affinity` is set.                                                                                                                                                                                                          | `""`             |
+| `preUpgradeJob.nodeAffinityPreset.values`                         | Node label values to match. Ignored if `affinity` is set.                                                                                                                                                                                                       | `[]`             |
+| `preUpgradeJob.affinity`                                          | Affinity for pod assignment                                                                                                                                                                                                                                     | `{}`             |
+| `preUpgradeJob.nodeSelector`                                      | Node labels for pod assignment                                                                                                                                                                                                                                  | `{}`             |
+| `preUpgradeJob.tolerations`                                       | Tolerations for pod assignment                                                                                                                                                                                                                                  | `[]`             |
+| `preUpgradeJob.containerSecurityContext.enabled`                  | Enabled "pre-upgrade" job's containers' Security Context                                                                                                                                                                                                        | `true`           |
+| `preUpgradeJob.containerSecurityContext.seLinuxOptions`           | Set SELinux options in "pre-upgrade" job's containers                                                                                                                                                                                                           | `{}`             |
+| `preUpgradeJob.containerSecurityContext.runAsUser`                | Set runAsUser in "pre-upgrade" job's containers' Security Context                                                                                                                                                                                               | `1001`           |
+| `preUpgradeJob.containerSecurityContext.runAsGroup`               | Set runAsUser in "pre-upgrade" job's containers' Security Context                                                                                                                                                                                               | `1001`           |
+| `preUpgradeJob.containerSecurityContext.runAsNonRoot`             | Set runAsNonRoot in "pre-upgrade" job's containers' Security Context                                                                                                                                                                                            | `true`           |
+| `preUpgradeJob.containerSecurityContext.readOnlyRootFilesystem`   | Set readOnlyRootFilesystem in "pre-upgrade" job's containers' Security Context                                                                                                                                                                                  | `true`           |
+| `preUpgradeJob.containerSecurityContext.privileged`               | Set privileged in "pre-upgrade" job's containers' Security Context                                                                                                                                                                                              | `false`          |
+| `preUpgradeJob.containerSecurityContext.allowPrivilegeEscalation` | Set allowPrivilegeEscalation in "pre-upgrade" job's containers' Security Context                                                                                                                                                                                | `false`          |
+| `preUpgradeJob.containerSecurityContext.capabilities.add`         | List of capabilities to be added in "pre-upgrade" job's containers                                                                                                                                                                                              | `[]`             |
+| `preUpgradeJob.containerSecurityContext.capabilities.drop`        | List of capabilities to be dropped in "pre-upgrade" job's containers                                                                                                                                                                                            | `["ALL"]`        |
+| `preUpgradeJob.containerSecurityContext.seccompProfile.type`      | Set seccomp profile in "pre-upgrade" job's containers                                                                                                                                                                                                           | `RuntimeDefault` |
+| `preUpgradeJob.podSecurityContext.enabled`                        | Enabled "pre-upgrade" job's pods' Security Context                                                                                                                                                                                                              | `true`           |
+| `preUpgradeJob.podSecurityContext.fsGroupChangePolicy`            | Set fsGroupChangePolicy in "pre-upgrade" job's pods' Security Context                                                                                                                                                                                           | `Always`         |
+| `preUpgradeJob.podSecurityContext.sysctls`                        | List of sysctls to allow in "pre-upgrade" job's pods' Security Context                                                                                                                                                                                          | `[]`             |
+| `preUpgradeJob.podSecurityContext.supplementalGroups`             | List of supplemental groups to add to "pre-upgrade" job's pods' Security Context                                                                                                                                                                                | `[]`             |
+| `preUpgradeJob.podSecurityContext.fsGroup`                        | Set fsGroup in "pre-upgrade" job's pods' Security Context                                                                                                                                                                                                       | `1001`           |
+| `preUpgradeJob.resourcesPreset`                                   | Set etcd "pre-upgrade" job's container resources according to one common preset (allowed values: none, nano, small, medium, large, xlarge, 2xlarge). This is ignored if preUpgradeJob.resources is set (preUpgradeJob.resources is recommended for production). | `micro`          |
+| `preUpgradeJob.resources`                                         | Set etcd "pre-upgrade" job's container requests and limits for different resources like CPU or memory (essential for production workloads)                                                                                                                      | `{}`             |
+| `preUpgradeJob.startDelay`                                        | Optional delay before starting the pre-upgrade hook (in seconds).                                                                                                                                                                                               | `""`             |
+
 ### Defragmentation parameters
 
 | Name                                                               | Description                                                                                                                                | Value            |
@@ -664,6 +714,9 @@ If you encounter errors when working with persistent volumes, refer to our [trou
 | `defrag.cronjob.args`                                              | Override default container args (useful when using custom images)                                                                          | `[]`             |
 | `defrag.cronjob.resourcesPreset`                                   | Set container resources according to one common preset                                                                                     | `nano`           |
 | `defrag.cronjob.resources`                                         | Set container requests and limits for different resources like CPU or                                                                      | `{}`             |
+| `defrag.cronjob.extraEnvVars`                                      | Extra environment variables to be set on defrag cronjob container                                                                          | `[]`             |
+| `defrag.cronjob.extraEnvVarsCM`                                    | Name of existing ConfigMap containing extra env vars                                                                                       | `""`             |
+| `defrag.cronjob.extraEnvVarsSecret`                                | Name of existing Secret containing extra env vars                                                                                          | `""`             |
 
 ### Other parameters
 

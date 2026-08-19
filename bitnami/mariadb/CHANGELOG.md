@@ -1,8 +1,117 @@
 # Changelog
 
-## 20.2.3 (2025-02-05)
+## 23.0.1 (2025-11-17)
 
-* [bitnami/mariadb] Release 20.2.3 ([#31789](https://github.com/bitnami/charts/pull/31789))
+* [bitnami/mariadb] Add initContainerSecurityContext parameter for primary initContainer ([#34373](https://github.com/bitnami/charts/pull/34373))
+
+## 22.0.0 (2025-08-18)
+
+* [bitnami/mariadb] :zap: :arrow_up: Update dependency references (#36108) ([e429923](https://github.com/bitnami/charts/commit/e429923d43fd6ee5171c5554ef072d1dddc4810c)), closes [#36108](https://github.com/bitnami/charts/issues/36108)
+
+## <small>21.0.8 (2025-08-14)</small>
+
+* [bitnami/mariadb] :zap: :arrow_up: Update dependency references (#35891) ([0ba150f](https://github.com/bitnami/charts/commit/0ba150f330d4acb2db0f428f545d6ab863f29b28)), closes [#35891](https://github.com/bitnami/charts/issues/35891)
+
+## <small>21.0.7 (2025-08-08)</small>
+
+* [bitnami/mariadb] :zap: :arrow_up: Update dependency references (#35702) ([cf7d2af](https://github.com/bitnami/charts/commit/cf7d2afa32e8ecf15b879fc181c74a5a98903cbc)), closes [#35702](https://github.com/bitnami/charts/issues/35702)
+
+## <small>21.0.6 (2025-08-07)</small>
+
+* [bitnami/mariadb] :zap: :arrow_up: Update dependency references (#35618) ([4f3de22](https://github.com/bitnami/charts/commit/4f3de22b9031e27242cfa01cd6d7eb9834a717bd)), closes [#35618](https://github.com/bitnami/charts/issues/35618)
+
+## <small>21.0.5 (2025-08-07)</small>
+
+* [bitnami/mariadb] :zap: :arrow_up: Update dependency references (#35590) ([32840ee](https://github.com/bitnami/charts/commit/32840eeaba9fd268f5290039c3ba3bf7b153a840)), closes [#35590](https://github.com/bitnami/charts/issues/35590)
+
+## <small>21.0.4 (2025-08-07)</small>
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/mariadb] :zap: :arrow_up: Update dependency references (#35506) ([6f4f2cb](https://github.com/bitnami/charts/commit/6f4f2cbc4dc1c14ed857a153649f5378d6a0e013)), closes [#35506](https://github.com/bitnami/charts/issues/35506)
+
+## <small>21.0.3 (2025-07-15)</small>
+
+* [bitnami/mariadb] :zap: :arrow_up: Update dependency references (#35111) ([26f6a88](https://github.com/bitnami/charts/commit/26f6a88c961f4e0dbb53f458972a4ba94d849a48)), closes [#35111](https://github.com/bitnami/charts/issues/35111)
+
+## <small>21.0.2 (2025-07-09)</small>
+
+* [bitnami/mariadb] :zap: :arrow_up: Update dependency references (#34930) ([48fd459](https://github.com/bitnami/charts/commit/48fd459084bd6b8c0dcc746bd41beff0edf079bd)), closes [#34930](https://github.com/bitnami/charts/issues/34930)
+
+## <small>21.0.1 (2025-06-30)</small>
+
+* [bitnami/mariadb] :zap: :arrow_up: Update dependency references (#34713) ([62241f0](https://github.com/bitnami/charts/commit/62241f00910d0c69af5e737f987b00d021d836ed)), closes [#34713](https://github.com/bitnami/charts/issues/34713)
+
+## 21.0.0 (2025-06-25)
+
+* [bitnami/mariadb] :zap: :arrow_up: Update dependency references (#34620) ([424716e](https://github.com/bitnami/charts/commit/424716e2745e55035939c8e7cc58284733165ed9)), closes [#34620](https://github.com/bitnami/charts/issues/34620)
+
+## <small>20.5.9 (2025-06-13)</small>
+
+* [bitnami/mariadb] :zap: :arrow_up: Update dependency references (#34473) ([b3f22f2](https://github.com/bitnami/charts/commit/b3f22f20a80929bf1124a7074229ac86b4572ee7)), closes [#34473](https://github.com/bitnami/charts/issues/34473)
+
+## <small>20.5.8 (2025-06-11)</small>
+
+* [bitnami/mariadb] :zap: :arrow_up: Update dependency references (#34336) ([cd273c8](https://github.com/bitnami/charts/commit/cd273c807587629b0d3fa91037f8f4628e698373)), closes [#34336](https://github.com/bitnami/charts/issues/34336)
+
+## <small>20.5.7 (2025-06-06)</small>
+
+* [bitnami/mariadb] :zap: :arrow_up: Update dependency references (#34201) ([583943d](https://github.com/bitnami/charts/commit/583943db330516f16eedac662d0e02456227a8ea)), closes [#34201](https://github.com/bitnami/charts/issues/34201)
+
+## <small>20.5.6 (2025-05-23)</small>
+
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+* [bitnami/mariadb] :zap: :arrow_up: Update dependency references (#33856) ([1af172a](https://github.com/bitnami/charts/commit/1af172a29a83ee96dd03e7eb602153b3a1d1e4a0)), closes [#33856](https://github.com/bitnami/charts/issues/33856)
+
+## <small>20.5.5 (2025-05-08)</small>
+
+* [bitnami/mariadb] :zap: :arrow_up: Update dependency references (#33554) ([018ee9e](https://github.com/bitnami/charts/commit/018ee9e25e0c04583b882e756287b514679e6959)), closes [#33554](https://github.com/bitnami/charts/issues/33554)
+
+## <small>20.5.4 (2025-05-06)</small>
+
+* [bitnami/mariadb] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (#33393 ([a6d3726](https://github.com/bitnami/charts/commit/a6d3726e5b1fd7dc33b3db2aa0447da676e72727)), closes [#33393](https://github.com/bitnami/charts/issues/33393)
+
+## <small>20.5.3 (2025-04-25)</small>
+
+* [bitnami/mariadb] adds spec.terminationGracePeriodSeconds to mariadb (#33168) ([22790f0](https://github.com/bitnami/charts/commit/22790f0378d4baa0362b69ba1e011c2a045aabbc)), closes [#33168](https://github.com/bitnami/charts/issues/33168)
+
+## <small>20.4.3 (2025-04-20)</small>
+
+* [bitnami/mariadb] Release 20.4.3 (#33085) ([3db392a](https://github.com/bitnami/charts/commit/3db392abc929bd5561bf7f4404cd3ebafd18a791)), closes [#33085](https://github.com/bitnami/charts/issues/33085)
+
+## <small>20.4.2 (2025-03-21)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/mariadb] Release 20.4.2 (#32557) ([0d7c80d](https://github.com/bitnami/charts/commit/0d7c80d002d7943850248a2d389bbbb589433009)), closes [#32557](https://github.com/bitnami/charts/issues/32557)
+
+## <small>20.4.1 (2025-02-25)</small>
+
+* [bitnami/mariadb] hotfix: Fix issue when `auth.username` is not set and `usePasswordFiles=true` (#32 ([5cec013](https://github.com/bitnami/charts/commit/5cec013d573e74dddf05879c1162c62984107dd2)), closes [#32161](https://github.com/bitnami/charts/issues/32161)
+
+## 20.4.0 (2025-02-24)
+
+* [bitnami/mariadb] Set `usePasswordFiles=true` by default (#32110) ([67bee27](https://github.com/bitnami/charts/commit/67bee2740826d26850942add477ff8ecb97e5259)), closes [#32110](https://github.com/bitnami/charts/issues/32110)
+
+## <small>20.3.1 (2025-02-19)</small>
+
+* [bitnami/mariadb] Release 20.3.1 (#32014) ([63c32e1](https://github.com/bitnami/charts/commit/63c32e150638ce4bc742ee8a083514eaa7903d8d)), closes [#32014](https://github.com/bitnami/charts/issues/32014)
+
+## 20.3.0 (2025-02-19)
+
+* [bitnami/*] Fix typo in named template name (#31858) ([b739b69](https://github.com/bitnami/charts/commit/b739b69532e637bd33b4a44eeb422c3e749eac77)), closes [#31858](https://github.com/bitnami/charts/issues/31858)
+* [bitnami/mariadb] feat: Add Transparent Data Encryption support (#31706) ([486712d](https://github.com/bitnami/charts/commit/486712d975d5fd85fe764e42f042b4a185599155)), closes [#31706](https://github.com/bitnami/charts/issues/31706)
+
+## <small>20.2.4 (2025-02-17)</small>
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/mariadb] chore(resources): Increase primary resources (#31959) ([04f85f5](https://github.com/bitnami/charts/commit/04f85f5b9d464b8f9670affa339ab277692308ad)), closes [#31959](https://github.com/bitnami/charts/issues/31959)
+
+## <small>20.2.3 (2025-02-05)</small>
+
+* [bitnami/mariadb] Release 20.2.3 (#31789) ([896aebc](https://github.com/bitnami/charts/commit/896aebc4920cb3f3493cfc922d5e5673aa862d64)), closes [#31789](https://github.com/bitnami/charts/issues/31789)
+* Update copyright year (#31682) ([e9f02f5](https://github.com/bitnami/charts/commit/e9f02f5007068751f7eb2270fece811e685c99b6)), closes [#31682](https://github.com/bitnami/charts/issues/31682)
 
 ## <small>20.2.2 (2025-01-23)</small>
 
@@ -648,7 +757,7 @@
 
 ## 10.4.0 (2022-03-08)
 
-* [bitnami/mariadb] Don't overwrite existing secrets (#9268) ([3d5945a](https://github.com/bitnami/charts/commit/3d5945a08afac40a812f2d48f888e374582dbcc3)), closes [#9268](https://github.com/bitnami/charts/issues/9268) [#7403](https://github.com/bitnami/charts/issues/7403)
+* [bitnami/mariadb] Don't overwrite existing secrets (#9268) ([3d5945a](https://github.com/bitnami/charts/commit/3d5945a08afac40a812f2d48f888e374582dbcc3)), closes [#9268](https://github.com/bitnami/charts/issues/9268)
 
 ## <small>10.3.7 (2022-02-27)</small>
 

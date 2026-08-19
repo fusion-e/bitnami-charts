@@ -1,8 +1,252 @@
 # Changelog
 
-## 18.3.6 (2025-02-05)
+## 22.1.1 (2026-02-23)
 
-* [bitnami/nginx] Release 18.3.6 ([#31797](https://github.com/bitnami/charts/pull/31797))
+* [bitnami/nginx] feat: add checksum annotation for existingServerBlockConfigmap via lookup ([#36470](https://github.com/bitnami/charts/pull/36470))
+
+## 22.1.0 (2025-10-01)
+
+* [bitnami/*] Remove annotations.category (#36224) ([2abc0f9](https://github.com/bitnami/charts/commit/2abc0f9d7e89a5453e57f029c66f581b3d5855ef)), closes [#36224](https://github.com/bitnami/charts/issues/36224)
+* [bitnami/nginx] allow to change probes for metrics container (#36296) ([e044aec](https://github.com/bitnami/charts/commit/e044aecf0bfede5c2a12eb0ecb920cd5ef11b82d)), closes [#36296](https://github.com/bitnami/charts/issues/36296)
+
+## <small>21.1.23 (2025-08-18)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#36127) ([772a6ff](https://github.com/bitnami/charts/commit/772a6ff4437f41f54b9e0b98cfb9322d896403d6)), closes [#36127](https://github.com/bitnami/charts/issues/36127)
+
+## <small>21.1.22 (2025-08-16)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#36089) ([fbf1e04](https://github.com/bitnami/charts/commit/fbf1e04c737009113eb4b03bc2b40664076c4264)), closes [#36089](https://github.com/bitnami/charts/issues/36089)
+
+## <small>21.1.21 (2025-08-15)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#36077) ([6c07461](https://github.com/bitnami/charts/commit/6c07461f9f35e887e11c99f6326decc14439639b)), closes [#36077](https://github.com/bitnami/charts/issues/36077)
+
+## <small>21.1.20 (2025-08-15)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#36073) ([e28d762](https://github.com/bitnami/charts/commit/e28d76200fecca05094df1ac19108b349ababcc4)), closes [#36073](https://github.com/bitnami/charts/issues/36073)
+
+## <small>21.1.19 (2025-08-15)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#36064) ([1b26ac6](https://github.com/bitnami/charts/commit/1b26ac6741bf47c12021c4a3a506eae670da152a)), closes [#36064](https://github.com/bitnami/charts/issues/36064)
+
+## <small>21.1.18 (2025-08-15)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#36054) ([8fd2f56](https://github.com/bitnami/charts/commit/8fd2f56ce8bbdea54a4273ac669a8c640cb5577e)), closes [#36054](https://github.com/bitnami/charts/issues/36054)
+
+## <small>21.1.17 (2025-08-15)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#36044) ([831eac8](https://github.com/bitnami/charts/commit/831eac879902800ecc83b79b53f134fbf00100a8)), closes [#36044](https://github.com/bitnami/charts/issues/36044)
+
+## <small>21.1.16 (2025-08-15)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#36026) ([23e57fb](https://github.com/bitnami/charts/commit/23e57fb44cf9699864644c893c5643f97ebfe328)), closes [#36026](https://github.com/bitnami/charts/issues/36026)
+
+## <small>21.1.15 (2025-08-15)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#36017) ([c33cb77](https://github.com/bitnami/charts/commit/c33cb770c161e6e3ee4f3b2ef664a4fde1501be8)), closes [#36017](https://github.com/bitnami/charts/issues/36017)
+
+## <small>21.1.14 (2025-08-15)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#36009) ([5527d1e](https://github.com/bitnami/charts/commit/5527d1e5afffd72be725437b0ab026f4802e1078)), closes [#36009](https://github.com/bitnami/charts/issues/36009)
+
+## <small>21.1.13 (2025-08-15)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#35997) ([31e0558](https://github.com/bitnami/charts/commit/31e0558d5569e197ddeca5a7694ada74fc07f555)), closes [#35997](https://github.com/bitnami/charts/issues/35997)
+
+## <small>21.1.12 (2025-08-15)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#35986) ([0aa0402](https://github.com/bitnami/charts/commit/0aa040287191b739ea0b312a11b9ee8c93be0a5d)), closes [#35986](https://github.com/bitnami/charts/issues/35986)
+
+## <small>21.1.11 (2025-08-15)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#35975) ([dca5511](https://github.com/bitnami/charts/commit/dca55111ff8de39083ec2a5c298e219cfe39c82e)), closes [#35975](https://github.com/bitnami/charts/issues/35975)
+
+## <small>21.1.10 (2025-08-14)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#35963) ([8b5f2ba](https://github.com/bitnami/charts/commit/8b5f2ba638ce5f067c1d606d6ac523901f9f0175)), closes [#35963](https://github.com/bitnami/charts/issues/35963)
+
+## <small>21.1.9 (2025-08-14)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#35950) ([f6ab194](https://github.com/bitnami/charts/commit/f6ab194ad8dfc6e10bdda094b6c9612ebe44e1b1)), closes [#35950](https://github.com/bitnami/charts/issues/35950)
+
+## <small>21.1.8 (2025-08-14)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#35929) ([89bda48](https://github.com/bitnami/charts/commit/89bda48230006af99f967911de5b23f3b98de94d)), closes [#35929](https://github.com/bitnami/charts/issues/35929)
+
+## <small>21.1.7 (2025-08-14)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#35913) ([937ee04](https://github.com/bitnami/charts/commit/937ee0453be41e56f33bd2c3f1c2553f41aea85a)), closes [#35913](https://github.com/bitnami/charts/issues/35913)
+
+## <small>21.1.6 (2025-08-14)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#35893) ([75784c9](https://github.com/bitnami/charts/commit/75784c90502d0e734c58021d68eee273219804b9)), closes [#35893](https://github.com/bitnami/charts/issues/35893)
+
+## <small>21.1.5 (2025-08-13)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#35852) ([79f6f10](https://github.com/bitnami/charts/commit/79f6f10be293c8c1d704e422f4a7cac1e2eb3bb4)), closes [#35852](https://github.com/bitnami/charts/issues/35852)
+
+## <small>21.1.4 (2025-08-07)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#35632) ([9933f2f](https://github.com/bitnami/charts/commit/9933f2f304cf8705f7e1d7ec63499dd06abd5fa5)), closes [#35632](https://github.com/bitnami/charts/issues/35632)
+
+## <small>21.1.3 (2025-08-07)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#35512) ([9e36bfc](https://github.com/bitnami/charts/commit/9e36bfc102f99dec2da79699eb9d30fef5bba208)), closes [#35512](https://github.com/bitnami/charts/issues/35512)
+
+## <small>21.1.2 (2025-08-07)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#35475) ([d48527f](https://github.com/bitnami/charts/commit/d48527f9c58500dd3931b983c3d8bf23dd1dd9b8)), closes [#35475](https://github.com/bitnami/charts/issues/35475)
+
+## <small>21.1.1 (2025-08-01)</small>
+
+* [bitnami/nginx] bugfix: allow extraVolumes when used in sidecars (#35167) ([3641f15](https://github.com/bitnami/charts/commit/3641f15d6d20339556bba79f45af6e5f83381931)), closes [#35167](https://github.com/bitnami/charts/issues/35167)
+
+## 21.1.0 (2025-07-31)
+
+* [bitnami/nginx] Add support for context-based configuration includes (#35347) ([507f56e](https://github.com/bitnami/charts/commit/507f56ef31172eb85223fb8ae20a1865761030c0)), closes [#35347](https://github.com/bitnami/charts/issues/35347)
+
+## <small>21.0.9 (2025-07-31)</small>
+
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#35360) ([191f79e](https://github.com/bitnami/charts/commit/191f79e715faea84142f1f25c9a14a3a96ae8890)), closes [#35360](https://github.com/bitnami/charts/issues/35360)
+
+## <small>21.0.8 (2025-07-17)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#35176) ([241a621](https://github.com/bitnami/charts/commit/241a62161823b90185aaa1bdd89a0f4660c79f49)), closes [#35176](https://github.com/bitnami/charts/issues/35176)
+
+## <small>21.0.7 (2025-07-17)</small>
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/nginx] autoGenerated Certificate match with kubernetes.io/tls secret type. (server.crt, ser ([0963069](https://github.com/bitnami/charts/commit/096306954cb5057bbb628e1aa4b43be50cbdd8a5)), closes [#34643](https://github.com/bitnami/charts/issues/34643)
+
+## <small>21.0.6 (2025-07-09)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#34928) ([b447cd8](https://github.com/bitnami/charts/commit/b447cd8eea7fc042a0935989a004fbdf5c2897d1)), closes [#34928](https://github.com/bitnami/charts/issues/34928)
+
+## <small>21.0.5 (2025-07-09)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#34894) ([fd53b4c](https://github.com/bitnami/charts/commit/fd53b4c67867b3052d0705348a0f900428d0570e)), closes [#34894](https://github.com/bitnami/charts/issues/34894)
+
+## <small>21.0.4 (2025-07-07)</small>
+
+* fix prometheusRules syntax (#34801) ([95446ae](https://github.com/bitnami/charts/commit/95446ae3e94a183f151d27208f65eea7ed263c01)), closes [#34801](https://github.com/bitnami/charts/issues/34801)
+
+## <small>21.0.3 (2025-06-30)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#34717) ([46e4710](https://github.com/bitnami/charts/commit/46e47104483cb8e3d774345ddb068f417d6cda8c)), closes [#34717](https://github.com/bitnami/charts/issues/34717)
+
+## <small>21.0.2 (2025-06-30)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#34710) ([44266ca](https://github.com/bitnami/charts/commit/44266ca8f443622596057153e546317bbd59c445)), closes [#34710](https://github.com/bitnami/charts/issues/34710)
+
+## <small>21.0.1 (2025-06-26)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#34678) ([96aa381](https://github.com/bitnami/charts/commit/96aa381320b94ff8663a2b4ccee0ffa4f3bf9932)), closes [#34678](https://github.com/bitnami/charts/issues/34678)
+
+## 21.0.0 (2025-06-26)
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#34655) ([ada30f1](https://github.com/bitnami/charts/commit/ada30f145bce0b7d71f1147bc5ce8683163517c5)), closes [#34655](https://github.com/bitnami/charts/issues/34655)
+
+## <small>20.1.4 (2025-06-26)</small>
+
+* [bitnami/nginx] Update dependencies (#34651) ([2298065](https://github.com/bitnami/charts/commit/22980650f8d0c52a76f2d14d43c72dcecb5918aa)), closes [#34651](https://github.com/bitnami/charts/issues/34651)
+
+## <small>20.1.3 (2025-06-16)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#34520) ([3e09df1](https://github.com/bitnami/charts/commit/3e09df1c46cb8ace38ddfee51d3666d3dafaa45e)), closes [#34520](https://github.com/bitnami/charts/issues/34520)
+
+## <small>20.1.2 (2025-06-13)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#34476) ([8a8748f](https://github.com/bitnami/charts/commit/8a8748f972eb24459a0a4cce7b1fefbe2b1585e7)), closes [#34476](https://github.com/bitnami/charts/issues/34476)
+
+## <small>20.1.1 (2025-06-13)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#34435) ([6ec0d05](https://github.com/bitnami/charts/commit/6ec0d05f23a002fe7e47bb2c85053aa18c533985)), closes [#34435](https://github.com/bitnami/charts/issues/34435)
+
+## 20.1.0 (2025-06-10)
+
+* [bitnami/nginx] Service Monitor support tlsConfig (#34109) ([97011de](https://github.com/bitnami/charts/commit/97011dee108515c01d6850b2e3ba895352439e6e)), closes [#34109](https://github.com/bitnami/charts/issues/34109)
+
+## <small>20.0.8 (2025-06-09)</small>
+
+* [bitnami/nginx] Allow wildcards in ingress.hostname parameter (#34095) ([d4deec1](https://github.com/bitnami/charts/commit/d4deec169a66017c17e8f436cc0a992a500781d4)), closes [#34095](https://github.com/bitnami/charts/issues/34095)
+
+## <small>20.0.7 (2025-06-06)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#34206) ([cbc61f9](https://github.com/bitnami/charts/commit/cbc61f961ab08156a64163ede0ccd1b8c902df8f)), closes [#34206](https://github.com/bitnami/charts/issues/34206)
+
+## <small>20.0.6 (2025-06-06)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#34168) ([e8387d1](https://github.com/bitnami/charts/commit/e8387d1bd4a0f568865fee07e966689614a6e3ba)), closes [#34168](https://github.com/bitnami/charts/issues/34168)
+
+## <small>20.0.5 (2025-05-30)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#34008) ([12b9b52](https://github.com/bitnami/charts/commit/12b9b529755b81f55643cab2af8cd88d033cf346)), closes [#34008](https://github.com/bitnami/charts/issues/34008)
+
+## <small>20.0.4 (2025-05-29)</small>
+
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#33975) ([bfd2a83](https://github.com/bitnami/charts/commit/bfd2a83eddbb63c72acf7616b122bab3446df4e4)), closes [#33975](https://github.com/bitnami/charts/issues/33975)
+
+## <small>20.0.3 (2025-05-21)</small>
+
+* [bitnami/*] Add CNAB link for charts on Azure MP (#33695) ([6312371](https://github.com/bitnami/charts/commit/63123718de94dbedd798d380807b57031e98ed4f)), closes [#33695](https://github.com/bitnami/charts/issues/33695)
+* [bitnami/*] Update CNAB tip (#33741) ([2bc74f3](https://github.com/bitnami/charts/commit/2bc74f3f539481ceaa12833c114047583912b748)), closes [#33741](https://github.com/bitnami/charts/issues/33741)
+* [bitnami/nginx] Global Cluster Domain Support for AutoGenerated SSL Certificate (#33769) ([13787be](https://github.com/bitnami/charts/commit/13787be69280f20686e9174a7d7bae1625b1fc87)), closes [#33769](https://github.com/bitnami/charts/issues/33769)
+
+## <small>20.0.2 (2025-05-13)</small>
+
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+* [bitnami/nginx] :zap: :arrow_up: Update dependency references (#33641) ([7328b50](https://github.com/bitnami/charts/commit/7328b50368ed9001a1235a5929721500d46989d0)), closes [#33641](https://github.com/bitnami/charts/issues/33641)
+
+## <small>20.0.1 (2025-05-06)</small>
+
+* [bitnami/nginx] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (#33413) ([b946af2](https://github.com/bitnami/charts/commit/b946af26c1d520d34d8282d150ba32437b254efa)), closes [#33413](https://github.com/bitnami/charts/issues/33413)
+
+## 20.0.0 (2025-04-24)
+
+* [bitnami/nginx] Release 20.0.0 (#33169) ([c935715](https://github.com/bitnami/charts/commit/c9357150af548e9982f711e7b68b82dc77487031)), closes [#33169](https://github.com/bitnami/charts/issues/33169)
+
+## <small>19.1.1 (2025-04-16)</small>
+
+* [bitnami/nginx] Release 19.1.1 (#33047) ([9664b32](https://github.com/bitnami/charts/commit/9664b32f2d374565e8eb7c95b3ea9218242e8631)), closes [#33047](https://github.com/bitnami/charts/issues/33047)
+
+## 19.1.0 (2025-04-11)
+
+* [bitnami/nginx] feat(nginx-optional-initcontainers): Enable optional initcontainers (#32577) ([f0805ab](https://github.com/bitnami/charts/commit/f0805ab27224a65adc902729d7d334a14f00833a)), closes [#32577](https://github.com/bitnami/charts/issues/32577)
+
+## <small>19.0.5 (2025-04-11)</small>
+
+* [bitnami/nginx] Release 19.0.5 (#32964) ([d38c92a](https://github.com/bitnami/charts/commit/d38c92a6037deda6ff3807e7b26c02fdf9183fbc)), closes [#32964](https://github.com/bitnami/charts/issues/32964)
+
+## <small>19.0.4 (2025-04-02)</small>
+
+* [bitnami/nginx] Ingress hostname dynamic tpl function (#32421) ([4e232c3](https://github.com/bitnami/charts/commit/4e232c32dcced4935ccc378597a0bfb9e1432f63)), closes [#32421](https://github.com/bitnami/charts/issues/32421)
+
+## <small>19.0.3 (2025-03-25)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/nginx] Add resources to git-clone-repository initcontainer (#32530) ([4c795a8](https://github.com/bitnami/charts/commit/4c795a8f58e03c85e1ca6ae278a2c0214d6f7b92)), closes [#32530](https://github.com/bitnami/charts/issues/32530)
+
+## <small>19.0.2 (2025-03-12)</small>
+
+* [bitnami/nginx] Release 19.0.2 (#32416) ([af1b19b](https://github.com/bitnami/charts/commit/af1b19b07b85e6b5ed81f159c2a141752610bf98)), closes [#32416](https://github.com/bitnami/charts/issues/32416)
+
+## <small>19.0.1 (2025-03-04)</small>
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/nginx] Release 19.0.1 (#32261) ([5fe381a](https://github.com/bitnami/charts/commit/5fe381a12d5f85d2627f109e66718ccf63e4f773)), closes [#32261](https://github.com/bitnami/charts/issues/32261)
+* [bitnami/nginx] Update README.md (#31855) ([c7a9144](https://github.com/bitnami/charts/commit/c7a9144046d04863af4e0ed1d5b8584357d2ddb2)), closes [#31855](https://github.com/bitnami/charts/issues/31855)
+
+## 19.0.0 (2025-02-10)
+
+* [bitnami/nginx] Release 19.0.0 (#31852) ([3af1f49](https://github.com/bitnami/charts/commit/3af1f49c473b8edbcf890583e3f54ad22bc3a7bc)), closes [#31852](https://github.com/bitnami/charts/issues/31852)
+
+## <small>18.3.6 (2025-02-05)</small>
+
+* [bitnami/nginx] Release 18.3.6 (#31797) ([1aa9efc](https://github.com/bitnami/charts/commit/1aa9efc97be21ef2d4eb51e83d75113e784e1c4c)), closes [#31797](https://github.com/bitnami/charts/issues/31797)
+* Update copyright year (#31682) ([e9f02f5](https://github.com/bitnami/charts/commit/e9f02f5007068751f7eb2270fece811e685c99b6)), closes [#31682](https://github.com/bitnami/charts/issues/31682)
 
 ## <small>18.3.5 (2025-01-10)</small>
 
@@ -1486,7 +1730,7 @@
 
 * Change syntax because of linter failing ([adfc357](https://github.com/bitnami/charts/commit/adfc35728c2a8a9def9e1897b3772d64df621354))
 * Create NOTES.txt for apache and nginx ([f564ac1](https://github.com/bitnami/charts/commit/f564ac1dedbb88abaa6f3a1c79790a5dff950c33))
-* Fix https://github.com/helm/charts/pull/14199\#issuecomment-496883321 and support _sha256_ as an imm ([95957ea](https://github.com/bitnami/charts/commit/95957ea6430f28ec3593053afb0bfccb75703c79)), closes [#issuecomment-496883321](https://github.com/bitnami/charts/issues/issuecomment-496883321)
+* Fix https://github.com/helm/charts/pull/14199\#issuecomment-496883321 and support _sha256_ as an imm ([95957ea](https://github.com/bitnami/charts/commit/95957ea6430f28ec3593053afb0bfccb75703c79))
 * Use immutable tags in the main images ([17ca4f5](https://github.com/bitnami/charts/commit/17ca4f5c91da33da03f9e2d411fe5e004e825c4d))
 
 ## <small>3.2.1 (2019-05-28)</small>

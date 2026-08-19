@@ -10,6 +10,7 @@ metadata:
   name: {{ printf "%s-setup-db" (include "common.names.fullname" .) | trunc 63 | trimSuffix "-" }}
   namespace: {{ include "common.names.namespace" . | quote }}
   labels: {{- include "common.labels.standard" ( dict "customLabels" .Values.commonLabels "context" $ ) | nindent 4 }}
+    app.kubernetes.io/component: setup-db
   {{- $defaultAnnotations := dict "helm.sh/hook" "post-install,post-upgrade" "helm.sh/hook-delete-policy" "before-hook-creation,hook-succeeded" }}
   {{- $annotations := include "common.tplvalues.merge" ( dict "values" ( list .Values.setupDBJob.annotations .Values.commonAnnotations $defaultAnnotations ) "context" . ) }}
   annotations: {{- include "common.tplvalues.render" ( dict "value" $annotations "context" $ ) | nindent 4 }}
@@ -19,6 +20,7 @@ spec:
     metadata:
       {{- $podLabels := include "common.tplvalues.merge" ( dict "values" ( list .Values.setupDBJob.podLabels .Values.commonLabels ) "context" . ) }}
       labels: {{- include "common.labels.standard" ( dict "customLabels" $podLabels "context" $ ) | nindent 8 }}
+        app.kubernetes.io/component: setup-db
       {{- if .Values.setupDBJob.podAnnotations }}
       annotations: {{- include "common.tplvalues.render" (dict "value" .Values.setupDBJob.podAnnotations "context" $) | nindent 8 }}
       {{- end }}
@@ -33,6 +35,32 @@ spec:
       {{- if .Values.setupDBJob.hostAliases }}
       hostAliases: {{- include "common.tplvalues.render" (dict "value" .Values.setupDBJob.hostAliases "context" $) | nindent 8 }}
       {{- end }}
+      {{- if .Values.setupDBJob.affinity }}
+      affinity: {{- include "common.tplvalues.render" (dict "value" .Values.setupDBJob.affinity "context" $) | nindent 8 }}
+      {{- else }}
+      affinity:
+        podAffinity: {{- include "common.affinities.pods" (dict "type" .Values.setupDBJob.podAffinityPreset "component" "setup-db" "customLabels" $podLabels "topologyKey" .Values.setupDBJob.topologyKey "context" $) | nindent 10 }}
+        podAntiAffinity: {{- include "common.affinities.pods" (dict "type" .Values.setupDBJob.podAntiAffinityPreset "component" "setup-db" "customLabels" $podLabels "topologyKey" .Values.setupDBJob.topologyKey "context" $) | nindent 10 }}
+        nodeAffinity: {{- include "common.affinities.nodes" (dict "type" .Values.setupDBJob.nodeAffinityPreset.type "key" .Values.setupDBJob.nodeAffinityPreset.key "values" .Values.setupDBJob.nodeAffinityPreset.values) | nindent 10 }}
+      {{- end }}
+      {{- if .Values.setupDBJob.nodeSelector }}
+      nodeSelector: {{- include "common.tplvalues.render" (dict "value" .Values.setupDBJob.nodeSelector "context" $) | nindent 8 }}
+      {{- end }}
+      {{- if .Values.setupDBJob.terminationGracePeriodSeconds }}
+      terminationGracePeriodSeconds: {{ .Values.setupDBJob.terminationGracePeriodSeconds }}
+      {{- end }}
+      {{- if .Values.setupDBJob.tolerations }}
+      tolerations: {{- include "common.tplvalues.render" (dict "value" .Values.setupDBJob.tolerations "context" $) | nindent 8 }}
+      {{- end }}
+      {{- if .Values.setupDBJob.topologySpreadConstraints }}
+      topologySpreadConstraints: {{- include "common.tplvalues.render" (dict "value" .Values.setupDBJob.topologySpreadConstraints "context" .) | nindent 8 }}
+      {{- end }}
+      {{- if .Values.setupDBJob.priorityClassName }}
+      priorityClassName: {{ .Values.setupDBJob.priorityClassName | quote }}
+      {{- end }}
+      {{- if .Values.setupDBJob.schedulerName }}
+      schedulerName: {{ .Values.setupDBJob.schedulerName }}
+      {{- end }}
       initContainers:
         {{- include "airflow.defaultInitContainers.prepareConfig" . | nindent 8 }}
         {{- if .Values.setupDBJob.initContainers }}
@@ -46,7 +74,7 @@ spec:
           securityContext: {{- include "common.compatibility.renderSecurityContext" (dict "secContext" .Values.setupDBJob.containerSecurityContext "context" .) | nindent 12 }}
           {{- end }}
           {{- if .Values.setupDBJob.resources }}
-          resources: {{- toYaml .Values.setupDBJob.resources | nindent 4 }}
+          resources: {{- toYaml .Values.setupDBJob.resources | nindent 12 }}
           {{- else if ne .Values.setupDBJob.resourcesPreset "none" }}
           resources: {{- include "common.resources.preset" (dict "type" .Values.setupDBJob.resourcesPreset) | nindent 12 }}
           {{- end }}
@@ -70,12 +98,23 @@ spec:
 
               if ! airflow_execute db check-migrations; then
                   info "Populating database"
+                  {{- if (include "airflow.isImageMajorVersion2" .) }}
                   airflow_execute db init
+                  {{- else }}
+                  airflow_execute db migrate
+                  {{- end }}
 
                   airflow_create_admin_user
+                  info "Synchronizing internal metadata"
+                  airflow_execute sync-perm --include-dags
+                  true
               else
                   info "Upgrading database schema"
+                  {{- if (include "airflow.isImageMajorVersion2" .) }}
                   airflow_execute db upgrade
+                  {{- else }}
+                  airflow_execute db migrate
+                  {{- end }}
                   true
               fi
           {{- end }}
@@ -84,11 +123,16 @@ spec:
               value: {{ ternary "true" "false" (or .Values.image.debug .Values.diagnosticMode.enabled) | quote }}
             - name: AIRFLOW_USERNAME
               value: {{ .Values.auth.username }}
+            {{- if .Values.usePasswordFiles }}
+            - name: AIRFLOW_PASSWORD_FILE
+              value: "/opt/bitnami/airflow/secrets/airflow-password"
+            {{- else }}
             - name: AIRFLOW_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: {{ include "airflow.secretName" . }}
                   key: airflow-password
+            {{- end}}
             {{- if .Values.setupDBJob.extraEnvVars }}
             {{- include "common.tplvalues.render" (dict "value" .Values.setupDBJob.extraEnvVars "context" $) | nindent 12 }}
             {{- end }}
@@ -119,6 +163,10 @@ spec:
             - name: empty-dir
               mountPath: /opt/bitnami/airflow/config/airflow_local_settings.py
               subPath: app-conf-dir/airflow_local_settings.py
+            {{- if  .Values.usePasswordFiles }}
+            - name: airflow-secrets
+              mountPath: /opt/bitnami/airflow/secrets
+            {{- end }}
             {{- if .Values.setupDBJob.extraVolumeMounts }}
             {{- include "common.tplvalues.render" (dict "value" .Values.setupDBJob.extraVolumeMounts "context" $) | nindent 12 }}
             {{- end }}
@@ -127,11 +175,51 @@ spec:
             {{- end }}
       volumes:
         - name: empty-dir
+          {{- if .Values.setupDBJob.ephemeral.enabled }}
+          ephemeral:
+            volumeClaimTemplate:
+              {{- if or .Values.setupDBJob.ephemeral.annotations .Values.commonAnnotations .Values.commonLabels }}
+              metadata:
+                {{- if or .Values.setupDBJob.ephemeral.annotations .Values.commonAnnotations }}
+                {{- $claimAnnotations := include "common.tplvalues.merge" (dict "values" .Values.setupDBJob.ephemeral.annotations .Values.commonAnnotations "context" .) | fromYaml }}
+                annotations: {{- include "common.tplvalues.render" ( dict "value" $claimAnnotations "context" $ ) | nindent 18 }}
+                {{- end }}
+                {{- if .Values.commonLabels }}
+                labels: {{- include "common.labels.matchLabels" ( dict "customLabels" .Values.commonLabels "context" $ ) | nindent 18 }}
+                {{- end }}
+              {{- end }}
+              spec:
+                accessModes:
+                {{- range .Values.setupDBJob.ephemeral.accessModes }}
+                  - {{ . | quote }}
+                {{- end }}
+                resources:
+                  requests:
+                    storage: {{ .Values.setupDBJob.ephemeral.size | quote }}
+                {{- include "common.storage.class" (dict "persistence" .Values.setupDBJob.ephemeral "global" .Values.global) | nindent 16 }}
+          {{- else if .Values.setupDBJob.emptyDir.medium }}
+          emptyDir:
+            medium: {{ .Values.setupDBJob.emptyDir.medium }}
+          {{- else }}
           emptyDir: {}
+          {{- end }}
         - name: configuration
           configMap:
             name: {{ include "airflow.configMapName"  . }}
             optional: true
+        {{- if .Values.usePasswordFiles }}
+        - name: airflow-secrets
+          projected:
+            sources:
+              - secret:
+                  name:  {{ include "airflow.secretName" . }}
+              - secret:
+                  name: {{ include "airflow.database.secretName" . }}
+              {{- if or (contains "CeleryExecutor" .Values.executor) (eq .Values.executor "CeleryKubernetesExecutor") }}
+              - secret:
+                  name: {{ include "airflow.redis.secretName" . }}
+              {{- end }}
+        {{- end }}
         {{- if .Values.setupDBJob.extraVolumes }}
         {{- include "common.tplvalues.render" (dict "value" .Values.setupDBJob.extraVolumes "context" $) | nindent 8 }}
         {{- end }}

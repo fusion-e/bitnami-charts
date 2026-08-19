@@ -1,8 +1,84 @@
 # Changelog
 
-## 6.4.3 (2025-01-29)
+## 7.0.11 (2025-08-13)
 
-* [bitnami/logstash] Release 6.4.3 ([#31667](https://github.com/bitnami/charts/pull/31667))
+* [bitnami/logstash] :zap: :arrow_up: Update dependency references ([#35778](https://github.com/bitnami/charts/pull/35778))
+
+## <small>7.0.10 (2025-08-07)</small>
+
+* [bitnami/logstash] :zap: :arrow_up: Update dependency references (#35681) ([a51bc06](https://github.com/bitnami/charts/commit/a51bc06bb449da0ecbf915fc48042fb04abe902c)), closes [#35681](https://github.com/bitnami/charts/issues/35681)
+
+## <small>7.0.9 (2025-08-07)</small>
+
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/logstash] :zap: :arrow_up: Update dependency references (#35644) ([d26cd40](https://github.com/bitnami/charts/commit/d26cd40d6647f3df817fad0d8477ad6734ad2dea)), closes [#35644](https://github.com/bitnami/charts/issues/35644)
+
+## <small>7.0.8 (2025-07-29)</small>
+
+* [bitnami/logstash] :zap: :arrow_up: Update dependency references (#35332) ([f28498d](https://github.com/bitnami/charts/commit/f28498df674b5079c3869623ee51d9c4470203c1)), closes [#35332](https://github.com/bitnami/charts/issues/35332)
+
+## <small>7.0.7 (2025-07-22)</small>
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/logstash] :zap: :arrow_up: Update dependency references (#35243) ([46ec76d](https://github.com/bitnami/charts/commit/46ec76d40a0a82d5931d870e7a0b22c8b35835ad)), closes [#35243](https://github.com/bitnami/charts/issues/35243)
+
+## <small>7.0.6 (2025-07-15)</small>
+
+* [bitnami/logstash] :zap: :arrow_up: Update dependency references (#35096) ([5d7bfa1](https://github.com/bitnami/charts/commit/5d7bfa13c6e0139bb0d7a53a84375d4a78f394d1)), closes [#35096](https://github.com/bitnami/charts/issues/35096)
+
+## <small>7.0.5 (2025-06-24)</small>
+
+* [bitnami/logstash] :zap: :arrow_up: Update dependency references (#34602) ([42959c0](https://github.com/bitnami/charts/commit/42959c00a308b3b1f155591076b5b6bee9322572)), closes [#34602](https://github.com/bitnami/charts/issues/34602)
+
+## <small>7.0.4 (2025-06-13)</small>
+
+* [bitnami/logstash] :zap: :arrow_up: Update dependency references (#34465) ([02e7542](https://github.com/bitnami/charts/commit/02e7542c52fe66efffb5253ca6ad21b819c2e70e)), closes [#34465](https://github.com/bitnami/charts/issues/34465)
+
+## <small>7.0.3 (2025-06-03)</small>
+
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+* [bitnami/logstash] :zap: :arrow_up: Update dependency references (#34081) ([164167b](https://github.com/bitnami/charts/commit/164167b0122f854bfad93167a771e8a3d3f2468b)), closes [#34081](https://github.com/bitnami/charts/issues/34081)
+
+## <small>7.0.2 (2025-05-06)</small>
+
+* [bitnami/logstash] Release 7.0.2 (#33465) ([dd6eb3c](https://github.com/bitnami/charts/commit/dd6eb3cb6d0381c03a9febfca500c905cd911f86)), closes [#33465](https://github.com/bitnami/charts/issues/33465)
+
+## <small>7.0.1 (2025-05-06)</small>
+
+* [bitnami/logstash] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (#3339 ([4c4b1d7](https://github.com/bitnami/charts/commit/4c4b1d78f7b00fb73129b1fb6c7b2a0033c521a1)), closes [#33392](https://github.com/bitnami/charts/issues/33392)
+
+## 7.0.0 (2025-04-29)
+
+* [bitnami/logstash] Release 7.0.0 (#33245) ([7486398](https://github.com/bitnami/charts/commit/74863986c3c0ba1e5ae63db5830995e677898c24)), closes [#33245](https://github.com/bitnami/charts/issues/33245)
+
+## <small>6.4.8 (2025-04-23)</small>
+
+* [bitnami/logstash] Fix headless service does not include extra ports (#33055) ([e511f5d](https://github.com/bitnami/charts/commit/e511f5d92c0e5b5111864a253a4cd36b4ff48ade)), closes [#33055](https://github.com/bitnami/charts/issues/33055)
+
+## <small>6.4.7 (2025-04-15)</small>
+
+* [bitnami/logstash] Release 6.4.7 (#33013) ([aee7e22](https://github.com/bitnami/charts/commit/aee7e221de53c9dd8cb455527b4c37b8bda53af2)), closes [#33013](https://github.com/bitnami/charts/issues/33013)
+
+## <small>6.4.6 (2025-03-25)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/logstash] Release 6.4.6 (#32600) ([53428ac](https://github.com/bitnami/charts/commit/53428acc98fb7b075a311f611c26bab5a627ce5f)), closes [#32600](https://github.com/bitnami/charts/issues/32600)
+
+## <small>6.4.5 (2025-03-04)</small>
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/logstash] Release 6.4.5 (#32268) ([633b036](https://github.com/bitnami/charts/commit/633b0368e43b4322af9011e4c894e4d90c2fa5c9)), closes [#32268](https://github.com/bitnami/charts/issues/32268)
+
+## <small>6.4.4 (2025-02-11)</small>
+
+* [bitnami/logstash] Release 6.4.4 (#31870) ([fa6db9e](https://github.com/bitnami/charts/commit/fa6db9edb33444f39e4c8d7fcdf16a5fd9d820e8)), closes [#31870](https://github.com/bitnami/charts/issues/31870)
+* Update copyright year (#31682) ([e9f02f5](https://github.com/bitnami/charts/commit/e9f02f5007068751f7eb2270fece811e685c99b6)), closes [#31682](https://github.com/bitnami/charts/issues/31682)
+
+## <small>6.4.3 (2025-01-29)</small>
+
+* [bitnami/logstash] Release 6.4.3 (#31667) ([46f003b](https://github.com/bitnami/charts/commit/46f003b12847591e12fa2e5b4dad9025c14fb1e3)), closes [#31667](https://github.com/bitnami/charts/issues/31667)
 
 ## <small>6.4.2 (2025-01-21)</small>
 
@@ -862,7 +938,7 @@
 
 ## 3.3.0 (2021-04-16)
 
-* [bitnami/logstash] Added support for kubernetes secrets in environment (#6117) ([51fff54](https://github.com/bitnami/charts/commit/51fff54b0b5a8bf7316be90a9682abbf181e7ce2)), closes [#6117](https://github.com/bitnami/charts/issues/6117) [/github.com/bitnami/charts/pull/6117#discussion_r614623386](https://github.com//github.com/bitnami/charts/pull/6117/issues/discussion_r614623386)
+* [bitnami/logstash] Added support for kubernetes secrets in environment (#6117) ([51fff54](https://github.com/bitnami/charts/commit/51fff54b0b5a8bf7316be90a9682abbf181e7ce2)), closes [#6117](https://github.com/bitnami/charts/issues/6117)
 
 ## <small>3.2.3 (2021-03-24)</small>
 

@@ -202,11 +202,19 @@ Validate values of rabbitmq - Memory high watermark
 rabbitmq: memoryHighWatermark.type
     Invalid Memory high watermark type. Valid values are "absolute" and
     "relative". Please set a valid mode (--set memoryHighWatermark.type="xxxx")
-{{- else if and .Values.memoryHighWatermark.enabled (eq .Values.memoryHighWatermark.type "relative") (not (dig "limits" "memory" "" .Values.resources)) }}
+{{- else if and .Values.memoryHighWatermark.enabled (eq .Values.memoryHighWatermark.type "relative") (or (not (dig "limits" "memory" "" .Values.resources)) (and (empty .Values.resources) (eq .Values.resourcesPreset "none"))) }}
 rabbitmq: memoryHighWatermark
     You enabled configuring memory high watermark using a relative limit. However,
     no memory limits were defined at POD level. Define your POD limits as shown below:
 
+    Using resourcesPreset (not recommended for production):
+    $ helm install {{ .Release.Name }} oci://registry-1.docker.io/bitnamicharts/rabbitmq \
+      --set memoryHighWatermark.enabled=true \
+      --set memoryHighWatermark.type="relative" \
+      --set memoryHighWatermark.value="0.4" \
+      --set resourcesPreset="micro"
+
+    Using resources:
     $ helm install {{ .Release.Name }} oci://registry-1.docker.io/bitnamicharts/rabbitmq \
       --set memoryHighWatermark.enabled=true \
       --set memoryHighWatermark.type="relative" \
@@ -269,4 +277,21 @@ Get the extraConfigurationExistingSecret secret.
 {{- else -}}
     {{- tpl .Values.extraConfiguration . -}}
 {{- end -}}
+{{- end -}}
+
+{{/*
+Get the value for queue_leader_locator.  This will provide backwards compatibility for the old queue_master_locator configuration,
+mapping old values into the correct new values.
+*/}}
+{{- define "rabbitmq.queueLocator" -}}
+{{- $value := .Values.queue_leader_locator -}}
+
+{{- if not (empty .Values.queue_master_locator) -}}
+    {{- if eq .Values.queue_master_locator "client-local" -}}
+        {{- $value = "client-local" -}}
+    {{- else -}}
+        {{- $value = "balanced" -}}
+    {{- end -}}
+{{- end -}}
+{{- $value -}}
 {{- end -}}

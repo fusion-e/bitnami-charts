@@ -2,7 +2,9 @@ CHART NAME: {{ .Chart.Name }}
 CHART VERSION: {{ .Chart.Version }}
 APP VERSION: {{ .Chart.AppVersion }}
 
-Did you know there are enterprise versions of the Bitnami catalog? For enhanced secure software supply chain features, unlimited pulls from Docker, LTS support, or application customization, see Bitnami Premium or Tanzu Application Catalog. See https://www.arrow.com/globalecs/na/vendors/bitnami for more information.
+⚠ WARNING: Since August 28th, 2025, only a limited subset of images/charts are available for free.
+    Subscribe to Bitnami Secure Images to receive continued support and security updates.
+    More info at https://bitnami.com and https://github.com/bitnami/containers/issues/83267
 
 ** Please be patient while the chart is being deployed **
 
@@ -55,7 +57,17 @@ MLflow Tracking Server can be accessed through the following DNS name from withi
 
 To access your MLflow site from outside the cluster follow the steps below:
 
-{{- if .Values.tracking.ingress.enabled }}
+{{- if .Values.tracking.httproute.enabled }}
+
+1. Get the MLflow URL and associate its hostname to your Gateway's external IP:
+
+    GATEWAY_NAME=$(kubectl get --namespace {{ include "common.names.namespace" . }} httproute {{ include "mlflow.v0.tracking.fullname" . }} -o jsonpath="{.spec.parentRefs[0].name}")
+    GATEWAY_NAMESPACE=$(kubectl get --namespace {{ include "common.names.namespace" . }} httproute {{ include "mlflow.v0.tracking.fullname" . }} -o jsonpath="{.spec.parentRefs[0].namespace}")
+    GATEWAY_IP=$(kubectl get gateway --namespace $GATEWAY_NAMESPACE $GATEWAY_NAME -o jsonpath="{.status.addresses[0].value}")
+    echo "MLflow URL: https://{{ .Values.tracking.httproute.hostnames | first }}"
+    echo "$GATEWAY_IP {{ .Values.tracking.httproute.hostnames | first }}" | sudo tee -a /etc/hosts
+
+{{- else if .Values.tracking.ingress.enabled }}
 
 1. Get the MLflow URL and associate MLflow hostname to your cluster external IP:
 

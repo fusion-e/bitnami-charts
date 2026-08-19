@@ -10,7 +10,6 @@
 ## @param global.imageRegistry Global Docker image registry
 ## @param global.imagePullSecrets Global Docker registry secret names as an array
 ## @param global.defaultStorageClass Global default StorageClass for Persistent Volume(s)
-## @param global.storageClass DEPRECATED: use global.defaultStorageClass instead
 ##
 global:
   imageRegistry: ""
@@ -20,7 +19,6 @@ global:
   ##
   imagePullSecrets: []
   defaultStorageClass: ""
-  storageClass: ""
   ## Security parameters
   ##
   security:
@@ -42,6 +40,9 @@ global:
 ## @param kubeVersion Override Kubernetes version
 ##
 kubeVersion: ""
+## @param apiVersions Override Kubernetes API versions reported by .Capabilities
+##
+apiVersions: []
 ## @param nameOverride String to partially override common.names.name
 ##
 nameOverride: ""
@@ -75,9 +76,9 @@ diagnosticMode:
   args:
     - infinity
 
-## @param usePasswordFile Mount secrets as files
+## @param usePasswordFiles Mount secrets as files
 ##
-usePasswordFile: true
+usePasswordFiles: true
 
 ## @section Dremio common configuration settings
 ##
@@ -96,7 +97,7 @@ dremio:
   image:
     registry: docker.io
     repository: bitnami/dremio
-    tag: 25.2.0-debian-12-r4
+    tag: 26.0.0-debian-12-r5
     digest: ""
     ## Specify a imagePullPolicy
     ## ref: https://kubernetes.io/docs/concepts/containers/images/#pre-pulled-images
@@ -1955,7 +1956,7 @@ defaultInitContainers:
   defaultImage:
     registry: docker.io
     repository: bitnami/os-shell
-    tag: 12-debian-12-r35
+    tag: 12-debian-12-r51
     pullPolicy: IfNotPresent
     ## Optionally specify an array of imagePullSecrets.
     ## Secrets must be manually created in the namespace.
@@ -2262,6 +2263,52 @@ defaultInitContainers:
       enabled: true
       seLinuxOptions: {}
       runAsUser: 0
+  ## Init container that imports the MinIO&reg; TLS certificates into the Java keystore
+  ##
+  importMinIOCert:
+    ## Init container's resource requests and limits
+    ## ref: http://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+    ## @param defaultInitContainers.importMinIOCert.resourcesPreset Set init container resources according to one common preset (allowed values: none, nano, small, medium, large, xlarge, 2xlarge). This is ignored if volumePermissions.resources is set (volumePermissions.resources is recommended for production).
+      ## More information: https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15
+    ##
+    resourcesPreset: "nano"
+    ## @param defaultInitContainers.importMinIOCert.resources Set init container requests and limits for different resources like CPU or memory (essential for production workloads)
+    ## Example:
+    ## resources:
+    ##   requests:
+    ##     cpu: 2
+    ##     memory: 512Mi
+    ##   limits:
+    ##     cpu: 3
+    ##     memory: 1024Mi
+    ##
+    resources: {}
+    ## Init container Container Security Context
+    ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
+    ## @param defaultInitContainers.importMinIOCert.containerSecurityContext.enabled Enabled Init container' Security Context
+    ## @param defaultInitContainers.importMinIOCert.containerSecurityContext.seLinuxOptions [object,nullable] Set SELinux options in Init container
+    ## @param defaultInitContainers.importMinIOCert.containerSecurityContext.runAsUser Set runAsUser in Init container' Security Context
+    ## @param defaultInitContainers.importMinIOCert.containerSecurityContext.runAsGroup Set runAsGroup in Init container' Security Context
+    ## @param defaultInitContainers.importMinIOCert.containerSecurityContext.runAsNonRoot Set runAsNonRoot in Init container' Security Context
+    ## @param defaultInitContainers.importMinIOCert.containerSecurityContext.readOnlyRootFilesystem Set readOnlyRootFilesystem in Init container' Security Context
+    ## @param defaultInitContainers.importMinIOCert.containerSecurityContext.privileged Set privileged in Init container' Security Context
+    ## @param defaultInitContainers.importMinIOCert.containerSecurityContext.allowPrivilegeEscalation Set allowPrivilegeEscalation in Init container' Security Context
+    ## @param defaultInitContainers.importMinIOCert.containerSecurityContext.capabilities.drop List of capabilities to be dropped in Init container
+    ## @param defaultInitContainers.importMinIOCert.containerSecurityContext.seccompProfile.type Set seccomp profile in Init container
+    ##
+    containerSecurityContext:
+      enabled: true
+      seLinuxOptions: {}
+      runAsUser: 1001
+      runAsGroup: 1001
+      runAsNonRoot: true
+      readOnlyRootFilesystem: true
+      privileged: false
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop: ["ALL"]
+      seccompProfile:
+        type: "RuntimeDefault"
 
 ## @section MinIO&reg; chart parameters
 ## @extra minio For full list of MinIO&reg; values configurations please refere [here](https://github.com/bitnami/charts/tree/main/bitnami/minio)
@@ -2297,12 +2344,13 @@ minio:
     enabled: true
     # We need to allow downloads in order for the UI to work
     extraCommands: ["mc anonymous set download provisioning/dremio"]
-  ## @param minio.tls.enabled Enable/disable MinIO&reg; TLS support
-  ## @param minio.tls.autoGenerated Autogenerate TLS certificates
+  ## @param minio.tls.enabled Enable TLS configuration for MinIO&reg;
+  ## @param minio.tls.autoGenerated.enabled Enable automatic generation of TLS certificates
   ##
   tls:
     enabled: true
-    autoGenerated: true
+    autoGenerated:
+      enabled: true
   ## @param minio.service.type MinIO&reg; service type
   ## @param minio.service.loadBalancerIP MinIO&reg; service LoadBalancer IP
   ## @param minio.service.ports.api MinIO&reg; service port
@@ -2312,6 +2360,10 @@ minio:
     loadBalancerIP: ""
     ports:
       api: 9000
+  ## @param minio.console.enabled Enable MinIO&reg; Console
+  ##
+  console:
+    enabled: false
 
 ## @section Prometheus metrics parameters
 ##
@@ -2331,7 +2383,7 @@ metrics:
   image:
     registry: docker.io
     repository: bitnami/jmx-exporter
-    tag: 1.1.0-debian-12-r3
+    tag: 1.4.0-debian-12-r0
     digest: ""
     ## Specify a imagePullPolicy
     ## ref: https://kubernetes.io/docs/concepts/containers/images/#pre-pulled-images

@@ -1,8 +1,217 @@
 # Changelog
 
-## 2.4.1 (2025-01-30)
+## 5.2.1 (2026-01-30)
 
-* [bitnami/mlflow] Release 2.4.1 ([#31679](https://github.com/bitnami/charts/pull/31679))
+* [bitnami/mlflow] Use uvicorn opts instead of gunicorn ([#36449](https://github.com/bitnami/charts/pull/36449))
+
+## 5.2.0 (2025-09-26)
+
+* [bitnami/*] Remove annotations.category (#36224) ([2abc0f9](https://github.com/bitnami/charts/commit/2abc0f9d7e89a5453e57f029c66f581b3d5855ef)), closes [#36224](https://github.com/bitnami/charts/issues/36224)
+* [bitnami/mlflow] Add support for generic ephemeral volume (#36291) ([bf43666](https://github.com/bitnami/charts/commit/bf43666619d60297e22479b22966a3cd9546d8f9)), closes [#36291](https://github.com/bitnami/charts/issues/36291)
+
+## <small>5.1.17 (2025-08-27)</small>
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#36208) ([f8162a6](https://github.com/bitnami/charts/commit/f8162a6f72e04a852ac8cdf87fb3534e5868f13c)), closes [#36208](https://github.com/bitnami/charts/issues/36208)
+
+## <small>5.1.16 (2025-08-22)</small>
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#36161) ([b4323a6](https://github.com/bitnami/charts/commit/b4323a633cdffafa1d35e11f750642b01ec40c2f)), closes [#36161](https://github.com/bitnami/charts/issues/36161)
+
+## <small>5.1.15 (2025-08-18)</small>
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#36128) ([70efd36](https://github.com/bitnami/charts/commit/70efd369464fd1fbc52eb2f12530955e6b527145)), closes [#36128](https://github.com/bitnami/charts/issues/36128)
+
+## <small>5.1.14 (2025-08-17)</small>
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#35951) ([f5f1803](https://github.com/bitnami/charts/commit/f5f180387439e7c86ff36fb7b2bd09bc662f6b42)), closes [#35951](https://github.com/bitnami/charts/issues/35951)
+
+## <small>5.1.13 (2025-08-14)</small>
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#35937) ([bfce818](https://github.com/bitnami/charts/commit/bfce8183f81689cab40257430166140f3d9b1d8c)), closes [#35937](https://github.com/bitnami/charts/issues/35937)
+
+## <small>5.1.12 (2025-08-14)</small>
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#35924) ([73bac6e](https://github.com/bitnami/charts/commit/73bac6ec212b4e14af066d6bd4fa614c5120b647)), closes [#35924](https://github.com/bitnami/charts/issues/35924)
+
+## <small>5.1.11 (2025-08-14)</small>
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#35911) ([e52e346](https://github.com/bitnami/charts/commit/e52e346c225b86c847f8400037705443f832632b)), closes [#35911](https://github.com/bitnami/charts/issues/35911)
+
+## <small>5.1.10 (2025-08-07)</small>
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#35624) ([8e291f9](https://github.com/bitnami/charts/commit/8e291f91d079e8434c6f1a70dd06d719736e29af)), closes [#35624](https://github.com/bitnami/charts/issues/35624)
+
+## <small>5.1.9 (2025-08-07)</small>
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#35594) ([a84aca4](https://github.com/bitnami/charts/commit/a84aca4299de6f18cdf2478428ee671c94376e93)), closes [#35594](https://github.com/bitnami/charts/issues/35594)
+
+## <small>5.1.8 (2025-08-07)</small>
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#35476) ([f69af30](https://github.com/bitnami/charts/commit/f69af30dc9ac9e3e2ea1e069dac3e5a45bd425d4)), closes [#35476](https://github.com/bitnami/charts/issues/35476)
+
+## <small>5.1.7 (2025-08-05)</small>
+
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#35424) ([fa16894](https://github.com/bitnami/charts/commit/fa16894da2232e365d052f3ed6f4032a32afa7fb)), closes [#35424](https://github.com/bitnami/charts/issues/35424)
+
+## <small>5.1.6 (2025-07-24)</small>
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#35276) ([e391166](https://github.com/bitnami/charts/commit/e39116634bc5e44f62433307942149dda1ab5c3d)), closes [#35276](https://github.com/bitnami/charts/issues/35276)
+
+## <small>5.1.5 (2025-07-22)</small>
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#35242) ([96c9436](https://github.com/bitnami/charts/commit/96c943605126ee061827a1a4be09c9ae5ec32252)), closes [#35242](https://github.com/bitnami/charts/issues/35242)
+
+## <small>5.1.4 (2025-07-16)</small>
+
+* [bitnami/charts/issues/35055] Increase lenght of auto-generated password for MLFlow (#35156) ([ec1ff13](https://github.com/bitnami/charts/commit/ec1ff13546682a6b479e9d8de6bbf3dc28a65c6d)), closes [#35156](https://github.com/bitnami/charts/issues/35156)
+
+## <small>5.1.3 (2025-07-15)</small>
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#35114) ([c800f4a](https://github.com/bitnami/charts/commit/c800f4ac124887a5921ca6012113fe6482a2b2ac)), closes [#35114](https://github.com/bitnami/charts/issues/35114)
+
+## <small>5.1.2 (2025-07-08)</small>
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#34891) ([4c67c19](https://github.com/bitnami/charts/commit/4c67c19267461e24301e1b8d069d98f1a536f9df)), closes [#34891](https://github.com/bitnami/charts/issues/34891)
+
+## <small>5.1.1 (2025-07-08)</small>
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#34856) ([100bf45](https://github.com/bitnami/charts/commit/100bf45756b4d13d0f8cfb35c59d67359f371899)), closes [#34856](https://github.com/bitnami/charts/issues/34856)
+
+## 5.1.0 (2025-06-30)
+
+* [bitnami/mlflow] Adds resources to init containers (#33910) ([c5eb698](https://github.com/bitnami/charts/commit/c5eb6988a947776a8596e7bae172bdc0a0494c27)), closes [#33910](https://github.com/bitnami/charts/issues/33910)
+
+## <small>5.0.6 (2025-06-30)</small>
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#34718) ([9f0041b](https://github.com/bitnami/charts/commit/9f0041bad7245a4b6bd59923cf0fbaaf08cc8dc2)), closes [#34718](https://github.com/bitnami/charts/issues/34718)
+
+## <small>5.0.5 (2025-06-30)</small>
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#34707) ([66759d6](https://github.com/bitnami/charts/commit/66759d6c4753908aa8824bfc7d333e3af24e1fb5)), closes [#34707](https://github.com/bitnami/charts/issues/34707)
+
+## <small>5.0.4 (2025-06-26)</small>
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#34675) ([35ee5a3](https://github.com/bitnami/charts/commit/35ee5a3568e2de13d3dc16aa191408624b3e12aa)), closes [#34675](https://github.com/bitnami/charts/issues/34675)
+
+## <small>5.0.3 (2025-06-25)</small>
+
+* [bitnami/mlflow] Create flask-server-secret-key when upgrading (#34629) ([97dc66c](https://github.com/bitnami/charts/commit/97dc66c3236fce07dfa6476ed688438c49f4d26c)), closes [#34629](https://github.com/bitnami/charts/issues/34629)
+
+## <small>5.0.2 (2025-06-25)</small>
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#34619) ([4003b7b](https://github.com/bitnami/charts/commit/4003b7b7f3780a03d0945b51dd91a1754c2096c0)), closes [#34619](https://github.com/bitnami/charts/issues/34619)
+
+## <small>5.0.1 (2025-06-16)</small>
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#34518) ([380180e](https://github.com/bitnami/charts/commit/380180eea6c06e50022ff474a64cf100e1ce2618)), closes [#34518](https://github.com/bitnami/charts/issues/34518)
+
+## 5.0.0 (2025-06-16)
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#34452) ([524fdd9](https://github.com/bitnami/charts/commit/524fdd9c6a3a9208d6d727bbb77cfc46084d96d0)), closes [#34452](https://github.com/bitnami/charts/issues/34452)
+
+## <small>4.0.5 (2025-06-13)</small>
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#34434) ([791bb24](https://github.com/bitnami/charts/commit/791bb24ca9e59406a3f5b9046d23ecb20446f438)), closes [#34434](https://github.com/bitnami/charts/issues/34434)
+
+## <small>4.0.4 (2025-06-09)</small>
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#34283) ([e6a33ef](https://github.com/bitnami/charts/commit/e6a33ef93fd3edac6b976b9815a3681adefba9f7)), closes [#34283](https://github.com/bitnami/charts/issues/34283)
+
+## <small>4.0.3 (2025-06-09)</small>
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#34281) ([a0911b3](https://github.com/bitnami/charts/commit/a0911b33c408592838da992d5b4668fb81c8c1de)), closes [#34281](https://github.com/bitnami/charts/issues/34281)
+
+## <small>4.0.2 (2025-06-09)</small>
+
+* [bitnami/mlflow] Disable MinIO Console (#34268) ([0c2c1ad](https://github.com/bitnami/charts/commit/0c2c1ad68eda6214fe89b8975d6b8c7285fe7c83)), closes [#34268](https://github.com/bitnami/charts/issues/34268)
+
+## <small>4.0.1 (2025-06-06)</small>
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#34161) ([6cf7e89](https://github.com/bitnami/charts/commit/6cf7e89b33452be31a7774dca9ceaaed238e92a7)), closes [#34161](https://github.com/bitnami/charts/issues/34161)
+
+## 4.0.0 (2025-06-04)
+
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+* [bitnami/mlflow] feat: major version due to Minio major bump (#34090) ([095fda8](https://github.com/bitnami/charts/commit/095fda8c1d4adee4f6fdeccef26975dd6aefb332)), closes [#34090](https://github.com/bitnami/charts/issues/34090)
+
+## <small>3.0.7 (2025-05-08)</small>
+
+* [bitnami/mlflow] :zap: :arrow_up: Update dependency references (#33557) ([4811de9](https://github.com/bitnami/charts/commit/4811de95c73f55338b0211b7ba9707906ff5faca)), closes [#33557](https://github.com/bitnami/charts/issues/33557)
+
+## <small>3.0.6 (2025-05-06)</small>
+
+* [bitnami/mlflow] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (#33404) ([205d1e8](https://github.com/bitnami/charts/commit/205d1e8f33a1b5a71f4a69bc17f84271a6817d49)), closes [#33404](https://github.com/bitnami/charts/issues/33404)
+
+## <small>3.0.5 (2025-05-02)</small>
+
+* [bitnami/mlflow] Release 3.0.5 (#33309) ([dbb7a86](https://github.com/bitnami/charts/commit/dbb7a86bddd464ff476173a8c9f55bebd9c70db9)), closes [#33309](https://github.com/bitnami/charts/issues/33309)
+
+## <small>3.0.4 (2025-05-02)</small>
+
+* [bitnami/mlflow] Release 3.0.4 (#33306) ([53bbbf2](https://github.com/bitnami/charts/commit/53bbbf2307f338fd3fe4d7929a3db78b35f5c494)), closes [#33306](https://github.com/bitnami/charts/issues/33306)
+
+## <small>3.0.3 (2025-04-29)</small>
+
+* Fix syntax (parameter order) for flaskServerSecretKey in template (#33248) ([5397041](https://github.com/bitnami/charts/commit/5397041481d28c64eb3ff5db6d3bc81441436236)), closes [#33248](https://github.com/bitnami/charts/issues/33248)
+
+## <small>3.0.2 (2025-04-24)</small>
+
+* [bitnami/mlflow] Release 3.0.2 (#33164) ([c4882c1](https://github.com/bitnami/charts/commit/c4882c117384e928e47c50113acc3c52511153c0)), closes [#33164](https://github.com/bitnami/charts/issues/33164)
+
+## <small>3.0.1 (2025-04-09)</small>
+
+* [bitnami/mlflow] Release 3.0.1 (#32908) ([f68a9dd](https://github.com/bitnami/charts/commit/f68a9dd6b7de5e0951339c00b8e7567f59a742d4)), closes [#32908](https://github.com/bitnami/charts/issues/32908)
+
+## 3.0.0 (2025-04-03)
+
+* [bitnami/mlflow] Bump MinIO major version 16.x.x (#32702) ([a617c30](https://github.com/bitnami/charts/commit/a617c304ad4f18ac118dfa84052b7612865c9b52)), closes [#32702](https://github.com/bitnami/charts/issues/32702)
+
+## <small>2.5.8 (2025-04-03)</small>
+
+* [bitnami/mlflow] Release 2.5.8 (#32796) ([e6051d1](https://github.com/bitnami/charts/commit/e6051d10cc68bb6b52c468d51bc35a022584e56d)), closes [#32796](https://github.com/bitnami/charts/issues/32796)
+
+## <small>2.5.7 (2025-03-26)</small>
+
+* [bitnami/mlflow] Release 2.5.7 (#32627) ([f531adf](https://github.com/bitnami/charts/commit/f531adf25113b96a5b7ad2327783250e29399003)), closes [#32627](https://github.com/bitnami/charts/issues/32627)
+
+## <small>2.5.6 (2025-03-26)</small>
+
+* [bitnami/mlflow] Release 2.5.6 (#32610) ([42b111e](https://github.com/bitnami/charts/commit/42b111e0fd37614ae8691830160face60afe2d6f)), closes [#32610](https://github.com/bitnami/charts/issues/32610)
+
+## <small>2.5.5 (2025-03-14)</small>
+
+* [bitnami/mlflow] Release 2.5.5 (#32462) ([b62113c](https://github.com/bitnami/charts/commit/b62113c5a1d5b7bae8896f382ef78b7dd561f48d)), closes [#32462](https://github.com/bitnami/charts/issues/32462)
+
+## <small>2.5.4 (2025-03-13)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/mlflow] Release 2.5.4 (#32435) ([20e95a7](https://github.com/bitnami/charts/commit/20e95a7001ccb50abbd23d8a445b489857c5222a)), closes [#32435](https://github.com/bitnami/charts/issues/32435)
+
+## <small>2.5.3 (2025-03-04)</small>
+
+* [bitnami/mlflow] Release 2.5.3 (#32263) ([6c8cae9](https://github.com/bitnami/charts/commit/6c8cae96201e7c01c659b5c80d3ff7f881bf87e9)), closes [#32263](https://github.com/bitnami/charts/issues/32263)
+
+## <small>2.5.2 (2025-02-26)</small>
+
+* [bitnami/mlflow] Release 2.5.2 (#32181) ([5087ab8](https://github.com/bitnami/charts/commit/5087ab8183e3b012223f155cca13b762de45895d)), closes [#32181](https://github.com/bitnami/charts/issues/32181)
+
+## <small>2.5.1 (2025-02-25)</small>
+
+* [bitnami/mlflow] Release 2.5.1 (#32146) ([9553964](https://github.com/bitnami/charts/commit/955396401facdf2dfc3fb203c0435411cc38004a)), closes [#32146](https://github.com/bitnami/charts/issues/32146)
+
+## 2.5.0 (2025-02-20)
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/mlflow] feat: use new helper for checking API versions (#32058) ([6fb67a6](https://github.com/bitnami/charts/commit/6fb67a63dcbd1284efd29a141eb81e7410232a03)), closes [#32058](https://github.com/bitnami/charts/issues/32058)
+* Update copyright year (#31682) ([e9f02f5](https://github.com/bitnami/charts/commit/e9f02f5007068751f7eb2270fece811e685c99b6)), closes [#31682](https://github.com/bitnami/charts/issues/31682)
+
+## <small>2.4.1 (2025-01-30)</small>
+
+* [bitnami/mlflow] Release 2.4.1 (#31679) ([c06f0c7](https://github.com/bitnami/charts/commit/c06f0c7ebd4860319a1f0282c775be9c7e27d147)), closes [#31679](https://github.com/bitnami/charts/issues/31679)
 
 ## 2.4.0 (2025-01-29)
 

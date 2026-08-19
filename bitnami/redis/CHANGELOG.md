@@ -1,8 +1,313 @@
 # Changelog
 
-## 20.7.0 (2025-02-03)
+## 23.1.1 (2026-02-12)
 
-* [bitnami/redis] Redis ACL support to the Bitnami Redis Helm Chart ([#31707](https://github.com/bitnami/charts/pull/31707))
+* [bitnami/redis] bugfix: use TLS port on readiness probes when TLS is enabled ([#36463](https://github.com/bitnami/charts/pull/36463))
+
+## <small>23.0.5 (2025-12-11)</small>
+
+* [bitnami/*][TNZ-62332] Modify charts' READMEs title (#36372) ([2012e46](https://github.com/bitnami/charts/commit/2012e46699f555bb1e10134691031975bb5ca50b)), closes [#36372](https://github.com/bitnami/charts/issues/36372)
+* [bitnami/redis] Add support to redis master service with useHostnames false (#35536) ([de739bd](https://github.com/bitnami/charts/commit/de739bd74672bdfccdcac80feacf70fc89d4eb18)), closes [#35536](https://github.com/bitnami/charts/issues/35536)
+* Change wording in Chart's READMEs (#36379) ([a4ef0a6](https://github.com/bitnami/charts/commit/a4ef0a63877fcf32895869ceef0916c15a4718e5)), closes [#36379](https://github.com/bitnami/charts/issues/36379)
+* Remove TAC sentence present in some READMEs (#36381) ([e07d331](https://github.com/bitnami/charts/commit/e07d3319b61f49ddf6f431da3ed7ec0e0be3d5d0)), closes [#36381](https://github.com/bitnami/charts/issues/36381)
+
+## <small>23.0.4 (2025-10-24)</small>
+
+* [bitnami/redis] Fix automatic sentinel failover not triggering on graceful shutdown (#36362) ([75c2a2c](https://github.com/bitnami/charts/commit/75c2a2cdf9c17094b46ad3a968ea700a241673b6)), closes [#36362](https://github.com/bitnami/charts/issues/36362)
+
+## <small>23.0.3 (2025-10-20)</small>
+
+* [bitnami/redis] Avoid eager evaluation of ternary when resolving user secrets (#36265) ([97647e3](https://github.com/bitnami/charts/commit/97647e31c313cc48917358e06aa147c965908147)), closes [#36265](https://github.com/bitnami/charts/issues/36265)
+* [redis] Fix typo in README.md (#36288) ([da7242c](https://github.com/bitnami/charts/commit/da7242c2a0b35e2430e2c079df65dd23f5b57517)), closes [#36288](https://github.com/bitnami/charts/issues/36288)
+
+## <small>23.0.2 (2025-09-12)</small>
+
+* [bitnami/redis] Fix service binding password mismatch (#15626) (#36231) ([c4820e3](https://github.com/bitnami/charts/commit/c4820e37f271c1bd1b14580749a85c4234ba25aa)), closes [#15626](https://github.com/bitnami/charts/issues/15626) [#36231](https://github.com/bitnami/charts/issues/36231) [bitnami#15626](https://github.com/bitnami/issues/15626)
+
+## <small>23.0.1 (2025-09-05)</small>
+
+* [bitnami/*] Remove annotations.category (#36224) ([2abc0f9](https://github.com/bitnami/charts/commit/2abc0f9d7e89a5453e57f029c66f581b3d5855ef)), closes [#36224](https://github.com/bitnami/charts/issues/36224)
+* [bitnami/redis] Fix: Add conditional check for adding default sentinel auth-pass  (#36207) ([b46e3d4](https://github.com/bitnami/charts/commit/b46e3d4f306a3f5a5c0a23888e8df9eeccd2ed22)), closes [#36207](https://github.com/bitnami/charts/issues/36207)
+
+## <small>22.0.7 (2025-08-27)</small>
+
+* [bitnami/redis] Fix Redis sentinel initialization with single replica (#35667) ([07a0857](https://github.com/bitnami/charts/commit/07a0857a60f5ccf850e1298a131f83005480ab80)), closes [#35667](https://github.com/bitnami/charts/issues/35667)
+
+## <small>22.0.6 (2025-08-26)</small>
+
+* [bitnami/charts/issues/35435] Fix Redis configuration when using sentinel and 1 replica (#36170) ([7bc9738](https://github.com/bitnami/charts/commit/7bc9738651c99dc1a9d960da83f4502d9c2d352e)), closes [#36170](https://github.com/bitnami/charts/issues/36170)
+
+## <small>22.0.5 (2025-08-23)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#36173) ([338d02f](https://github.com/bitnami/charts/commit/338d02f5109959766bf496c2d84541a54eab32a9)), closes [#36173](https://github.com/bitnami/charts/issues/36173)
+
+## <small>22.0.4 (2025-08-18)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#36131) ([594eac6](https://github.com/bitnami/charts/commit/594eac6f3bcaed652b0a57f08bed525b5e1501ff)), closes [#36131](https://github.com/bitnami/charts/issues/36131)
+
+## <small>22.0.3 (2025-08-13)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#35858) ([5fd6c21](https://github.com/bitnami/charts/commit/5fd6c21f5750492705b52647c81095641d2bfa18)), closes [#35858](https://github.com/bitnami/charts/issues/35858)
+
+## <small>22.0.2 (2025-08-13)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#35829) ([993353c](https://github.com/bitnami/charts/commit/993353c61b2c5a8629bc365d75512d7df79b50ef)), closes [#35829](https://github.com/bitnami/charts/issues/35829)
+
+## <small>22.0.1 (2025-08-09)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#35711) ([baff0a5](https://github.com/bitnami/charts/commit/baff0a51020b81b1c71675f3704d362ebb63baa6)), closes [#35711](https://github.com/bitnami/charts/issues/35711)
+
+## 22.0.0 (2025-08-08)
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#35700) ([56f58c8](https://github.com/bitnami/charts/commit/56f58c8b039794c7c77efae60a41b8016ff83396)), closes [#35700](https://github.com/bitnami/charts/issues/35700)
+
+## <small>21.2.19 (2025-08-07)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#35672) ([c5aade5](https://github.com/bitnami/charts/commit/c5aade59be9707c7b0f8d25ed34d42b18daa05b9)), closes [#35672](https://github.com/bitnami/charts/issues/35672)
+
+## <small>21.2.18 (2025-08-07)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#35653) ([1341963](https://github.com/bitnami/charts/commit/134196378d6baf5fe2760bbb09ff1efd8a98b6d9)), closes [#35653](https://github.com/bitnami/charts/issues/35653)
+
+## <small>21.2.17 (2025-08-07)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#35586) ([0bbb45e](https://github.com/bitnami/charts/commit/0bbb45e41eaef24ab5db0943f0bbc6a193436409)), closes [#35586](https://github.com/bitnami/charts/issues/35586)
+
+## <small>21.2.16 (2025-08-07)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#35523) ([f967ba4](https://github.com/bitnami/charts/commit/f967ba4360f0c206b19a1d3e42f18b0fedc7cce7)), closes [#35523](https://github.com/bitnami/charts/issues/35523)
+
+## <small>21.2.15 (2025-08-07)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#35499) ([df36d53](https://github.com/bitnami/charts/commit/df36d53f924c581b428fe8d9a835191c90e1f037)), closes [#35499](https://github.com/bitnami/charts/issues/35499)
+
+## <small>21.2.14 (2025-08-04)</small>
+
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/redis] fix(redis): add support for script prestop prestart with external access (#35364) ([f60124c](https://github.com/bitnami/charts/commit/f60124c791fffd6f55f1eaaa7bfc85a81fd4c40a)), closes [#35364](https://github.com/bitnami/charts/issues/35364)
+
+## <small>21.2.13 (2025-07-23)</small>
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/redis] Add Redis Open Source 8 Load Modules Docs (#35171) ([ce07616](https://github.com/bitnami/charts/commit/ce07616d4a41f96bad7d50b1e58a46f0022a2a8f)), closes [#35171](https://github.com/bitnami/charts/issues/35171)
+* [bitnami/redis] Bugfix/script prestop redis external access (#34806) ([65f4f25](https://github.com/bitnami/charts/commit/65f4f25fa648d8ac8ca633728498961ad0bd0c1e)), closes [#34806](https://github.com/bitnami/charts/issues/34806)
+
+## <small>21.2.12 (2025-07-16)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#35149) ([a44f7b9](https://github.com/bitnami/charts/commit/a44f7b90728adfcba5752af1b4f15b4c8517db53)), closes [#35149](https://github.com/bitnami/charts/issues/35149)
+
+## <small>21.2.11 (2025-07-15)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#35124) ([525a839](https://github.com/bitnami/charts/commit/525a8396e83dea2ad009102f2e84a8dbc2e8f973)), closes [#35124](https://github.com/bitnami/charts/issues/35124)
+
+## <small>21.2.10 (2025-07-11)</small>
+
+* [bitnami/redis] Fix external service annotations ignored #33270 (#33776) ([cd64f12](https://github.com/bitnami/charts/commit/cd64f12492a47b8e68154737dc75460de67c5bd1)), closes [#33270](https://github.com/bitnami/charts/issues/33270) [#33776](https://github.com/bitnami/charts/issues/33776) [#33270](https://github.com/bitnami/charts/issues/33270)
+
+## <small>21.2.9 (2025-07-09)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#34949) ([85fa246](https://github.com/bitnami/charts/commit/85fa246dbb8b1e269f4819da33f178d54f0c3f79)), closes [#34949](https://github.com/bitnami/charts/issues/34949)
+
+## <small>21.2.8 (2025-07-09)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#34920) ([91df31b](https://github.com/bitnami/charts/commit/91df31b25b98e7b677b791dec2ca11e5dfb10b3c)), closes [#34920](https://github.com/bitnami/charts/issues/34920)
+
+## <small>21.2.7 (2025-07-06)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#34816) ([1b0458e](https://github.com/bitnami/charts/commit/1b0458e88afb4d8486b4843bbba98a1512080626)), closes [#34816](https://github.com/bitnami/charts/issues/34816)
+
+## <small>21.2.6 (2025-06-26)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#34645) ([f85791d](https://github.com/bitnami/charts/commit/f85791da996be1e6055c8c72a4976d3e33bf88a2)), closes [#34645](https://github.com/bitnami/charts/issues/34645)
+
+## <small>21.2.5 (2025-06-18)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#34547) ([2ac72d1](https://github.com/bitnami/charts/commit/2ac72d167fb4094d66d3fedb49fd1cfe9fd5d07f)), closes [#34547](https://github.com/bitnami/charts/issues/34547)
+
+## <small>21.2.4 (2025-06-16)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#34463) ([edf1120](https://github.com/bitnami/charts/commit/edf1120dbe6f9039541ff5b10b4530d0d8c40e9b)), closes [#34463](https://github.com/bitnami/charts/issues/34463)
+
+## <small>21.2.3 (2025-06-10)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#34321) ([b3b5e16](https://github.com/bitnami/charts/commit/b3b5e16975817f3bf0431792bd1e336fdff342d1)), closes [#34321](https://github.com/bitnami/charts/issues/34321)
+
+## <small>21.2.2 (2025-06-10)</small>
+
+* [bitnami/redis] Redis Helm Chart probes are failing (#33957) ([e83394a](https://github.com/bitnami/charts/commit/e83394a295e751d574b7162c3dd07015c8cb3acb)), closes [#33957](https://github.com/bitnami/charts/issues/33957) [#29985](https://github.com/bitnami/charts/issues/29985) [#29097](https://github.com/bitnami/charts/issues/29097) [#28744](https://github.com/bitnami/charts/issues/28744) [#25217](https://github.com/bitnami/charts/issues/25217)
+
+## <small>21.2.1 (2025-06-08)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#34249) ([b53c05d](https://github.com/bitnami/charts/commit/b53c05d485d10398d09d894d0c77e007e45ca0ae)), closes [#34249](https://github.com/bitnami/charts/issues/34249)
+
+## 21.2.0 (2025-06-06)
+
+* [bitnami/redis] Service Monitor support tlsConfig (#34108) ([7accf94](https://github.com/bitnami/charts/commit/7accf949e1c518bb803d2a3feddbd6f9e064519f)), closes [#34108](https://github.com/bitnami/charts/issues/34108)
+
+## <small>21.1.13 (2025-06-06)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#34214) ([691094e](https://github.com/bitnami/charts/commit/691094e50763fa6ca3697ab5425988ccad6c7166)), closes [#34214](https://github.com/bitnami/charts/issues/34214)
+
+## <small>21.1.12 (2025-06-06)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#34187) ([ca3e752](https://github.com/bitnami/charts/commit/ca3e7522f8711761f3d619751de0bc1e913d4735)), closes [#34187](https://github.com/bitnami/charts/issues/34187)
+
+## <small>21.1.11 (2025-05-30)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#34013) ([a2c4487](https://github.com/bitnami/charts/commit/a2c4487e5fa460fdb9589b91f41444a25212b452)), closes [#34013](https://github.com/bitnami/charts/issues/34013)
+
+## <small>21.1.10 (2025-05-29)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#33970) ([4b2bfc5](https://github.com/bitnami/charts/commit/4b2bfc5a63e86f8f7b18e7831ceb6af67d0578f7)), closes [#33970](https://github.com/bitnami/charts/issues/33970)
+
+## <small>21.1.9 (2025-05-29)</small>
+
+* [bitnami/redis] Fix newlines in sentinel.conf (#33704) ([1bcd9af](https://github.com/bitnami/charts/commit/1bcd9af1ae3c2597a94273b5fa1c21ad2d66df4f)), closes [#33704](https://github.com/bitnami/charts/issues/33704)
+
+## <small>21.1.8 (2025-05-27)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#33914) ([ee96950](https://github.com/bitnami/charts/commit/ee969504a78c20e8bb6cd9ca5876d6c97f583c4f)), closes [#33914](https://github.com/bitnami/charts/issues/33914)
+
+## <small>21.1.7 (2025-05-26)</small>
+
+* [bitnami/redis] bugfix: issue on ACL when no existing users secret is passed (#33876) ([193fd9f](https://github.com/bitnami/charts/commit/193fd9fba5a8234fcdd7a5001e28fac00214ec74)), closes [#33876](https://github.com/bitnami/charts/issues/33876)
+
+## <small>21.1.6 (2025-05-22)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#33825) ([9b34897](https://github.com/bitnami/charts/commit/9b34897bab192ea829865d4a8ddfde9beab48199)), closes [#33825](https://github.com/bitnami/charts/issues/33825)
+
+## <small>21.1.5 (2025-05-20)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#33790) ([2f87f3a](https://github.com/bitnami/charts/commit/2f87f3a604a31ee82cc5adbada56e351a87ace05)), closes [#33790](https://github.com/bitnami/charts/issues/33790)
+
+## <small>21.1.4 (2025-05-20)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#33767) ([79cda7f](https://github.com/bitnami/charts/commit/79cda7f9eab704b4122b52d409d7eb36a991915c)), closes [#33767](https://github.com/bitnami/charts/issues/33767)
+
+## <small>21.1.3 (2025-05-16)</small>
+
+* [bitnami/*] Update CNAB tip (#33741) ([2bc74f3](https://github.com/bitnami/charts/commit/2bc74f3f539481ceaa12833c114047583912b748)), closes [#33741](https://github.com/bitnami/charts/issues/33741)
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#33749) ([efd3a00](https://github.com/bitnami/charts/commit/efd3a002cafbd0177e7493cd050a65e152f813fe)), closes [#33749](https://github.com/bitnami/charts/issues/33749)
+
+## <small>21.1.2 (2025-05-15)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#33732) ([51b8b03](https://github.com/bitnami/charts/commit/51b8b0362db5fc14d7e61cc0342a9695b7d00459)), closes [#33732](https://github.com/bitnami/charts/issues/33732)
+
+## <small>21.1.1 (2025-05-15)</small>
+
+* [bitnami/*] Add CNAB link for charts on Azure MP (#33695) ([6312371](https://github.com/bitnami/charts/commit/63123718de94dbedd798d380807b57031e98ed4f)), closes [#33695](https://github.com/bitnami/charts/issues/33695)
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#33713) ([7e47d9c](https://github.com/bitnami/charts/commit/7e47d9c7df6521d59791d2326a5d369cd46fbed1)), closes [#33713](https://github.com/bitnami/charts/issues/33713)
+
+## 21.1.0 (2025-05-14)
+
+* [bitnami/redis] Allow grabbing sentinel acl configuration from userSecret (#33546) ([17c2fa3](https://github.com/bitnami/charts/commit/17c2fa34d840be53bd1bc59efb1eb15f279c772f)), closes [#33546](https://github.com/bitnami/charts/issues/33546)
+
+## <small>21.0.4 (2025-05-13)</small>
+
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#33666) ([36dbe42](https://github.com/bitnami/charts/commit/36dbe424f82e0f8b28601ec0bd13610702a8599e)), closes [#33666](https://github.com/bitnami/charts/issues/33666)
+
+## <small>21.0.3 (2025-05-13)</small>
+
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+* [bitnami/redis] :zap: :arrow_up: Update dependency references (#33645) ([9481812](https://github.com/bitnami/charts/commit/9481812ac05be1954ff374170a9a32d5fa94c771)), closes [#33645](https://github.com/bitnami/charts/issues/33645)
+
+## <small>21.0.2 (2025-05-07)</small>
+
+* [bitnami/redis] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (#33428) ([98dff1d](https://github.com/bitnami/charts/commit/98dff1d7e991004d0374b386ea0917edac05316c)), closes [#33428](https://github.com/bitnami/charts/issues/33428)
+
+## <small>21.0.1 (2025-05-07)</small>
+
+* [bitnami/redis] fix pod-monitor podTargetLabels conditional  (#33459) ([2b78fb6](https://github.com/bitnami/charts/commit/2b78fb6590887a81bfbaefe90e32b177fb108142)), closes [#33459](https://github.com/bitnami/charts/issues/33459)
+
+## 21.0.0 (2025-05-06)
+
+* [bitnami/redis] Release 21.0.0 (#33455) ([41b5013](https://github.com/bitnami/charts/commit/41b5013934cca7b8ab2c301bdc680fa770a1684d)), closes [#33455](https://github.com/bitnami/charts/issues/33455)
+
+## <small>20.13.4 (2025-04-30)</small>
+
+* [bitnami/redis] Release 20.13.3 (#33217) ([f2b8c65](https://github.com/bitnami/charts/commit/f2b8c6511d38015371555fefb53aaca189c8c2de)), closes [#33217](https://github.com/bitnami/charts/issues/33217)
+* [bitnami/redis] Switch shell from /bin/sh to /bin/bash to improve process handling (#33181) ([cfe2165](https://github.com/bitnami/charts/commit/cfe21650167fb27f415edc6268b67c4ec91217f0)), closes [#33181](https://github.com/bitnami/charts/issues/33181)
+
+## <small>20.13.2 (2025-04-24)</small>
+
+* [bitnami/redis] Release 20.13.2 (#33157) ([98a2ec9](https://github.com/bitnami/charts/commit/98a2ec9cce9ab777eea217ff76dae19ccfe519f2)), closes [#33157](https://github.com/bitnami/charts/issues/33157)
+
+## <small>20.13.1 (2025-04-23)</small>
+
+* [bitnami/redis] Release 20.13.1 (#33089) ([f23fc62](https://github.com/bitnami/charts/commit/f23fc626c47a6f041bdbbbf36ad4b8033c4b4f83)), closes [#33089](https://github.com/bitnami/charts/issues/33089)
+
+## 20.13.0 (2025-04-22)
+
+* [bitnami/redis] feat: :sparkles: Disable empty-dirs when readOnlyRootFS is disabled (#33108) ([ed03d4d](https://github.com/bitnami/charts/commit/ed03d4d35176239e124e5fd7ed26f92eb49db9ba)), closes [#33108](https://github.com/bitnami/charts/issues/33108)
+
+## <small>20.12.2 (2025-04-21)</small>
+
+* [bitnami/redis] fix 32573 - Always announce hostname independent of external service configuration ( ([282ae5c](https://github.com/bitnami/charts/commit/282ae5c01b12f4a0ad72e6cd0463f5f941244f3d)), closes [#33024](https://github.com/bitnami/charts/issues/33024)
+
+## <small>20.12.1 (2025-04-16)</small>
+
+* [bitnami/redis] Fix sentinel masterService extraPorts not rendered (#32961) ([cbc134f](https://github.com/bitnami/charts/commit/cbc134f26b1f146e2a482a27db72d98c1d1b344e)), closes [#32961](https://github.com/bitnami/charts/issues/32961)
+
+## 20.12.0 (2025-04-15)
+
+* [bitnami/redis] Support retrieving Redis ACL user passwords from Kubernetes Secrets  (#32434) ([e4fd127](https://github.com/bitnami/charts/commit/e4fd1274291da70e85b0891c9f1a985bd5dc7e0e)), closes [#32434](https://github.com/bitnami/charts/issues/32434)
+
+## <small>20.11.5 (2025-04-09)</small>
+
+* [bitnami/redis] Handle SIGTERM in `kubectl-shared` container (#32085) ([dad454d](https://github.com/bitnami/charts/commit/dad454d7912fa3328dd1ba528d3be370d6c00342)), closes [#32085](https://github.com/bitnami/charts/issues/32085)
+
+## <small>20.11.4 (2025-03-22)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/redis] Release 20.11.4 (#32561) ([f40ecff](https://github.com/bitnami/charts/commit/f40ecff063a597f93d251613746c3d52c11c638d)), closes [#32561](https://github.com/bitnami/charts/issues/32561)
+
+## <small>20.11.3 (2025-03-10)</small>
+
+* [bitnami/redis] fix 32214 - REDIS_PASSWORD_FILE uses wrong filename from volume (#32215) ([5a31fa6](https://github.com/bitnami/charts/commit/5a31fa6eabad974edbc281782505e3bcb07efb98)), closes [#32215](https://github.com/bitnami/charts/issues/32215)
+
+## <small>20.11.2 (2025-03-05)</small>
+
+* [bitnami/redis] Fix usePasswordFile typo in metrics container (#32259) ([a2cb202](https://github.com/bitnami/charts/commit/a2cb202e10168a70dae7b569eec62168e9e0f654)), closes [#32259](https://github.com/bitnami/charts/issues/32259)
+
+## <small>20.11.1 (2025-03-04)</small>
+
+* [bitnami/redis] Disable all usages of usePasswordFiles if auth.enabled is unset (#32253) ([1642f81](https://github.com/bitnami/charts/commit/1642f819c11793ff688f96b831a80bef863d7f98)), closes [#32253](https://github.com/bitnami/charts/issues/32253)
+
+## 20.11.0 (2025-03-03)
+
+* [bitnami/redis] feat: Add external access service for redis sentinel (#32190) ([0582ac3](https://github.com/bitnami/charts/commit/0582ac395c8aa9ef5e9d9df7772775397dd674b1)), closes [#32190](https://github.com/bitnami/charts/issues/32190)
+
+## <small>20.10.1 (2025-03-03)</small>
+
+* [bitnami/redis]: only use auth.usePasswordFiles if auth.enabled is set (#32208) ([1d96748](https://github.com/bitnami/charts/commit/1d96748d8f8231ac4b3fa98b3f8fff234e0bffe7)), closes [#32208](https://github.com/bitnami/charts/issues/32208)
+
+## 20.10.0 (2025-02-27)
+
+* [bitnami/redis] Set `usePasswordFiles=true` by default (#32117) ([2f80b74](https://github.com/bitnami/charts/commit/2f80b749c9a2e692d51beb3e001708694b94c17f)), closes [#32117](https://github.com/bitnami/charts/issues/32117)
+
+## 20.9.0 (2025-02-24)
+
+* [bitnami/redis] Add ACL Authentication for Sentinel Nodes (#31974) ([61b2888](https://github.com/bitnami/charts/commit/61b2888198b718ca7d9ada49ee40d6e11c60ed50)), closes [#31974](https://github.com/bitnami/charts/issues/31974)
+
+## 20.8.0 (2025-02-20)
+
+* [bitnami/redis] feat: add parameter to disable checksums (#31948) ([990014f](https://github.com/bitnami/charts/commit/990014f4d627d9a681d9775af69d11ad207c156a)), closes [#31948](https://github.com/bitnami/charts/issues/31948)
+
+## <small>20.7.2 (2025-02-20)</small>
+
+* [bitnami/redis] Release 20.7.2 (#32033) ([829c44e](https://github.com/bitnami/charts/commit/829c44eddcc0f0fdc3e80d49acd7b4ee41b0408a)), closes [#32033](https://github.com/bitnami/charts/issues/32033)
+
+## <small>20.7.1 (2025-02-16)</small>
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/redis] Release 20.7.1 (#31943) ([e82cc74](https://github.com/bitnami/charts/commit/e82cc74d4bcdf5a352d0de26c600c7aa9098390f)), closes [#31943](https://github.com/bitnami/charts/issues/31943)
+
+## 20.7.0 (2025-02-04)
+
+* [bitnami/redis] Redis ACL support to the Bitnami Redis Helm Chart (#31707) ([9c6e5d6](https://github.com/bitnami/charts/commit/9c6e5d6fa4460281e1275bf4e5ba9dfd482d79e2)), closes [#31707](https://github.com/bitnami/charts/issues/31707)
+* Update copyright year (#31682) ([e9f02f5](https://github.com/bitnami/charts/commit/e9f02f5007068751f7eb2270fece811e685c99b6)), closes [#31682](https://github.com/bitnami/charts/issues/31682)
 
 ## <small>20.6.3 (2025-01-14)</small>
 
@@ -639,7 +944,7 @@
 ## <small>17.8.4 (2023-03-10)</small>
 
 * [bitnami/charts] Apply linter to README files (#15357) ([0e29e60](https://github.com/bitnami/charts/commit/0e29e600d3adc8b1b46e506eccb3decfab3b4e63)), closes [#15357](https://github.com/bitnami/charts/issues/15357)
-* [bitnami/redis] minReadySeconds feature only requires k8s >=1.23 (#15417) ([a748281](https://github.com/bitnami/charts/commit/a748281fbc3dbc71f1d3645892e6fcc8cc4aa25e)), closes [#15417](https://github.com/bitnami/charts/issues/15417) [#13783](https://github.com/bitnami/charts/issues/13783)
+* [bitnami/redis] minReadySeconds feature only requires k8s >=1.23 (#15417) ([a748281](https://github.com/bitnami/charts/commit/a748281fbc3dbc71f1d3645892e6fcc8cc4aa25e)), closes [#15417](https://github.com/bitnami/charts/issues/15417)
 
 ## <small>17.8.3 (2023-03-07)</small>
 
@@ -711,7 +1016,7 @@
 
 ## <small>17.4.2 (2023-01-09)</small>
 
-* [bitnami/redis] Sentinel deployment: Fix Failover at graceful shutdown (#14133) ([0274e44](https://github.com/bitnami/charts/commit/0274e44ae4460f91a3e25c20e12be11bc8874c95)), closes [#14133](https://github.com/bitnami/charts/issues/14133) [#13021](https://github.com/bitnami/charts/issues/13021) [#12598](https://github.com/bitnami/charts/issues/12598) [#13956](https://github.com/bitnami/charts/issues/13956) [/github.com/bitnami/charts/pull/13021#issuecomment-1289177976](https://github.com//github.com/bitnami/charts/pull/13021/issues/issuecomment-1289177976) [#13956](https://github.com/bitnami/charts/issues/13956)
+* [bitnami/redis] Sentinel deployment: Fix Failover at graceful shutdown (#14133) ([0274e44](https://github.com/bitnami/charts/commit/0274e44ae4460f91a3e25c20e12be11bc8874c95)), closes [#14133](https://github.com/bitnami/charts/issues/14133) [#13021](https://github.com/bitnami/charts/issues/13021) [#12598](https://github.com/bitnami/charts/issues/12598) [#13956](https://github.com/bitnami/charts/issues/13956) [#13956](https://github.com/bitnami/charts/issues/13956)
 
 ## <small>17.4.1 (2023-01-03)</small>
 
@@ -945,7 +1250,7 @@
 ## 16.10.0 (2022-05-26)
 
 * [bitnami/redis] Add missing service parameter (#10433) ([cb6b590](https://github.com/bitnami/charts/commit/cb6b590e5da1dbb862de39ec92fab2da2320f712)), closes [#10433](https://github.com/bitnami/charts/issues/10433)
-* [bitnami/redis] Fix #10314: don't use sentinel auth in sentinel prestop hook when sentinel auth is d ([2110b26](https://github.com/bitnami/charts/commit/2110b26847d7534b8585198d0ec69e137b857a8c)), closes [#10314](https://github.com/bitnami/charts/issues/10314) [#10368](https://github.com/bitnami/charts/issues/10368) [#10314](https://github.com/bitnami/charts/issues/10314)
+* [bitnami/redis] Fix #10314: don't use sentinel auth in sentinel prestop hook when sentinel auth is d ([2110b26](https://github.com/bitnami/charts/commit/2110b26847d7534b8585198d0ec69e137b857a8c)), closes [#10368](https://github.com/bitnami/charts/issues/10368)
 
 ## <small>16.9.11 (2022-05-23)</small>
 

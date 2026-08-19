@@ -1,8 +1,124 @@
 # Changelog
 
+## 6.0.2 (2025-09-16)
+
+* [bitnami/apisix] Fixed bug caused by inconsistent usage of context with dataPlane.extraEnvVars ([#36252](https://github.com/bitnami/charts/pull/36252))
+
+## 6.0.0 (2025-08-20)
+
+* [bitnami/apisix] major: Integrate apisix-dashboard into apisix (#36136) ([5a872ff](https://github.com/bitnami/charts/commit/5a872ffa25422b04ab276236293b8179268050ed)), closes [#36136](https://github.com/bitnami/charts/issues/36136)
+
+## <small>5.1.6 (2025-08-18)</small>
+
+* [bitnami/apisix] :zap: :arrow_up: Update dependency references (#36122) ([9ad91f7](https://github.com/bitnami/charts/commit/9ad91f789a864aaf7edde54e10a17118882b0e0b)), closes [#36122](https://github.com/bitnami/charts/issues/36122)
+
+## <small>5.1.5 (2025-08-14)</small>
+
+* [bitnami/apisix] :zap: :arrow_up: Update dependency references (#35868) ([3964047](https://github.com/bitnami/charts/commit/3964047593f995eb28692cdd6badc2d6cd0bc4e2)), closes [#35868](https://github.com/bitnami/charts/issues/35868)
+
+## <small>5.1.4 (2025-08-08)</small>
+
+* [bitnami/apisix] :zap: :arrow_up: Update dependency references (#35710) ([f90b579](https://github.com/bitnami/charts/commit/f90b57966df7d244891b4dba45ce23f65800fccd)), closes [#35710](https://github.com/bitnami/charts/issues/35710)
+
+## <small>5.1.3 (2025-08-07)</small>
+
+* [bitnami/apisix] :zap: :arrow_up: Update dependency references (#35639) ([3bf169f](https://github.com/bitnami/charts/commit/3bf169f4e8d47a924ba27fba164a81ea7aadbccd)), closes [#35639](https://github.com/bitnami/charts/issues/35639)
+
+## <small>5.1.2 (2025-08-07)</small>
+
+* [bitnami/apisix] :zap: :arrow_up: Update dependency references (#35540) ([3e3ba54](https://github.com/bitnami/charts/commit/3e3ba54845df9e372d80e7e24fa76b8882f7bd8b)), closes [#35540](https://github.com/bitnami/charts/issues/35540)
+
+## <small>5.1.1 (2025-08-06)</small>
+
+* [bitnami/apisix] :zap: :arrow_up: Update dependency references (#35452) ([434b20c](https://github.com/bitnami/charts/commit/434b20c1c9033779e91dbfba6994d970198fa89c)), closes [#35452](https://github.com/bitnami/charts/issues/35452)
+
+## 5.1.0 (2025-08-01)
+
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/apisix] fix: Apisix clean uds (#34987) ([917cf05](https://github.com/bitnami/charts/commit/917cf05244decd9934919e1e6bd5b0c6e4309277)), closes [#34987](https://github.com/bitnami/charts/issues/34987)
+
+## <small>5.0.8 (2025-07-24)</small>
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/charts/issues/35218] Share context with apisix.etcd.authEnabled function (#35257) ([017722c](https://github.com/bitnami/charts/commit/017722ccd67a005d541e3aa72275d0484ba5838b)), closes [#35257](https://github.com/bitnami/charts/issues/35257)
+
+## <small>5.0.7 (2025-07-15)</small>
+
+* [bitnami/apisix] :zap: :arrow_up: Update dependency references (#35079) ([03f66b2](https://github.com/bitnami/charts/commit/03f66b2c6caaaf14477cb720e8dff0c43407f686)), closes [#35079](https://github.com/bitnami/charts/issues/35079)
+
+## <small>5.0.6 (2025-07-08)</small>
+
+* [bitnami/apisix] :zap: :arrow_up: Update dependency references (#34865) ([5c9287c](https://github.com/bitnami/charts/commit/5c9287c28a82889e83ab6390d5327fa53a9a0a9a)), closes [#34865](https://github.com/bitnami/charts/issues/34865)
+
+## <small>5.0.5 (2025-07-07)</small>
+
+* [bitnami/apisix]: Correct values comments (#34737) ([e9bc018](https://github.com/bitnami/charts/commit/e9bc018e6802e0a2ea92e7a5a53a1e89f95b7ba6)), closes [#34737](https://github.com/bitnami/charts/issues/34737)
+
+## <small>5.0.4 (2025-06-27)</small>
+
+* [bitnami/apisix] :zap: :arrow_up: Update dependency references (#34687) ([605be56](https://github.com/bitnami/charts/commit/605be569626e31e217e61c5dc96964b8cf861201)), closes [#34687](https://github.com/bitnami/charts/issues/34687)
+
+## <small>5.0.3 (2025-06-13)</small>
+
+* [bitnami/apisix] :zap: :arrow_up: Update dependency references (#34390) ([c6638d8](https://github.com/bitnami/charts/commit/c6638d85b4251c422aba1b1819d6f7c38906a637)), closes [#34390](https://github.com/bitnami/charts/issues/34390)
+
+## <small>5.0.2 (2025-06-05)</small>
+
+* [bitnami/apisix] :zap: :arrow_up: Update dependency references (#34131) ([6c92e2b](https://github.com/bitnami/charts/commit/6c92e2b43c77189862658dce993e624ab6ecb9ab)), closes [#34131](https://github.com/bitnami/charts/issues/34131)
+
+## <small>5.0.1 (2025-05-29)</small>
+
+* feat: [bitnami/apisix] Add dnsPolicy parameter support (#33926) ([62bffa4](https://github.com/bitnami/charts/commit/62bffa41d6c4ae2eb5d1ffb986d1b3993d9122ef)), closes [#33926](https://github.com/bitnami/charts/issues/33926)
+
+## 5.0.0 (2025-05-26)
+
+* [bitnami/apisix] Update ETCD subchart (#33878) ([8337a8c](https://github.com/bitnami/charts/commit/8337a8c86a942c0e88553964f7bce5edace0dbc2)), closes [#33878](https://github.com/bitnami/charts/issues/33878)
+
+## <small>4.2.5 (2025-05-13)</small>
+
+* [bitnami/apisix] :zap: :arrow_up: Update dependency references (#33651) ([60b9da0](https://github.com/bitnami/charts/commit/60b9da0e0543cac807058ac69e398b41b78f84a9)), closes [#33651](https://github.com/bitnami/charts/issues/33651)
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+
+## <small>4.2.4 (2025-05-06)</small>
+
+* [bitnami/apisix] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (#33335) ([21f0df7](https://github.com/bitnami/charts/commit/21f0df7910ce9f5849889a77e6c4923e165153ff)), closes [#33335](https://github.com/bitnami/charts/issues/33335)
+
+## <small>4.2.3 (2025-05-01)</small>
+
+* [bitnami/apisix] Release 4.2.3 (#33277) ([89b5e15](https://github.com/bitnami/charts/commit/89b5e15a29e6dbdcb8582e951ac9b647fbf96f27)), closes [#33277](https://github.com/bitnami/charts/issues/33277)
+
+## <small>4.2.2 (2025-04-01)</small>
+
+* [bitnami/apisix] Release 4.2.2 (#32695) ([1193919](https://github.com/bitnami/charts/commit/11939197e7f7cdb4c366bbb316db96ad54556c12)), closes [#32695](https://github.com/bitnami/charts/issues/32695)
+
+## <small>4.2.1 (2025-03-20)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/apisix] Release 4.2.1 (#32540) ([740e6c3](https://github.com/bitnami/charts/commit/740e6c318f0cdd53e45a6ad0d9cedeb4a19b7248)), closes [#32540](https://github.com/bitnami/charts/issues/32540)
+
+## 4.2.0 (2025-02-24)
+
+* [bitnami/apisix] Add support for `usePasswordFiles` (#32077) ([cb5df90](https://github.com/bitnami/charts/commit/cb5df905951bede532a1ef73a88a0a66c67e5044)), closes [#32077](https://github.com/bitnami/charts/issues/32077)
+
+## 4.1.0 (2025-02-20)
+
+* [bitnami/apisix] feat: use new helper for checking API versions (#32045) ([c327f4b](https://github.com/bitnami/charts/commit/c327f4ba9cf6889d452e0f3fce495c10c6d1c106)), closes [#32045](https://github.com/bitnami/charts/issues/32045)
+
+## <small>4.0.2 (2025-02-18)</small>
+
+* [bitnami/apisix] Release 4.0.2 (#31972) ([d014094](https://github.com/bitnami/charts/commit/d014094260366d1b17e60bbc9a2aee09542d3147)), closes [#31972](https://github.com/bitnami/charts/issues/31972)
+
+## <small>4.0.1 (2025-02-18)</small>
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/apisix] Release 4.0.1 (#31964) ([7870a08](https://github.com/bitnami/charts/commit/7870a082176ef14922db8d72a317ee490ba39747)), closes [#31964](https://github.com/bitnami/charts/issues/31964)
+* Update copyright year (#31682) ([e9f02f5](https://github.com/bitnami/charts/commit/e9f02f5007068751f7eb2270fece811e685c99b6)), closes [#31682](https://github.com/bitnami/charts/issues/31682)
+
 ## 4.0.0 (2025-01-22)
 
-* [bitnami/apisix] Update ETCD to major 11 ([#31508](https://github.com/bitnami/charts/pull/31508))
+* [bitnami/apisix] Update ETCD to major 11 (#31508) ([9561660](https://github.com/bitnami/charts/commit/9561660522ef445652d58becbf3a39bf29836464)), closes [#31508](https://github.com/bitnami/charts/issues/31508)
 
 ## <small>3.7.2 (2025-01-17)</small>
 

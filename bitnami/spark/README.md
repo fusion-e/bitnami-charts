@@ -1,6 +1,6 @@
 <!--- app-name: Apache Spark -->
 
-# Bitnami package for Apache Spark
+# Bitnami Secure Images Helm chart for Apache Spark
 
 Apache Spark is a high-performance engine for large-scale computing tasks, such as data processing, machine learning and real-time data streaming. It includes APIs for Java, Python, Scala and R.
 
@@ -14,15 +14,28 @@ Trademarks: This software listing is packaged by Bitnami. The respective tradema
 helm install my-release oci://registry-1.docker.io/bitnamicharts/spark
 ```
 
-Looking to use Apache Spark in production? Try [VMware Tanzu Application Catalog](https://bitnami.com/enterprise), the commercial edition of the Bitnami catalog.
+## Why use Bitnami Secure Images?
+
+Those are hardened, minimal CVE images built and maintained by Bitnami. Bitnami Secure Images are based on the cloud-optimized, security-hardened enterprise [OS Photon Linux](https://vmware.github.io/photon/). Why choose BSI images?
+
+- Hardened secure images of popular open source software with Near-Zero Vulnerabilities
+- Vulnerability Triage & Prioritization with VEX Statements, KEV and EPSS Scores
+- Compliance focus with FIPS, STIG, and air-gap options, including secure bill of materials (SBOM)
+- Software supply chain provenance attestation through in-toto
+- First class support for the internet’s favorite Helm charts
+
+Each image comes with valuable security metadata. You can view the metadata in [our public catalog here](https://app-catalog.vmware.com/bitnami/apps). Note: Some data is only available with [commercial subscriptions to BSI](https://bitnami.com/).
+
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%201.png?raw=true "Application details")
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%202.png?raw=true "Packaging report")
+
+If you are looking for our previous generation of images based on Debian Linux, please see the [Bitnami Legacy registry](https://hub.docker.com/u/bitnamilegacy).
 
 ## Introduction
 
 This chart bootstraps an [Apache Spark](https://github.com/bitnami/containers/tree/main/bitnami/spark) deployment on a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
 Apache Spark includes APIs for Java, Python, Scala and R.
-
-Bitnami charts can be used with [Kubeapps](https://kubeapps.dev/) for deployment and management of Helm Charts in clusters.
 
 ## Prerequisites
 
@@ -221,6 +234,7 @@ As an alternative, you can use the preset configurations for pod affinity, pod a
 
 | Name                                                       | Description                                                                                                                                                                                                                     | Value            |
 | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| `master.enabled`                                           | Deploy master statefulset                                                                                                                                                                                                       | `true`           |
 | `master.existingConfigmap`                                 | The name of an existing ConfigMap with your custom configuration for master                                                                                                                                                     | `""`             |
 | `master.containerPorts.http`                               | Specify the port where the web interface will listen on the master over HTTP                                                                                                                                                    | `8080`           |
 | `master.containerPorts.https`                              | Specify the port where the web interface will listen on the master over HTTPS                                                                                                                                                   | `8480`           |
@@ -309,6 +323,7 @@ As an alternative, you can use the preset configurations for pod affinity, pod a
 
 | Name                                                       | Description                                                                                                                                                                                                                     | Value            |
 | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| `worker.enabled`                                           | Deploy worker resources                                                                                                                                                                                                         | `true`           |
 | `worker.existingConfigmap`                                 | The name of an existing ConfigMap with your custom configuration for workers                                                                                                                                                    | `""`             |
 | `worker.containerPorts.http`                               | Specify the port where the web interface will listen on the worker over HTTP                                                                                                                                                    | `8080`           |
 | `worker.containerPorts.https`                              | Specify the port where the web interface will listen on the worker over HTTPS                                                                                                                                                   | `8480`           |
@@ -529,7 +544,7 @@ This could potentially break any customization or init scripts used in your depl
 
 ### To 6.0.0
 
-This chart major version standarizes the chart templates and values, modifying some existing parameters names and adding several more. These parameter modifications can be sumarised in the following:
+This chart major version standardizes the chart templates and values, modifying some existing parameters names and adding several more. These parameter modifications can be summarised in the following:
 
 - `worker.autoscaling.CpuTargetPercentage/.replicasMax` parameters are now found by `worker.autoscaling.targetCPU/.maxReplicas`.
 - `webport/webPortHttps/cluster` parameters are now found by `containerPorts.http/.https/.cluster`.

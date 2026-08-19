@@ -173,7 +173,7 @@ operator:
   image:
     registry: docker.io
     repository: bitnami/grafana-operator
-    tag: 5.16.0-debian-12-r3
+    tag: 5.19.4-debian-12-r2
     digest: ""
     ## Specify a imagePullPolicy
     ## Ref: https://kubernetes.io/docs/concepts/containers/images/#pre-pulled-images
@@ -512,6 +512,9 @@ grafana:
   ## @param grafana.enabled Enabled the deployment of the Grafana CRD object into the cluster
   ##
   enabled: true
+  ## @param grafana.disableDefaultAdminSecret Disables the creation of the default admin secret
+  ##
+  disableDefaultAdminSecret: false
   ## @param grafana.image.registry [default: REGISTRY_NAME] Grafana image registry
   ## @param grafana.image.repository [default: REPOSITORY_NAME/grafana] Grafana image name
   ## @skip grafana.image.tag Grafana image tag
@@ -522,7 +525,7 @@ grafana:
   image:
     registry: docker.io
     repository: bitnami/grafana
-    tag: 11.5.1-debian-12-r0
+    tag: 12.1.1-debian-12-r1
     digest: ""
     ## Specify a imagePullPolicy
     ## Ref: https://kubernetes.io/docs/concepts/containers/images/#pre-pulled-images

@@ -10,7 +10,6 @@
 ## @param global.imageRegistry Global Docker image registry
 ## @param global.imagePullSecrets Global Docker registry secret names as an array
 ## @param global.defaultStorageClass Global default StorageClass for Persistent Volume(s)
-## @param global.storageClass DEPRECATED: use global.defaultStorageClass instead
 ##
 global:
   imageRegistry: ""
@@ -20,7 +19,6 @@ global:
   ##
   imagePullSecrets: []
   defaultStorageClass: ""
-  storageClass: ""
   ## Security parameters
   ##
   security:
@@ -41,6 +39,9 @@ global:
 ## @param kubeVersion Override Kubernetes version
 ##
 kubeVersion: ""
+## @param apiVersions Override Kubernetes API versions reported by .Capabilities
+##
+apiVersions: []
 ## @param nameOverride String to partially override common.names.name
 ##
 nameOverride: ""
@@ -92,7 +93,7 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: bitnami/mlflow
-  tag: 2.20.1-debian-12-r0
+  tag: 3.3.2-debian-12-r0
   digest: ""
   ## Specify a imagePullPolicy
   ## ref: https://kubernetes.io/docs/concepts/containers/images/#pre-pulled-images
@@ -121,7 +122,7 @@ image:
 gitImage:
   registry: docker.io
   repository: bitnami/git
-  tag: 2.48.1-debian-12-r3
+  tag: 2.51.0-debian-12-r0
   digest: ""
   pullPolicy: IfNotPresent
   ## Optionally specify an array of imagePullSecrets.
@@ -262,18 +263,22 @@ tracking:
   ## @param tracking.auth.enabled Enable basic authentication
   ## @param tracking.auth.username Admin username
   ## @param tracking.auth.password Admin password
+  ## @param tracking.auth.flaskServerSecretKey Flask server secret key (required for enabling CSRF protection)
   ## @param tracking.auth.existingSecret Name of a secret containing the admin password
   ## @param tracking.auth.existingSecretUserKey Key inside the secret containing the admin password
   ## @param tracking.auth.existingSecretPasswordKey Key inside the secret containing the admin password
+  ## @param tracking.auth.existingSecretFlaskServerSecretKey Key inside the secret containing the flask server secret key
   ## @param tracking.auth.extraOverrides Add extra settings to the basic_auth.ini file
   ## @param tracking.auth.overridesConfigMap Name of a ConfigMap containing overrides to the basic_auth.ini file
   auth:
     enabled: true
     username: user
     password: ""
+    flaskServerSecretKey: ""
     existingSecret: ""
     existingSecretUserKey: ""
     existingSecretPasswordKey: ""
+    existingSecretFlaskServerSecretKey: ""
     extraOverrides: {}
     overridesConfigMap: ""
   ## TLS configuration
@@ -650,6 +655,52 @@ tracking:
     ##             name: http
     ##
     extraRules: []
+  ## @section tracking.httproute Gateway API HTTPRoute configuration
+  ## ref: https://gateway-api.sigs.k8s.io/api-types/httproute/
+  ##
+  httproute:
+      ## @param tracking.httproute.enabled Enable HTTPRoute generation for MLflow tracking
+      ##
+      enabled: false
+      ## @param tracking.httproute.annotations Additional annotations for the HTTPRoute resource
+      ##
+      annotations: {}
+      ## @param tracking.httproute.labels Additional labels for the HTTPRoute resource
+      ##
+      labels: {}
+      ## @param tracking.httproute.parentRefs Gateways the HTTPRoute is attached to. If unspecified, it'll be attached to Gateway named 'gateway' in the same namespace.
+      ## e.g:
+      ## parentRefs:
+      ##   - name: my-gateway
+      ##     sectionName: http
+      ##     namespace: default
+      ##
+      parentRefs: []
+      ## @param tracking.httproute.hostnames [array] List of hostnames matching HTTP header
+      ##
+      hostnames:
+        - mlflow.local
+      ## @param tracking.httproute.matches [array] List of match rules applied to the HTTPRoute for the default svc backend reference
+      ##
+      matches:
+        - path:
+            type: PathPrefix
+            value: /
+      ## @param tracking.httproute.filters List of filter rules applied to the HTTPRoute for the default svc backend reference
+      ##
+      filters: []
+      ## @param tracking.httproute.extraRules List of extra rules applied to the HTTPRoute
+      ## e.g:
+      ## extraRules:
+      ##   - matches:
+      ##       - path:
+      ##           type: PathPrefix
+      ##           value: /api
+      ##     backendRefs:
+      ##       - name: mlflow-tracking
+      ##         port: 5000
+      ##
+      extraRules: []
   ## Network Policy configuration
   ## ref: https://kubernetes.io/docs/concepts/services-networking/network-policies/
   ##
@@ -755,6 +806,17 @@ tracking:
     ## @param tracking.persistence.dataSource Custom PVC data source
     ##
     dataSource: {}
+
+  ## MLflow Tracking Generic Ephemeral Volume Parameters
+  ## ref: https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes
+  ##
+  tmpVolume:
+    ephemeral:
+      ## @param tracking.tmpVolume.ephemeral.enabled Use a generic ephemeral volume for `/tmp` instead of `emptyDir`
+      enabled: false
+      ## @param tracking.tmpVolume.ephemeral.volumeClaimTemplate Custom `volumeClaimTemplate` for the ephemeral volume (YAML map)
+      volumeClaimTemplate: {}
+
   ## @section MLflow Tracking Other Parameters
   ##
   serviceAccount:
@@ -771,6 +833,7 @@ tracking:
     ## @param tracking.serviceAccount.automountServiceAccountToken Automount service account token for the server service account
     ##
     automountServiceAccountToken: false
+
   ## @section MLflow Tracking Metrics Parameters
   ##
   metrics:
@@ -1217,7 +1280,7 @@ volumePermissions:
   image:
     registry: docker.io
     repository: bitnami/os-shell
-    tag: 12-debian-12-r36
+    tag: 12-debian-12-r51
     pullPolicy: IfNotPresent
     ## Optionally specify an array of imagePullSecrets.
     ## Secrets must be manually created in the namespace.
@@ -1266,7 +1329,7 @@ waitContainer:
   image:
     registry: docker.io
     repository: bitnami/os-shell
-    tag: 12-debian-12-r36
+    tag: 12-debian-12-r51
     digest: ""
     ## @param waitContainer.image.pullPolicy Init container wait-container image pull policy
     ##
@@ -1402,6 +1465,10 @@ minio:
     loadBalancerIP: ""
     ports:
       api: 80
+  ## @param minio.console.enabled Enable MinIO&reg; Console
+  ##
+  console:
+    enabled: false
 
 ## @section External S3 parameters
 ## All of these values are only used when minio.enabled is set to false

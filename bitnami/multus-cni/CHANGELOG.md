@@ -1,8 +1,80 @@
 # Changelog
 
-## 2.2.5 (2025-02-05)
+## 2.2.21 (2025-08-14)
 
-* [bitnami/multus-cni] Release 2.2.5 ([#31767](https://github.com/bitnami/charts/pull/31767))
+* [bitnami/multus-cni] :zap: :arrow_up: Update dependency references ([#35886](https://github.com/bitnami/charts/pull/35886))
+
+## <small>2.2.20 (2025-08-07)</small>
+
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/multus-cni] :zap: :arrow_up: Update dependency references (#35508) ([1b53400](https://github.com/bitnami/charts/commit/1b53400ae6b221e8d63159d8cc7909f606ef6486)), closes [#35508](https://github.com/bitnami/charts/issues/35508)
+
+## <small>2.2.19 (2025-07-24)</small>
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/multus-cni] :zap: :arrow_up: Update dependency references (#35282) ([0a8bdb0](https://github.com/bitnami/charts/commit/0a8bdb024e2f6d2f828b7ef6ae16870b80eb2a75)), closes [#35282](https://github.com/bitnami/charts/issues/35282)
+
+## <small>2.2.18 (2025-07-09)</small>
+
+* [bitnami/multus-cni] :zap: :arrow_up: Update dependency references (#34939) ([86ba6f5](https://github.com/bitnami/charts/commit/86ba6f5641ea88c93ad7d7e7141f51c28fed486e)), closes [#34939](https://github.com/bitnami/charts/issues/34939)
+
+## <small>2.2.17 (2025-06-13)</small>
+
+* [bitnami/multus-cni] :zap: :arrow_up: Update dependency references (#34471) ([a95efb5](https://github.com/bitnami/charts/commit/a95efb5e02fa7ef3d28c3ae3ebaa65e6be616b0e)), closes [#34471](https://github.com/bitnami/charts/issues/34471)
+
+## <small>2.2.16 (2025-06-10)</small>
+
+* [bitnami/multus-cni] :zap: :arrow_up: Update dependency references (#34328) ([70b7968](https://github.com/bitnami/charts/commit/70b7968af286f9ed47dda50073ba022a5610c4e0)), closes [#34328](https://github.com/bitnami/charts/issues/34328)
+
+## <small>2.2.15 (2025-06-06)</small>
+
+* [bitnami/multus-cni] :zap: :arrow_up: Update dependency references (#34200) ([2376c60](https://github.com/bitnami/charts/commit/2376c609d5d269b1734a119381d421145e368e88)), closes [#34200](https://github.com/bitnami/charts/issues/34200)
+
+## <small>2.2.14 (2025-06-05)</small>
+
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+* [bitnami/multus-cni] :zap: :arrow_up: Update dependency references (#34117) ([9f992ee](https://github.com/bitnami/charts/commit/9f992ee1c41c4a1ba2f7a1c8ecce37b461e0dfa0)), closes [#34117](https://github.com/bitnami/charts/issues/34117)
+
+## <small>2.2.13 (2025-05-07)</small>
+
+* [bitnami/multus-cni] Release 2.2.13 (#33483) ([573a103](https://github.com/bitnami/charts/commit/573a1030c5b1b31c9226c5f66822805a309294d9)), closes [#33483](https://github.com/bitnami/charts/issues/33483)
+
+## <small>2.2.12 (2025-05-06)</small>
+
+* [bitnami/multus-cni] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (#33 ([be1b80d](https://github.com/bitnami/charts/commit/be1b80da79f61f5e625575fd8b9bf3c70e73adbf)), closes [#33408](https://github.com/bitnami/charts/issues/33408)
+
+## <small>2.2.11 (2025-05-02)</small>
+
+* [bitnami/multus-cni] Release 2.2.11 (#33298) ([d858725](https://github.com/bitnami/charts/commit/d85872573d1ebdcbecdce6a63b7e72eb6dc0ce3f)), closes [#33298](https://github.com/bitnami/charts/issues/33298)
+
+## <small>2.2.10 (2025-04-02)</small>
+
+* [bitnami/multus-cni] Release 2.2.10 (#32753) ([6e39c72](https://github.com/bitnami/charts/commit/6e39c72f1d2aecabd873cafe040c2a93ea9275a1)), closes [#32753](https://github.com/bitnami/charts/issues/32753)
+
+## <small>2.2.9 (2025-03-24)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/multus-cni] Release 2.2.9 (#32584) ([52607fa](https://github.com/bitnami/charts/commit/52607faf0d32ed0c7741b0fc224863596fcdc271)), closes [#32584](https://github.com/bitnami/charts/issues/32584)
+
+## <small>2.2.8 (2025-03-05)</small>
+
+* [bitnami/multus-cni] Release 2.2.8 (#32306) ([9fed0c8](https://github.com/bitnami/charts/commit/9fed0c85b60949ff9b694cdcc49f551bce7422e4)), closes [#32306](https://github.com/bitnami/charts/issues/32306)
+
+## <small>2.2.7 (2025-02-19)</small>
+
+* [bitnami/multus-cni] Release 2.2.7 (#32020) ([b31798f](https://github.com/bitnami/charts/commit/b31798fd199b6915f190428da37a2ad4644bad8c)), closes [#32020](https://github.com/bitnami/charts/issues/32020)
+
+## <small>2.2.6 (2025-02-12)</small>
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/multus-cni] Release 2.2.6 (#31896) ([ff35e8d](https://github.com/bitnami/charts/commit/ff35e8d034d602d904d2979bdb8bff64c7698387)), closes [#31896](https://github.com/bitnami/charts/issues/31896)
+
+## <small>2.2.5 (2025-02-05)</small>
+
+* [bitnami/multus-cni] Release 2.2.5 (#31767) ([83f268d](https://github.com/bitnami/charts/commit/83f268dee40dde1ab9ce7fe0aa43ce34bba10edc)), closes [#31767](https://github.com/bitnami/charts/issues/31767)
+* Update copyright year (#31682) ([e9f02f5](https://github.com/bitnami/charts/commit/e9f02f5007068751f7eb2270fece811e685c99b6)), closes [#31682](https://github.com/bitnami/charts/issues/31682)
 
 ## <small>2.2.4 (2025-01-24)</small>
 

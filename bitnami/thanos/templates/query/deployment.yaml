@@ -15,7 +15,7 @@ metadata:
   annotations: {{- include "common.tplvalues.render" ( dict "value" .Values.commonAnnotations "context" $ ) | nindent 4 }}
   {{- end }}
 spec:
-  {{- if not .Values.query.autoscaling.enabled }}
+  {{- if not (or .Values.query.autoscaling.enabled .Values.query.externalAutoscaler) }}
   replicas: {{ .Values.query.replicaCount }}
   {{- end }}
   revisionHistoryLimit: {{ .Values.query.revisionHistoryLimit }}
@@ -30,8 +30,11 @@ spec:
     metadata:
       labels: {{- include "common.labels.standard" ( dict "customLabels" $podLabels "context" $ ) | nindent 8 }}
         app.kubernetes.io/component: query
-      {{- if or .Values.query.podAnnotations (include "thanos.query.createSDConfigmap" .) }}
+      {{- if or .Values.commonAnnotations .Values.query.podAnnotations (include "thanos.query.createSDConfigmap" .) }}
       annotations:
+        {{- if .Values.commonAnnotations }}
+        {{- include "common.tplvalues.render" ( dict "value" .Values.commonAnnotations "context" $ ) | nindent 8 }}
+        {{- end }}
         {{- if (include "thanos.query.createSDConfigmap" .) }}
         checksum/query-sd-configuration: {{ include "thanos.querySDConfigMap" . | sha256sum }}
         {{- end }}
@@ -101,8 +104,8 @@ spec:
             - query
             - --log.level={{ .Values.query.logLevel }}
             - --log.format={{ .Values.query.logFormat }}
-            - --grpc-address=0.0.0.0:10901
-            - --http-address=0.0.0.0:10902
+            - --grpc-address=0.0.0.0:{{ .Values.query.containerPorts.grpc }}
+            - --http-address=0.0.0.0:{{ .Values.query.containerPorts.http }}
             {{- if (include "thanos.httpConfigEnabled" .) }}
             - --http.config=/conf/http/http-config.yml
             {{- end }}
@@ -134,7 +137,11 @@ spec:
             {{- if $.Values.storegateway.useEndpointGroup }}
             - --endpoint-group={{ include "common.names.fullname" $ }}-storegateway-{{ toString $index }}.{{ $.Release.Namespace }}.svc.{{ $.Values.clusterDomain }}:{{ $.Values.storegateway.service.ports.grpc }}
             {{- else }}
+            {{- if $.Values.query.dnsDiscovery.enabled }}
             - --endpoint=dnssrv+_grpc._tcp.{{ include "common.names.fullname" $ }}-storegateway-{{ toString $index }}.{{ $.Release.Namespace }}.svc.{{ $.Values.clusterDomain }}
+            {{- else }}
+            - --endpoint={{ include "common.names.fullname" $ }}-storegateway-{{ toString $index }}.{{ $.Release.Namespace }}.svc.{{ $.Values.clusterDomain }}:{{ $.Values.storegateway.service.ports.grpc }}
+            {{- end }}
             {{- end }}
             {{- end }}
             {{- end }}
@@ -194,10 +201,10 @@ spec:
           {{- end }}
           ports:
             - name: http
-              containerPort: 10902
+              containerPort: {{ .Values.query.containerPorts.http }}
               protocol: TCP
             - name: grpc
-              containerPort: 10901
+              containerPort: {{ .Values.query.containerPorts.grpc }}
               protocol: TCP
           {{- if .Values.query.customLivenessProbe }}
           livenessProbe: {{- include "common.tplvalues.render" (dict "value" .Values.query.customLivenessProbe "context" $) | nindent 12 }}

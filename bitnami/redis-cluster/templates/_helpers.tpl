@@ -41,28 +41,6 @@ Return the proper Docker Image Registry Secret Names
 {{- end -}}
 
 {{/*
-Return the appropriate apiVersion for networkpolicy.
-*/}}
-{{- define "networkPolicy.apiVersion" -}}
-{{- if semverCompare ">=1.4-0, <1.7-0" .Capabilities.KubeVersion.GitVersion -}}
-{{- print "extensions/v1beta1" -}}
-{{- else -}}
-{{- print "networking.k8s.io/v1" -}}
-{{- end -}}
-{{- end -}}
-
-{{/*
-Return the appropriate apiGroup for PodSecurityPolicy.
-*/}}
-{{- define "podSecurityPolicy.apiGroup" -}}
-{{- if semverCompare ">=1.14-0" .Capabilities.KubeVersion.GitVersion -}}
-{{- print "policy" -}}
-{{- else -}}
-{{- print "extensions" -}}
-{{- end -}}
-{{- end -}}
-
-{{/*
 Return true if a TLS secret object should be created
 */}}
 {{- define "redis-cluster.createTlsSecret" -}}
@@ -168,6 +146,19 @@ Return Redis&reg; password
     {{- .Values.password -}}
 {{- else -}}
     {{- randAlphaNum 10 -}}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Returns true if useAOFPersistence should be enabled
+YAML will transform 'yes'/'no' into 'true'/'false' when quotes are missing, because it interprets the variable as boolean.
+Redis expects explicit 'yes'/'no', so this helper avoids issues when providing a boolean instead of a string.
+*/}}
+{{- define "redis-cluster.useAOFPersistence" -}}
+{{- if kindOf .Values.redis.useAOFPersistence | eq "bool" -}}
+    {{ ternary "yes" "no" .Values.redis.useAOFPersistence }}
+{{- else -}}
+    {{ print .Values.redis.useAOFPersistence }}
 {{- end -}}
 {{- end -}}
 

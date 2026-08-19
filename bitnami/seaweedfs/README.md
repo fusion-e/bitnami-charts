@@ -1,6 +1,6 @@
 <!--- app-name: SeaweedFS -->
 
-# Bitnami package for SeaweedFS
+# Bitnami Secure Images Helm chart for SeaweedFS
 
 SeaweedFS is a simple and highly scalable distributed file system.
 
@@ -14,15 +14,28 @@ Trademarks: This software listing is packaged by Bitnami. The respective tradema
 helm install my-release oci://registry-1.docker.io/bitnamicharts/seaweedfs
 ```
 
-Looking to use SeaweedFS in production? Try [VMware Tanzu Application Catalog](https://bitnami.com/enterprise), the commercial edition of the Bitnami catalog.
+## Why use Bitnami Secure Images?
+
+Those are hardened, minimal CVE images built and maintained by Bitnami. Bitnami Secure Images are based on the cloud-optimized, security-hardened enterprise [OS Photon Linux](https://vmware.github.io/photon/). Why choose BSI images?
+
+- Hardened secure images of popular open source software with Near-Zero Vulnerabilities
+- Vulnerability Triage & Prioritization with VEX Statements, KEV and EPSS Scores
+- Compliance focus with FIPS, STIG, and air-gap options, including secure bill of materials (SBOM)
+- Software supply chain provenance attestation through in-toto
+- First class support for the internet’s favorite Helm charts
+
+Each image comes with valuable security metadata. You can view the metadata in [our public catalog here](https://app-catalog.vmware.com/bitnami/apps). Note: Some data is only available with [commercial subscriptions to BSI](https://bitnami.com/).
+
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%201.png?raw=true "Application details")
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%202.png?raw=true "Packaging report")
+
+If you are looking for our previous generation of images based on Debian Linux, please see the [Bitnami Legacy registry](https://hub.docker.com/u/bitnamilegacy).
 
 ## Introduction
 
 Bitnami charts for Helm are carefully engineered, actively maintained and are the quickest and easiest way to deploy containers on a Kubernetes cluster that are ready to handle production workloads.
 
 This chart bootstraps a [SeaweedFS](https://github.com/seaweedfs/seaweedfs) deployment in a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
-
-Bitnami charts can be used with [Kubeapps](https://kubeapps.dev/) for deployment and management of Helm Charts in clusters.
 
 ## Prerequisites
 
@@ -166,7 +179,7 @@ You can manually create the required TLS certificates for each SeaweedFS compone
 #### S3 Authentication
 
 Authentication can be enabled in the SeaweedFS S3 API by setting the `s3.auth.enabled` parameter to `true`.
-You can provide your custom authentication configuration creating a secret with the configuration and setting the `s3.auth.cexistingSecret` parameter with the name of the secret.
+You can provide your custom authentication configuration creating a secret with the configuration and setting the `s3.auth.existingSecret` parameter with the name of the secret.
 Alternatively, you can rely on the chart to create a basic configuration with two main users: `admin` and `read-only`. You can provide the admin user credentials using the `s3.auth.adminAccessKeyId` and `s3.auth.adminSecretAccessKey` parameters, and the read-only user credentials using the `s3.auth.readAccessKeyId` and `s3.auth.readSecretAccessKey` parameters.
 
 ### Additional environment variables
@@ -349,7 +362,7 @@ If you encounter errors when working with persistent volumes, refer to our [trou
 | `master.containerSecurityContext.allowPrivilegeEscalation` | Set allowPrivilegeEscalation in Master Server container' Security Context                                                                                                                                                              | `false`          |
 | `master.containerSecurityContext.capabilities.drop`        | List of capabilities to be dropped in Master Server container                                                                                                                                                                          | `["ALL"]`        |
 | `master.containerSecurityContext.seccompProfile.type`      | Set seccomp profile in Master Server container                                                                                                                                                                                         | `RuntimeDefault` |
-| `master.logLevel`                                          | Master Server log level [0|1|2|3|4]                                                                                                                                                                                                    | `1`              |
+| `master.logLevel`                                          | Master Server log level (0, 1, 2, 3, or 4)                                                                                                                                                                                             | `1`              |
 | `master.bindAddress`                                       | Master Server bind address                                                                                                                                                                                                             | `0.0.0.0`        |
 | `master.volumeSizeLimitMB`                                 | Limit (in MB) to stop directing writes to oversized volumes                                                                                                                                                                            | `1000`           |
 | `master.config`                                            | Master Server configuration                                                                                                                                                                                                            | `""`             |
@@ -526,7 +539,7 @@ If you encounter errors when working with persistent volumes, refer to our [trou
 | `volume.containerSecurityContext.allowPrivilegeEscalation` | Set allowPrivilegeEscalation in Volume Server container' Security Context                                                                                                                                                              | `false`          |
 | `volume.containerSecurityContext.capabilities.drop`        | List of capabilities to be dropped in Volume Server container                                                                                                                                                                          | `["ALL"]`        |
 | `volume.containerSecurityContext.seccompProfile.type`      | Set seccomp profile in Volume Server container                                                                                                                                                                                         | `RuntimeDefault` |
-| `volume.logLevel`                                          | Volume Server log level [0|1|2|3|4]                                                                                                                                                                                                    | `1`              |
+| `volume.logLevel`                                          | Volume Server log level (0, 1, 2, 3, or 4)                                                                                                                                                                                             | `1`              |
 | `volume.bindAddress`                                       | Volume Server bind address                                                                                                                                                                                                             | `0.0.0.0`        |
 | `volume.publicUrl`                                         | Volume Server public URL                                                                                                                                                                                                               | `""`             |
 | `volume.config`                                            | Volume Server configuration                                                                                                                                                                                                            | `""`             |
@@ -706,7 +719,7 @@ If you encounter errors when working with persistent volumes, refer to our [trou
 | `filer.containerSecurityContext.allowPrivilegeEscalation` | Set allowPrivilegeEscalation in Filer Server container' Security Context                                                                                                                                                            | `false`                       |
 | `filer.containerSecurityContext.capabilities.drop`        | List of capabilities to be dropped in Filer Server container                                                                                                                                                                        | `["ALL"]`                     |
 | `filer.containerSecurityContext.seccompProfile.type`      | Set seccomp profile in Filer Server container                                                                                                                                                                                       | `RuntimeDefault`              |
-| `filer.logLevel`                                          | Filer Server log level [0|1|2|3|4]                                                                                                                                                                                                  | `1`                           |
+| `filer.logLevel`                                          | Filer Server log level (0, 1, 2, 3, or 4)                                                                                                                                                                                           | `1`                           |
 | `filer.bindAddress`                                       | Filer Server bind address                                                                                                                                                                                                           | `0.0.0.0`                     |
 | `filer.config`                                            | Filer Server configuration                                                                                                                                                                                                          | `[leveldb2]
 enabled = false
@@ -877,8 +890,9 @@ enabled = false
 | `s3.containerSecurityContext.allowPrivilegeEscalation` | Set allowPrivilegeEscalation in Amazon S3 API container' Security Context                                                                                                                                                      | `false`          |
 | `s3.containerSecurityContext.capabilities.drop`        | List of capabilities to be dropped in Amazon S3 API container                                                                                                                                                                  | `["ALL"]`        |
 | `s3.containerSecurityContext.seccompProfile.type`      | Set seccomp profile in Amazon S3 API container                                                                                                                                                                                 | `RuntimeDefault` |
-| `s3.logLevel`                                          | Amazon S3 API log level [0|1|2|3|4]                                                                                                                                                                                            | `1`              |
+| `s3.logLevel`                                          | Amazon S3 API log level (0, 1, 2, 3, or 4)                                                                                                                                                                                     | `1`              |
 | `s3.bindAddress`                                       | Amazon S3 API bind address                                                                                                                                                                                                     | `0.0.0.0`        |
+| `s3.allowEmptyFolder`                                  | Allow empty folders in Amazon S3 API                                                                                                                                                                                           | `true`           |
 | `s3.auth.enabled`                                      | Enable Amazon S3 API authentication                                                                                                                                                                                            | `false`          |
 | `s3.auth.existingSecret`                               | Existing secret with Amazon S3 API authentication configuration                                                                                                                                                                | `""`             |
 | `s3.auth.existingSecretConfigKey`                      | Key of the above existing secret with S3 API authentication configuration, defaults to `config.json`                                                                                                                           | `""`             |
@@ -1028,7 +1042,7 @@ enabled = false
 | `webdav.containerSecurityContext.allowPrivilegeEscalation` | Set allowPrivilegeEscalation in WebDAV container' Security Context                                                                                                                                                              | `false`          |
 | `webdav.containerSecurityContext.capabilities.drop`        | List of capabilities to be dropped in WebDAV container                                                                                                                                                                          | `["ALL"]`        |
 | `webdav.containerSecurityContext.seccompProfile.type`      | Set seccomp profile in WebDAV container                                                                                                                                                                                         | `RuntimeDefault` |
-| `webdav.logLevel`                                          | WebDAV log level [0|1|2|3|4]                                                                                                                                                                                                    | `1`              |
+| `webdav.logLevel`                                          | WebDAV log level (0, 1, 2, 3, or 4)                                                                                                                                                                                             | `1`              |
 | `webdav.tls.enabled`                                       | Enable TLS transport for WebDAV                                                                                                                                                                                                 | `false`          |
 | `webdav.tls.autoGenerated.enabled`                         | Enable automatic generation of certificates for TLS                                                                                                                                                                             | `false`          |
 | `webdav.tls.autoGenerated.engine`                          | Mechanism to generate the certificates (allowed values: helm, cert-manager)                                                                                                                                                     | `helm`           |
@@ -1158,7 +1172,7 @@ enabled = false
 | `iam.containerSecurityContext.allowPrivilegeEscalation` | Set allowPrivilegeEscalation in IAM container' Security Context                                                                                                                                                              | `false`          |
 | `iam.containerSecurityContext.capabilities.drop`        | List of capabilities to be dropped in IAM container                                                                                                                                                                          | `["ALL"]`        |
 | `iam.containerSecurityContext.seccompProfile.type`      | Set seccomp profile in IAM container                                                                                                                                                                                         | `RuntimeDefault` |
-| `iam.logLevel`                                          | IAM log level [0|1|2|3|4]                                                                                                                                                                                                    | `1`              |
+| `iam.logLevel`                                          | IAM log level (0, 1, 2, 3, or 4)                                                                                                                                                                                             | `1`              |
 | `iam.command`                                           | Override default IAM container command (useful when using custom images)                                                                                                                                                     | `[]`             |
 | `iam.args`                                              | Override default IAM container args (useful when using custom images)                                                                                                                                                        | `[]`             |
 | `iam.automountServiceAccountToken`                      | Mount Service Account token in IAM pods                                                                                                                                                                                      | `false`          |
@@ -1246,7 +1260,6 @@ enabled = false
 | `mariadb.auth.database`                                                              | MariaDB custom database                                                                                                                                                                                                                                                                                        | `bitnami_seaweedfs`          |
 | `mariadb.auth.username`                                                              | MariaDB custom user name                                                                                                                                                                                                                                                                                       | `bn_seaweedfs`               |
 | `mariadb.auth.password`                                                              | MariaDB custom user password                                                                                                                                                                                                                                                                                   | `""`                         |
-| `mariadb.auth.usePasswordFiles`                                                      | Mount credentials as a file instead of using an environment variable                                                                                                                                                                                                                                           | `false`                      |
 | `mariadb.initdbScripts`                                                              | Specify dictionary of scripts to be run at first boot                                                                                                                                                                                                                                                          | `{}`                         |
 | `mariadb.primary.persistence.enabled`                                                | Enable persistence on MariaDB using PVC(s)                                                                                                                                                                                                                                                                     | `true`                       |
 | `mariadb.primary.persistence.storageClass`                                           | Persistent Volume storage class                                                                                                                                                                                                                                                                                | `""`                         |
@@ -1331,6 +1344,14 @@ helm install my-release -f values.yaml oci://REGISTRY_NAME/REPOSITORY_NAME/seawe
 > **Tip**: You can use the default [values.yaml](https://github.com/bitnami/charts/blob/main/template/seaweedfs/values.yaml)
 
 ## Upgrading
+
+### To 6.0.0
+
+This major release bumps the MariaDB version to 12.0. Follow the [upstream instructions](https://mariadb.com/docs/server/server-management/install-and-upgrade-mariadb/upgrading) for upgrading from MariaDB 11.8 to 12.0. No major issues are expected during the upgrade.
+
+### To 5.0.0
+
+This major release bumps the MariaDB version to 11.8. Follow the [upstream instructions](https://mariadb.com/kb/en/upgrading-from-mariadb-11-4-to-mariadb-11-8/) for upgrading from MariaDB 11.4 to 11.8. No major issues are expected during the upgrade.
 
 ### To 4.2.0
 

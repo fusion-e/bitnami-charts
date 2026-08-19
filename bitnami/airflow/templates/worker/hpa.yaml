@@ -3,7 +3,7 @@ Copyright Broadcom, Inc. All Rights Reserved.
 SPDX-License-Identifier: APACHE-2.0
 */}}
 
-{{- if and (or (eq .Values.executor "CeleryExecutor") (eq .Values.executor "CeleryKubernetesExecutor")) (coalesce .Values.worker.autoscaling.hpa.enabled .Values.worker.autoscaling.enabled) }}
+{{- if and (or (contains "CeleryExecutor" .Values.executor) (eq .Values.executor "CeleryKubernetesExecutor")) (coalesce .Values.worker.autoscaling.hpa.enabled .Values.worker.autoscaling.enabled) }}
 apiVersion: {{ include "common.capabilities.hpa.apiVersion" ( dict "context" $ ) }}
 kind: HorizontalPodAutoscaler
 metadata:
@@ -26,24 +26,16 @@ spec:
     - type: Resource
       resource:
         name: cpu
-        {{- if semverCompare "<1.23-0" (include "common.capabilities.kubeVersion" .) }}
-        targetAverageUtilization: {{ coalesce .Values.worker.autoscaling.hpa.targetCPU .Values.worker.autoscaling.targetCPU }}
-        {{- else }}
         target:
           type: Utilization
           averageUtilization: {{ coalesce .Values.worker.autoscaling.hpa.targetCPU .Values.worker.autoscaling.targetCPU }}
-        {{- end }}
     {{- end }}
     {{- if (coalesce .Values.worker.autoscaling.hpa.targetMemory .Values.worker.autoscaling.targetMemory) }}
     - type: Resource
       resource:
         name: memory
-        {{- if semverCompare "<1.23-0" (include "common.capabilities.kubeVersion" .) }}
-        targetAverageUtilization: {{ coalesce .Values.worker.autoscaling.hpa.targetMemory .Values.worker.autoscaling.targetMemory }}
-        {{- else }}
         target:
           type: Utilization
           averageUtilization: {{ coalesce .Values.worker.autoscaling.hpa.targetMemory .Values.worker.autoscaling.targetMemory }}
-        {{- end }}
     {{- end }}
 {{- end }}

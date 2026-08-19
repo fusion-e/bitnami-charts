@@ -9,7 +9,7 @@ apiVersion: {{ include "common.capabilities.cronjob.apiVersion" . }}
 kind: CronJob
 metadata:
   name: {{ printf "%s-snapshotter" (include "common.names.fullname" .) | trunc 63 | trimSuffix "-" }}
-  namespace: {{ .Release.Namespace | quote }}
+  namespace: {{ include "common.names.namespace" . | quote }}
   labels: {{- include "common.labels.standard" ( dict "customLabels" .Values.commonLabels "context" $ ) | nindent 4 }}
   {{- if .Values.commonAnnotations }}
   annotations: {{- include "common.tplvalues.render" ( dict "value" .Values.commonAnnotations "context" $ ) | nindent 4 }}
@@ -82,13 +82,11 @@ spec:
               env:
                 - name: BITNAMI_DEBUG
                   value: {{ ternary "true" "false" (or .Values.image.debug .Values.diagnosticMode.enabled) | quote }}
-                - name: ETCDCTL_API
-                  value: "3"
                 - name: ETCD_ON_K8S
                   value: "yes"
                 - name: MY_STS_NAME
                   value: {{ include "common.names.fullname" . | quote }}
-                {{- $releaseNamespace := .Release.Namespace }}
+                {{- $releaseNamespace := include "common.names.namespace" . }}
                 {{- $etcdFullname := include "common.names.fullname" . }}
                 {{- $etcdHeadlessServiceName := (printf "%s-%s" $etcdFullname "headless" | trunc 63 | trimSuffix "-") }}
                 {{- $clusterDomain := .Values.clusterDomain }}
@@ -110,15 +108,23 @@ spec:
                   value: "/opt/bitnami/etcd/certs/client/{{ .Values.auth.client.caFilename | default "ca.crt" }}"
                 {{- else if .Values.auth.client.caFilename }}
                 - name: ETCD_TRUSTED_CA_FILE
-                  value: "/opt/bitnami/etcd/certs/client/{{ .Values.auth.client.caFilename | default "ca.crt" }}"
+                  value: "/opt/bitnami/etcd/certs/client/{{ .Values.auth.client.caFilename }}"
+                {{- else }}
+                - name: ETCD_EXTRA_AUTH_FLAGS
+                  value: "--insecure-skip-tls-verify"
                 {{- end }}
                 {{- end }}
                 {{- if or .Values.auth.rbac.create .Values.auth.rbac.enabled }}
+                {{- if .Values.usePasswordFiles }}
+                - name: ETCD_ROOT_PASSWORD_FILE
+                  value: {{ printf "/opt/bitnami/etcd/secrets/%s" (include "etcd.secretPasswordKey" .) }}
+                {{- else }}
                 - name: ETCD_ROOT_PASSWORD
                   valueFrom:
                     secretKeyRef:
                       name: {{ include "etcd.secretName" . }}
                       key: {{ include "etcd.secretPasswordKey" . }}
+                {{- end }}
                 {{- end }}
               {{- if .Values.disasterRecovery.cronjob.resources }}
               resources: {{- toYaml .Values.disasterRecovery.cronjob.resources | nindent 16 }}
@@ -139,6 +145,10 @@ spec:
                   mountPath: /opt/bitnami/etcd/certs/client
                   readOnly: true
                 {{- end }}
+                {{- if and .Values.usePasswordFiles (or .Values.auth.rbac.create .Values.auth.rbac.enabled) }}
+                - name: etcd-secrets
+                  mountPath: /opt/bitnami/etcd/secrets
+                {{- end }}
           volumes:
             - name: empty-dir
               emptyDir: {}
@@ -147,6 +157,13 @@ spec:
               secret:
                 secretName: {{ required "A secret containing the client certificates is required" (tpl .Values.auth.client.existingSecret .) }}
                 defaultMode: 256
+            {{- end }}
+            {{- if and .Values.usePasswordFiles (or .Values.auth.rbac.create .Values.auth.rbac.enabled) }}
+            - name: etcd-secrets
+              projected:
+                sources:
+                  - secret:
+                      name:  {{ include "etcd.secretName" . }}
             {{- end }}
             - name: snapshot-volume
               persistentVolumeClaim:

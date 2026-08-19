@@ -1,8 +1,60 @@
 # Changelog
 
-## 9.3.3 (2025-01-28)
+## 10.0.3 (2025-08-07)
 
-* [bitnami/spark] Release 9.3.3 ([#31629](https://github.com/bitnami/charts/pull/31629))
+* [bitnami/spark] :zap: :arrow_up: Update dependency references ([#35680](https://github.com/bitnami/charts/pull/35680))
+
+## <small>10.0.2 (2025-07-11)</small>
+
+* [bitnami/spark] :zap: :arrow_up: Update dependency references (#35005) ([adebd64](https://github.com/bitnami/charts/commit/adebd643b527e7d961075f429c676ffbb4c96872)), closes [#35005](https://github.com/bitnami/charts/issues/35005)
+
+## <small>10.0.1 (2025-07-06)</small>
+
+* [bitnami/spark] :zap: :arrow_up: Update dependency references (#34814) ([1ac72dc](https://github.com/bitnami/charts/commit/1ac72dcc2bd42e44b2fa3f4fde3441b7b8822462)), closes [#34814](https://github.com/bitnami/charts/issues/34814)
+
+## 10.0.0 (2025-06-06)
+
+* [bitnami/spark] :zap: :arrow_up: Update dependency references (#34235) ([57199f1](https://github.com/bitnami/charts/commit/57199f18d6e9d65f20eb96a5a348133645eebb00)), closes [#34235](https://github.com/bitnami/charts/issues/34235)
+
+## <small>9.4.1 (2025-05-29)</small>
+
+* [bitnami/spark] :zap: :arrow_up: Update dependency references (#33955) ([95cf312](https://github.com/bitnami/charts/commit/95cf3123a02ac891ceab57169c21d17e3e5c26b1)), closes [#33955](https://github.com/bitnami/charts/issues/33955)
+
+## 9.4.0 (2025-05-27)
+
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+* [bitnami/spark] Spark optional worker (#33834) ([0a81802](https://github.com/bitnami/charts/commit/0a8180230d6541074638a929b9a8d589bfc4e2ab)), closes [#33834](https://github.com/bitnami/charts/issues/33834)
+
+## <small>9.3.9 (2025-05-06)</small>
+
+* [bitnami/spark] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (#33437) ([75a7f53](https://github.com/bitnami/charts/commit/75a7f53e026a329b52df51ab952156e1c8641de2)), closes [#33437](https://github.com/bitnami/charts/issues/33437)
+
+## <small>9.3.8 (2025-05-05)</small>
+
+* [bitnami/spark] Release 9.3.8 (#33318) ([49b30b2](https://github.com/bitnami/charts/commit/49b30b2139edd43a5bd6ebf1ad6fd615e221d7d8)), closes [#33318](https://github.com/bitnami/charts/issues/33318)
+
+## <small>9.3.7 (2025-04-28)</small>
+
+* [bitnami/spark] Release 9.3.7 (#33233) ([3378e33](https://github.com/bitnami/charts/commit/3378e3330dd7cf6d66f5e4e8c9aa25f008b46860)), closes [#33233](https://github.com/bitnami/charts/issues/33233)
+
+## <small>9.3.6 (2025-03-29)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/spark] Release 9.3.6 (#32681) ([1ee0989](https://github.com/bitnami/charts/commit/1ee09894a58af50449c0a2381129b18936473ae7)), closes [#32681](https://github.com/bitnami/charts/issues/32681)
+
+## <small>9.3.5 (2025-02-27)</small>
+
+* [bitnami/spark] Release 9.3.5 (#32206) ([edaafaf](https://github.com/bitnami/charts/commit/edaafaf1bdddae44fede418321456229891e8e9f)), closes [#32206](https://github.com/bitnami/charts/issues/32206)
+
+## <small>9.3.4 (2025-02-20)</small>
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/spark] Release 9.3.4 (#32043) ([68cc908](https://github.com/bitnami/charts/commit/68cc908851f185068b83d033b63933f11781ea6b)), closes [#32043](https://github.com/bitnami/charts/issues/32043)
+* Update copyright year (#31682) ([e9f02f5](https://github.com/bitnami/charts/commit/e9f02f5007068751f7eb2270fece811e685c99b6)), closes [#31682](https://github.com/bitnami/charts/issues/31682)
+
+## <small>9.3.3 (2025-01-28)</small>
+
+* [bitnami/spark] Release 9.3.3 (#31629) ([e3b25fd](https://github.com/bitnami/charts/commit/e3b25fd171105803c76475111ffd44474f92ae12)), closes [#31629](https://github.com/bitnami/charts/issues/31629)
 
 ## <small>9.3.2 (2024-12-21)</small>
 

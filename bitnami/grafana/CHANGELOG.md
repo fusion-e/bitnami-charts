@@ -1,8 +1,143 @@
 # Changelog
 
-## 11.4.7 (2025-02-04)
+## 12.1.8 (2025-08-18)
 
-* [bitnami/grafana] Release 11.4.7 ([#31758](https://github.com/bitnami/charts/pull/31758))
+* [bitnami/grafana] :zap: :arrow_up: Update dependency references ([#36101](https://github.com/bitnami/charts/pull/36101))
+
+## <small>12.1.7 (2025-08-13)</small>
+
+* [bitnami/grafana] :zap: :arrow_up: Update dependency references (#35854) ([3f9b707](https://github.com/bitnami/charts/commit/3f9b707456e3f7d5247f74a4cb33821d254bc654)), closes [#35854](https://github.com/bitnami/charts/issues/35854)
+
+## <small>12.1.6 (2025-08-13)</small>
+
+* [bitnami/grafana] :zap: :arrow_up: Update dependency references (#35812) ([501d76c](https://github.com/bitnami/charts/commit/501d76c5bf55d44b75e21a9d863a3e2eac3d336e)), closes [#35812](https://github.com/bitnami/charts/issues/35812)
+
+## <small>12.1.5 (2025-08-13)</small>
+
+* [bitnami/grafana] :zap: :arrow_up: Update dependency references (#35776) ([20f7a3e](https://github.com/bitnami/charts/commit/20f7a3e3a0c4cd2bc43fec4be8d899018b005b87)), closes [#35776](https://github.com/bitnami/charts/issues/35776)
+
+## <small>12.1.4 (2025-08-07)</small>
+
+* [bitnami/grafana] :zap: :arrow_up: Update dependency references (#35689) ([23b3046](https://github.com/bitnami/charts/commit/23b3046d349d32bf33fb758abaf3d2c01e2494f9)), closes [#35689](https://github.com/bitnami/charts/issues/35689)
+
+## <small>12.1.3 (2025-08-07)</small>
+
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/grafana] :zap: :arrow_up: Update dependency references (#35642) ([3c394e7](https://github.com/bitnami/charts/commit/3c394e7fc28afdf9d3886316fb220dac0e69215b)), closes [#35642](https://github.com/bitnami/charts/issues/35642)
+
+## <small>12.1.2 (2025-07-25)</small>
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/grafana] :zap: :arrow_up: Update dependency references (#35300) ([bbc4ba2](https://github.com/bitnami/charts/commit/bbc4ba2db590ddb2529817e29b7379bd6416b342)), closes [#35300](https://github.com/bitnami/charts/issues/35300)
+
+## <small>12.1.1 (2025-07-15)</small>
+
+* [bitnami/grafana] :zap: :arrow_up: Update dependency references (#35092) ([db6b1ef](https://github.com/bitnami/charts/commit/db6b1ef918924020a0035f02df34800c3618ef46)), closes [#35092](https://github.com/bitnami/charts/issues/35092)
+
+## 12.1.0 (2025-07-11)
+
+* [bitnami/grafana] Adding possibility to deploy as StatefulSet (#34831) ([1e846bd](https://github.com/bitnami/charts/commit/1e846bd4b4665926a04c39a15eb8c9fe9e71e476)), closes [#34831](https://github.com/bitnami/charts/issues/34831)
+
+## <small>12.0.9 (2025-07-09)</small>
+
+* [bitnami/grafana] :zap: :arrow_up: Update dependency references (#34903) ([72b5f85](https://github.com/bitnami/charts/commit/72b5f858605e629b6d197fd17028f3f3b07b464c)), closes [#34903](https://github.com/bitnami/charts/issues/34903)
+
+## <small>12.0.8 (2025-06-18)</small>
+
+* [bitnami/grafana] Templated Rendering of Grafana Datasource SecretName (#34541) ([e4c0e71](https://github.com/bitnami/charts/commit/e4c0e712a84116fa01cf14408dac47acce0d94ef)), closes [#34541](https://github.com/bitnami/charts/issues/34541)
+
+## <small>12.0.7 (2025-06-18)</small>
+
+* [bitnami/grafana] :zap: :arrow_up: Update dependency references (#34535) ([303818e](https://github.com/bitnami/charts/commit/303818e6e5ccb33cbbb3bac0d882f3f809846732)), closes [#34535](https://github.com/bitnami/charts/issues/34535)
+
+## <small>12.0.6 (2025-06-13)</small>
+
+* [bitnami/grafana] :zap: :arrow_up: Update dependency references (#34446) ([48af2f0](https://github.com/bitnami/charts/commit/48af2f08caf164c3866bb95264c34925a8c0d70b)), closes [#34446](https://github.com/bitnami/charts/issues/34446)
+
+## <small>12.0.5 (2025-06-06)</small>
+
+* [bitnami/grafana] :zap: :arrow_up: Update dependency references (#34173) ([e9e4184](https://github.com/bitnami/charts/commit/e9e418453ad6cc2e14b2a242da9e2d2a1267868b)), closes [#34173](https://github.com/bitnami/charts/issues/34173)
+
+## <small>12.0.4 (2025-05-22)</small>
+
+* [bitnami/grafana] :zap: :arrow_up: Update dependency references (#33848) ([8284435](https://github.com/bitnami/charts/commit/82844359f1211ba43c93bdcc2bae39125d8e169b)), closes [#33848](https://github.com/bitnami/charts/issues/33848)
+
+## <small>12.0.3 (2025-05-16)</small>
+
+* [bitnami/grafana] Deterministic admin password secret + saving password for future uses if .Values.a ([5a3fe1c](https://github.com/bitnami/charts/commit/5a3fe1c98a8991f78373b3884f9c205f1585122f)), closes [#33672](https://github.com/bitnami/charts/issues/33672)
+
+## <small>12.0.2 (2025-05-15)</small>
+
+* [bitnami/grafana] fix metrics namespace include (#33714) ([5a23570](https://github.com/bitnami/charts/commit/5a23570b164643efc1c55ae8aed6bc586a9738be)), closes [#33714](https://github.com/bitnami/charts/issues/33714)
+
+## <small>12.0.1 (2025-05-15)</small>
+
+* [bitnami/grafana] Grafana uniq dashboard volumes (#33689) ([e7e3012](https://github.com/bitnami/charts/commit/e7e3012f25807031502221ec6d83d00d1100d597)), closes [#33689](https://github.com/bitnami/charts/issues/33689)
+
+## 12.0.0 (2025-05-12)
+
+* [bitnami/grafana] :zap: :arrow_up: Update dependency references (#33604) ([4229d77](https://github.com/bitnami/charts/commit/4229d7766abffbc8cf3f299016d1dc4d0be8796c)), closes [#33604](https://github.com/bitnami/charts/issues/33604)
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+
+## <small>11.6.7 (2025-05-07)</small>
+
+* [bitnami/grafana] Release 11.6.7 (#33480) ([e6f2524](https://github.com/bitnami/charts/commit/e6f25246b6bc970e8b7496fd5f09739f15d18b3f)), closes [#33480](https://github.com/bitnami/charts/issues/33480)
+
+## <small>11.6.6 (2025-05-06)</small>
+
+* [bitnami/grafana] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (#33367 ([241a6af](https://github.com/bitnami/charts/commit/241a6af687e15581bd0b69c6eb8c9af012a962a9)), closes [#33367](https://github.com/bitnami/charts/issues/33367)
+
+## <small>11.6.5 (2025-04-23)</small>
+
+* [bitnami/grafana] Release 11.6.5 (#33146) ([bf5ff07](https://github.com/bitnami/charts/commit/bf5ff07b490c29681ca87f3ddcfd97a1c4e6171c)), closes [#33146](https://github.com/bitnami/charts/issues/33146)
+
+## <small>11.6.4 (2025-04-22)</small>
+
+* [bitnami/grafana] fixed namespaceOverride options (#33014) ([45d6091](https://github.com/bitnami/charts/commit/45d6091b8aa177d0251403c3dfa6033f9c64d191)), closes [#33014](https://github.com/bitnami/charts/issues/33014)
+
+## <small>11.6.3 (2025-04-01)</small>
+
+* [bitnami/grafana] Release 11.6.3 (#32735) ([c994e40](https://github.com/bitnami/charts/commit/c994e400af18c135a3ac854d58476ec35d94602e)), closes [#32735](https://github.com/bitnami/charts/issues/32735)
+
+## <small>11.6.2 (2025-03-27)</small>
+
+* [bitnami/grafana] Release 11.6.2 (#32651) ([47bcd2f](https://github.com/bitnami/charts/commit/47bcd2f546675862b1945f66b3e3f620e2bb66b4)), closes [#32651](https://github.com/bitnami/charts/issues/32651)
+
+## <small>11.6.1 (2025-03-25)</small>
+
+* [bitnami/grafana] Release 11.6.1 (#32597) ([20d2203](https://github.com/bitnami/charts/commit/20d220329bc848dbd3f6871af0ac08e081c78319)), closes [#32597](https://github.com/bitnami/charts/issues/32597)
+
+## 11.6.0 (2025-03-14)
+
+* [bitnami/grafana] Set `usePasswordFiles=true` by default (#32348) ([fcc1fc1](https://github.com/bitnami/charts/commit/fcc1fc1bf9c7e97dd5d4c21ecbc13dd729a56292)), closes [#32348](https://github.com/bitnami/charts/issues/32348)
+
+## <small>11.5.1 (2025-03-13)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/grafana] Release 11.5.1 (#32437) ([602e678](https://github.com/bitnami/charts/commit/602e678b446cac381a72500fafbcd4c640acfb1c)), closes [#32437](https://github.com/bitnami/charts/issues/32437)
+
+## 11.5.0 (2025-03-12)
+
+* [bitnami/grafana] Add `optional` option to the extraEnvVars (#32401) ([7b1e396](https://github.com/bitnami/charts/commit/7b1e3966d5c2433e828e61133c0f3a5d156ed67a)), closes [#32401](https://github.com/bitnami/charts/issues/32401)
+
+## <small>11.4.10 (2025-03-05)</small>
+
+* [bitnami/grafana] Release 11.4.10 (#32294) ([61e42e2](https://github.com/bitnami/charts/commit/61e42e2c2f16f44403f60e5c7e41252c5e5290bf)), closes [#32294](https://github.com/bitnami/charts/issues/32294)
+
+## <small>11.4.9 (2025-02-20)</small>
+
+* [bitnami/grafana] Release 11.4.9 (#32092) ([58bd78a](https://github.com/bitnami/charts/commit/58bd78aec8dba598955a16bd6672834281de59ca)), closes [#32092](https://github.com/bitnami/charts/issues/32092)
+
+## <small>11.4.8 (2025-02-20)</small>
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/grafana] Release 11.4.8 (#32042) ([52642ef](https://github.com/bitnami/charts/commit/52642ef968fc7746c95715b13f16aebe376bdfa2)), closes [#32042](https://github.com/bitnami/charts/issues/32042)
+
+## <small>11.4.7 (2025-02-04)</small>
+
+* [bitnami/grafana] Release 11.4.7 (#31758) ([206a4c6](https://github.com/bitnami/charts/commit/206a4c6d60df350df8687d3e3f2184ab5a1512c7)), closes [#31758](https://github.com/bitnami/charts/issues/31758)
 
 ## <small>11.4.6 (2025-02-04)</small>
 

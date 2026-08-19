@@ -97,7 +97,7 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: bitnami/mysql
-  tag: 8.4.4-debian-12-r0
+  tag: 9.4.0-debian-12-r1
   digest: ""
   ## Specify a imagePullPolicy
   ## ref: https://kubernetes.io/docs/concepts/containers/images/#pre-pulled-images
@@ -152,7 +152,7 @@ auth:
   existingSecret: ""
   ## @param auth.usePasswordFiles Mount credentials as files instead of using an environment variable
   ##
-  usePasswordFiles: false
+  usePasswordFiles: true
   ## @param auth.customPasswordFiles Use custom password files when `auth.usePasswordFiles` is set to `true`. Define path for keys `root` and `user`, also define `replicator` if `architecture` is set to `replication`
   ## Example:
   ## customPasswordFiles:
@@ -422,6 +422,7 @@ primary:
   ## resources, such as Minikube. If you do want to specify resources, uncomment the following
   ## lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   ## @param primary.resourcesPreset Set container resources according to one common preset (allowed values: none, nano, micro, small, medium, large, xlarge, 2xlarge). This is ignored if primary.resources is set (primary.resources is recommended for production).
+  ## NOTE: The "nano" and "micro" presets allocate extremely low CPU/memory. These values may cause MySQL to fail during startup (e.g., OOMKilled, readiness/liveness probe failures)
   ## More information: https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15
   ##
   resourcesPreset: "small"
@@ -578,6 +579,9 @@ primary:
   ## @param primary.initContainers Add additional init containers for the MySQL Primary pod(s)
   ##
   initContainers: []
+  ## @param primary.enableDefaultInitContainers enables (or disables if false) the default init containers (logs-symlinks, volume permissions)
+  ##
+  enableDefaultInitContainers: true
   ## @param primary.sidecars Add additional sidecar containers for the MySQL Primary pod(s)
   ##
   sidecars: []
@@ -612,6 +616,10 @@ primary:
     loadBalancerIP: ""
     ## @param primary.service.externalTrafficPolicy Enable client source IP preservation
     ## ref https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/#preserving-the-client-source-ip
+    ##
+    externalIPs: []
+    ## @param primary.service.externalIPs MySQL Primary K8s service externalIPs
+    ## ref https://kubernetes.io/docs/concepts/services-networking/service/#external-ips
     ##
     externalTrafficPolicy: Cluster
     ## @param primary.service.loadBalancerSourceRanges Addresses that are allowed when MySQL Primary service is LoadBalancer
@@ -1014,6 +1022,9 @@ secondary:
   ## @param secondary.initContainers Add additional init containers for the MySQL secondary pod(s)
   ##
   initContainers: []
+  ## @param secondary.enableDefaultInitContainers enables (or disables if false) the default init containers (logs-symlinks, volume permissions)
+  ##
+  enableDefaultInitContainers: true
   ## @param secondary.sidecars Add additional sidecar containers for the MySQL secondary pod(s)
   ##
   sidecars: []
@@ -1048,6 +1059,10 @@ secondary:
     loadBalancerIP: ""
     ## @param secondary.service.externalTrafficPolicy Enable client source IP preservation
     ## ref https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/#preserving-the-client-source-ip
+    ##
+    externalIPs: []
+    ## @param secondary.service.externalIPs MySQL Secondary K8s service externalIPs
+    ## ref https://kubernetes.io/docs/concepts/services-networking/service/#external-ips
     ##
     externalTrafficPolicy: Cluster
     ## @param secondary.service.loadBalancerSourceRanges Addresses that are allowed when MySQL secondary service is LoadBalancer
@@ -1347,7 +1362,7 @@ volumePermissions:
   image:
     registry: docker.io
     repository: bitnami/os-shell
-    tag: 12-debian-12-r35
+    tag: 12-debian-12-r50
     digest: ""
     pullPolicy: IfNotPresent
     ## Optionally specify an array of imagePullSecrets.
@@ -1392,7 +1407,7 @@ metrics:
   image:
     registry: docker.io
     repository: bitnami/mysqld-exporter
-    tag: 0.16.0-debian-12-r5
+    tag: 0.17.2-debian-12-r16
     digest: ""
     pullPolicy: IfNotPresent
     ## Optionally specify an array of imagePullSecrets.

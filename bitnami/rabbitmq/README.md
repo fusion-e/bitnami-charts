@@ -1,6 +1,6 @@
 <!--- app-name: RabbitMQ -->
 
-# Bitnami package for RabbitMQ
+# Bitnami Secure Images Helm chart for RabbitMQ
 
 RabbitMQ is an open source general-purpose message broker that is designed for consistent, highly-available messaging scenarios (both synchronous and asynchronous).
 
@@ -14,13 +14,26 @@ Trademarks: This software listing is packaged by Bitnami. The respective tradema
 helm install my-release oci://registry-1.docker.io/bitnamicharts/rabbitmq
 ```
 
-Looking to use RabbitMQ in production? Try [VMware Tanzu Application Catalog](https://bitnami.com/enterprise), the commercial edition of the Bitnami catalog.
+## Why use Bitnami Secure Images?
+
+Those are hardened, minimal CVE images built and maintained by Bitnami. Bitnami Secure Images are based on the cloud-optimized, security-hardened enterprise [OS Photon Linux](https://vmware.github.io/photon/). Why choose BSI images?
+
+- Hardened secure images of popular open source software with Near-Zero Vulnerabilities
+- Vulnerability Triage & Prioritization with VEX Statements, KEV and EPSS Scores
+- Compliance focus with FIPS, STIG, and air-gap options, including secure bill of materials (SBOM)
+- Software supply chain provenance attestation through in-toto
+- First class support for the internet’s favorite Helm charts
+
+Each image comes with valuable security metadata. You can view the metadata in [our public catalog here](https://app-catalog.vmware.com/bitnami/apps). Note: Some data is only available with [commercial subscriptions to BSI](https://bitnami.com/).
+
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%201.png?raw=true "Application details")
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%202.png?raw=true "Packaging report")
+
+If you are looking for our previous generation of images based on Debian Linux, please see the [Bitnami Legacy registry](https://hub.docker.com/u/bitnamilegacy).
 
 ## Introduction
 
 This chart bootstraps a [RabbitMQ](https://github.com/bitnami/containers/tree/main/bitnami/rabbitmq) deployment on a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
-
-Bitnami charts can be used with [Kubeapps](https://kubeapps.dev/) for deployment and management of Helm Charts in clusters.
 
 ## Prerequisites
 
@@ -413,6 +426,7 @@ Because they expose different sets of data, a valid use case is to scrape metric
 | `commonLabels`                               | Labels to add to all deployed objects                                                                                                                                   | `{}`                                              |
 | `serviceBindings.enabled`                    | Create secret for service binding (Experimental)                                                                                                                        | `false`                                           |
 | `enableServiceLinks`                         | Whether information about services should be injected into pod's environment variable                                                                                   | `true`                                            |
+| `usePasswordFiles`                           | Mount credentials as files instead of using environment variables                                                                                                       | `true`                                            |
 | `diagnosticMode.enabled`                     | Enable diagnostic mode (all probes will be disabled and the command will be overridden)                                                                                 | `false`                                           |
 | `diagnosticMode.command`                     | Command to override all containers in the deployment                                                                                                                    | `["sleep"]`                                       |
 | `diagnosticMode.args`                        | Args to override all containers in the deployment                                                                                                                       | `["infinity"]`                                    |
@@ -452,7 +466,8 @@ Because they expose different sets of data, a valid use case is to scrape metric
 | `memoryHighWatermark.type`                   | Memory high watermark type. Either `absolute` or `relative`                                                                                                             | `relative`                                        |
 | `memoryHighWatermark.value`                  | Memory high watermark value                                                                                                                                             | `0.4`                                             |
 | `plugins`                                    | List of default plugins to enable (should only be altered to remove defaults; for additional plugins use `extraPlugins`)                                                | `rabbitmq_management rabbitmq_peer_discovery_k8s` |
-| `queue_master_locator`                       | Changes the queue_master_locator setting in the rabbitmq config file                                                                                                    | `min-masters`                                     |
+| `queue_leader_locator`                       | Changes the queue_leader_locator setting in the rabbitmq config file                                                                                                    | `balanced`                                        |
+| `queue_master_locator`                       | DEPRECATED.  Use queue_leader_locator instead                                                                                                                           | `""`                                              |
 | `communityPlugins`                           | List of Community plugins (URLs) to be downloaded during container initialization                                                                                       | `""`                                              |
 | `extraPlugins`                               | Extra plugins to enable (single string containing a space-separated list)                                                                                               | `rabbitmq_auth_backend_ldap`                      |
 | `clustering.enabled`                         | Enable RabbitMQ clustering                                                                                                                                              | `true`                                            |
@@ -477,6 +492,10 @@ Because they expose different sets of data, a valid use case is to scrape metric
 | `containerPorts.manager`                     |                                                                                                                                                                         | `15672`                                           |
 | `containerPorts.epmd`                        |                                                                                                                                                                         | `4369`                                            |
 | `containerPorts.metrics`                     |                                                                                                                                                                         | `9419`                                            |
+| `hostPorts.amqp`                             |                                                                                                                                                                         | `""`                                              |
+| `hostPorts.amqpTls`                          |                                                                                                                                                                         | `""`                                              |
+| `hostPorts.manager`                          |                                                                                                                                                                         | `""`                                              |
+| `hostPorts.metrics`                          |                                                                                                                                                                         | `""`                                              |
 | `initScripts`                                | Dictionary of init scripts. Evaluated as a template.                                                                                                                    | `{}`                                              |
 | `initScriptsCM`                              | ConfigMap with the init scripts. Evaluated as a template.                                                                                                               | `""`                                              |
 | `initScriptsSecret`                          | Secret containing `/docker-entrypoint-initdb.d` scripts to be executed at initialization time that contain sensitive data. Evaluated as a template.                     | `""`                                              |
@@ -655,6 +674,7 @@ Because they expose different sets of data, a valid use case is to scrape metric
 | `service.headless.annotations`          | Annotations for the headless service.                                                                                            | `{}`                     |
 | `service.sessionAffinity`               | Session Affinity for Kubernetes service, can be "None" or "ClientIP"                                                             | `None`                   |
 | `service.sessionAffinityConfig`         | Additional settings for the sessionAffinity                                                                                      | `{}`                     |
+| `service.trafficDistribution`           | Traffic Distribution provides another                                                                                            | `PreferClose`            |
 | `ingress.enabled`                       | Enable ingress resource for Management console                                                                                   | `false`                  |
 | `ingress.path`                          | Path for the default host. You may need to set this to '/*' in order to use this with ALB ingress controllers.                   | `/`                      |
 | `ingress.pathType`                      | Ingress path type                                                                                                                | `ImplementationSpecific` |

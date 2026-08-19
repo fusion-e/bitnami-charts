@@ -1,8 +1,160 @@
 # Changelog
 
-## 4.4.3 (2025-01-24)
+## 4.4.39 (2026-06-07)
 
-* [bitnami/rabbitmq-cluster-operator] Release 4.4.3 ([#31581](https://github.com/bitnami/charts/pull/31581))
+* [bitnami/rabbitmq-cluster-operator] fix messaging-topology-operator readiness probe ([#36539](https://github.com/bitnami/charts/pull/36539))
+
+## <small>4.4.38 (2026-05-27)</small>
+
+* [bitnami/rabbitmq-cluster-operator] fix events permission for messaging-topology-operator (#36538) ([ad01198](https://github.com/bitnami/charts/commit/ad01198edee12fd4dbbf8dfe9d4f7fe8ac36136d)), closes [#36538](https://github.com/bitnami/charts/issues/36538)
+
+## <small>4.4.37 (2025-12-17)</small>
+
+* [bitnami/rabbitmq-cluster-operator] add rbac for endpointslices for cluster-operator (#36404) ([8b08cd4](https://github.com/bitnami/charts/commit/8b08cd4774e6847cf3e76f39622d033404de4a4b)), closes [#36404](https://github.com/bitnami/charts/issues/36404) [#36403](https://github.com/bitnami/charts/issues/36403)
+
+## <small>4.4.36 (2025-11-11)</small>
+
+* [bitnami/*] Remove annotations.category (#36224) ([2abc0f9](https://github.com/bitnami/charts/commit/2abc0f9d7e89a5453e57f029c66f581b3d5855ef)), closes [#36224](https://github.com/bitnami/charts/issues/36224)
+* [bitnami/*][TNZ-62332] Modify charts' READMEs title (#36372) ([2012e46](https://github.com/bitnami/charts/commit/2012e46699f555bb1e10134691031975bb5ca50b)), closes [#36372](https://github.com/bitnami/charts/issues/36372)
+* [bitnami/rabbitmq-cluster-operator] Set network policy properly for metrics (#36270) ([58cbc87](https://github.com/bitnami/charts/commit/58cbc8786edf697a5d5a39ded8624fba114e68be)), closes [#36270](https://github.com/bitnami/charts/issues/36270)
+* Change wording in Chart's READMEs (#36379) ([a4ef0a6](https://github.com/bitnami/charts/commit/a4ef0a63877fcf32895869ceef0916c15a4718e5)), closes [#36379](https://github.com/bitnami/charts/issues/36379)
+* Remove TAC sentence present in some READMEs (#36381) ([e07d331](https://github.com/bitnami/charts/commit/e07d3319b61f49ddf6f431da3ed7ec0e0be3d5d0)), closes [#36381](https://github.com/bitnami/charts/issues/36381)
+
+## <small>4.4.34 (2025-08-21)</small>
+
+* [bitnami/rabbitmq-cluster-operator] :zap: :arrow_up: Update dependency references (#36162) ([a9371f0](https://github.com/bitnami/charts/commit/a9371f09098a7742890b222642885cc7965eeb76)), closes [#36162](https://github.com/bitnami/charts/issues/36162)
+
+## <small>4.4.33 (2025-08-21)</small>
+
+* [bitnami/rabbitmq-cluster-operator] :zap: :arrow_up: Update dependency references (#36160) ([9dca0f7](https://github.com/bitnami/charts/commit/9dca0f739c0c42cab98d4eb5519cfa5efab1f82f)), closes [#36160](https://github.com/bitnami/charts/issues/36160)
+
+## <small>4.4.32 (2025-08-13)</small>
+
+* [bitnami/rabbitmq-cluster-operator] :zap: :arrow_up: Update dependency references (#35833) ([43a900d](https://github.com/bitnami/charts/commit/43a900d8d604de3df54cf573bc39e5f19a74f2fb)), closes [#35833](https://github.com/bitnami/charts/issues/35833)
+
+## <small>4.4.31 (2025-08-07)</small>
+
+* [bitnami/rabbitmq-cluster-operator] :zap: :arrow_up: Update dependency references (#35668) ([7ce835b](https://github.com/bitnami/charts/commit/7ce835babf2287c86cbde9100f608b1eb44156cb)), closes [#35668](https://github.com/bitnami/charts/issues/35668)
+
+## <small>4.4.30 (2025-08-07)</small>
+
+* [bitnami/rabbitmq-cluster-operator] :zap: :arrow_up: Update dependency references (#35526) ([ec23527](https://github.com/bitnami/charts/commit/ec2352749bf919e6017ed95916f573d10d0338ed)), closes [#35526](https://github.com/bitnami/charts/issues/35526)
+
+## <small>4.4.29 (2025-08-05)</small>
+
+* [bitnami/rabbitmq-cluster-operator]: Invalid PodMonitoring name in messaging-topology-operator(#3539 ([3ab9219](https://github.com/bitnami/charts/commit/3ab92195e4dc07f1dd7212dfded780115ce3a61b)), closes [#35391](https://github.com/bitnami/charts/issues/35391) [#35392](https://github.com/bitnami/charts/issues/35392) [#35391](https://github.com/bitnami/charts/issues/35391)
+
+## <small>4.4.28 (2025-08-04)</small>
+
+* [bitnami/rabbitmq-cluster-operator] :zap: :arrow_up: Update dependency references (#35397) ([074e8af](https://github.com/bitnami/charts/commit/074e8af650ed021da1506dab82ad8d0ed883a926)), closes [#35397](https://github.com/bitnami/charts/issues/35397)
+
+## <small>4.4.27 (2025-08-04)</small>
+
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/rabbitmq-cluster-operator] :zap: :arrow_up: Update dependency references (#35390) ([b51af9c](https://github.com/bitnami/charts/commit/b51af9c60d54b09922f0de69e476c32dadbffa1a)), closes [#35390](https://github.com/bitnami/charts/issues/35390)
+
+## <small>4.4.26 (2025-07-24)</small>
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/rabbitmq-cluster-operator] :zap: :arrow_up: Update dependency references (#35286) ([338a13d](https://github.com/bitnami/charts/commit/338a13d795841d320eef1afd7991e948523a1a3b)), closes [#35286](https://github.com/bitnami/charts/issues/35286)
+
+## <small>4.4.25 (2025-07-09)</small>
+
+* [bitnami/rabbitmq-cluster-operator] :zap: :arrow_up: Update dependency references (#34947) ([f808fe7](https://github.com/bitnami/charts/commit/f808fe78b4e9c88ae5b32b72e4dfcd50d5840a4d)), closes [#34947](https://github.com/bitnami/charts/issues/34947)
+
+## <small>4.4.24 (2025-07-03)</small>
+
+* [bitnami/rabbitmq-cluster-operator] :zap: :arrow_up: Update dependency references (#34788) ([17e4587](https://github.com/bitnami/charts/commit/17e4587aab7609797545f2b331bc77daa7ffaedc)), closes [#34788](https://github.com/bitnami/charts/issues/34788)
+
+## <small>4.4.23 (2025-06-27)</small>
+
+* [bitnami/rabbitmq-cluster-operator] :zap: :arrow_up: Update dependency references (#34696) ([8e2ea7f](https://github.com/bitnami/charts/commit/8e2ea7f0bd7cea5ec1166a5cf72aa258afd7677b)), closes [#34696](https://github.com/bitnami/charts/issues/34696)
+
+## <small>4.4.22 (2025-06-13)</small>
+
+* [bitnami/rabbitmq-cluster-operator] :zap: :arrow_up: Update dependency references (#34483) ([afc1fe4](https://github.com/bitnami/charts/commit/afc1fe47e248936ca94b3ae52ed247a4691960a0)), closes [#34483](https://github.com/bitnami/charts/issues/34483)
+
+## <small>4.4.21 (2025-06-09)</small>
+
+* [bitnami/rabbitmq-cluster-operator] :zap: :arrow_up: Update dependency references (#34275) ([a6fa8c3](https://github.com/bitnami/charts/commit/a6fa8c35db7be39f35d3c4704695aba406200b8b)), closes [#34275](https://github.com/bitnami/charts/issues/34275)
+
+## <small>4.4.20 (2025-06-06)</small>
+
+* [bitnami/rabbitmq-cluster-operator] :zap: :arrow_up: Update dependency references (#34228) ([a02eba6](https://github.com/bitnami/charts/commit/a02eba6dea726a1074a2609901e8c2b7b114a759)), closes [#34228](https://github.com/bitnami/charts/issues/34228)
+
+## <small>4.4.19 (2025-06-06)</small>
+
+* [bitnami/rabbitmq-cluster-operator] :zap: :arrow_up: Update dependency references (#34218) ([1bd7855](https://github.com/bitnami/charts/commit/1bd7855ec4fce47e1d4223ace04c265948deb031)), closes [#34218](https://github.com/bitnami/charts/issues/34218)
+
+## <small>4.4.18 (2025-06-05)</small>
+
+* [bitnami/rabbitmq-cluster-operator] :zap: :arrow_up: Update dependency references (#34121) ([9a98dca](https://github.com/bitnami/charts/commit/9a98dcaa902a966828f2b4d43f02fbcbd4aaf143)), closes [#34121](https://github.com/bitnami/charts/issues/34121)
+
+## <small>4.4.17 (2025-06-03)</small>
+
+* [bitnami/rabbitmq-cluster-operator] :zap: :arrow_up: Update dependency references (#34063) ([7036de3](https://github.com/bitnami/charts/commit/7036de30c37b8055bb1eee6537b7e7ac99ae32b1)), closes [#34063](https://github.com/bitnami/charts/issues/34063)
+
+## <small>4.4.16 (2025-06-03)</small>
+
+* [bitnami/rabbitmq-cluster-operator] :zap: :arrow_up: Update dependency references (#34054) ([7fbe110](https://github.com/bitnami/charts/commit/7fbe11075e5fd19d7700395574548e3ffd602794)), closes [#34054](https://github.com/bitnami/charts/issues/34054)
+
+## <small>4.4.15 (2025-06-02)</small>
+
+* [bitnami/rabbitmq-cluster-operator] :zap: :arrow_up: Update dependency references (#34044) ([57279bb](https://github.com/bitnami/charts/commit/57279bb84c674ba38abf302c0d2863bae168207f)), closes [#34044](https://github.com/bitnami/charts/issues/34044)
+
+## <small>4.4.14 (2025-06-02)</small>
+
+* [bitnami/rabbitmq-cluster-operator] :zap: :arrow_up: Update dependency references (#34039) ([747b183](https://github.com/bitnami/charts/commit/747b18376f857891c9c2d1ad73460a851d858253)), closes [#34039](https://github.com/bitnami/charts/issues/34039)
+
+## <small>4.4.13 (2025-06-02)</small>
+
+* [bitnami/rabbitmq-cluster-operator] :zap: :arrow_up: Update dependency references (#34036) ([55d3b67](https://github.com/bitnami/charts/commit/55d3b67c72cd6ccfee866631e98b1642e26f32f0)), closes [#34036](https://github.com/bitnami/charts/issues/34036)
+
+## <small>4.4.12 (2025-06-02)</small>
+
+* [bitnami/rabbitmq-cluster-operator] :zap: :arrow_up: Update dependency references (#34030) ([09387be](https://github.com/bitnami/charts/commit/09387be464f3a831e6d0e7f965496764bead0a16)), closes [#34030](https://github.com/bitnami/charts/issues/34030)
+
+## <small>4.4.11 (2025-05-13)</small>
+
+* [bitnami/rabbitmq-cluster-operator] :zap: :arrow_up: Update dependency references (#33644) ([cb75447](https://github.com/bitnami/charts/commit/cb7544718c618ca1572c66d869387c1f7f7c02f8)), closes [#33644](https://github.com/bitnami/charts/issues/33644)
+
+## <small>4.4.10 (2025-05-09)</small>
+
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+* [bitnami/rabbitmq-cluster-operator] Release 4.4.10 (#33494) ([ee56fcc](https://github.com/bitnami/charts/commit/ee56fcc8cc520b6c5731bb0c265ccca6b88cff23)), closes [#33494](https://github.com/bitnami/charts/issues/33494)
+
+## <small>4.4.9 (2025-05-06)</small>
+
+* [bitnami/rabbitmq-cluster-operator] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23  ([d275c76](https://github.com/bitnami/charts/commit/d275c7622ed02fc17054266efcede9fac07d15a5)), closes [#33427](https://github.com/bitnami/charts/issues/33427)
+
+## <small>4.4.8 (2025-04-28)</small>
+
+* [bitnami/rabbitmq-cluster-operator] Release 4.4.8 (#33216) ([10fcf9a](https://github.com/bitnami/charts/commit/10fcf9afff42aa53dd67a24be41410cc9ca09441)), closes [#33216](https://github.com/bitnami/charts/issues/33216)
+
+## <small>4.4.7 (2025-04-02)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/rabbitmq-cluster-operator] Release 4.4.7 (#32761) ([b848724](https://github.com/bitnami/charts/commit/b848724711fdc36dc2df939140e1c650b02deafa)), closes [#32761](https://github.com/bitnami/charts/issues/32761)
+
+## <small>4.4.6 (2025-03-05)</small>
+
+* [bitnami/rabbitmq-cluster-operator] Release 4.4.6 (#32315) ([557c15a](https://github.com/bitnami/charts/commit/557c15afb9ee31f586ab5013519169eb5b22311e)), closes [#32315](https://github.com/bitnami/charts/issues/32315)
+
+## <small>4.4.5 (2025-02-14)</small>
+
+* [bitnami/rabbitmq-cluster-operator] Release 4.4.5 (#31927) ([b9cb046](https://github.com/bitnami/charts/commit/b9cb046d16aad56db72a1399449e229c225e7b2b)), closes [#31927](https://github.com/bitnami/charts/issues/31927)
+
+## <small>4.4.4 (2025-02-14)</small>
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/rabbitmq-cluster-operator] Release 4.4.4 (#31830) ([4842a9a](https://github.com/bitnami/charts/commit/4842a9a0ce9f02b9aa1ba6bcb62333ac5ad8af82)), closes [#31830](https://github.com/bitnami/charts/issues/31830)
+* Update copyright year (#31682) ([e9f02f5](https://github.com/bitnami/charts/commit/e9f02f5007068751f7eb2270fece811e685c99b6)), closes [#31682](https://github.com/bitnami/charts/issues/31682)
+
+## <small>4.4.3 (2025-01-24)</small>
+
+* [bitnami/rabbitmq-cluster-operator] Release 4.4.3 (#31581) ([f16551b](https://github.com/bitnami/charts/commit/f16551b6fcfb6d4bc727575030a70ae9fa5d3f77)), closes [#31581](https://github.com/bitnami/charts/issues/31581)
 
 ## <small>4.4.2 (2025-01-17)</small>
 

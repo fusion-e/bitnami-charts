@@ -7,7 +7,7 @@ apiVersion: {{ include "common.capabilities.statefulset.apiVersion" . }}
 kind: StatefulSet
 metadata:
   name: {{ include "common.names.fullname" . }}
-  namespace: {{ .Release.Namespace | quote }}
+  namespace: {{ include "common.names.namespace" . | quote }}
   labels: {{- include "common.labels.standard" ( dict "customLabels" .Values.commonLabels "context" $ ) | nindent 4 }}
     app.kubernetes.io/component: etcd
   {{- if .Values.commonAnnotations }}
@@ -114,7 +114,7 @@ spec:
         {{- $replicaCount := int .Values.replicaCount }}
         {{- $peerPort := int .Values.containerPorts.peer }}
         {{- $etcdFullname := include "common.names.fullname" . }}
-        {{- $releaseNamespace := .Release.Namespace }}
+        {{- $releaseNamespace := include "common.names.namespace" . }}
         {{- $etcdHeadlessServiceName := (printf "%s-%s" $etcdFullname "headless" | trunc 63 | trimSuffix "-") }}
         {{- $clusterDomain := .Values.clusterDomain }}
         {{- $etcdPeerProtocol := include "etcd.peerProtocol" . }}
@@ -148,8 +148,6 @@ spec:
                   fieldPath: metadata.name
             - name: MY_STS_NAME
               value: {{ include "common.names.fullname" . | quote }}
-            - name: ETCDCTL_API
-              value: "3"
             - name: ETCD_ON_K8S
               value: "yes"
             - name: ETCD_START_FROM_SNAPSHOT
@@ -165,11 +163,16 @@ spec:
             - name: ALLOW_NONE_AUTHENTICATION
               value: {{ ternary "yes" "no" (and (not (or .Values.auth.rbac.create .Values.auth.rbac.enabled)) .Values.auth.rbac.allowNoneAuthentication) | quote }}
             {{- if or .Values.auth.rbac.create .Values.auth.rbac.enabled }}
+            {{- if .Values.usePasswordFiles }}
+            - name: ETCD_ROOT_PASSWORD_FILE
+              value: {{ printf "/opt/bitnami/etcd/secrets/%s" (include "etcd.secretPasswordKey" .) }}
+            {{- else }}
             - name: ETCD_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: {{ include "etcd.secretName" . }}
                   key: {{ include "etcd.secretPasswordKey" . }}
+            {{- end }}
             {{- end }}
             {{- if .Values.auth.token.enabled }}
             - name: ETCD_AUTH_TOKEN
@@ -180,11 +183,11 @@ spec:
               {{- end }}
             {{- end }}
             - name: ETCD_ADVERTISE_CLIENT_URLS
-              value: "{{ $etcdClientProtocol }}://$(MY_POD_NAME).{{ $etcdHeadlessServiceName }}.{{ .Release.Namespace }}.svc.{{ $clusterDomain }}:{{ .Values.containerPorts.client }}{{- if .Values.service.enabled }},{{ $etcdClientProtocol }}://{{ $etcdFullname }}.{{ .Release.Namespace }}.svc.{{ $clusterDomain }}:{{ coalesce .Values.service.ports.client .Values.service.port }}{{- end }}"
+              value: "{{ $etcdClientProtocol }}://$(MY_POD_NAME).{{ $etcdHeadlessServiceName }}.{{ include "common.names.namespace" . }}.svc.{{ $clusterDomain }}:{{ .Values.containerPorts.client }}{{- if .Values.service.enabled }},{{ $etcdClientProtocol }}://{{ $etcdFullname }}.{{ include "common.names.namespace" . }}.svc.{{ $clusterDomain }}:{{ .Values.service.ports.client }}{{- end }}"
             - name: ETCD_LISTEN_CLIENT_URLS
               value: "{{ $etcdClientProtocol }}://0.0.0.0:{{ .Values.containerPorts.client }}"
             - name: ETCD_INITIAL_ADVERTISE_PEER_URLS
-              value: "{{ $etcdPeerProtocol }}://$(MY_POD_NAME).{{ $etcdHeadlessServiceName }}.{{ .Release.Namespace }}.svc.{{ $clusterDomain }}:{{ .Values.containerPorts.peer }}"
+              value: "{{ $etcdPeerProtocol }}://$(MY_POD_NAME).{{ $etcdHeadlessServiceName }}.{{ include "common.names.namespace" . }}.svc.{{ $clusterDomain }}:{{ .Values.containerPorts.peer }}"
             - name: ETCD_LISTEN_PEER_URLS
               value: "{{ $etcdPeerProtocol }}://0.0.0.0:{{ .Values.containerPorts.peer }}"
             {{- if .Values.metrics.useSeparateEndpoint }}
@@ -201,9 +204,8 @@ spec:
             {{- end }}
             {{- if .Values.maxProcs }}
             - name: GOMAXPROCS
-              value: {{ .Values.maxProcs }}
+              value: {{ .Values.maxProcs | quote }}
             {{- end }}
-            {{- if gt $replicaCount 1 }}
             - name: ETCD_INITIAL_CLUSTER_TOKEN
               value: {{ .Values.initialClusterToken | quote }}
             {{- $initialCluster := list }}
@@ -212,7 +214,6 @@ spec:
             {{- end }}
             - name: ETCD_INITIAL_CLUSTER
               value: {{ join "," $initialCluster | quote }}
-            {{- end }}
             - name: ETCD_CLUSTER_DOMAIN
               value: {{ printf "%s.%s.svc.%s" $etcdHeadlessServiceName $releaseNamespace $clusterDomain | quote }}
             {{- if and .Values.auth.client.secureTransport .Values.auth.client.useAutoTLS }}
@@ -286,10 +287,16 @@ spec:
           livenessProbe: {{- include "common.tplvalues.render" (dict "value" .Values.customLivenessProbe "context" $) | nindent 12 }}
           {{- else if .Values.livenessProbe.enabled }}
           livenessProbe:
+            {{- if .Values.auth.client.secureTransport }}
+            exec:
+              command:
+                - /opt/bitnami/scripts/etcd/healthcheck.sh
+            {{- else }}
             httpGet:
-              port: {{ .Values.containerPorts.client }} 
+              port: {{ .Values.metrics.useSeparateEndpoint | ternary .Values.containerPorts.metrics .Values.containerPorts.client }}
               path: /livez
-              scheme: {{ ternary "HTTPS" "HTTP" .Values.auth.client.secureTransport | quote }}
+              scheme: "HTTP"
+            {{- end }}
             initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
             periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
             timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
@@ -354,7 +361,7 @@ spec:
             - name: init-snapshot-volume
               mountPath: /init-snapshot
             {{- end }}
-            {{- if or .Values.disasterRecovery.enabled (and .Values.disasterRecovery.enabled .Values.startFromSnapshot.enabled) }}
+            {{- if .Values.disasterRecovery.enabled }}
             - name: snapshot-volume
               mountPath: /snapshots
               {{- if .Values.disasterRecovery.pvc.subPath }}
@@ -370,6 +377,10 @@ spec:
             - name: etcd-peer-certs
               mountPath: /opt/bitnami/etcd/certs/peer/
               readOnly: true
+            {{- end }}
+            {{- if and .Values.usePasswordFiles (or .Values.auth.rbac.create .Values.auth.rbac.enabled) }}
+            - name: etcd-secrets
+              mountPath: /opt/bitnami/etcd/secrets
             {{- end }}
             {{- if .Values.extraVolumeMounts }}
             {{- include "common.tplvalues.render" (dict "value" .Values.extraVolumeMounts "context" $) | nindent 12 }}
@@ -412,6 +423,13 @@ spec:
           secret:
             secretName: {{ required "A secret containing the peer certificates is required" (tpl .Values.auth.peer.existingSecret .) }}
             defaultMode: 256
+        {{- end }}
+        {{- if and .Values.usePasswordFiles (or .Values.auth.rbac.create .Values.auth.rbac.enabled) }}
+        - name: etcd-secrets
+          projected:
+            sources:
+              - secret:
+                  name:  {{ include "etcd.secretName" . }}
         {{- end }}
         {{- if .Values.extraVolumes }}
         {{- include "common.tplvalues.render" (dict "value" .Values.extraVolumes "context" $) | nindent 8 }}

@@ -1,6 +1,6 @@
 <!--- app-name: Grafana Tempo -->
 
-# Bitnami package for Grafana Tempo
+# Bitnami Secure Images Helm chart for Grafana Tempo
 
 Grafana Tempo is a distributed tracing system that has out-of-the-box integration with Grafana. It is highly scalable and works with many popular tracing protocols.
 
@@ -14,15 +14,28 @@ Trademarks: This software listing is packaged by Bitnami. The respective tradema
 helm install my-release oci://registry-1.docker.io/bitnamicharts/grafana-tempo
 ```
 
-Looking to use Grafana Tempo in production? Try [VMware Tanzu Application Catalog](https://bitnami.com/enterprise), the commercial edition of the Bitnami catalog.
+## Why use Bitnami Secure Images?
+
+Those are hardened, minimal CVE images built and maintained by Bitnami. Bitnami Secure Images are based on the cloud-optimized, security-hardened enterprise [OS Photon Linux](https://vmware.github.io/photon/). Why choose BSI images?
+
+- Hardened secure images of popular open source software with Near-Zero Vulnerabilities
+- Vulnerability Triage & Prioritization with VEX Statements, KEV and EPSS Scores
+- Compliance focus with FIPS, STIG, and air-gap options, including secure bill of materials (SBOM)
+- Software supply chain provenance attestation through in-toto
+- First class support for the internet’s favorite Helm charts
+
+Each image comes with valuable security metadata. You can view the metadata in [our public catalog here](https://app-catalog.vmware.com/bitnami/apps). Note: Some data is only available with [commercial subscriptions to BSI](https://bitnami.com/).
+
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%201.png?raw=true "Application details")
+![Alt text](https://github.com/bitnami/containers/blob/main/BSI%20UI%202.png?raw=true "Packaging report")
+
+If you are looking for our previous generation of images based on Debian Linux, please see the [Bitnami Legacy registry](https://hub.docker.com/u/bitnamilegacy).
 
 ## Introduction
 
 Bitnami charts for Helm are carefully engineered, actively maintained and are the quickest and easiest way to deploy containers on a Kubernetes cluster that are ready to handle production workloads.
 
 This chart bootstraps a [Grafana Tempo](https://github.com/grafana/tempo) Deployment in a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
-
-Bitnami charts can be used with [Kubeapps](https://kubeapps.dev/) for deployment and management of Helm Charts in clusters.
 
 ## Prerequisites
 
@@ -519,6 +532,19 @@ The [Bitnami grafana-tempo](https://github.com/bitnami/containers/tree/main/bitn
 | `metricsGenerator.pdb.maxUnavailable`                                | Maximum number/percentage of pods that may be made unavailable. Defaults to `1` if both `metricsGenerator.pdb.minAvailable` and `metricsGenerator.pdb.maxUnavailable` are empty.                                                                    | `""`             |
 | `metricsGenerator.enableServiceLinks`                                | Whether information about services should be injected into pod's environment variable                                                                                                                                                               | `true`           |
 
+### Metrics Generator Persistence Parameters
+
+| Name                                         | Description                                                                      | Value               |
+| -------------------------------------------- | -------------------------------------------------------------------------------- | ------------------- |
+| `metricsGenerator.persistence.enabled`       | Enable persistence in Metrics Generator instances                                | `false`             |
+| `metricsGenerator.persistence.existingClaim` | Name of an existing PVC to use                                                   | `""`                |
+| `metricsGenerator.persistence.storageClass`  | PVC Storage Class for Metrics Generator data volume                              | `""`                |
+| `metricsGenerator.persistence.subPath`       | The subdirectory of the volume to mount to                                       | `""`                |
+| `metricsGenerator.persistence.accessModes`   | PVC Access modes                                                                 | `["ReadWriteOnce"]` |
+| `metricsGenerator.persistence.size`          | PVC Storage Request for Metrics Generator data volume                            | `8Gi`               |
+| `metricsGenerator.persistence.annotations`   | Additional PVC annotations                                                       | `{}`                |
+| `metricsGenerator.persistence.selector`      | Selector to match an existing Persistent Volume for Metrics Generator's data PVC | `{}`                |
+
 ### Metrics Generator Traffic Exposure Parameters
 
 | Name                                                     | Description                                                                                                                    | Value       |
@@ -843,9 +869,7 @@ The [Bitnami grafana-tempo](https://github.com/bitnami/containers/tree/main/bitn
 | `queryFrontend.query.image.pullPolicy`                                  | Grafana Tempo Query image pull policy                                                                                                                                                                                                                     | `IfNotPresent`                        |
 | `queryFrontend.query.image.pullSecrets`                                 | Grafana Tempo Query image pull secrets                                                                                                                                                                                                                    | `[]`                                  |
 | `queryFrontend.query.configuration`                                     | Query sidecar configuration                                                                                                                                                                                                                               | `""`                                  |
-| `queryFrontend.query.containerPorts.jaegerMetrics`                      | queryFrontend query sidecar Jaeger metrics container port                                                                                                                                                                                                 | `16687`                               |
-| `queryFrontend.query.containerPorts.jaegerUI`                           | queryFrontend query sidecar Jaeger UI container port                                                                                                                                                                                                      | `16686`                               |
-| `queryFrontend.query.containerPorts.jaegerGRPC`                         | queryFrontend query sidecar Jaeger UI container port                                                                                                                                                                                                      | `16685`                               |
+| `queryFrontend.query.containerPorts.grpcJaeger`                         | GRPC port to be used from Jaeger query                                                                                                                                                                                                                    | `7777`                                |
 | `queryFrontend.query.existingConfigmap`                                 | Name of a configmap with the query configuration                                                                                                                                                                                                          | `""`                                  |
 | `queryFrontend.query.extraEnvVars`                                      | Array with extra environment variables to add to queryFrontend nodes                                                                                                                                                                                      | `[]`                                  |
 | `queryFrontend.query.extraEnvVarsCM`                                    | Name of existing ConfigMap containing extra env vars for queryFrontend nodes                                                                                                                                                                              | `""`                                  |
@@ -895,8 +919,10 @@ The [Bitnami grafana-tempo](https://github.com/bitnami/containers/tree/main/bitn
 | `queryFrontend.service.type`                          | queryFrontend service type                                                                                                  | `ClusterIP` |
 | `queryFrontend.service.ports.http`                    | queryFrontend HTTP service port                                                                                             | `3200`      |
 | `queryFrontend.service.ports.grpc`                    | queryFrontend GRPC service port                                                                                             | `9095`      |
+| `queryFrontend.service.ports.grpcJaeger`              | queryFrontend GRPC service port for Jaeger query                                                                            | `7777`      |
 | `queryFrontend.service.nodePorts.http`                | Node port for HTTP                                                                                                          | `""`        |
 | `queryFrontend.service.nodePorts.grpc`                | Node port for GRPC                                                                                                          | `""`        |
+| `queryFrontend.service.nodePorts.grpcJaeger`          | Node port for Jaeger query                                                                                                  | `""`        |
 | `queryFrontend.service.sessionAffinity`               | Control where client requests go, to the same pod or round-robin                                                            | `None`      |
 | `queryFrontend.service.sessionAffinityConfig`         | Additional settings for the sessionAffinity                                                                                 | `{}`        |
 | `queryFrontend.service.clusterIP`                     | queryFrontend service Cluster IP                                                                                            | `""`        |
@@ -1108,6 +1134,19 @@ helm install my-release -f values.yaml oci://REGISTRY_NAME/REPOSITORY_NAME/grafa
 Find more information about how to deal with common errors related to Bitnami's Helm charts in [this troubleshooting guide](https://docs.bitnami.com/general/how-to/troubleshoot-helm-chart-issues).
 
 ## Upgrading
+
+### To 5.0.0
+
+`grafana-tempo-query` is now a gRPC standalone service, it doesn't work anymore as Jaeger storage plugin. This means that Jaeger is not distributed wihtin the `grafana-tempo-query` image. Main changes are:
+
+- Ports exposed by Jaeger have been removed.
+- GRPC port exposed by `tempo-query` has been included in the services and network policies to allow the intregration with Jaeger.
+
+More details at [Github issue](https://github.com/bitnami/charts/pull/36205).
+
+### To 4.0.0
+
+The `metrics-generator` component kind has switched from a 'Deployment' to a 'Statefulset'. More details at [Github issue](https://github.com/bitnami/charts/pull/31495).
 
 ### To 3.8.0
 

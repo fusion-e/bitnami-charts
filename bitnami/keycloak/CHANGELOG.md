@@ -1,8 +1,213 @@
 # Changelog
 
-## 24.4.9 (2025-02-05)
+## 25.3.2 (2026-02-19)
 
-* [bitnami/keycloak] Release 24.4.9 ([#31788](https://github.com/bitnami/charts/pull/31788))
+* [bitnami/keycloak] Fix health probe paths with httpRelativePath ([#36467](https://github.com/bitnami/charts/pull/36467))
+
+## <small>25.3.1 (2026-02-19)</small>
+
+* [bitnami/keycloak] feat: use official Keycloak health endpoints for probes (#36434) ([7c0148d](https://github.com/bitnami/charts/commit/7c0148db530a6e7175080eb906752a59da962e11)), closes [#36434](https://github.com/bitnami/charts/issues/36434)
+
+## 25.3.0 (2025-11-11)
+
+* [bitnami/*][TNZ-62332] Modify charts' READMEs title (#36372) ([2012e46](https://github.com/bitnami/charts/commit/2012e46699f555bb1e10134691031975bb5ca50b)), closes [#36372](https://github.com/bitnami/charts/issues/36372)
+* [bitnami/keycloak] New param javaOptsAppendExtra to append additional java opts  (#36350) ([b1afd5e](https://github.com/bitnami/charts/commit/b1afd5e96c71bbf2fa5ee10d23ca0d7d958fe3a9)), closes [#36350](https://github.com/bitnami/charts/issues/36350)
+* Change wording in Chart's READMEs (#36379) ([a4ef0a6](https://github.com/bitnami/charts/commit/a4ef0a63877fcf32895869ceef0916c15a4718e5)), closes [#36379](https://github.com/bitnami/charts/issues/36379)
+* Remove TAC sentence present in some READMEs (#36381) ([e07d331](https://github.com/bitnami/charts/commit/e07d3319b61f49ddf6f431da3ed7ec0e0be3d5d0)), closes [#36381](https://github.com/bitnami/charts/issues/36381)
+
+## <small>25.2.5 (2025-10-08)</small>
+
+* [bitnami/keycloak] Fix: Rename duplicated secret labels (#36254) ([9b3915b](https://github.com/bitnami/charts/commit/9b3915b649a9b08fbfad1fa82cc24e48232edd36)), closes [#36254](https://github.com/bitnami/charts/issues/36254)
+
+## <small>25.2.4 (2025-10-02)</small>
+
+* [bitnami/keycloak] Fix indentation in ingress TLS secret template (#36282) ([3f7fa45](https://github.com/bitnami/charts/commit/3f7fa45393366ca67af940efa64acfab89c05e75)), closes [#36282](https://github.com/bitnami/charts/issues/36282)
+
+## <small>25.2.3 (2025-09-11)</small>
+
+* [bitnami/keycloak]: fix sidecars in keycloak-config-cli-job (#36247) ([478a81c](https://github.com/bitnami/charts/commit/478a81c9e91d2c2cf867e70aeea81e10cbcab9ce)), closes [#36247](https://github.com/bitnami/charts/issues/36247)
+
+## <small>25.2.2 (2025-09-11)</small>
+
+* [bitnami/*] Remove annotations.category (#36224) ([2abc0f9](https://github.com/bitnami/charts/commit/2abc0f9d7e89a5453e57f029c66f581b3d5855ef)), closes [#36224](https://github.com/bitnami/charts/issues/36224)
+* [bitnami/keycloak] fix: consider httpRelativePath for metrics (#36219) ([43577c3](https://github.com/bitnami/charts/commit/43577c3f2b0c13dbcd815ef5ea610c7a0ced0f86)), closes [#36219](https://github.com/bitnami/charts/issues/36219)
+
+## 25.2.0 (2025-08-21)
+
+* [bitnami/keycloak] Add externalDatabase.extraParams for custom JDBC connection parameters (#35770) ([d7ec0ea](https://github.com/bitnami/charts/commit/d7ec0ea7bff7264df7068ec6e51fbd3493d2c890)), closes [#35770](https://github.com/bitnami/charts/issues/35770)
+
+## <small>25.1.2 (2025-08-20)</small>
+
+* [bitnami/keycloak] :zap: :arrow_up: Update dependency references (#36151) ([be87b21](https://github.com/bitnami/charts/commit/be87b21456910bc3a0c8731be470b48fb5ed32d3)), closes [#36151](https://github.com/bitnami/charts/issues/36151)
+
+## <small>25.1.1 (2025-08-19)</small>
+
+* [bitnami/keycloak] docs: remove reference to deprecated parameter on README (#36095) ([88de5cf](https://github.com/bitnami/charts/commit/88de5cfe0cda1f49d53b1ba8cda84b0baada6676)), closes [#36095](https://github.com/bitnami/charts/issues/36095)
+* [bitnami/keycloak] Fix trailing dash in Config CLI Job (#35784) ([aff4631](https://github.com/bitnami/charts/commit/aff46317d0a8a86a4e5eb1d91bc384ff4ea2c42b)), closes [#35784](https://github.com/bitnami/charts/issues/35784)
+
+## 25.1.0 (2025-08-15)
+
+* [bitnami/keycloak] feat: add parameter to enable HTTP endpoint (#35881) ([90b385c](https://github.com/bitnami/charts/commit/90b385cfee09574633fe229881a000a088ef986c)), closes [#35881](https://github.com/bitnami/charts/issues/35881)
+
+## <small>25.0.2 (2025-08-12)</small>
+
+* [bitnami/keycloak] bugfix: validation when production is enabled (#35757) ([14e2c8a](https://github.com/bitnami/charts/commit/14e2c8a3030bd82ac7ba9d843cfa4f09a5645dc2)), closes [#35757](https://github.com/bitnami/charts/issues/35757)
+
+## <small>25.0.1 (2025-08-11)</small>
+
+* [bitnami/keycloak] bugfix: wrong number of arguments passed to tpl (#35726) ([25b6602](https://github.com/bitnami/charts/commit/25b6602175afaed1c1becce833463d4005e24598)), closes [#35726](https://github.com/bitnami/charts/issues/35726)
+
+## 25.0.0 (2025-08-08)
+
+* [bitnami/keycloak] feat: native metrics & refactor (#35568) ([0941bbc](https://github.com/bitnami/charts/commit/0941bbcbeca0b8b8d487e710701628e1f22e9f61)), closes [#35568](https://github.com/bitnami/charts/issues/35568)
+
+## <small>24.9.1 (2025-08-07)</small>
+
+* [bitnami/keycloak] :zap: :arrow_up: Update dependency references (#35578) ([6f18b10](https://github.com/bitnami/charts/commit/6f18b10318ec5c39d3a0dab34ae93efa90d70884)), closes [#35578](https://github.com/bitnami/charts/issues/35578)
+
+## 24.9.0 (2025-08-04)
+
+* feat(keycloak/ingress): support template value for ingress and admin … (#35025) ([da4aaf3](https://github.com/bitnami/charts/commit/da4aaf376e800760fd5ada2b07e3c85c7c8ddd95)), closes [#35025](https://github.com/bitnami/charts/issues/35025)
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+
+## <small>24.8.1 (2025-07-24)</small>
+
+* [bitnami/keycloak] :zap: :arrow_up: Update dependency references (#35278) ([7e8888d](https://github.com/bitnami/charts/commit/7e8888d3748c31f4081c3ce9aa9e99b8750f0701)), closes [#35278](https://github.com/bitnami/charts/issues/35278)
+
+## 24.8.0 (2025-07-21)
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/keycloak] Add support for customization of the Keycloak database schema (#35211) ([aea8732](https://github.com/bitnami/charts/commit/aea8732d32649ae7401c5a951cf0f0519fda907b)), closes [#35211](https://github.com/bitnami/charts/issues/35211)
+
+## <small>24.7.7 (2025-07-11)</small>
+
+* [bitnami/keycloak] :zap: :arrow_up: Update dependency references (#35004) ([827692c](https://github.com/bitnami/charts/commit/827692c4bf27135087b0287ff595440a59dfac85)), closes [#35004](https://github.com/bitnami/charts/issues/35004)
+
+## <small>24.7.6 (2025-07-09)</small>
+
+* [bitnami/keycloak] :zap: :arrow_up: Update dependency references (#34977) ([14ed3a1](https://github.com/bitnami/charts/commit/14ed3a17a40d05a10591c5fc7d3717c804093d08)), closes [#34977](https://github.com/bitnami/charts/issues/34977)
+
+## <small>24.7.5 (2025-07-02)</small>
+
+* [bitnami/keycloak] :zap: :arrow_up: Update dependency references (#34768) ([06b5c03](https://github.com/bitnami/charts/commit/06b5c0369578c9354a431c7e94105cdf5845d570)), closes [#34768](https://github.com/bitnami/charts/issues/34768)
+
+## <small>24.7.4 (2025-06-11)</small>
+
+* [bitnami/keycloak] :zap: :arrow_up: Update dependency references (#34343) ([6a2bc60](https://github.com/bitnami/charts/commit/6a2bc60e0b733c65dbd41d845d7d770d5982ab32)), closes [#34343](https://github.com/bitnami/charts/issues/34343)
+
+## <small>24.7.3 (2025-05-28)</small>
+
+* [bitnami/keycloak] :zap: :arrow_up: Update dependency references (#33943) ([007a5df](https://github.com/bitnami/charts/commit/007a5df8e73f1e062940bedf3763d91abdc498e4)), closes [#33943](https://github.com/bitnami/charts/issues/33943)
+
+## <small>24.7.2 (2025-05-28)</small>
+
+* [bitnami/keycloak] :zap: :arrow_up: Update dependency references (#33930) ([41ef43f](https://github.com/bitnami/charts/commit/41ef43f4ef7d091f75739eba41916b6e716e8e3f)), closes [#33930](https://github.com/bitnami/charts/issues/33930)
+
+## <small>24.7.1 (2025-05-22)</small>
+
+* [bitnami/keycloak] fix: preserve timestamps in init script (#33812) ([f3ec521](https://github.com/bitnami/charts/commit/f3ec521adf17b1e836760f963c99f8e129bbd276)), closes [#33812](https://github.com/bitnami/charts/issues/33812)
+
+## 24.7.0 (2025-05-19)
+
+* [bitnami/keycloak] Improvements to Keycloak cache handling (#32885) ([b2500eb](https://github.com/bitnami/charts/commit/b2500ebf9a4b983f8975d0d426a9c1473453fe1f)), closes [#32885](https://github.com/bitnami/charts/issues/32885)
+
+## <small>24.6.7 (2025-05-13)</small>
+
+* [bitnami/keycloak] :zap: :arrow_up: Update dependency references (#33671) ([15a8f8a](https://github.com/bitnami/charts/commit/15a8f8a55a365316236d089a3f802f7364a4d060)), closes [#33671](https://github.com/bitnami/charts/issues/33671)
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+
+## <small>24.6.6 (2025-05-08)</small>
+
+* [bitnami/keycloak] :zap: :arrow_up: Update dependency references (#33565) ([e750bc1](https://github.com/bitnami/charts/commit/e750bc1d7f2228c15181e003b6589eff8133d155)), closes [#33565](https://github.com/bitnami/charts/issues/33565)
+
+## <small>24.6.5 (2025-05-06)</small>
+
+* [bitnami/keycloak] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (#3338 ([c347b21](https://github.com/bitnami/charts/commit/c347b21d2da034bce20f223f6bc2b7db9514b6d4)), closes [#33380](https://github.com/bitnami/charts/issues/33380)
+
+## <small>24.6.4 (2025-05-05)</small>
+
+* [bitnami/keycloak] Release 24.6.4 (#33327) ([848d1fd](https://github.com/bitnami/charts/commit/848d1fd7d3d1c44af4e2f098a1d367b79d3cb9d5)), closes [#33327](https://github.com/bitnami/charts/issues/33327)
+
+## <small>24.6.3 (2025-04-30)</small>
+
+* [bitnami/keycloak] Release 24.6.3 (#33258) ([442b42e](https://github.com/bitnami/charts/commit/442b42e0cbc6fc37765ff46030315d0260a01075)), closes [#33258](https://github.com/bitnami/charts/issues/33258)
+
+## <small>24.6.2 (2025-04-29)</small>
+
+* [bitnami/keycloak] Allow tpl of external database + external user (#33194) ([87cf760](https://github.com/bitnami/charts/commit/87cf7606054714f8ce435329285f3d0932fec595)), closes [#33194](https://github.com/bitnami/charts/issues/33194)
+
+## <small>24.6.1 (2025-04-23)</small>
+
+* [bitnami/keycloak] Release 24.6.1 (#33140) ([1be4740](https://github.com/bitnami/charts/commit/1be4740fad6e55faf8fee98e0e7ea04a15a93c77)), closes [#33140](https://github.com/bitnami/charts/issues/33140)
+
+## 24.6.0 (2025-04-23)
+
+* [bitnami/keycloak] Making keycloak config cli Availability Check configurable (#33130) ([0d4a0eb](https://github.com/bitnami/charts/commit/0d4a0ebad0f54693bfb92211b88500c638c53316)), closes [#33130](https://github.com/bitnami/charts/issues/33130)
+
+## <small>24.5.8 (2025-04-23)</small>
+
+* [bitnami/keycloak] Fix Keycloak external DB secret keys (#33117) ([afdd69c](https://github.com/bitnami/charts/commit/afdd69c8b509c8667cbb24b53ace764d7c77ff8d)), closes [#33117](https://github.com/bitnami/charts/issues/33117)
+
+## <small>24.5.7 (2025-04-22)</small>
+
+* [bitnami/keycloak] Dynamic tpl rendering of the external database port (#33040) ([43e308c](https://github.com/bitnami/charts/commit/43e308c340e6bc97bcda538be220c0866889dfe6)), closes [#33040](https://github.com/bitnami/charts/issues/33040)
+
+## <small>24.5.6 (2025-04-21)</small>
+
+* [bitnami/keycloak] Release 24.5.5 (#32980) ([20bfbca](https://github.com/bitnami/charts/commit/20bfbcad6062d5b369ede5ff56c157edccffeb4b)), closes [#32980](https://github.com/bitnami/charts/issues/32980)
+
+## <small>24.5.5 (2025-04-21)</small>
+
+* [bitnami/keycloak] Added themes to the list of writable dirs (#32993) ([7fb4af5](https://github.com/bitnami/charts/commit/7fb4af548b0cfe95748d654bb61ecb1f84fc3540)), closes [#32993](https://github.com/bitnami/charts/issues/32993)
+
+## <small>24.5.4 (2025-04-15)</small>
+
+* [bitnami/keycloak] bugfix: add prefix on projected db secret keys (#33004) ([5909cc7](https://github.com/bitnami/charts/commit/5909cc71c60b24b405bcc23562030de7953c38db)), closes [#33004](https://github.com/bitnami/charts/issues/33004)
+
+## <small>24.5.3 (2025-04-11)</small>
+
+* [bitnami/keycloak] Release 24.5.3 (#32970) ([5f9e017](https://github.com/bitnami/charts/commit/5f9e0175fa8e09211ccb591d36abcbe9abfd71a3)), closes [#32970](https://github.com/bitnami/charts/issues/32970)
+
+## <small>24.5.2 (2025-04-11)</small>
+
+* [bitnami/keycloak] Release 24.5.2 (#32968) ([2c775ce](https://github.com/bitnami/charts/commit/2c775ce92ee74c9222f060369bfaeed849f95efb)), closes [#32968](https://github.com/bitnami/charts/issues/32968)
+
+## <small>24.5.1 (2025-04-07)</small>
+
+* [bitnami/keycloak] Change .Release.Name to (include "common.names.fullname) ([c3573fd](https://github.com/bitnami/charts/commit/c3573fdc21301f06007546ad4faadab598f6305d))
+
+## 24.5.0 (2025-04-04)
+
+* [bitnami/keycloak] Set `usePasswordFiles=true` by default (#32594) ([6206296](https://github.com/bitnami/charts/commit/620629645b6354dc79fd49c5e33e794ab569d024)), closes [#32594](https://github.com/bitnami/charts/issues/32594)
+
+## <small>24.4.14 (2025-04-01)</small>
+
+* [bitnami/keycloak] Release 24.4.14 (#32707) ([4b6ae25](https://github.com/bitnami/charts/commit/4b6ae257d1f2710f3c13d858e4a39d219b75df2b)), closes [#32707](https://github.com/bitnami/charts/issues/32707)
+
+## <small>24.4.13 (2025-03-13)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/keycloak] Release 24.4.13 (#32446) ([af8d013](https://github.com/bitnami/charts/commit/af8d01385b9fba2b809351b06bfa75d4a32ab178)), closes [#32446](https://github.com/bitnami/charts/issues/32446)
+
+## <small>24.4.12 (2025-03-11)</small>
+
+* [bitnami/keycloak] Update secret-external-db namespace to use common helper value (#32379) ([8e0642d](https://github.com/bitnami/charts/commit/8e0642dbec69b757b4313e5bfed9065d4c9765d0)), closes [#32379](https://github.com/bitnami/charts/issues/32379)
+
+## <small>24.4.11 (2025-02-28)</small>
+
+* [bitnami/keycloak] Release 24.4.11 (#32211) ([932c291](https://github.com/bitnami/charts/commit/932c2910f0b648bbdb006a1122792e6363b3b17a)), closes [#32211](https://github.com/bitnami/charts/issues/32211)
+
+## <small>24.4.10 (2025-02-17)</small>
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/keycloak] Release 24.4.10 (#31951) ([0e98679](https://github.com/bitnami/charts/commit/0e98679e34dd8dd0098f4b0e4db96f8c69aa5a58)), closes [#31951](https://github.com/bitnami/charts/issues/31951)
+
+## <small>24.4.9 (2025-02-05)</small>
+
+* [bitnami/keycloak] Release 24.4.9 (#31788) ([0226b05](https://github.com/bitnami/charts/commit/0226b05a1ce8f96c707064f899f67313af7a5553)), closes [#31788](https://github.com/bitnami/charts/issues/31788)
+* Update copyright year (#31682) ([e9f02f5](https://github.com/bitnami/charts/commit/e9f02f5007068751f7eb2270fece811e685c99b6)), closes [#31682](https://github.com/bitnami/charts/issues/31682)
 
 ## <small>24.4.8 (2025-01-31)</small>
 
@@ -1145,7 +1350,7 @@
 
 ## <small>7.1.1 (2022-03-10)</small>
 
-* [bitnami/keycloak] Remove unused 'database-password' key (#9315) ([b4c79bd](https://github.com/bitnami/charts/commit/b4c79bd326d27541834a62a2cf8df209fdfbdf54)), closes [#9315](https://github.com/bitnami/charts/issues/9315) [#9274](https://github.com/bitnami/charts/issues/9274)
+* [bitnami/keycloak] Remove unused 'database-password' key (#9315) ([b4c79bd](https://github.com/bitnami/charts/commit/b4c79bd326d27541834a62a2cf8df209fdfbdf54)), closes [#9315](https://github.com/bitnami/charts/issues/9315)
 
 ## 7.1.0 (2022-03-08)
 
@@ -1185,7 +1390,7 @@
 
 ## <small>6.2.1 (2022-02-25)</small>
 
-* [bitnami/Keycloak] Improve documentation for tls ingress (#8973) ([11c0116](https://github.com/bitnami/charts/commit/11c01168577d8cb5ee61f9f890a1966c709d443e)), closes [#8973](https://github.com/bitnami/charts/issues/8973) [#7734](https://github.com/bitnami/charts/issues/7734)
+* [bitnami/Keycloak] Improve documentation for tls ingress (#8973) ([11c0116](https://github.com/bitnami/charts/commit/11c01168577d8cb5ee61f9f890a1966c709d443e)), closes [#8973](https://github.com/bitnami/charts/issues/8973)
 
 ## 6.2.0 (2022-02-23)
 

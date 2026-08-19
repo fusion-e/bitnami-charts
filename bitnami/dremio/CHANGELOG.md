@@ -1,8 +1,124 @@
 # Changelog
 
+## 3.1.0 (2025-10-22)
+
+* [bitnami/dremio] Make Dremio work with AWS S3 storage ([#36365](https://github.com/bitnami/charts/pull/36365))
+
+## <small>3.0.13 (2025-08-26)</small>
+
+* [bitnami/dremio] :zap: :arrow_up: Update dependency references (#36188) ([c543356](https://github.com/bitnami/charts/commit/c54335638371cf2c3a259a9ab43f0fc017b085bb)), closes [#36188](https://github.com/bitnami/charts/issues/36188)
+
+## <small>3.0.12 (2025-08-07)</small>
+
+* [bitnami/dremio] :zap: :arrow_up: Update dependency references (#35601) ([d76fac4](https://github.com/bitnami/charts/commit/d76fac43e9bf86a492813af7aa9bd24ce910367a)), closes [#35601](https://github.com/bitnami/charts/issues/35601)
+
+## <small>3.0.11 (2025-08-07)</small>
+
+* [bitnami/dremio] :zap: :arrow_up: Update dependency references (#35570) ([60e4c6c](https://github.com/bitnami/charts/commit/60e4c6c4f2868aef197c137186a07da41462cb55)), closes [#35570](https://github.com/bitnami/charts/issues/35570)
+
+## <small>3.0.10 (2025-08-07)</small>
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/dremio] :zap: :arrow_up: Update dependency references (#35558) ([adea33b](https://github.com/bitnami/charts/commit/adea33b906db0237ec6bc4f81ebb7868fd1dbd7e)), closes [#35558](https://github.com/bitnami/charts/issues/35558)
+
+## <small>3.0.9 (2025-07-17)</small>
+
+* [bitnami/dremio] bugfix: conditions to disable S3 storage (#35169) ([ab98ea5](https://github.com/bitnami/charts/commit/ab98ea57170079d0f6709441c20a2a1f221ee614)), closes [#35169](https://github.com/bitnami/charts/issues/35169)
+
+## <small>3.0.8 (2025-07-15)</small>
+
+* [bitnami/dremio] :zap: :arrow_up: Update dependency references (#35089) ([1d94895](https://github.com/bitnami/charts/commit/1d948958cbf9f74d336ce8f48c79daf5e0482273)), closes [#35089](https://github.com/bitnami/charts/issues/35089)
+
+## <small>3.0.7 (2025-07-14)</small>
+
+* [bitnami/dremio] chore: create helper for headless svc name (#35039) ([15b4f7d](https://github.com/bitnami/charts/commit/15b4f7da289ee386f8c14b3aa7f69bc1ec76c08d)), closes [#35039](https://github.com/bitnami/charts/issues/35039)
+
+## <small>3.0.6 (2025-07-10)</small>
+
+* [bitnami/dremio] :zap: :arrow_up: Update dependency references (#34988) ([a502aba](https://github.com/bitnami/charts/commit/a502aba30df023e5eb4c1b4bdea7ca908a36e570)), closes [#34988](https://github.com/bitnami/charts/issues/34988)
+
+## <small>3.0.5 (2025-07-03)</small>
+
+* [bitnami/dremio] Engine overrides are clobbered by the last value (#34725) ([cf71b71](https://github.com/bitnami/charts/commit/cf71b7189f5742392c136ffd5c49448a7f8fe8dc)), closes [#34725](https://github.com/bitnami/charts/issues/34725)
+
+## <small>3.0.4 (2025-06-13)</small>
+
+* [bitnami/dremio] bugfix: common.capabilities.vpa.apiVersion context (#34380) ([f2eeff4](https://github.com/bitnami/charts/commit/f2eeff497d27abdfa56952953a3d8069e84f247d)), closes [#34380](https://github.com/bitnami/charts/issues/34380)
+
+## <small>3.0.3 (2025-06-10)</small>
+
+* [bitnami/dremio] :zap: :arrow_up: Update dependency references (#34303) ([f5e9ccb](https://github.com/bitnami/charts/commit/f5e9ccb38d712460211fed98e05de6651c881904)), closes [#34303](https://github.com/bitnami/charts/issues/34303)
+
+## <small>3.0.2 (2025-06-09)</small>
+
+* [bitnami/dremio] Disable MinIO Console (#34265) ([7fecdb7](https://github.com/bitnami/charts/commit/7fecdb77d17db57ee0498ccb419639cb3a4e6f1f)), closes [#34265](https://github.com/bitnami/charts/issues/34265)
+
+## <small>3.0.1 (2025-06-06)</small>
+
+* [bitnami/dremio] Fix _init_containers.tpl incorrect variable (#33752) ([6a4cb8c](https://github.com/bitnami/charts/commit/6a4cb8cca4177c8da6a672e2dcc0a8c628c88843)), closes [#33752](https://github.com/bitnami/charts/issues/33752)
+
+## 3.0.0 (2025-06-04)
+
+* [bitnami/dremio] feat: major version due to Minio major bump (#34086) ([f510f04](https://github.com/bitnami/charts/commit/f510f043d07c11985c04e395e28686930646c32b)), closes [#34086](https://github.com/bitnami/charts/issues/34086)
+
+## <small>2.0.3 (2025-05-23)</small>
+
+* [bitnami/dremio] fix: ingress to wrong port (#33804) ([4f9da2d](https://github.com/bitnami/charts/commit/4f9da2d78c799c7759a85d6af61f62b820237b6e)), closes [#33804](https://github.com/bitnami/charts/issues/33804)
+
+## <small>2.0.1 (2025-05-16)</small>
+
+* [bitnami/dremio] :zap: :arrow_up: Update dependency references (#33761) ([2a6b0ba](https://github.com/bitnami/charts/commit/2a6b0ba70ae3702d635ae8dae59914e432210c96)), closes [#33761](https://github.com/bitnami/charts/issues/33761)
+
+## 2.0.0 (2025-05-16)
+
+* [bitnami/dremio] :zap: :arrow_up: Update dependency references (#33756) ([d210adf](https://github.com/bitnami/charts/commit/d210adf595a8b6deb798cfdb0d8b7934a59fe6c7)), closes [#33756](https://github.com/bitnami/charts/issues/33756)
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+
+## <small>1.0.2 (2025-05-06)</small>
+
+* [bitnami/dremio] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (#33353) ([8512cf8](https://github.com/bitnami/charts/commit/8512cf815308c38e2cd98a6534569afa45edcb67)), closes [#33353](https://github.com/bitnami/charts/issues/33353)
+
+## <small>1.0.1 (2025-04-25)</small>
+
+* [bitnami/dremio] Release 1.0.1 (#33188) ([5c6123d](https://github.com/bitnami/charts/commit/5c6123db2f98118b67c1fa1e3f42f76c1917efa4)), closes [#33188](https://github.com/bitnami/charts/issues/33188)
+
+## 1.0.0 (2025-04-01)
+
+* [bitnami/dremio] Bump MinIO major version 16.x.x (#32698) ([371ddca](https://github.com/bitnami/charts/commit/371ddcabf6c8be0b2cd6d90c340aa264682ba405)), closes [#32698](https://github.com/bitnami/charts/issues/32698)
+
+## <small>0.6.3 (2025-03-26)</small>
+
+* [bitnami/dremio] Release 0.6.3 (#32625) ([45249e5](https://github.com/bitnami/charts/commit/45249e577b6d6971eb5c807ba4d920713e3c497d)), closes [#32625](https://github.com/bitnami/charts/issues/32625)
+
+## <small>0.6.2 (2025-03-26)</small>
+
+* [bitnami/dremio] Release 0.6.2 (#32624) ([b3cdcc0](https://github.com/bitnami/charts/commit/b3cdcc01e3e6afe770aed35c3e0b14485f0f61e3)), closes [#32624](https://github.com/bitnami/charts/issues/32624)
+
+## <small>0.6.1 (2025-03-21)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/dremio] Release 0.6.1 (#32545) ([5cb9457](https://github.com/bitnami/charts/commit/5cb9457450fe5eaffcdffc6fc7c7f568cc6a8e57)), closes [#32545](https://github.com/bitnami/charts/issues/32545)
+
+## 0.6.0 (2025-02-24)
+
+* [bitnami/dremio] Rename `usePasswordFile` as `usePasswordFiles` and set 'true' by default (#32105) ([6a11d69](https://github.com/bitnami/charts/commit/6a11d699c5b9944b232066c214ce9c80ace13ff2)), closes [#32105](https://github.com/bitnami/charts/issues/32105)
+
+## 0.5.0 (2025-02-20)
+
+* [bitnami/dremio] feat: use new helper for checking API versions (#32048) ([3c3abd5](https://github.com/bitnami/charts/commit/3c3abd5f99cd1ad0c50a55e2bb63819d14672374)), closes [#32048](https://github.com/bitnami/charts/issues/32048)
+
+## <small>0.4.1 (2025-02-19)</small>
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/dremio] Release 0.4.1 (#31986) ([f8e6c4a](https://github.com/bitnami/charts/commit/f8e6c4a2bfb8abe94ba5d52a19a496860a1f1a4f)), closes [#31986](https://github.com/bitnami/charts/issues/31986)
+* Update copyright year (#31682) ([e9f02f5](https://github.com/bitnami/charts/commit/e9f02f5007068751f7eb2270fece811e685c99b6)), closes [#31682](https://github.com/bitnami/charts/issues/31682)
+
 ## 0.4.0 (2025-01-29)
 
-* [bitnami/dremio] feature(minio): Bump MinIO subchart ([#31658](https://github.com/bitnami/charts/pull/31658))
+* [bitnami/dremio] feature(minio): Bump MinIO subchart (#31658) ([fd83e08](https://github.com/bitnami/charts/commit/fd83e0870ccc01ef4f311cf787bc82f700e94577)), closes [#31658](https://github.com/bitnami/charts/issues/31658)
 
 ## <small>0.3.2 (2025-01-28)</small>
 

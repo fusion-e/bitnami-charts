@@ -1,8 +1,108 @@
 # Changelog
 
-## 8.7.4 (2025-02-04)
+## 9.0.3 (2025-08-13)
 
-* [bitnami/external-dns] Release 8.7.4 ([#31751](https://github.com/bitnami/charts/pull/31751))
+* [bitnami/external-dns] :zap: :arrow_up: Update dependency references ([#35803](https://github.com/bitnami/charts/pull/35803))
+
+## <small>9.0.2 (2025-08-08)</small>
+
+* [bitnami/external-dns] Remove hardcoded references to image repository (#35692) ([c92dc69](https://github.com/bitnami/charts/commit/c92dc6938a794fd26dbb409d137b6d6b9afa6512)), closes [#35692](https://github.com/bitnami/charts/issues/35692)
+
+## <small>9.0.1 (2025-08-07)</small>
+
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/external-dns] :zap: :arrow_up: Update dependency references (#35469) ([9bbf214](https://github.com/bitnami/charts/commit/9bbf2141cf0c3613741785474f0ed931d6213ca7)), closes [#35469](https://github.com/bitnami/charts/issues/35469)
+
+## 9.0.0 (2025-07-18)
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/external-dns] chore(providers): Remove unsupported in-tree providers (#35175) ([1ff8041](https://github.com/bitnami/charts/commit/1ff8041dbe8f72fa019234b86c082cc66a04d81a)), closes [#35175](https://github.com/bitnami/charts/issues/35175)
+
+## <small>8.9.2 (2025-07-08)</small>
+
+* [bitnami/external-dns] :zap: :arrow_up: Update dependency references (#34882) ([84a7516](https://github.com/bitnami/charts/commit/84a7516ae6891bbeb2134ba939408867b46a5ba0)), closes [#34882](https://github.com/bitnami/charts/issues/34882)
+
+## <small>8.9.1 (2025-07-04)</small>
+
+* [bitnami/external-dns] :zap: :arrow_up: Update dependency references (#34653) ([0e8eba0](https://github.com/bitnami/charts/commit/0e8eba0e0de1aff195bd919b42526e775b59fb9d)), closes [#34653](https://github.com/bitnami/charts/issues/34653)
+
+## 8.9.0 (2025-07-04)
+
+* [bitnami/external-dns] Add Support for Cloudflare Regional Services Configuration (#34782) ([7bc8596](https://github.com/bitnami/charts/commit/7bc8596d62919e525934e5847e5106713543e155)), closes [#34782](https://github.com/bitnami/charts/issues/34782)
+
+## <small>8.8.7 (2025-06-26)</small>
+
+* [bitnami/external-dns] Fix bug with trailing comma in azure.json (#33951) ([7ce5a57](https://github.com/bitnami/charts/commit/7ce5a57a45003602014e1f996f6385fefa043491)), closes [#33951](https://github.com/bitnami/charts/issues/33951)
+
+## <small>8.8.6 (2025-06-13)</small>
+
+* [bitnami/external-dns] :zap: :arrow_up: Update dependency references (#34426) ([c9e97df](https://github.com/bitnami/charts/commit/c9e97dfcff4967cffeb898b628e253d6429e1a7d)), closes [#34426](https://github.com/bitnami/charts/issues/34426)
+
+## <small>8.8.5 (2025-06-13)</small>
+
+* [bitnami/external-dns] :zap: :arrow_up: Update dependency references (#34398) ([471968f](https://github.com/bitnami/charts/commit/471968fd0df3d44d80de0b755a2345c2818cfd87)), closes [#34398](https://github.com/bitnami/charts/issues/34398)
+
+## <small>8.8.4 (2025-06-05)</small>
+
+* [bitnami/external-dns] :zap: :arrow_up: Update dependency references (#34153) ([83517db](https://github.com/bitnami/charts/commit/83517db6abd21554647b7e5d6fc66b332194470b)), closes [#34153](https://github.com/bitnami/charts/issues/34153)
+
+## <small>8.8.3 (2025-05-26)</small>
+
+* [bitnami/external-dns] :zap: :arrow_up: Update dependency references (#33694) ([266c765](https://github.com/bitnami/charts/commit/266c76501b2820fc395f64d8d9e52079357f5c56)), closes [#33694](https://github.com/bitnami/charts/issues/33694)
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+
+## <small>8.8.2 (2025-05-07)</small>
+
+* [bitnami/external-dns] Release 8.8.2 (#33530) ([79dbc65](https://github.com/bitnami/charts/commit/79dbc6591763e8a23861d7b4318dda1268bf2e01)), closes [#33530](https://github.com/bitnami/charts/issues/33530)
+
+## <small>8.8.1 (2025-05-06)</small>
+
+* [bitnami/external-dns] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (# ([b0dddf7](https://github.com/bitnami/charts/commit/b0dddf70aff2149e1bb67cf11c22f0a4fee2d0ee)), closes [#33359](https://github.com/bitnami/charts/issues/33359)
+
+## 8.8.0 (2025-04-24)
+
+* [bitnami/external-dns] Add support for --txt-new-format-only (#32880) ([ecd3223](https://github.com/bitnami/charts/commit/ecd32234d6e5cf7f1c097f2742a42406d63ce033)), closes [#32880](https://github.com/bitnami/charts/issues/32880)
+
+## <small>8.7.12 (2025-04-22)</small>
+
+* [bitnami/external-dns] Release 8.7.12 (#33113) ([7ca15cc](https://github.com/bitnami/charts/commit/7ca15cc04465c25d12da0fc28124ea998c5a013e)), closes [#33113](https://github.com/bitnami/charts/issues/33113)
+
+## <small>8.7.11 (2025-04-09)</small>
+
+* bitnami/external-dns: do not set EXTERNAL_DNS_RFC2136_TSIG_SECRET when rfc2136 provider is not used  ([5707499](https://github.com/bitnami/charts/commit/5707499ee4917a7c592b5d47098bb0dc8661dc13)), closes [#32661](https://github.com/bitnami/charts/issues/32661)
+
+## <small>8.7.10 (2025-04-03)</small>
+
+* [bitnami/external-dns] Add RBAC to support F5 TransportServer source (#32633) ([8ac86c0](https://github.com/bitnami/charts/commit/8ac86c06ed7fafd739abb335a9ff99794ca548aa)), closes [#32633](https://github.com/bitnami/charts/issues/32633)
+
+## <small>8.7.9 (2025-04-01)</small>
+
+* [bitnami/external-dns] Release 8.7.9 (#32728) ([dc2f56a](https://github.com/bitnami/charts/commit/dc2f56a79f2e7bf69385081c50fba9ea1109baad)), closes [#32728](https://github.com/bitnami/charts/issues/32728)
+
+## <small>8.7.8 (2025-03-26)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/external-dns] Release 8.7.8 (#32475) ([01bb09c](https://github.com/bitnami/charts/commit/01bb09ca9cf48bdcd53b7a968e808cc22da1108d)), closes [#32475](https://github.com/bitnami/charts/issues/32475)
+
+## <small>8.7.7 (2025-03-10)</small>
+
+* [bitnami/external-dns] Fix TXT AES key being read from incorrect secret (#32360) ([fb7b925](https://github.com/bitnami/charts/commit/fb7b9259095f8c0f5b76872f416b22a5403d5949)), closes [#32360](https://github.com/bitnami/charts/issues/32360)
+
+## <small>8.7.6 (2025-03-05)</small>
+
+* [bitnami/external-dns] Release 8.7.6 (#32287) ([ebfa0ef](https://github.com/bitnami/charts/commit/ebfa0ef1854fa21e9ed8b5294fa7ac821a0c80b7)), closes [#32287](https://github.com/bitnami/charts/issues/32287)
+
+## <small>8.7.5 (2025-02-19)</small>
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/external-dns] Release 8.7.5 (#31994) ([e3b3a39](https://github.com/bitnami/charts/commit/e3b3a39ab1eef6f71c5ca0317c9ab4ab51103915)), closes [#31994](https://github.com/bitnami/charts/issues/31994)
+
+## <small>8.7.4 (2025-02-04)</small>
+
+* [bitnami/external-dns] Release 8.7.4 (#31751) ([422f3f0](https://github.com/bitnami/charts/commit/422f3f051332279ce68c9a4d723259972e2fabd4)), closes [#31751](https://github.com/bitnami/charts/issues/31751)
+* Update copyright year (#31682) ([e9f02f5](https://github.com/bitnami/charts/commit/e9f02f5007068751f7eb2270fece811e685c99b6)), closes [#31682](https://github.com/bitnami/charts/issues/31682)
 
 ## <small>8.7.3 (2025-01-24)</small>
 
@@ -837,7 +937,7 @@
 ## 5.6.0 (2021-12-09)
 
 * [bitnami/external-dns] Add value for controlling Google zone visibility (#8278) ([8188013](https://github.com/bitnami/charts/commit/8188013219f3182d838286ff145f49aa1f393a61)), closes [#8278](https://github.com/bitnami/charts/issues/8278)
-* state correct version (#8260) ([e5d2e7d](https://github.com/bitnami/charts/commit/e5d2e7db1cfb96ac7e04bf4af9c1d20734cf7cb4)), closes [#8260](https://github.com/bitnami/charts/issues/8260) [/github.com/kubernetes-sigs/external-dns/issues/2168#issuecomment-947841020](https://github.com//github.com/kubernetes-sigs/external-dns/issues/2168/issues/issuecomment-947841020)
+* state correct version (#8260) ([e5d2e7d](https://github.com/bitnami/charts/commit/e5d2e7db1cfb96ac7e04bf4af9c1d20734cf7cb4)), closes [#8260](https://github.com/bitnami/charts/issues/8260)
 
 ## <small>5.5.2 (2021-11-29)</small>
 
@@ -896,7 +996,7 @@
 
 ## <small>5.4.7 (2021-09-13)</small>
 
-* Fix transip SecretVolumeSource (#7463) ([0ba7d76](https://github.com/bitnami/charts/commit/0ba7d761ff79cfb0581c88b10a632304f9f10b29)), closes [#7463](https://github.com/bitnami/charts/issues/7463) [/v1-18.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#secretvolumesource-v1](https://github.com//v1-18.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.18//issues/secretvolumesource-v1)
+* Fix transip SecretVolumeSource (#7463) ([0ba7d76](https://github.com/bitnami/charts/commit/0ba7d761ff79cfb0581c88b10a632304f9f10b29)), closes [#7463](https://github.com/bitnami/charts/issues/7463)
 
 ## <small>5.4.6 (2021-09-10)</small>
 
@@ -904,7 +1004,7 @@
 
 ## <small>5.4.5 (2021-09-03)</small>
 
-* [bitnami/external-dns] Allow empty value for zoneType filter ([818a29d](https://github.com/bitnami/charts/commit/818a29d764e3cd64456a067cb134b4754ed214bd)), closes [/github.com/kubernetes-sigs/external-dns/blob/master/provider/zone_type_filter.go#L42](https://github.com//github.com/kubernetes-sigs/external-dns/blob/master/provider/zone_type_filter.go/issues/L42)
+* [bitnami/external-dns] Allow empty value for zoneType filter ([818a29d](https://github.com/bitnami/charts/commit/818a29d764e3cd64456a067cb134b4754ed214bd))
 * [bitnami/several] Regenerate README tables ([64d5d74](https://github.com/bitnami/charts/commit/64d5d747b84299ca9f63ea8a586b13870abe31a6))
 
 ## <small>5.4.4 (2021-08-26)</small>
@@ -1383,7 +1483,7 @@
 ## <small>1.5.6 (2019-05-29)</small>
 
 * Change syntax because of linter failing ([adfc357](https://github.com/bitnami/charts/commit/adfc35728c2a8a9def9e1897b3772d64df621354))
-* Fix https://github.com/helm/charts/pull/14199\#issuecomment-496883321 and support _sha256_ as an imm ([95957ea](https://github.com/bitnami/charts/commit/95957ea6430f28ec3593053afb0bfccb75703c79)), closes [#issuecomment-496883321](https://github.com/bitnami/charts/issues/issuecomment-496883321)
+* Fix https://github.com/helm/charts/pull/14199\#issuecomment-496883321 and support _sha256_ as an imm ([95957ea](https://github.com/bitnami/charts/commit/95957ea6430f28ec3593053afb0bfccb75703c79))
 * Use immutable tags in the main images ([17ca4f5](https://github.com/bitnami/charts/commit/17ca4f5c91da33da03f9e2d411fe5e004e825c4d))
 
 ## <small>1.5.5 (2019-05-28)</small>

@@ -1,8 +1,68 @@
 # Changelog
 
-## 1.2.3 (2025-01-28)
+## 1.4.10 (2025-08-26)
 
-* [bitnami/janusgraph] Release 1.2.3 ([#31623](https://github.com/bitnami/charts/pull/31623))
+* [bitnami/janusgraph] :zap: :arrow_up: Update dependency references ([#36187](https://github.com/bitnami/charts/pull/36187))
+
+## <small>1.4.9 (2025-08-07)</small>
+
+* [bitnami/janusgraph] :zap: :arrow_up: Update dependency references (#35612) ([360004a](https://github.com/bitnami/charts/commit/360004a74a99d50f270cab7eea3a0ae3652b4e58)), closes [#35612](https://github.com/bitnami/charts/issues/35612)
+
+## <small>1.4.8 (2025-08-07)</small>
+
+* [bitnami/*] Adapt main README and change ascii (#35173) ([73d15e0](https://github.com/bitnami/charts/commit/73d15e03e04647efa902a1d14a09ea8657429cd0)), closes [#35173](https://github.com/bitnami/charts/issues/35173)
+* [bitnami/*] Adapt welcome message to BSI (#35170) ([e1c8146](https://github.com/bitnami/charts/commit/e1c8146831516fb35de736a6f3fd10e5e7a44286)), closes [#35170](https://github.com/bitnami/charts/issues/35170)
+* [bitnami/*] Add BSI to charts' READMEs (#35174) ([4973fd0](https://github.com/bitnami/charts/commit/4973fd08dd7e95398ddcc4054538023b542e19f2)), closes [#35174](https://github.com/bitnami/charts/issues/35174)
+* [bitnami/*] docs: update BSI warning on charts' notes (#35340) ([07483a5](https://github.com/bitnami/charts/commit/07483a5ed964b409266dc025e4b55bf2eb0f621c)), closes [#35340](https://github.com/bitnami/charts/issues/35340)
+* [bitnami/janusgraph] :zap: :arrow_up: Update dependency references (#35569) ([f3ed528](https://github.com/bitnami/charts/commit/f3ed528c58bf942c7d83772158cd20926d550bb6)), closes [#35569](https://github.com/bitnami/charts/issues/35569)
+
+## <small>1.4.7 (2025-07-15)</small>
+
+* [bitnami/janusgraph] :zap: :arrow_up: Update dependency references (#35103) ([211d286](https://github.com/bitnami/charts/commit/211d28600f80cf612bcf234165234bfeef76660a)), closes [#35103](https://github.com/bitnami/charts/issues/35103)
+
+## <small>1.4.6 (2025-07-10)</small>
+
+* [bitnami/janusgraph] :zap: :arrow_up: Update dependency references (#34989) ([d442055](https://github.com/bitnami/charts/commit/d4420557692d06816f1d31f3909407d4c4df5274)), closes [#34989](https://github.com/bitnami/charts/issues/34989)
+
+## <small>1.4.5 (2025-06-10)</small>
+
+* [bitnami/janusgraph] :zap: :arrow_up: Update dependency references (#34300) ([088d90c](https://github.com/bitnami/charts/commit/088d90c278da6ea1e9a13be30f379f8a63bb8220)), closes [#34300](https://github.com/bitnami/charts/issues/34300)
+
+## <small>1.4.4 (2025-05-16)</small>
+
+* [bitnami/janusgraph] :zap: :arrow_up: Update dependency references (#33759) ([c1a055e](https://github.com/bitnami/charts/commit/c1a055ed9260656305f42c2a6f8730b39b23adac)), closes [#33759](https://github.com/bitnami/charts/issues/33759)
+* [bitnami/kubeapps] Deprecation followup (#33579) ([77e312c](https://github.com/bitnami/charts/commit/77e312c1772d4d7c4dc5d3ac0e80f4e452e3a062)), closes [#33579](https://github.com/bitnami/charts/issues/33579)
+
+## <small>1.4.3 (2025-05-06)</small>
+
+* [bitnami/janusgraph] chore: :recycle: :arrow_up: Update common and remove k8s < 1.23 references (#33 ([13c6491](https://github.com/bitnami/charts/commit/13c649109e42ad575c7fbe7f52b02e48fd52c123)), closes [#33376](https://github.com/bitnami/charts/issues/33376)
+
+## <small>1.4.2 (2025-04-25)</small>
+
+* [bitnami/janusgraph] Release 1.4.2 (#33174) ([1113c4d](https://github.com/bitnami/charts/commit/1113c4d507d6ce746fe5f773cdd1c7559be359fe)), closes [#33174](https://github.com/bitnami/charts/issues/33174)
+
+## <small>1.4.1 (2025-03-26)</small>
+
+* [bitnami/*] Add tanzuCategory annotation (#32409) ([a8fba5c](https://github.com/bitnami/charts/commit/a8fba5cb01f6f4464ca7f69c50b0fbe97d837a95)), closes [#32409](https://github.com/bitnami/charts/issues/32409)
+* [bitnami/janusgraph] Release 1.4.1 (#32611) ([04eccb6](https://github.com/bitnami/charts/commit/04eccb60428b949baf2eb572bf823e23e65d8210)), closes [#32611](https://github.com/bitnami/charts/issues/32611)
+
+## 1.4.0 (2025-02-24)
+
+* [bitnami/janusgraph] Set `usePasswordFiles=true` by default (#32107) ([8850cf3](https://github.com/bitnami/charts/commit/8850cf3c6442af4c85b2c0c830c1a8b8c47a6681)), closes [#32107](https://github.com/bitnami/charts/issues/32107)
+
+## <small>1.3.1 (2025-02-24)</small>
+
+* [bitnami/janusgraph] Release 1.3.1 (#32140) ([8cef05e](https://github.com/bitnami/charts/commit/8cef05e10f079ed402adba00a2f849ad472721a9)), closes [#32140](https://github.com/bitnami/charts/issues/32140)
+
+## 1.3.0 (2025-02-20)
+
+* [bitnami/*] Use CDN url for the Bitnami Application Icons (#31881) ([d9bb11a](https://github.com/bitnami/charts/commit/d9bb11a9076b9bfdcc70ea022c25ef50e9713657)), closes [#31881](https://github.com/bitnami/charts/issues/31881)
+* [bitnami/janusgraph] feat: use new helper for checking API versions (#32050) ([7b30ac8](https://github.com/bitnami/charts/commit/7b30ac8e4c15b963ba52af27f7265b92b852fec3)), closes [#32050](https://github.com/bitnami/charts/issues/32050)
+* Update copyright year (#31682) ([e9f02f5](https://github.com/bitnami/charts/commit/e9f02f5007068751f7eb2270fece811e685c99b6)), closes [#31682](https://github.com/bitnami/charts/issues/31682)
+
+## <small>1.2.3 (2025-01-28)</small>
+
+* [bitnami/janusgraph] Release 1.2.3 (#31623) ([6b46ea1](https://github.com/bitnami/charts/commit/6b46ea1284885a7d18edf92858c10e81fbed384e)), closes [#31623](https://github.com/bitnami/charts/issues/31623)
 
 ## <small>1.2.2 (2025-01-28)</small>
 
