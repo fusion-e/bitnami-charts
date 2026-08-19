@@ -47,7 +47,7 @@ spec:
             psql -h $host -U $user -d template1 -c "REINDEX DATABASE template1;"
 
             # List of databases to create
-            databases="catalog keycloak hzp_iam_policy_svc hzp_iam_session_svc hzp_iam_org_svc"
+            databases="catalog keycloak hzp_iam_policy_svc hzp_iam_session_svc hzp_iam_org_svc dsp_portal_infra_svc"
 
             # Passwords
             keycloak_password="$KEYCLOAK_PASSWORD"
@@ -55,6 +55,7 @@ spec:
             hzp_iam_session_svc_password="$SESSION_PASSWORD"
             hzp_iam_org_svc_password="$ORG_PASSWORD"
             catalog_password="$CATALOG_PASSWORD"        
+            dsp_portal_infra_svc_password="$INFRA_PASSWORD"        
 
             for name in $databases; do
               echo "Creating database: $name"
@@ -129,4 +130,9 @@ spec:
               secretKeyRef:
                 name: "postgres-secret"
                 key: "catalog-db-password"         
+          - name: INFRA_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: "postgres-secret"
+                key: "dsp-portal-infra-svc-password"         
 {{ end }}
